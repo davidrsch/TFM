@@ -2,14 +2,36 @@ project:
   type: book
 
 book:
-  title: "TFM"
-  author: "David Díaz Rodríguez"
+  cover-image: udclogo.png
+  title: "Trabajo Final de Máster"
+  subtitle: "Titulo a definir"
+  author: 
+    - name: David Díaz Rodríguez
+      affiliations:
+        - id: udc
+          name: Universidad de La Coruña 
+          city: La Coruá
+          state: Galicia
+      orcid: https://orcid.org/0000-0002-0927-9795
+      email: david.diazr@udc.es
+    - name: Xosé Manuel Martínez Filgueira
+      affiliations:
+        - ref: udc
+        - name: udsc
+      orcid: https://orcid.org/0000-0003-2452-4864
+      email: xose.martinez@udc.es
+    - name: Ramón Miñones Crespo
+      affiliations:
+        - ref: udc
+  #    orcid: 5
+      email: ramon.minones@udc.es
   date: "11/2/2023"
   search: true
   repo-url: https://github.com/davidrsch/TFM
   repo-actions: [edit]
   downloads: [pdf, epub]
   sharing: [twitter]
+  page-navigation: true
   chapters:
     - index.qmd
     - intro.qmd
@@ -23,7 +45,8 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
-  docx: default
+  docx:
+    reference-doc: referencia_formato.docx
 
 editor: visual
 
