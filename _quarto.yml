@@ -5,6 +5,11 @@ book:
   title: "TFM"
   author: "David Díaz Rodríguez"
   date: "11/2/2023"
+  search: true
+  repo-url: https://github.com/davidrsch/TFM
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter]
   chapters:
     - index.qmd
     - intro.qmd
@@ -18,6 +23,7 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+  docx: default
 
 editor: visual
 
