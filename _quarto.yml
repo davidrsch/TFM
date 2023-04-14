@@ -10,20 +10,18 @@ book:
       affiliations:
         - id: udc
           name: Universidad de La Coruña 
-          city: La Coruá
+          city: La Coruña
           state: Galicia
       orcid: https://orcid.org/0000-0002-0927-9795
       email: david.diazr@udc.es
     - name: Xosé Manuel Martínez Filgueira
       affiliations:
         - ref: udc
-        - name: udsc
       orcid: https://orcid.org/0000-0003-2452-4864
       email: xose.martinez@udc.es
     - name: Ramón Miñones Crespo
       affiliations:
         - ref: udc
-  #    orcid: 5
       email: ramon.minones@udc.es
   date: "11/2/2023"
   search: true
@@ -43,8 +41,18 @@ bibliography: references.bib
 format:
   html:
     theme: cosmo
+    title-block-banner: "#D60D8C"
+    lang:
+      es
+ #   language: 
+#      lang/custom.yml
   pdf:
     documentclass: scrreprt
+    template-partials: 
+      - "template/before-body.tex"
+      - "template/_titlepage.tex"
+    include-in-header:
+      - "template/in-header.tex"
   docx:
     reference-doc: referencia_formato.docx
 

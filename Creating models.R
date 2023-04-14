@@ -2,8 +2,8 @@ library(keras)
 library(tensorflow)
 library(deepviz)
 
-steps <- 2
-tsperset <- 4
+steps <- 3
+tsperset <- 1
 thsteps <- 1
 
 # CNN 1D ----
@@ -13,7 +13,7 @@ inp <- layer_input(
   shape = c(NULL,steps,tsperset))
 
 ## Hidden layers 
-hidd <- inp |> 
+cnn <- inp |> 
   layer_conv_1d(
     filters = 64,       # Amount of filter in which the data
                         # is divided
@@ -26,7 +26,11 @@ hidd <- inp |>
     #padding = 1,       # Padding added to the input data 
                         # (zeros surrounding the input data)
                         # to avoid reducing dimensionality
-  ) |> 
+  )
+
+conc <- layer_concatenate(
+  c(cnn, inp)
+)
   # How to calculate the output dimension:
   #     O = ((I-K+2P)/S) + 1
   # Where:
@@ -34,19 +38,20 @@ hidd <- inp |>
   #   - K: kernel size
   #   - P: padding
   #   - S: Stride
+lstm <- conc |>
   layer_lstm(
    units = 64)
 
 ## Ouput layers
-out <- hidd |> 
-layer_dense(thsteps*tsperset) |> 
+out <- lstm |> 
+layer_dense(thsteps) 
 layer_reshape(c(thsteps,tsperset))
 
 ## Buildin model 
 model <- keras_model(inp,out)
 ## Compiling model
 model |> 
-  compile( loss = "mse", optimizer='adam')
+  compile(loss = "mse", optimizer='adam')
 
 ## Summary model 
 ### ploting 

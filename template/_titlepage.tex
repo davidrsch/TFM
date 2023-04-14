@@ -1,0 +1,48 @@
+
+\logo{\includegraphics[width=4.0cm, center]{udclogo.png}}
+
+\Huge\centering\textbf{Universidad de La Coruña}
+
+\huge\textbf{Facultad de Economía y Empresa}
+
+\titlemine\LARGE\textbf{$title$}
+
+\subT\Large\textbf{$subtitle$}
+
+\vspace{5mm}
+
+\authormine{
+  $for(by-author)$
+    {
+    \large\textbf{$by-author.name.literal$}\textsuperscript{$by-author.number$} \\
+    }
+  $endfor$
+}
+
+\vspace{5mm}
+
+\affiliationsmine{
+  $for(by-author)$
+    {
+    \textsuperscript{$by-author.number$}
+    $for(by-author.affiliations)$
+      {
+      \normalsize{$it.name$},
+      } 
+    $endfor$
+    $if(by-author.orcid)$
+      {
+      \href{$by-author.orcid$}{\includegraphics[width=0.4cm]{orcidlogo.png}}
+      }
+    $endif$
+    $if(by-author.email)$
+      {
+      \href{mailto:$by-author.email$}{\normalsize{$by-author.email$}}
+      }
+    $endif$
+    } \\
+  $endfor$
+}
+  
+
+\date{$date$}
