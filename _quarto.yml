@@ -34,6 +34,10 @@ book:
     - index.qmd
     - intro.qmd
     - summary.qmd
+    - chapter1.qmd
+    - chapter1a.qmd
+    - chapter2.qmd
+    - chapter2a.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -42,6 +46,7 @@ format:
   html:
     theme: cosmo
     title-block-banner: "#D60D8C"
+    fig-cap-location: top
     lang:
       es
  #   language: 
