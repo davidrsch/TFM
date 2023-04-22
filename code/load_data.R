@@ -1,13 +1,17 @@
-#Libraries----
+#Loading required libraries----
 library(readxl)
 library(readr)
 library(quantmod)
-library(dplyr)
 library(zoo)
 library(lubridate)
 library(roll)
+library(dplyr)
 
-#Loading entities----
+# Loading companies table----
+#   In the process the companies table is loaded, column 
+#   "SECTOR-SUBSECTOR" is separated in individuals columns
+#   called sector and subsector. This columns are transformed to factors.
+
 empresas <- read_excel("data/000_empresas.xlsx")
 empresas <- empresas |>
   rowwise() |> 
@@ -21,14 +25,21 @@ empresas <- empresas |>
 levels(empresas$sector) <- 1:length(levels(empresas$sector))
 levels(empresas$subsector) <- 1:length(levels(empresas$subsector))
 
-##pulling ticks----
+## Pulling ticks----
+#   The ticks of the companies are extracted to make easier 
+#   retrieve of the data.
+   
 ticks <- empresas |> 
   select(TICKERS) |> 
   pull()
-#Downloading and saving data----
+
+# Downloading and saving data----
+#   Download data from yahoo finace and save the individual data in
+#   .csv files in da/...
+
 colnames <- c("Open","High","Low","Close","Volume","Adjusted")
 ticks |>
-  lapply(function(x){
+  lapply(function(x, coln = colnames){
     data <- getSymbols(x,
                        from = "1990-01-01",
                        to = "2023-02-28",
@@ -37,30 +48,24 @@ ticks |>
     names(data) <- colnames
     data <- cbind(Date = row.names(data), data)
     row.names(data) <- NULL
-    #csv
     write.csv(data, paste0("data/",x,".csv"),
               row.names = F)
   }) |> 
   invisible()
 
-#Counting Nas----
-##creting counting na df----
-nadf <- data.frame(
-  "Nas" = rep(NA, length(ticks)),
-  row.names = ticks
-)
-##saving counted nas----
-ticks |> 
+# Check for missing values----
+## Creting NA data frame----
+nadf <- ticks |> 
   lapply(function(x){
     data <- read.csv(
       paste0("data/",x,".csv"))
     NAS <- data |> 
       filter(any(is.na(c(Open,High,Low,Close)))) |> 
       nrow()
-    nadf[which(ticks==x),] <<- NAS
+    #nadf[which(ticks==x),] <<- NAS
   }) |> 
   invisible()
-sum(nadf)
+sum(as.data.frame(nadf))
 
 #Creating monthly data----
 ticks |> 
@@ -89,39 +94,51 @@ ticks |>
       "Close" = Close[,2],
       "Volume" = Volume[,2],
       "Adjusted" = Adjusted[,2])
-    write.csv(data, paste0("data/",x,".csv"),
+    write.csv(data, paste0("data/",x,"m.csv"),
                 row.names = F)
   }) |> 
   invisible()
 
-#Saving counted nas (again)----
+## Creting NA data frame----
+nadf <- ticks[-108] |> 
+  lapply(function(x){
+    data <- read.csv(
+      paste0("data/",x,"m.csv"))
+    NAS <- data |> 
+      filter(any(is.na(c(Open,High,Low,Close)))) |> 
+      nrow()
+    #nadf[which(ticks==x),] <<- NAS
+  }) |> 
+  invisible()
+sum(as.data.frame(nadf))
 
-#Creating and storing----
-##closing price----
+#Creating and storing adjusted close price----
 ticks |> 
   lapply(function(x){
     data <- read.csv(
-      paste0("data/",x,".csv"))
-    Return <- data |> 
-      Cl()
+      paste0("data/",x,"m.csv"))
+    Close <- data |> 
+      Ad()
     data <- data.frame(
       "Date" = data$Date,
-      "Close" = data$Close
+      "Close" = Close
     )
-    write.csv(data, paste0("data/",x,"_close.csv"),
+    write.csv(data, paste0("data/",x,"_ad.csv"),
               row.names = F)
   }) |> 
   invisible()
 
-#IBEX----
+#Downloading IBEX data----
 IBEX <- getSymbols("^IBEX",
                    from = "1990-01-01",
                    to = "2023-02-28",
                    auto.assign = F) |>
   as.data.frame()
 
-IBEX <- cbind(Date = rownames(IBEX), Close = IBEX$IBEX.Close)
-rownames(IBEX) <- NA
+IBEX <- cbind(
+  Date = rownames(IBEX),
+  Close = IBEX$IBEX.Close) |>
+  as.data.frame()
 
 IBEX <- IBEX |>
   na.omit() |>
@@ -133,32 +150,43 @@ IBEX <- IBEX |>
   mutate(CloseI = as.numeric(CloseI)) |>
   as.data.frame()
 
+write.csv(IBEX, "data/IBEXm.csv",
+          row.names = F)
 #Storing together with IBEX and correlation----
+# In addition the computation for the calculation of 
+# the correlation, beta, standard deviation and R^2 is done
+
 ticks |> 
   lapply(function(x, Ibex = IBEX){
     data <- read.csv(
-      paste0("data/",x,"_close.csv"))
-    data <- left_join(data, Ibex, by = "Date")
-    correlation <- data |>
-       apply(1, function(x, bd=data){
-         date <- x[1]
-         D <- bd |>
-           filter(Date <= date)
-         corre <- cor(D$Close, D$CloseI)
-         return(corre)
-     })
-    beta <- data |>
+      paste0("data/",x,"_ad.csv"))
+    data <- left_join(data, Ibex, by = 'Date')
+    data <- data |>
+      mutate(
+        Close = Delt(data$Close),
+        CloseI = Delt(data$CloseI)
+        ) |>
+      na.omit()
+    compu <- data |>
       apply(1, function(x, bd=data){
         date <- x[1]
         D <- bd |>
           filter(Date <= date)
-        bet <- (cov(D$Close, D$CloseI)/ var(D$CloseI))
-        return(bet)
-      })
-    r2 <- correlation ^ 2
-    data <- cbind(data, correlation, beta, r2)
+        correlation <- cor(D$Close, D$CloseI)
+        beta <- (cov(D$Close, D$CloseI)/ var(D$CloseI))
+        sdC <- sd(D$Close)
+        sdI <- sd(D$CloseI)
+        r2 <- correlation ^ 2
+        cmp <- cbind(correlation, beta, sdC, sdI, r2)
+        return(cmp)
+      }) |> 
+      t()|> 
+      as.data.frame()
+    names(compu) <- c(
+      "correlation", "beta", "sdC", "sdI", "r2")
+    data <- cbind(data, compu)
     data <- na.omit(data)
-    write.csv(data, paste0("data/",x,"_close.csv"),
+    write.csv(data, paste0("data/",x,"_adI.csv"),
                row.names = F)
   }) |> 
   invisible()

@@ -29,11 +29,13 @@ laggindata <- function(data, ts, th) {
 ticks |> 
   lapply(function(x,ts = timesteps, th = timehorizon){
     data <- read.csv(
-      paste0("data/",x,"_adjclose.csv"))
+      paste0("data/",x,"_adI.csv"))
     lagClose <- laggindata(data$Close,ts,th)
     lagCloseI <- laggindata(data$CloseI,ts,th)
     lagCorre <- laggindata(data$correlation,ts,th)
     lagbeta <- laggindata(data$beta,ts,th)
+    lagsdC <- laggindata(data$sdC,ts,th)
+    lagsdI <- laggindata(data$sdI,ts,th)
     lagr2 <- laggindata(data$r2,ts,th)
     data <- cbind(
       "Date" = data$Date[-c(1:(ts+th-1))],
@@ -41,31 +43,11 @@ ticks |>
       lagCloseI,
       lagCorre,
       lagbeta,
+      lagsdC,
+      lagsdI,
       lagr2
     )
-    write.csv(data, paste0("data/",x,"_lagadjclose.csv"),
-              row.names = F)
-  }) |> 
-  invisible()
-####Close----
-ticks |> 
-  lapply(function(x,ts = timesteps, th = timehorizon){
-    data <- read.csv(
-      paste0("data/",x,"_close.csv"))
-    lagClose <- laggindata(data$Close,ts,th)
-    lagCloseI <- laggindata(data$CloseI,ts,th)
-    lagCorre <- laggindata(data$correlation,ts,th)
-    lagbeta <- laggindata(data$beta,ts,th)
-    lagr2 <- laggindata(data$r2,ts,th)
-    data <- cbind(
-      "Date" = data$Date[-c(1:(ts+th-1))],
-      lagClose,
-      lagCloseI,
-      lagCorre,
-      lagbeta,
-      lagr2
-    )
-    write.csv(data, paste0("data/",x,"_lagclose.csv"),
+    write.csv(data, paste0("data/",x,"_lagadI.csv"),
               row.names = F)
   }) |> 
   invisible()
@@ -75,15 +57,15 @@ ordereddata <- c()
 ticks |> 
   lapply(function(x, e = empresas){
     data <- read.csv(
-      paste0("data/",x,"_lagadjclose.csv"))
+      paste0("data/",x,"_lagadI.csv"))
     tickid <- which(ticks==x)
     #data <- data |>
     #  filter(X1 != 0 & Y1 !=0)
     data <- cbind(
        data,
-       "ID" = rep(tickid,dim(data)[1]),
-       sector = e$sector[tickid],
-       subsector = e$subsector[tickid]
+       "ID" = rep(tickid, dim(data)[1]),
+       sector = rep(e$sector[tickid], dim(data)[1]),
+       subsector = rep(e$subsector[tickid], dim(data)[1])
      )
     ordereddata <<- bind_rows(ordereddata,data)
   }) |> 
@@ -91,11 +73,5 @@ ticks |>
 
 ordereddata <- ordereddata |> 
   arrange(Date,ID)
-
-logordereddata <- cbind(
-  "Date" = ordereddata$Date,
-  log(ordereddata[,-c(1,dim(ordereddata)[2])]),
-  "ID" = ordereddata$ID
-)
 
 write.csv(ordereddata, "data/readjwithibxcorr.csv", row.names = F)
