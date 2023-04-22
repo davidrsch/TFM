@@ -1,0 +1,68 @@
+# Capítulo I: Consideraciones teóricas
+
+Párrafo introductorio sobre las consideraciones teóticas de la utilización de técnicas estadísticas y de Deep Learning para la previsión de los precios de empresas cotizadas en bolsa o evaluación de empresas
+
+## Caracterización de las series temporales financieras
+
+Introducción al epígrafe
+
+### Series de tiempo y sus características
+
+En este sub-epígrafe se analizan varios textos, a partir de los cuales se puede concluir que, una serie de tiempo o serie cronológica es como el registro de los valores de una o más variables en intervalos regulares de tiempo (por ejemplo, diario, semanal, semestral, anual, etc.).
+El análisis de las series de tiempo puede tener distintos fines, como describir el comportamiento de las variables o predecir o pronosticar sus valores futuros, lo que es especialmente relevante para las series financieras.
+
+El análisis de las series de tiempo es una herramienta estadística que permite estudiar el comportamiento de una variable a lo largo del tiempo.
+Sin embargo, no existe un consenso único sobre los componentes que se deben considerar en este tipo de análisis.
+Algunos autores, como @kocenda2017 y @anderson2017, proponen que las series de tiempo se pueden descomponer en tres componentes: tendencia, estacionalidad y ruido. Otros autores, como @dodge2008 y @espallargas2012, sugieren que se debe añadir un cuarto componente: el ciclo.
+Finalmente, hay autores que plantean que las series de tiempo pueden tener hasta cinco componentes estos son los casos de @IBM2021 y @chirinos2018.
+
+Tendencia: La tendencia es el patrón de cambio a largo plazo que se observa en una serie de datos.
+Se puede definir como la dirección general y persistente de las variaciones de la serie a lo largo del tiempo.
+La tendencia puede ser positiva (@fig-tend_pos), negativa (@fig-tend_neg) o nula (@fig-tend_nul), dependiendo de si la serie aumenta, disminuye o se mantiene constante en el largo plazo.
+La tendencia se puede identificar mediante el análisis gráfico o mediante métodos estadísticos.
+La tendencia es importante para entender el comportamiento histórico y proyectar el futuro de una serie de datos.
+Este componente es común en los distintos criterios mencionados.
+
+Estacionalidad: Llamada también variación cíclica regular: Se refiere a la variación correspondiente a los movimientos de la serie que ocurren cada cierto periodo de tiempo, @fig-est_err.
+Este componente es, al igual que la tendencia, común en los criterios mencionados.
+Diferenciándose en que aquellos autores que exponen cuatro y cinco componentes llaman estacionalidad a las variaciones periódicas correspondientes a periodos menores o iguales a un año (como son periodicidad diaria, semanal, mensual, o anual), mientras que las variaciones periódicas correspondientes a periodos mayores las contemplan en un componente llamado, variaciones cíclicas.
+Por lo que para determinar la estacionalidad de una serie de tiempo es necesario analizarlas en un periodo no menor de dos años.
+
+Un componente que no se puede explicar por los otros elementos de la serie de tiempo es la variación irregular o error. 
+Este componente también se conoce como variación aleatoria, ruido o residuo, y se muestra en la @fig-est_err. 
+La variación irregular es común en los tres criterios mencionados anteriormente. 
+Algunos autores distinguen entre la variación irregular, que es ocasional y aleatoria, y la variación atípica, que es causada por eventos aislados que alteran el comportamiento de la serie. 
+La variación atípica se puede clasificar en varios tipos: aditiva, de innovación, de cambio de nivel, transiente, de estacionalidad aditiva y de tendencia local.
+
+Una forma de categorizar las series de tiempo es según el grado de variabilidad que presentan a lo largo del tiempo, según lo expuesto en @villagarcia2006 se puede distinguir entre series homocedásticas y heterocedásticas. 
+Las series homocedásticas son aquellas que mantienen un rango constante de variación, como se muestra en la @fig-tend_nul.
+Por el contrario, las series heterocedásticas son aquellas que cambian el rango de variación, aumentando o disminuyendo su amplitud, como se ilustra en las @fig-tend_pos y @fig-tend_neg.
+
+Las series cronológicas son un tipo de proceso estocástico que se caracteriza por ordenar las variables aleatorias según el tiempo. 
+Esto significa que cada momento tiene asociado un valor de la variable que depende del azar y que puede cambiar a lo largo del tiempo. 
+Según @ruiz2011, un proceso estocástico es "una colección o familia de variables aleatorias, ordenadas según un subíndice que en general suele ser el tiempo" (p.01).
+
+Un proceso estocástico es una colección de variables aleatorias que representan la evolución de un fenómeno aleatorio en el tiempo.
+Según @ruiz2011, los estados son los posibles valores que puede tomar la variable aleatoria, y pueden ser discretos o continuos, dependiendo de la naturaleza de la variable.
+Asimismo, el tiempo puede ser discreto o continuo, según los cambios de estado se produzcan en intervalos fijos o variables.
+@ruiz2011 clasifica los procesos estocásticos en cuatro tipos, según el espacio de estados y el tiempo, como se muestra en la @tbl-pro_esto.
+
+Según la definición de serie temporal ofrecida anteriormente, "una serie de tiempo o serie cronológica es como el registro de los valores de una o más variables en intervalos regulares de tiempo”, y a lo expuesto con respecto a los procesos estocásticos en @castillo_varela2010, @villavicencio2010 y el propio @ruiz2011 se coincide con lo afirmado por este último: "una serie temporal es una realización parcial de un proceso estocástico de parámetro tiempo discreto” (p.09).
+Debido a que, en el análisis de series temporales, aunque el tiempo es continuo se adoptan intervalos discretos (días, semanas, meses, años), los cuales se establecen por convenio por los analistas o por las fuentes que suministran los datos.
+
+Un concepto clave en el análisis de series de tiempo es el de estacionariedad. 
+Una serie de tiempo es estacionaria cuando sus propiedades estadísticas, como la media, la varianza y la covarianza, no cambian con el tiempo. 
+Esto implica que la serie no presenta tendencia, ciclos ni estacionalidad.
+Como señalan @castillo_varela2010, @villavicencio2010 y @ruiz2011, la estacionariedad es una condición necesaria para poder predecir el comportamiento futuro de una serie de tiempo usando técnicas estadísticas. 
+En la @fig-tend_nul se muestra un ejemplo de una serie de tiempo estacionaria.
+
+Las series de tiempo financieras presentan heterocedasticidad, es decir, varianzas que cambian en el tiempo. 
+Esto implica que no son estacionarias y que su comportamiento depende de factores externos. 
+Para verificar la estacionariedad de una serie de tiempo, se pueden utilizar diferentes métodos, como el correlograma, que muestra las funciones de autocorrelación y autocorrelación parcial de la serie, o las pruebas de raíz unitaria, como la de Dickey Fuller o la de Phillips Perron, que contrastan la hipótesis nula de que la serie tiene una raíz unitaria. 
+Estos métodos se explican con más detalle en @castillo_varela2010, @villavicencio2010 y @ruiz2011. 
+La @fig-acf_pacf ilustra un ejemplo de correlograma para una serie de tiempo financiera.
+
+## Características de los precios
+
+
+
