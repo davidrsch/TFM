@@ -15,14 +15,14 @@ library(forecast)
 IBEX <- read.csv("data/IBEXm.csv")
 ```
 
-| Variable dependiente | Subíndice Discreto | Subíndice Continuo |
-|------|------|------|
-| Discreta  | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
-| Continua  | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
+| Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
+|----------------------|----------------------------------------------|----------------------------------------------|
+| Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
+| Continua             | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
 
-: Clasificaciones de procesos estocásticos  {#tbl-pro_esto}
+: Clasificaciones de procesos estocásticos {#tbl-pro_esto}
 
-:::{.figure-caption}
+::: figure-caption
 Tomada de: @ruiz2011.
 :::
 
@@ -46,7 +46,7 @@ IBEX |>
   xlab("Fecha")
 ```
 
-:::{.figure-caption}
+::: figure-caption
 Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX, obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 01-1995 al 01-1997.
 :::
 
@@ -70,7 +70,7 @@ IBEX |>
   xlab("Fecha")
 ```
 
-:::{.figure-caption}
+::: figure-caption
 Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX, obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 01-2000 al 01-2003.
 :::
 
@@ -96,7 +96,7 @@ IBEX |>
   xlab("Fecha")
 ```
 
-:::{.figure-caption}
+::: figure-caption
 Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 01-2000 al 01-2003, usando las rentabilidades calculadas a partir del precio de cierre.
 :::
 
@@ -138,8 +138,7 @@ pp2 <- IBEX |>
 grid.arrange(pp1, pp2, ncol = 1, heights = c(1.4, 2))
 ```
 
-
-:::{.figure-caption}
+::: figure-caption
 Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX obtenida de https://finance.yahoo.com/, descomponiendo la serie de tiempo conformada por las observaciones que abarcan el periodo del 01-2000 al 01-2023.
 :::
 
@@ -159,7 +158,6 @@ ts <- IBEX |>
 grid.arrange(ggAcf(ts), ggPacf(ts), ncol = 2)
 ```
 
-
-:::{.figure-caption}
+::: figure-caption
 Elaboración propia: Mediante el uso de RStudio.
 :::
