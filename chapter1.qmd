@@ -4,7 +4,7 @@ Párrafo introductorio sobre las consideraciones teóticas de la utilización de
 
 ## Caracterización de las series temporales financieras
 
-Introducción al epígrafe
+Este epígrafe se divide en dos sub-epígrafes. En el primero se presentan los conceptos fundamentales relacionados con las series de tiempo, incluyendo sus características, componentes y clasificaciones, y se establece su relación con el análisis de las series cronológicas y la previsión, que es el objetivo de este informe. En el segundo sub-epígrafe se profundiza en las características de los precios de las acciones, comenzando por una descripción general y avanzando hacia aspectos más específicos, así como en la importancia de la estructura en la que se encuentran los datos relacionados con estos. 
 
 ### Series de tiempo y sus características
 
@@ -30,4 +30,42 @@ Un concepto clave en el análisis de series de tiempo es el de estacionariedad. 
 
 Las series de tiempo financieras presentan heterocedasticidad, es decir, varianzas que cambian en el tiempo. Esto implica que no son estacionarias y que su comportamiento depende de factores externos. Para verificar la estacionariedad de una serie de tiempo, se pueden utilizar diferentes métodos, como el correlograma, que muestra las funciones de autocorrelación y autocorrelación parcial de la serie, o las pruebas de raíz unitaria, como la de Dickey Fuller o la de Phillips Perron, que contrastan la hipótesis nula de que la serie tiene una raíz unitaria. Estos métodos se explican con más detalle en @castillo_varela2010, @villavicencio2010 y @ruiz2011. La @fig-acf_pacf ilustra un ejemplo de correlograma para una serie de tiempo financiera.
 
-## Características de los precios
+### Características de los precios
+
+Invertir en acciones o cualquier otro bien que cotice en el mercado de valores es una tarea compleja y desafiante, que requiere una comprensión profunda de las tendencias y fluctuaciones del mercado. En el centro de esta comprensión se encuentra la capacidad de analizar e interpretar los datos de precios del mercado de valores, lo que brinda información clave sobre el comportamiento de los participantes del mercado y los factores que impulsan los movimientos del mercado. El propósito de este sub-epígrafe es proporcionar una descripción general completa del entorno de los precios de las acciones y como son representados comunmente los mismos, señalando los aspectos más importante para la aplicación de las técnicas que se exploraran en los siguientes epígrafes.
+
+Como se explica en la @cnmvbv las bolsas de valores son mercados organizados donde se negocian acciones y otros valores, como renta fija, warrants, certificados y fondos cotizados. En @bmeqe se expone que, en España, existen cuatro bolsas tradicionales (Madrid, Barcelona, Bilbao y Valencia) que forman parte del holding BME (Bolsas y Mercados Españoles), que también integra otros segmentos y sistemas de negociación, compensación y liquidación de valores. Siendo, como se explica en @cnmvsibe, el Sistema de Interconexión Bursátil Español (SIBE) la plataforma que permite la contratación continua y electrónica de todos los valores admitidos a cotización en las cuatro bolsas españolas.
+
+Como expone la @cnmvacci las acciones son valores mobiliarios que representan una parte proporcional del capital social de una sociedad anónima, y sus tenedores son socios propietarios de la misma. Las acciones pueden negociarse en bolsas de valores o en otros mercados secundarios autorizados.
+
+A partir de lo expuesto en @mitchell20, @pinset21 y @cfi23 se puede concluir que para explicar el precio de las acciones de una empresa, se pueden considerar los siguientes factores:
+
+-   La oferta y la demanda de las acciones en el mercado: si hay más compradores que vendedores, el precio subirá y viceversa. Esto depende de las expectativas y la confianza de los inversores en el futuro de la empresa.
+
+-   Los cambios en la gestión o la producción de la empresa: si la empresa mejora su eficiencia, su rentabilidad o su innovación, el precio de sus acciones puede aumentar. Por el contrario, si la empresa tiene problemas internos, pierde competitividad o se ve afectada por crisis externas, el precio puede bajar.
+
+-   La reputación de la empresa: si la empresa tiene una buena imagen pública, se asocia con éxitos o logros, o recibe buenas valoraciones de los analistas, el precio de sus acciones puede subir. Por el contrario, si la empresa se ve involucrada en escándalos, demandas o controversias, o recibe malas valoraciones de los analistas, el precio puede bajar.
+
+En los textos @pinset21, @tinvt22 y @cfi23 también señalan la importancia de diferenciar el precio de una empresa o acción de la misma del valor intrínseco de esta. Pudiéndose resumir teniendo en cuenta lo señalado en esos textos y lo expuesto con anterioridad que el precio de una empresa o acción es lo que los compradores y vendedores están dispuestos a pagar por ella en un momento determinado, mientras que el valor intrínseco de una empresa o acción depende en gran medida de la metodología utilizada para valorar la empresas y los objetivos del evaluador.
+
+Una vez contextualizado de manera general el entorno en el que se encuentran los precios de las acciones y explicado algunos de los factores que pueden afectar a los mismos se explica a continuación como se encuentran estos generalmente estructurados en las distintas fuentes de las que se pueden obtener. Generalmente los precios de las acciones se encuentran registrados de forma periódica (diariamente, semanalmente, mensualmente, anualmente, etc). registrándose para cada periodo el precio de apertura, el precio más alto, el más bajo, el de cierre, el volumen y el de cierre ajustado, ver @tbl-pre_estruc.
+
+A partir de lo expuesto en @barone22, @chen22, @downey22, @hayes21 y @ganti20 se puede entender que:
+
+-   El precio de apertura es el primer precio al que se negocia un activo financiero en una sesión bursátil. Este precio puede ser diferente al precio de cierre de la sesión anterior, ya que puede haber cambios en la oferta y la demanda durante el periodo en que el mercado está cerrado. El precio de apertura suele indicar el tono o la tendencia del mercado para ese día.
+
+-   El precio más alto es el mayor precio al que se negocia un activo financiero en una sesión bursátil. Este precio refleja el máximo nivel de interés de los compradores por ese activo en ese día. El precio más alto puede ser un indicador de la fortaleza o la debilidad de un activo, así como de su volatilidad.
+
+-   El precio más bajo es el menor precio al que se negocia un activo financiero en una sesión bursátil. Este precio refleja el mínimo nivel de interés de los vendedores por ese activo en ese día. El precio más bajo puede ser un indicador de la presión o la resistencia de un activo, así como de su volatilidad.
+
+-   El precio de cierre es el último precio al que se negocia un activo financiero en una sesión bursátil. Este precio es el que se utiliza para calcular el valor de mercado de ese activo al final del día. El precio de cierre suele ser el más importante para los inversores, ya que resume el resultado de las operaciones del día y muestra la dirección del mercado.
+
+-   El volumen es la cantidad de unidades de un activo financiero que se negocian en una sesión bursátil. El volumen muestra el nivel de actividad o de liquidez de un mercado o de un activo. El volumen suele acompañar a los movimientos de los precios, ya que indica el grado de consenso o de divergencia entre los participantes del mercado.
+
+-   El precio de cierre ajustado es el precio de cierre de un activo financiero que se modifica para tener en cuenta eventos como dividendos, splits, fusiones o adquisiciones que afectan al valor del activo. El precio de cierre ajustado permite comparar el rendimiento histórico de un activo con mayor precisión y consistencia.
+
+A partir de lo expuesto en @hayes21 y @ganti20 se entiende que la diferencia entre el precio de cierre y el precio de cierre ajustado es de gran importancia, ya que el primero puede dar una imagen distorsionada del rendimiento de una acción a lo largo del tiempo, mientras que el segundo refleja el valor real de la acción después de ajustar los factores que lo alteran.
+
+> Por ejemplo, la junta directiva de una empresa puede decidir dividir las acciones de la empresa 3 por 1. Por lo tanto, las acciones en circulación de la empresa aumentan en un múltiplo de tres, mientras que el precio de sus acciones se divide por tres. Supongamos que una acción cerró a \$300 el día anterior a su división de acciones. En este caso, el precio de cierre se ajusta a \$100 (\$300 divididos por 3) por acción para mantener un estándar de comparación consistente. De manera similar, todos los demás precios de cierre anteriores para esa empresa se dividirían por tres para obtener los precios de cierre ajustados. @ganti20 
+
+Debido a ello el precio de cierre ajustado es mejor para la aplicación de técnicas de análisis de series de tiempo, ya que permite comparar el comportamiento de una acción a lo largo del tiempo sin las distorsiones causadas por los eventos corporativos. Siendo la serie de tiempo más comunmente utilizada en los estudios de los análisis de los precios de mercado la conformado por las rentabilidades calculadas a partir del precio de cierre ajustado.

@@ -47,6 +47,7 @@ format:
     theme: cosmo
     title-block-banner: "#D60D8C"
     fig-cap-location: top
+    df-print: paged
     lang:
       es
  #   language: 

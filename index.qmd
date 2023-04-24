@@ -1,4 +1,4 @@
-# Prefacio {-}
+# Prefacio {.unnumbered}
 
 This is a Quarto book.
 

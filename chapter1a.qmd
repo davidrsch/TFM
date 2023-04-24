@@ -11,12 +11,13 @@ library(lubridate)
 library(gridExtra)
 library(quantmod)
 library(forecast)
+library(gt)
 
 IBEX <- read.csv("data/IBEXm.csv")
 ```
 
 | Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
-|----------------------|----------------------------------------------|----------------------------------------------|
+|-----------------|----------------------------|----------------------------|
 | Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
 | Continua             | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
 
@@ -24,6 +25,21 @@ IBEX <- read.csv("data/IBEXm.csv")
 
 ::: figure-caption
 Tomada de: @ruiz2011.
+:::
+
+
+```{r}
+#| echo: false
+#| label: tbl-pre_estruc
+#| tbl-cap: Estructura de datos de precios
+    
+ITX <- read.csv('data/ITX.MC.csv')
+ITX <- head(ITX)
+gt(ITX)
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de RStudio con la base de datos histórico de "INDITEX", obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 24-05-2001 al 31-05-2001.
 :::
 
 ```{r}
