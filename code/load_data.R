@@ -100,7 +100,7 @@ ticks |>
   invisible()
 
 ## Creting NA data frame----
-nadf <- ticks[-108] |> 
+nadf <- ticks |> 
   lapply(function(x){
     data <- read.csv(
       paste0("data/",x,"m.csv"))
@@ -155,7 +155,6 @@ write.csv(IBEX, "data/IBEXm.csv",
 #Storing together with IBEX and correlation----
 # In addition the computation for the calculation of 
 # the correlation, beta, standard deviation and R^2 is done
-
 ticks |> 
   lapply(function(x, Ibex = IBEX){
     data <- read.csv(
@@ -163,8 +162,8 @@ ticks |>
     data <- left_join(data, Ibex, by = 'Date')
     data <- data |>
       mutate(
-        Close = Delt(data$Close),
-        CloseI = Delt(data$CloseI)
+        Close = Delt(log(data$Close)),
+        CloseI = Delt(log(data$CloseI))
         ) |>
       na.omit()
     compu <- data |>
@@ -186,7 +185,7 @@ ticks |>
       "correlation", "beta", "sdC", "sdI", "r2")
     data <- cbind(data, compu)
     data <- na.omit(data)
-    write.csv(data, paste0("data/",x,"_adI.csv"),
+    write.csv(data, paste0("data/",x,"_logadI.csv"),
                row.names = F)
   }) |> 
   invisible()

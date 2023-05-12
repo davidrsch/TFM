@@ -113,10 +113,15 @@ model
 ## Testing model----
 predictions <- c()
 
+nopredm <- 36
+
 for(i in 1:length(listdates)) {
   datatrain <- datat |>
-    filter(Date == listdates[i])
+    filter(Date <= listdates[i])
   
+  np <- datat |>
+    filter(Date == listdates[i])
+  np <- dim(np)[1]
   ### Creating inputs and outputs for train----
   input_train <- datatrain |> 
     select(contains("X")) |> 
@@ -138,11 +143,13 @@ for(i in 1:length(listdates)) {
     select(Y1) |> 
     as.matrix()
   
-  if(i > 1){
+  if(i > nopredm){
+    diminp <- dim(input_train)[1]
+    top <- (diminp-np+1):diminp
     pred <- model |> predict(
       list(
-        input_train,
-        input_train[,,c(1:4), drop = F]
+        input_train[top,,,drop = F],
+        input_train[top,, c(1:4), drop=F]
       ))
     pred <- pred[[2]]
     predictions <- rbind(predictions, pred)
@@ -152,15 +159,15 @@ for(i in 1:length(listdates)) {
   model |>
     fit(
       x = list(
-        input_train,
-        input_train[,,c(1:4), drop = F]
+        input_train, 
+        input_train[,, c(1:4), drop=F]
       ),
       y = list(
         output_signt,
         output_train
       ),
-      epochs = 2,
-      batch_size = 64,
+      epochs = 1,
+      batch_size = 8,
       shuffle = F,
       verbose = 0)
   

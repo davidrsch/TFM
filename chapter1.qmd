@@ -4,7 +4,7 @@ Párrafo introductorio sobre las consideraciones teóticas de la utilización de
 
 ## Caracterización de las series temporales financieras
 
-Este epígrafe se divide en dos sub-epígrafes. En el primero se presentan los conceptos fundamentales relacionados con las series de tiempo, incluyendo sus características, componentes y clasificaciones, y se establece su relación con el análisis de las series cronológicas y la previsión, que es el objetivo de este informe. En el segundo sub-epígrafe se profundiza en las características de los precios de las acciones, comenzando por una descripción general y avanzando hacia aspectos más específicos, así como en la importancia de la estructura en la que se encuentran los datos relacionados con estos. 
+Este epígrafe se divide en dos sub-epígrafes. En el primero se presentan los conceptos fundamentales relacionados con las series de tiempo, incluyendo sus características, componentes y clasificaciones, y se establece su relación con el análisis de las series cronológicas y la previsión, que es el objetivo de este informe. En el segundo sub-epígrafe se profundiza en las características de los precios de las acciones, comenzando por una descripción general y avanzando hacia aspectos más específicos, así como en la importancia de la estructura en la que se encuentran los datos relacionados con estos.
 
 ### Series de tiempo y sus características
 
@@ -66,6 +66,48 @@ A partir de lo expuesto en @barone22, @chen22, @downey22, @hayes21 y @ganti20 se
 
 A partir de lo expuesto en @hayes21 y @ganti20 se entiende que la diferencia entre el precio de cierre y el precio de cierre ajustado es de gran importancia, ya que el primero puede dar una imagen distorsionada del rendimiento de una acción a lo largo del tiempo, mientras que el segundo refleja el valor real de la acción después de ajustar los factores que lo alteran.
 
-> Por ejemplo, la junta directiva de una empresa puede decidir dividir las acciones de la empresa 3 por 1. Por lo tanto, las acciones en circulación de la empresa aumentan en un múltiplo de tres, mientras que el precio de sus acciones se divide por tres. Supongamos que una acción cerró a \$300 el día anterior a su división de acciones. En este caso, el precio de cierre se ajusta a \$100 (\$300 divididos por 3) por acción para mantener un estándar de comparación consistente. De manera similar, todos los demás precios de cierre anteriores para esa empresa se dividirían por tres para obtener los precios de cierre ajustados. @ganti20 
+> Por ejemplo, la junta directiva de una empresa puede decidir dividir las acciones de la empresa 3 por 1. Por lo tanto, las acciones en circulación de la empresa aumentan en un múltiplo de tres, mientras que el precio de sus acciones se divide por tres. Supongamos que una acción cerró a \$300 el día anterior a su división de acciones. En este caso, el precio de cierre se ajusta a \$100 (\$300 divididos por 3) por acción para mantener un estándar de comparación consistente. De manera similar, todos los demás precios de cierre anteriores para esa empresa se dividirían por tres para obtener los precios de cierre ajustados. @ganti20
 
 Debido a ello el precio de cierre ajustado es mejor para la aplicación de técnicas de análisis de series de tiempo, ya que permite comparar el comportamiento de una acción a lo largo del tiempo sin las distorsiones causadas por los eventos corporativos. Siendo la serie de tiempo más comunmente utilizada en los estudios de los análisis de los precios de mercado la conformado por las rentabilidades calculadas a partir del precio de cierre ajustado.
+
+## Redes neuronales artificiales en la previsión de las series de tiempo
+
+AAAAAAA
+
+### Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo
+
+En este subepígrafe se abordan las redes neuronales artificiales (en lo adelante RNA) desde lo general a lo particular explicándose desde el entorno a las características básicas de las mismas. Además se exponen los antecedentes del uso de las mismas en la solución de problemas de previsión de series de tiempo.
+
+En @chollet2018deep se plantea que el entorno de las RNA, está conformado por la inteligencia artificial (en lo adelante IA), machine learning o aprendizaje automatizado (en lo adelante ML) y deep learning o aprendizaje profundo (en lo adelante DL), @fig-DLenv. Por lo que es de vital importancia conocer los aspectos de estos campos que se encuentran íntimamente relacionados con las RNA y que se exponen brevemente a continuación.
+
+"Hacer que una máquina se comporte de tal manera que si un humano lo hiciera se le llamaría inteligente" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) es la primera definición que se le dio al problema de IA. Con el objetivo de dar solución a este problema surgieron las primeras IA, las llamadas IA simbólicas.
+
+Como se explica en @haykin1998neural, @banda2014 y @chollet2018deep, estas primeras IA, involucraban reglas codificadas creadas por los programadores. Con el objetivo de lograr que estas reglas fueran aprendidas automáticamente por las máquinas al observar los datos surgió una nueva etapa dentro del desarrollo de las IA, la denominada ML. En esta nueva etapa se da pie al surgimiento de una nueva forma de programación, diferenciándose de la clásica, en que en esta, los programadores introducen los datos y las respuestas esperadas a los mismos, y las computadoras son capaces de generar las reglas, @fig-MLprog.
+
+Por lo que se entiende que los modelos de ML tratan de encontrar representaciones apropiadas para sus datos de entrada: transformaciones de los datos que hacen que sea más susceptible a la tarea en cuestión. En DL, que es un sub-campo específico de ML, estas representaciones de datos son modeladas a través de arquitecturas compuestas de capas sucesivas, las que son llamadas RNA @chollet2018deep.
+
+Tras el estudio de lo expuesto en @haykin1998neural, @Larranaga07, @banda2014 y @chollet2018deep sobre las RNA se puede afirmar que están inspiradas en el funcionamiento del cerebro humano, dichos textos confirman y concuerdan en que en una RNA se pueden diferenciar tres tipos de capas: de entrada, de salida y ocultas. Una capa de entrada está compuesta por neuronas que reciben los vectores de entradas. Una capa de salida se compone de neuronas que, durante el entrenamiento reciben los vectores de salidas y que luego generan la respuesta. Una capa oculta se encuentra conectada al entorno a través de las capas de entrada y salida, este tipo de capa oculta procesa la entrada recibida para obtener la salida correspondiente, @fig-RNAstruct.
+
+Una de las aplicaciones de las RNA es la previsión de series temporales. cuyo objetivo es predecir los valores futuros de las variables en función de sus observaciones pasadas. Como se expuso con anterioridad las series de tiempo financieras a menudo son no lineales, ruidosas, caóticas y no estacionarias, lo que las hace difíciles de modelar y pronosticar. Las RNA tienen la ventaja de poder capturar relaciones no lineales complejas y adaptarse a condiciones cambiantes sin requerir suposiciones previas sobre la distribución o estructura de datos.
+
+La historia de las RNA en la previsión de series temporales financieras se remonta a finales de la década de 1980 y principios de la de 1990, cuando los investigadores comenzaron a explorar el potencial de las RNA como una alternativa a los métodos estadísticos tradicionales, como el modelo autorregresivo integrado de media móviles, más conocido como ARIMA (por sus siglas en inglés Autoregressive Integrated Moving Average) y los modelos autorregresivos generalizados con heterocedasticidad condicional, más conocido como GARCH (por sus siglas en inglés Generalized Autoregressive Conditional Heteroskedasticity). Se demostró que las RNA tienen varias ventajas sobre estos métodos, como la capacidad de capturar relaciones no lineales y dinámicas, manejar datos ruidosos e incompletos y adaptarse a las condiciones cambiantes del mercado (@ZHANG199835).
+
+Sin embargo, las RNA también enfrentan algunas limitaciones y desafíos en el pronóstico de series temporales financieras, como la dificultad de elegir una arquitectura de red adecuada, un algoritmo de entrenamiento, una función de activación y variables de entrada; el riesgo de sobreajuste y problemas de generalización; la falta de interpretabilidad y transparencia; y el alto costo computacional y tiempo (@TEALAB2018334).
+
+Para superar estas limitaciones y desafíos, los investigadores han propuesto varias mejoras y extensiones de RNA para el pronóstico de series temporales financieras en las últimas décadas. Algunos de los principales desarrollos incluyen:
+
+-   El uso de modelos híbridos que combinan RNA con otras técnicas, como lógica difusa, algoritmos genéticos, análisis de ondículas, máquinas de vectores de soporte y aprendizaje profundo para mejorar el rendimiento y la solidez de las RNA (@wongguo2010).
+
+-   El uso de redes neuronales recurrentes (en lo adelante RNR) o bidireccional, que son un tipo especial de RNA que pueden procesar datos secuenciales y capturar dependencias temporales. Se ha demostrado que las RNR superan a las redes neuronales unidireccionales en series temporales complejas y no lineales (@GURESEN201110389).
+
+-   El uso de modelos de RNA más complejas mediante la combinación de distintas capas, como son las redes neuronales convolucionales (en lo adelante, CNN), las long short-term memory (en lo adelante, LSTM), las gated recurrent units (en lo adelante, GRU) se han aplicado a la previsión de series temporales financieras con resultados prometedores (@SEZER2020106181).
+
+La historia de las RNA en el pronóstico de series temporales financieras muestra que las mismas han ido evolucionando y mejorando con el tiempo para hacer frente a la complejidad y la incertidumbre de los mercados financieros. Sin embargo, todavía persisten algunos de los desafíos y limitaciones señalados con anterioridad como como el sobreajuste, la generalización, la interpretabilidad, la robustez y el costo computacional.
+
+### Redes neuronales convolucionales
+
+aAAAA
+
+### Long short-term memory
+
+AAAA

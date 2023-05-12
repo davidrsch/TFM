@@ -17,7 +17,7 @@ IBEX <- read.csv("data/IBEXm.csv")
 ```
 
 | Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
-|-----------------|----------------------------|----------------------------|
+|------------------|---------------------------|---------------------------|
 | Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
 | Continua             | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
 
@@ -26,7 +26,6 @@ IBEX <- read.csv("data/IBEXm.csv")
 ::: figure-caption
 Tomada de: @ruiz2011.
 :::
-
 
 ```{r}
 #| echo: false
@@ -176,4 +175,22 @@ grid.arrange(ggAcf(ts), ggPacf(ts), ncol = 2)
 
 ::: figure-caption
 Elaboración propia: Mediante el uso de RStudio.
+:::
+
+![DLenv](images/a1_DL-env.png "Relación entre IA-ML-DL"){#fig-DLenv fig-alt="IA engloba a ML y ML engloba a DL"}
+
+::: figure-caption
+Tomada de: Deep learning with R de @chollet2018deep.
+:::
+
+![MLprog](images/a1_ML-prog.png "Programación clásica y machine learning"){#fig-MLprog fig-alt="Muestra un esquema que explica de manera general el paradigma de la programación clasica y el uso de machine learning. Mostrandose en el primero como se introducen reglas y datos para obtener respuestas, mientras que en machine learning se introducen datos y respuestas para obtener reglas"}
+
+::: figure-caption
+Tomada de: Deep learning with R de @chollet2018deep.
+:::
+
+![RNAstruct](images/a1_RNA-struct.png "Estructura básica de una red neuronal artificial"){#fig-RNAstruct fig-alt="Muestra un esquema el esquema de la estructura básica de una RNA. Se muestra como los diferentes las diferentes entradas se conectan a cada uno de los nodos de las capa oculta y a su vez como cada uno de los nodos de la capa oculta se conecta a los nodos de la capa de salida. Los nodos de la capa oculta y la capa de salida también están conectados a un parámetro bias "}
+
+::: figure-caption
+Tomada de: Tema 14: redes neuronales de @Larranaga07.
 :::

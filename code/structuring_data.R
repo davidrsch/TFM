@@ -29,7 +29,7 @@ laggindata <- function(data, ts, th) {
 ticks |> 
   lapply(function(x,ts = timesteps, th = timehorizon){
     data <- read.csv(
-      paste0("data/",x,"_adI.csv"))
+      paste0("data/",x,"_logadI.csv"))
     lagClose <- laggindata(data$Close,ts,th)
     lagCloseI <- laggindata(data$CloseI,ts,th)
     lagCorre <- laggindata(data$correlation,ts,th)
@@ -47,7 +47,7 @@ ticks |>
       lagsdI,
       lagr2
     )
-    write.csv(data, paste0("data/",x,"_lagadI.csv"),
+    write.csv(data, paste0("data/",x,"_loglagadI.csv"),
               row.names = F)
   }) |> 
   invisible()
@@ -57,7 +57,7 @@ ordereddata <- c()
 ticks |> 
   lapply(function(x, e = empresas){
     data <- read.csv(
-      paste0("data/",x,"_lagadI.csv"))
+      paste0("data/",x,"_loglagadI.csv"))
     tickid <- which(ticks==x)
     #data <- data |>
     #  filter(X1 != 0 & Y1 !=0)
@@ -74,4 +74,6 @@ ticks |>
 ordereddata <- ordereddata |> 
   arrange(Date,ID)
 
-write.csv(ordereddata, "data/readjwithibxcorr.csv", row.names = F)
+write.csv(ordereddata, "data/logreadjwithibxcorr.csv", row.names = F)
+plot(model)
+
