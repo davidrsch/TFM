@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./chapter1a.html" rel="next">
-<link href="./summary.html" rel="prev">
+<link href="./intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -85,6 +85,7 @@ div.csl-indent {
     }
     </style>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -154,17 +155,17 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Prefacio</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introducción</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Agradecimientos</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summary.html" class="sidebar-item-text sidebar-link">Resumen</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">Introducción</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -209,6 +210,8 @@ div.csl-indent {
   <li><a href="#redes-neuronales-artificiales-en-la-previsión-de-las-series-de-tiempo" id="toc-redes-neuronales-artificiales-en-la-previsión-de-las-series-de-tiempo" class="nav-link" data-scroll-target="#redes-neuronales-artificiales-en-la-previsión-de-las-series-de-tiempo"><span class="toc-section-number">1.2</span>  Redes neuronales artificiales en la previsión de las series de tiempo</a>
   <ul class="collapse">
   <li><a href="#antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo" id="toc-antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo" class="nav-link" data-scroll-target="#antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo"><span class="toc-section-number">1.2.1</span>  Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo</a></li>
+  <li><a href="#redes-neuronales-convolucionales" id="toc-redes-neuronales-convolucionales" class="nav-link" data-scroll-target="#redes-neuronales-convolucionales"><span class="toc-section-number">1.2.2</span>  Redes neuronales convolucionales</a></li>
+  <li><a href="#long-short-term-memory" id="toc-long-short-term-memory" class="nav-link" data-scroll-target="#long-short-term-memory"><span class="toc-section-number">1.2.3</span>  Long short-term memory</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/chapter1.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
@@ -282,11 +285,65 @@ div.csl-indent {
 <p>Sin embargo, las RNA también enfrentan algunas limitaciones y desafíos en el pronóstico de series temporales financieras, como la dificultad de elegir una arquitectura de red adecuada, un algoritmo de entrenamiento, una función de activación y variables de entrada; el riesgo de sobreajuste y problemas de generalización; la falta de interpretabilidad y transparencia; y el alto costo computacional y tiempo (<span class="citation" data-cites="TEALAB2018334">Tealab (<a href="references.html#ref-TEALAB2018334" role="doc-biblioref">2018</a>)</span>).</p>
 <p>Para superar estas limitaciones y desafíos, los investigadores han propuesto varias mejoras y extensiones de RNA para el pronóstico de series temporales financieras en las últimas décadas. Algunos de los principales desarrollos incluyen:</p>
 <ul>
-<li><pre><code>El uso de modelos híbridos que combinan RNA con otras técnicas, como lógica difusa, algoritmos genéticos, análisis de ondículas, máquinas de vectores de soporte y aprendizaje profundo para mejorar el rendimiento y la solidez de las RNA (@wongguo2010).</code></pre></li>
-<li><pre><code>El uso de redes neuronales recurrentes (en lo adelante RNR) o bidireccional, que son un tipo especial de RNA que pueden procesar datos secuenciales y capturar dependencias temporales. Se ha demostrado que las RNR superan a las redes neuronales unidireccionales en series temporales complejas y no lineales (@GURESEN201110389).</code></pre></li>
-<li><pre><code>El uso de modelos de RNA más complejas mediante la combinación de distintas  capas, como son las redes neuronales convolucionales (en lo adelante, CNN), las long short-term memory (en lo adelante, LSTM), las gated recurrent units (en lo adelante, GRU) se han aplicado a la previsión de series temporales financieras con resultados prometedores (@SEZER2020106181).</code></pre></li>
+<li><p>El uso de modelos híbridos que combinan RNA con otras técnicas, como lógica difusa, algoritmos genéticos, análisis de ondículas, máquinas de vectores de soporte y aprendizaje profundo para mejorar el rendimiento y la solidez de las RNA (<span class="citation" data-cites="wongguo2010">Wong y Guo (<a href="references.html#ref-wongguo2010" role="doc-biblioref">2010</a>)</span>).</p></li>
+<li><p>El uso de redes neuronales recurrentes (en lo adelante RNR) o bidireccional, que son un tipo especial de RNA que pueden procesar datos secuenciales y capturar dependencias temporales. Se ha demostrado que las RNR superan a las redes neuronales unidireccionales en series temporales complejas y no lineales (<span class="citation" data-cites="GURESEN201110389">Guresen, Kayakutlu, y Daim (<a href="references.html#ref-GURESEN201110389" role="doc-biblioref">2011</a>)</span>).</p></li>
+<li><p>El uso de modelos de RNA más complejas mediante la combinación de distintas capas, como son las redes neuronales convolucionales (en lo adelante, CNN), las long short-term memory (en lo adelante, LSTM), las gated recurrent units (en lo adelante, GRU) se han aplicado a la previsión de series temporales financieras con resultados prometedores (<span class="citation" data-cites="SEZER2020106181">Sezer, Gudelek, y Ozbayoglu (<a href="references.html#ref-SEZER2020106181" role="doc-biblioref">2020</a>)</span>).</p></li>
 </ul>
 <p>La historia de las RNA en el pronóstico de series temporales financieras muestra que las mismas han ido evolucionando y mejorando con el tiempo para hacer frente a la complejidad y la incertidumbre de los mercados financieros. Sin embargo, todavía persisten algunos de los desafíos y limitaciones señalados con anterioridad como como el sobreajuste, la generalización, la interpretabilidad, la robustez y el costo computacional.</p>
+</section>
+<section id="redes-neuronales-convolucionales" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="redes-neuronales-convolucionales"><span class="header-section-number">1.2.2</span> Redes neuronales convolucionales</h3>
+<p>aAAAA</p>
+</section>
+<section id="long-short-term-memory" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="long-short-term-memory"><span class="header-section-number">1.2.3</span> Long short-term memory</h3>
+<p>En el presente subepigrafe se explica por qué las LSTM son una de las estructuras más usadas de RNA en la previsión de series de tiempo, partiendo de una breve explicación de las RNR y porque estas son de utilidad en la solución de problemas de previsión de series de tiempo, profundizando en el porque las LSTM se diferencian del resto de las RNN, y el funcionamiento de cada una de las capas que componen la estructura de una capa LSTM.</p>
+<p>En <span class="citation" data-cites="COlah15">Olah (<a href="references.html#ref-COlah15" role="doc-biblioref">2015</a>)</span> se explica que una RNN puede considerarse como copias múltiples de la misma red, <a href="chapter1a.html#fig-CORNRstruct">Figura&nbsp;<span>9</span></a>, expone que este aspecto revela que las RNR están íntimamente relacionadas con secuencias y listas, lo que hace que este tipo de RNA sea el que se use naturalmente para el trabajo con series de tiempo.</p>
+<p>Las RNR convencionales presentan un problema en lo relacionado con la capacidad de retener la información, como se explica en <span class="citation" data-cites="COlah15">Olah (<a href="references.html#ref-COlah15" role="doc-biblioref">2015</a>)</span>, las RNN estándar se desempeñan con gran capacidad solo si, la información relevante para la situación actual es reciente, es decir donde la brecha entre la información relevante y el lugar en que se necesita es pequeña, <a href="chapter1a.html#fig-CORInclose">Figura&nbsp;<span>10</span></a>; expone además que a medida que crece la brecha, las RNN estándar son incapaces de acceder a la información relevante, <a href="chapter1a.html#fig-CORInaway">Figura&nbsp;<span>11</span></a>.</p>
+<p>Como se ha mencionado con anterioridad las LSTM son un tipo de RNR que puede aprender dependencias a largo plazo en datos secuenciales. Estas fueron propuestas en <span class="citation" data-cites="SeppJur97">Hochreiter (<a href="references.html#ref-SeppJur97" role="doc-biblioref">1997</a>)</span> y ha sido ampliamente utilizado para diversas tareas como el modelado del lenguaje, el reconocimiento de voz, la traducción automática, la descripción de imágenes y la previsión de series de tiempo.</p>
+<p>La idea principal de LSTM es introducir una celda de memoria que pueda almacenar y actualizar información durante largos pasos de tiempo. La celda de memoria está controlada por tres puertas: una puerta de entrada, una puerta de olvido y una puerta de salida. Estas puertas son redes neuronales que aprenden a regular el flujo de información dentro y fuera de la célula <a href="chapter1a.html#fig-CODrnrlstm">Figura&nbsp;<span>12</span></a>.</p>
+<p>La puerta de entrada decide qué cantidad de la nueva entrada agregar al estado de la celda. La puerta de olvido decide qué parte del estado de celda anterior mantener o borrar. La puerta de salida decide qué parte del estado de celda actual se va a enviar a la siguiente capa. <span class="citation" data-cites="COlah15">Olah (<a href="references.html#ref-COlah15" role="doc-biblioref">2015</a>)</span> basado en lo expuesto en <span class="citation" data-cites="SeppJur97">Hochreiter (<a href="references.html#ref-SeppJur97" role="doc-biblioref">1997</a>)</span>, describe la operativa de las puertas en cuatro pasos:</p>
+<ol type="1">
+<li>Decidir qué información se olvida del estado de la celda a través de la puerta, forget gate layer <span class="math inline">\(f_t\)</span>. Esta puerta ve a <span class="math inline">\(h_{t-1}\)</span>, estado oculto del período de tiempo anterior, y <span class="math inline">\(x_{t}\)</span>, entrada del instante de tiempo actual, y genera un número entre 0 (deshacerse) y 1 (mantener) para cada número en el estado de la celda <span class="math inline">\(C_{t-1}\)</span>, <a href="chapter1a.html#fig-COLSTMstep1">Figura&nbsp;<span>13</span></a>, <a href="#eq-lstm-fstep">Ecuación&nbsp;<span>1.1</span></a>.</li>
+</ol>
+<p><span id="eq-lstm-fstep"><span class="math display">\[
+\begin{aligned}
+f_t &amp;= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
+\end{aligned}
+\tag{1.1}\]</span></span></p>
+<ol start="2" type="1">
+<li>Decidir qué nueva información se almacena en el estado de la celda. Para esto primero la puerta llamada input gate layer decide qué valores actualizar y luego, una capa tanh (tangente hiperbólica) crea un vector de nuevos valores candidatos (<span class="math inline">\(\tilde{C}_t\)</span>) que podrían agregarse al estado, <a href="chapter1a.html#fig-COLSTMstep2">Figura&nbsp;<span>14</span></a>, <a href="#eq-lstm-sstepf">Ecuación&nbsp;<span>1.2</span></a> y <a href="#eq-lstm-ssteps">Ecuación&nbsp;<span>1.3</span></a>.</li>
+</ol>
+<p><span id="eq-lstm-sstepf"><span class="math display">\[
+\begin{aligned}
+i_t &amp;= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
+\end{aligned}
+\tag{1.2}\]</span></span> <span id="eq-lstm-ssteps"><span class="math display">\[
+\begin{aligned}
+\tilde{C}_t &amp;= tanh(W_c [h_{t-1}, x_t] + b_c) \\
+\end{aligned}
+\tag{1.3}\]</span></span></p>
+<ol start="3" type="1">
+<li>Se actualiza el estado de la celda anterior, <span class="math inline">\(C_{t-1}\)</span> en el nuevo estado de la celda <span class="math inline">\(C_{t}\)</span>. Se multiplica el estado anterior por <span class="math inline">\(f_{t}\)</span>, olvidando lo necesario, luego se agrega $i_t* _t $. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, <a href="chapter1a.html#fig-COLSTMstep3">Figura&nbsp;<span>15</span></a>, ecuación 1.09.</li>
+</ol>
+<p><span id="eq-lstm-tstep"><span class="math display">\[
+\begin{aligned}
+C_t &amp;= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
+\end{aligned}
+\tag{1.4}\]</span></span></p>
+<ol start="4" type="1">
+<li>Se genera una salida basándose en el estado de celda. Ejecutándose primero una capa sigmoidea que decide qué partes del estado de la celda es la salida; luego el estado de la celda pasa a través de una función tanh (escalando los valores entre −1 y 1) y se multiplican por la salida de la puerta, output gate, <a href="chapter1a.html#fig-COLSTMstep4">Figura&nbsp;<span>16</span></a>, <a href="#eq-lstm-fstepf">Ecuación&nbsp;<span>1.5</span></a> y <a href="#eq-lstm-fsteps">Ecuación&nbsp;<span>1.6</span></a>.</li>
+</ol>
+<p><span id="eq-lstm-fstepf"><span class="math display">\[
+\begin{aligned}
+o_t &amp;= \sigma(W_o [h_{t-1}, x_t] + b_o) \\
+\end{aligned}
+\tag{1.5}\]</span></span> <span id="eq-lstm-fsteps"><span class="math display">\[
+\begin{aligned}
+h_t &amp;= o_t * tanh(C_t) \\
+\end{aligned}
+\tag{1.6}\]</span></span></p>
+<p>Las LSTM pueden aprender a capturar dependencias a largo plazo ajustando los valores de la puerta a través de la propagación inversa. Por ejemplo, si una determinada entrada es relevante para una salida posterior, la puerta de entrada aprenderá a dejarla entrar, y la puerta olvidada aprenderá a conservarla en el estado de celda hasta que sea necesaria. Por el contrario, si una entrada es irrelevante u obsoleta, la puerta de entrada aprenderá a ignorarla, y la puerta olvidada aprenderá a borrarla del estado de la celda.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -338,11 +395,17 @@ Espallargas, S. D., y M. V. Solís. 2012. <em>Econometría y series temporales: 
 <div id="ref-ganti20" class="csl-entry" role="doc-biblioentry">
 Ganti, A. 2020. <span>«Adjusted Closing Price»</span>. 2020. <a href="https://www.investopedia.com/terms/a/adjusted_closing_price.asp">https://www.investopedia.com/terms/a/adjusted_closing_price.asp</a>.
 </div>
+<div id="ref-GURESEN201110389" class="csl-entry" role="doc-biblioentry">
+Guresen, Erkam, Gulgun Kayakutlu, y Tugrul U. Daim. 2011. <span>«Using artificial neural network models in stock market index prediction»</span>. <em>Expert Systems with Applications</em> 38 (8): 10389-97. https://doi.org/<a href="https://doi.org/10.1016/j.eswa.2011.02.068">https://doi.org/10.1016/j.eswa.2011.02.068</a>.
+</div>
 <div id="ref-hayes21" class="csl-entry" role="doc-biblioentry">
 Hayes, A. 2021. <span>«What Is Closing Price? Definition, How It’s Used, and Example»</span>. 2021. <a href="https://www.investopedia.com/terms/c/closingprice.asp">https://www.investopedia.com/terms/c/closingprice.asp</a>.
 </div>
 <div id="ref-haykin1998neural" class="csl-entry" role="doc-biblioentry">
 Haykin, Simon. 1998. <em>Neural networks: a comprehensive foundation</em>. Prentice Hall PTR.
+</div>
+<div id="ref-SeppJur97" class="csl-entry" role="doc-biblioentry">
+Hochreiter, Jürgen, Sepp &amp; Schmidhuber. 1997. <span>«<span>Long Short-Term Memory</span>»</span>. <em>Neural Computation</em> 9 (8): 1735-80. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a>.
 </div>
 <div id="ref-IBM2021" class="csl-entry" role="doc-biblioentry">
 IBM. 2021. <span>«Characteristics of time series»</span>. <a href="https://www.ibm.com/docs/en/spss-modeler/saas?topic=data-characteristics-time-series" class="uri">https://www.ibm.com/docs/en/spss-modeler/saas?topic=data-characteristics-time-series</a>. 2021.
@@ -359,11 +422,17 @@ McCarthy, John, Marvin L. Minsky, Nathaniel Rochester, y Claude E. Shannon. 2006
 <div id="ref-mitchell20" class="csl-entry" role="doc-biblioentry">
 Mitchell, C. 2020. <span>«Market Price: Definition, Meaning, How To Determine, and Example»</span>. 2020. <a href="https://www.investopedia.com/terms/m/market-price.asp">https://www.investopedia.com/terms/m/market-price.asp</a>.
 </div>
+<div id="ref-COlah15" class="csl-entry" role="doc-biblioentry">
+Olah, Christopher. 2015. <span>«Understanding LSTM networks»</span>. Colah’s blog. 2015. <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a>.
+</div>
 <div id="ref-pinset21" class="csl-entry" role="doc-biblioentry">
 Pinset, W. 2021. <span>«Understanding Stock Prices and Values»</span>. 2021. <a href="https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp">https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp</a>.
 </div>
 <div id="ref-ruiz2011" class="csl-entry" role="doc-biblioentry">
 Ruiz, M. C. 2011. <span>«Tema 5: Procesos Estocásticos»</span>. <a href="http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf" class="uri">http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf</a>; Departamento de Matemática y Estadística. Universidad Politécnica de Cartagena. 2011.
+</div>
+<div id="ref-SEZER2020106181" class="csl-entry" role="doc-biblioentry">
+Sezer, Omer Berat, Mehmet Ugur Gudelek, y Ahmet Murat Ozbayoglu. 2020. <span>«Financial time series forecasting with deep learning : A systematic literature review: 2005–2019»</span>. <em>Applied Soft Computing</em> 90: 106181. https://doi.org/<a href="https://doi.org/10.1016/j.asoc.2020.106181">https://doi.org/10.1016/j.asoc.2020.106181</a>.
 </div>
 <div id="ref-TEALAB2018334" class="csl-entry" role="doc-biblioentry">
 Tealab, Ahmed. 2018. <span>«Time series forecasting using artificial neural networks methodologies: A systematic review»</span>. <em>Future Computing and Informatics Journal</em> 3 (2): 334-40. https://doi.org/<a href="https://doi.org/10.1016/j.fcij.2018.10.003">https://doi.org/10.1016/j.fcij.2018.10.003</a>.
@@ -379,6 +448,9 @@ Villagarcía, T. 2006. <span>«Series Temporales»</span>. <a href="https://halw
 </div>
 <div id="ref-villavicencio2010" class="csl-entry" role="doc-biblioentry">
 Villavicencio, J. 2010. <span>«Introducción a las series de tiempo»</span>. <a href="http://www.estadisticas.gobierno.pr/iepr/LinkClick.aspx" class="uri">http://www.estadisticas.gobierno.pr/iepr/LinkClick.aspx</a>; Instituto de estadística de Puerto Rico. 2010.
+</div>
+<div id="ref-wongguo2010" class="csl-entry" role="doc-biblioentry">
+Wong, W. K., y Z. X. Guo. 2010. <span>«<span>A hybrid intelligent model for medium-term sales forecasting in fashion retail supply chains using extreme learning machine and harmony search algorithm</span>»</span>. <em>International Journal of Production Economics</em> 128 (2): 614-24. <a href="https://ideas.repec.org/a/eee/proeco/v128y2010i2p614-624.html">https://ideas.repec.org/a/eee/proeco/v128y2010i2p614-624.html</a>.
 </div>
 </div>
 </section>
@@ -520,8 +592,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Resumen</span>
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introducción</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -32,8 +32,8 @@ book:
   page-navigation: true
   chapters:
     - index.qmd
-    - intro.qmd
     - summary.qmd
+    - intro.qmd
     - chapter1.qmd
     - chapter1a.qmd
     - chapter2.qmd

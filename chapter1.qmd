@@ -110,4 +110,58 @@ aAAAA
 
 ### Long short-term memory
 
-AAAA
+En el presente subepigrafe se explica por qué las LSTM son una de las estructuras más usadas de RNA en la previsión de series de tiempo, partiendo de una breve explicación de las RNR y porque estas son de utilidad en la solución de problemas de previsión de series de tiempo, profundizando en el porque las LSTM se diferencian del resto de las RNN, y el funcionamiento de cada una de las capas que componen la estructura de una capa LSTM.
+
+En @COlah15 se explica que una RNN puede considerarse como copias múltiples de la misma red, @fig-CORNRstruct, expone que este aspecto revela que las RNR están íntimamente relacionadas con secuencias y listas, lo que hace que este tipo de RNA sea el que se use naturalmente para el trabajo con series de tiempo.
+
+Las RNR convencionales presentan un problema en lo relacionado con la capacidad de retener la información, como se explica en @COlah15, las RNN estándar se desempeñan con gran capacidad solo si, la información relevante para la situación actual es reciente, es decir donde la brecha entre la información relevante y el lugar en que se necesita es pequeña, @fig-CORInclose; expone además que a medida que crece la brecha, las RNN estándar son incapaces de acceder a la información relevante, @fig-CORInaway.
+
+Como se ha mencionado con anterioridad las LSTM son un tipo de RNR que puede aprender dependencias a largo plazo en datos secuenciales. Estas fueron propuestas en @SeppJur97 y ha sido ampliamente utilizado para diversas tareas como el modelado del lenguaje, el reconocimiento de voz, la traducción automática, la descripción de imágenes y la previsión de series de tiempo.
+
+La idea principal de LSTM es introducir una celda de memoria que pueda almacenar y actualizar información durante largos pasos de tiempo. La celda de memoria está controlada por tres puertas: una puerta de entrada, una puerta de olvido y una puerta de salida. Estas puertas son redes neuronales que aprenden a regular el flujo de información dentro y fuera de la célula @fig-CODrnrlstm.
+
+La puerta de entrada decide qué cantidad de la nueva entrada agregar al estado de la celda. La puerta de olvido decide qué parte del estado de celda anterior mantener o borrar. La puerta de salida decide qué parte del estado de celda actual se va a enviar a la siguiente capa. @COlah15 basado en lo expuesto en @SeppJur97, describe la operativa de las puertas en cuatro pasos:
+
+1.	Decidir qué información se olvida del estado de la celda a través de la puerta, forget gate layer $f_t$. Esta puerta ve a  $h_{t-1}$, estado oculto del período de tiempo anterior, y $x_{t}$, entrada del instante de tiempo actual, y genera un número entre 0 (deshacerse) y 1 (mantener) para cada número en el estado de la celda  $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
+
+$$
+\begin{aligned}
+f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
+\end{aligned}
+$${#eq-lstm-fstep}
+
+2.	Decidir qué nueva información se almacena en el estado de la celda. Para esto primero la puerta llamada input gate layer decide qué valores actualizar y luego, una capa tanh (tangente hiperbólica) crea un vector de nuevos valores candidatos ($\tilde{C}_t$)  que podrían agregarse al estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
+
+$$
+\begin{aligned}
+i_t &= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
+\end{aligned}
+$${#eq-lstm-sstepf}
+$$
+\begin{aligned}
+\tilde{C}_t &= tanh(W_c [h_{t-1}, x_t] + b_c) \\
+\end{aligned}
+$${#eq-lstm-ssteps}
+
+3.	Se actualiza el estado de la celda anterior, $C_{t-1}$  en el nuevo estado de la celda $C_{t}$. Se multiplica el estado anterior por $f_{t}$, olvidando lo necesario, luego se agrega $i_t* \tilde{C}_t $. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, @fig-COLSTMstep3, ecuación 1.09.
+
+$$
+\begin{aligned}
+C_t &= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
+\end{aligned}
+$${#eq-lstm-tstep}
+
+4.	Se genera una salida basándose en el estado de celda. Ejecutándose primero una capa sigmoidea que decide qué partes del estado de la celda es la salida; luego el estado de la celda pasa a través de una función tanh (escalando los valores entre −1 y 1) y se multiplican por la salida de la puerta, output gate, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
+
+$$
+\begin{aligned}
+o_t &= \sigma(W_o [h_{t-1}, x_t] + b_o) \\
+\end{aligned}
+$${#eq-lstm-fstepf}
+$$
+\begin{aligned}
+h_t &= o_t * tanh(C_t) \\
+\end{aligned}
+$${#eq-lstm-fsteps}
+
+Las LSTM pueden aprender a capturar dependencias a largo plazo ajustando los valores de la puerta a través de la propagación inversa. Por ejemplo, si una determinada entrada es relevante para una salida posterior, la puerta de entrada aprenderá a dejarla entrar, y la puerta olvidada aprenderá a conservarla en el estado de celda hasta que sea necesaria. Por el contrario, si una entrada es irrelevante u obsoleta, la puerta de entrada aprenderá a ignorarla, y la puerta olvidada aprenderá a borrarla del estado de la celda.

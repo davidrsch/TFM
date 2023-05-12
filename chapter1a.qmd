@@ -1,4 +1,4 @@
-# Apendices Capitulo 1 {.unnumbered}
+# Apéndices Capítulo 1 {.unnumbered}
 
 ```{r}
 #| echo: false
@@ -17,7 +17,7 @@ IBEX <- read.csv("data/IBEXm.csv")
 ```
 
 | Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
-|------------------|---------------------------|---------------------------|
+|-------------------|---------------------------|---------------------------|
 | Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
 | Continua             | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
 
@@ -193,4 +193,52 @@ Tomada de: Deep learning with R de @chollet2018deep.
 
 ::: figure-caption
 Tomada de: Tema 14: redes neuronales de @Larranaga07.
+:::
+
+![CORNRstruct](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![CORInclose](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![CORInaway](images/a1_CO-RInaway.png "Información relevante cercana"){#fig-CORInaway}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![CODrnrlstm](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![COLSTMstep1](images/a1_CO-LSTMstep1.png "Representación del paso 1"){#fig-COLSTMstep1}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![COLSTMstep2](images/a1_CO-LSTMstep2.png "Representación del paso 2"){#fig-COLSTMstep2}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![COLSTMstep3](images/a1_CO-LSTMstep3.png "Representación del paso 3"){#fig-COLSTMstep3}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
+:::
+
+![COLSTMstep4](images/a1_CO-LSTMstep4.png "Representación del paso 4"){#fig-COLSTMstep4}
+
+::: figure-caption
+Tomadas de: Understanding LSTM networks, @COlah15.
 :::
