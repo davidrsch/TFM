@@ -68,13 +68,15 @@ cnn <- inp |>
   layer_conv_1d(
     filters = 64,
     kernel_size = 1,
+    strides = 1,
     #kernel_regularizer = regularizer_l1(0.01),
     #bias_regularizer = regularizer_l1(0.4),
     #activity_regularizer = regularizer_l1(0.4),
     activation = layer_activation_selu()) |>
+  layer_flatten() |>
   #layer_dropout(0.8) |>
-  layer_dense(
-    1)
+  layer_dense(1) |>
+  layer_reshape(c(1,1))
 hidd <- cnn |>
   layer_concatenate(inp2) |>
   layer_lstm(

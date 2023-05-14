@@ -48,6 +48,7 @@ format:
     title-block-banner: "#D60D8C"
     fig-cap-location: top
     df-print: paged
+    css: my_style.css
     lang:
       es
  #   language: 

@@ -195,49 +195,73 @@ Tomada de: Deep learning with R de @chollet2018deep.
 Tomada de: Tema 14: redes neuronales de @Larranaga07.
 :::
 
-![CORNRstruct](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct}
+![Como kernel_size afecta el vector de salida](images/a1_HJ-ks.gif "Como kernel_size afecta el vector de salida"){#fig-HJks}
+
+::: figure-caption
+Elaboración propia: Elaborada a partir de @hongj20. Muestra como el tamaño del vector de salida cambia según el tamaño de filtro que se usa.
+:::
+
+![Como stride afecta el vector de salida](images/a1_HJ-stride.gif "Como stride afecta el vector de salida"){#fig-HJstride}
+
+::: figure-caption
+Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro stride afecta el tamaño del vector de salida.
+:::
+
+![Como dilation afecta el vector de salida](images/a1_HJ-dilation.gif "Como dilation afecta el vector de salida"){#fig-HJdilation}
+
+::: figure-caption
+Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro dilation afecta el tamaño del vector de salida.
+:::
+
+![Como padding afecta el vector de salida](images/a1_HJ-padding.gif "Como padding afecta el vector de salida"){#fig-HJpadding}
+
+::: figure-caption
+Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro padding afecta el tamaño del vector de salida.
+:::
+
+![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![CORInclose](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose}
+![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![CORInaway](images/a1_CO-RInaway.png "Información relevante cercana"){#fig-CORInaway}
+![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![CODrnrlstm](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm}
+![Diferencia entre los módulos de repetición](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![COLSTMstep1](images/a1_CO-LSTMstep1.png "Representación del paso 1"){#fig-COLSTMstep1}
+![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![COLSTMstep2](images/a1_CO-LSTMstep2.png "Representación del paso 2"){#fig-COLSTMstep2}
+![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![COLSTMstep3](images/a1_CO-LSTMstep3.png "Representación del paso 3"){#fig-COLSTMstep3}
+![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.
 :::
 
-![COLSTMstep4](images/a1_CO-LSTMstep4.png "Representación del paso 4"){#fig-COLSTMstep4}
+![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4}
 
 ::: figure-caption
 Tomadas de: Understanding LSTM networks, @COlah15.

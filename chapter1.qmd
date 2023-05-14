@@ -72,11 +72,11 @@ Debido a ello el precio de cierre ajustado es mejor para la aplicación de técn
 
 ## Redes neuronales artificiales en la previsión de las series de tiempo
 
-AAAAAAA
+Este epígrafe esta dividido en tres sub-epígrafes.En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.  
 
 ### Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo
 
-En este subepígrafe se abordan las redes neuronales artificiales (en lo adelante RNA) desde lo general a lo particular explicándose desde el entorno a las características básicas de las mismas. Además se exponen los antecedentes del uso de las mismas en la solución de problemas de previsión de series de tiempo.
+En este sub-epígrafe se abordan las redes neuronales artificiales (en lo adelante RNA) desde lo general a lo particular explicándose desde el entorno a las características básicas de las mismas. Además se exponen los antecedentes del uso de las mismas en la solución de problemas de previsión de series de tiempo.
 
 En @chollet2018deep se plantea que el entorno de las RNA, está conformado por la inteligencia artificial (en lo adelante IA), machine learning o aprendizaje automatizado (en lo adelante ML) y deep learning o aprendizaje profundo (en lo adelante DL), @fig-DLenv. Por lo que es de vital importancia conocer los aspectos de estos campos que se encuentran íntimamente relacionados con las RNA y que se exponen brevemente a continuación.
 
@@ -106,7 +106,57 @@ La historia de las RNA en el pronóstico de series temporales financieras muestr
 
 ### Redes neuronales convolucionales
 
-aAAAA
+El modelo de RNA que se usó en este trabajo está compuesto por varias capas siendo las más importantes la capa Conv1D, un tipo especifico de CNN, y la capa LSTM, ambas mencionadas en el sub-epígrafe anterior cuando se listaron las estructuras de ANN que más se utilicen en la actualidad. Este sub-epígrafe se centra en la Capa Conv1D, por lo que a se exploran los conceptos fundamentales para comprender el funcionamiento de la misma, explicándose la convolución, las redes neuronales convolucionales y Conv1D y su uso para el análisis de series temporales. Se brinda una descripción general de la convolución y cómo se puede aplicar a los datos de series temporales. Luego, se analizan las CNN y su arquitectura, que les permite aprender características automáticamente a partir de datos de series temporales. Finalmente, se explica Conv1D, un tipo específico de capa de red neuronal convolucional que es particularmente eficaz para procesar datos de series temporales.
+
+Como se expone en @rafid23 la convolución es una operación matemática que se usa comúnmente en el procesamiento de señales y el análisis de imágenes. Implica tomar dos funciones y producir una tercera función que representa cómo una de las funciones originales modifica a la otra. En el contexto de los datos de series temporales, la convolución se puede utilizar para extraer características de los datos aplicando un filtro a la serie temporal.
+
+Además de extraer características de los datos de series temporales, la convolución también se puede utilizar para otras tareas, como la reducción de ruido, la detección de anomalías y la predicción. Por ejemplo, se puede entrenar una CNN para predecir valores futuros de una serie temporal aprendiendo los patrones subyacentes en los datos. En general, la convolución es una herramienta poderosa para analizar datos de series temporales y sus aplicaciones son numerosas @rafid23.
+
+Las CNN fueron por primera vez introducidas en @cnn son un tipo de modelo de aprendizaje profundo que se usa comúnmente para el análisis de imágenes. Sin embargo, como se ha mencionado con anterioridad también se pueden utilizar para el análisis de series temporales, ya que son muy adecuados para aprender características a partir de datos que tienen una estructura espacial o temporal.
+
+La arquitectura de una CNN consta de una o más capas convolucionales, que aplican filtros a los datos de entrada para extraer características. Cada filtro es un conjunto de pesos que se aprenden durante el proceso de entrenamiento. Al deslizar el filtro sobre los datos de entrada, la capa convolucional calcula un producto escalar en cada posición, produciendo un nuevo mapa de características @cnn.
+
+En un contexto de series de tiempo, una CNN puede aprender a extraer automáticamente características de los datos en diferentes escalas e intervalos de tiempo, lo que la convierte en una herramienta poderosa para el análisis de series de tiempo. Una ventaja clave de usar una CNN para el análisis de series de tiempo es que reduce la necesidad de ingeniería de características manual. En lugar de diseñar filtros a mano, CNN aprende a extraer automáticamente características de los datos, haciéndolo más flexible y adaptable a diferentes tipos de datos de series temporales.
+
+En general, la arquitectura de una CNN le permite aprender características automáticamente a partir de datos de series temporales, lo que la convierte en una herramienta poderosa para el análisis de series temporales, siendo las Conv1D una de las estructuras de CNN más usadas para esta tarea.
+
+Como se explica en @hongj20 Conv1D es un tipo específico de capa de CNN que está diseñado para procesar datos unidimensionales, como datos de series temporales. Mientras que las CNN tradicionales están diseñadas para procesar datos bidimensionales, Conv1D está optimizado específicamente para datos unidimensionales, lo que lo hace más eficiente y eficaz para el análisis de series temporales.
+
+La arquitectura de una capa Conv1D es similar a la de una CNN tradicional, pero con algunas diferencias clave. En lugar de usar filtros bidimensionales, Conv1D usa filtros unidimensionales, que se aplican a la serie temporal de entrada para extraer características. Las características que se extraen de la serie dependerán de las distintas configuraciones usadas para la configuración del filtro y la cantidad de filtros utilizados, siendo la fórmula para calcular la cantidad de característica que extrae cada filtro la siguiente @eq-cnn-lout (@hongj20):
+
+$$
+\begin{aligned}
+L_{out} &= \frac{L_{in} + 2*padding - dilation*(kerenel\_size - 1)-1}{stride} + 1 \\
+\end{aligned}
+$${#eq-cnn-lout} 
+
+Donde:
+
+::: margin
+*Lout*: es la longitud de la salida del proceso de filtrado o la cantidad de características.
+:::
+
+::: margin
+*Lin*: la longitud del vector de entrada, correspondiendo en el análisis de series de tiempo a la cantidad de observaciones que contienen las muestras de la serie de tiempo que se pasan al filtro.
+:::
+
+::: margin
+*kernel_size*: es el tamaño del filtro, lo que define cuantas observaciones del vector de entradas se pasan al filtro cada vez. @fig-HJks representa como el tamaño del filtro puede afectar la longitud del vector de salida.
+:::
+
+::: margin
+*stride*: representa la cantidad de pasos u observaciones en las que se mueve la selección de observaciones que se pasa al filtro. @fig-HJstride representa como el parámetro stride puede afectar la longitud del vector de salida.
+:::
+
+::: margin
+*dilation*: es la distancia de las observaciones que pasan al filtro. @fig-HJdilation representa como el parámetro dilation puede afectar la longitud del vector de salida.
+:::
+
+::: margin
+*padding*: representa la cantidad de zeros que se añade a cada extremo del vector. @fig-HJpadding representa como el parámetro padding puede afectar la longitud del vector de salida.
+:::
+
+En general, Conv1D es una herramienta poderosa para procesar datos de series temporales y sus ventajas incluyen la eficiencia computacional y la capacidad de capturar dependencias temporales en los datos. Sus casos de uso son numerosos y abarcan diferentes campos, lo que lo convierte en una herramienta valiosa para el análisis de series temporales.
 
 ### Long short-term memory
 
@@ -122,46 +172,56 @@ La idea principal de LSTM es introducir una celda de memoria que pueda almacenar
 
 La puerta de entrada decide qué cantidad de la nueva entrada agregar al estado de la celda. La puerta de olvido decide qué parte del estado de celda anterior mantener o borrar. La puerta de salida decide qué parte del estado de celda actual se va a enviar a la siguiente capa. @COlah15 basado en lo expuesto en @SeppJur97, describe la operativa de las puertas en cuatro pasos:
 
-1.	Decidir qué información se olvida del estado de la celda a través de la puerta, forget gate layer $f_t$. Esta puerta ve a  $h_{t-1}$, estado oculto del período de tiempo anterior, y $x_{t}$, entrada del instante de tiempo actual, y genera un número entre 0 (deshacerse) y 1 (mantener) para cada número en el estado de la celda  $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
+1.  Decidir qué información se olvida del estado de la celda a través de la puerta, forget gate layer $f_t$. Esta puerta ve a $h_{t-1}$, estado oculto del período de tiempo anterior, y $x_{t}$, entrada del instante de tiempo actual, y genera un número entre 0 (deshacerse) y 1 (mantener) para cada número en el estado de la celda $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
 
 $$
 \begin{aligned}
 f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
 \end{aligned}
-$${#eq-lstm-fstep}
+$$ {#eq-lstm-fstep}
 
-2.	Decidir qué nueva información se almacena en el estado de la celda. Para esto primero la puerta llamada input gate layer decide qué valores actualizar y luego, una capa tanh (tangente hiperbólica) crea un vector de nuevos valores candidatos ($\tilde{C}_t$)  que podrían agregarse al estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
+2.  Decidir qué nueva información se almacena en el estado de la celda. Para esto primero la puerta llamada input gate layer decide qué valores actualizar y luego, una capa tanh (tangente hiperbólica) crea un vector de nuevos valores candidatos ($\tilde{C}_t$) que podrían agregarse al estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
 
 $$
 \begin{aligned}
 i_t &= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
 \end{aligned}
-$${#eq-lstm-sstepf}
-$$
+$$ {#eq-lstm-sstepf} $$
 \begin{aligned}
 \tilde{C}_t &= tanh(W_c [h_{t-1}, x_t] + b_c) \\
 \end{aligned}
-$${#eq-lstm-ssteps}
+$$ {#eq-lstm-ssteps}
 
-3.	Se actualiza el estado de la celda anterior, $C_{t-1}$  en el nuevo estado de la celda $C_{t}$. Se multiplica el estado anterior por $f_{t}$, olvidando lo necesario, luego se agrega $i_t* \tilde{C}_t $. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, @fig-COLSTMstep3, ecuación 1.09.
+3.  Se actualiza el estado de la celda anterior, $C_{t-1}$ en el nuevo estado de la celda $C_{t}$. Se multiplica el estado anterior por $f_{t}$, olvidando lo necesario, luego se agrega \$i_t\* \tilde{C}\_t \$. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, @fig-COLSTMstep3, ecuación 1.09.
 
 $$
 \begin{aligned}
 C_t &= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
 \end{aligned}
-$${#eq-lstm-tstep}
+$$ {#eq-lstm-tstep}
 
-4.	Se genera una salida basándose en el estado de celda. Ejecutándose primero una capa sigmoidea que decide qué partes del estado de la celda es la salida; luego el estado de la celda pasa a través de una función tanh (escalando los valores entre −1 y 1) y se multiplican por la salida de la puerta, output gate, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
+4.  Se genera una salida basándose en el estado de celda. Ejecutándose primero una capa sigmoidea que decide qué partes del estado de la celda es la salida; luego el estado de la celda pasa a través de una función tanh (escalando los valores entre −1 y 1) y se multiplican por la salida de la puerta, output gate, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
 
 $$
 \begin{aligned}
 o_t &= \sigma(W_o [h_{t-1}, x_t] + b_o) \\
 \end{aligned}
-$${#eq-lstm-fstepf}
-$$
+$$ {#eq-lstm-fstepf} $$
 \begin{aligned}
 h_t &= o_t * tanh(C_t) \\
 \end{aligned}
-$${#eq-lstm-fsteps}
+$$ {#eq-lstm-fsteps}
 
 Las LSTM pueden aprender a capturar dependencias a largo plazo ajustando los valores de la puerta a través de la propagación inversa. Por ejemplo, si una determinada entrada es relevante para una salida posterior, la puerta de entrada aprenderá a dejarla entrar, y la puerta olvidada aprenderá a conservarla en el estado de celda hasta que sea necesaria. Por el contrario, si una entrada es irrelevante u obsoleta, la puerta de entrada aprenderá a ignorarla, y la puerta olvidada aprenderá a borrarla del estado de la celda.
+
+## Composición de carteras
+
+Introducción al epígrafe.
+
+### Antecendetes
+
+Introducción al sub-epígrafe.
+
+### Programación cuadrática
+
+Introducción al sub-epígrafe.
