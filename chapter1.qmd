@@ -72,7 +72,7 @@ Debido a ello el precio de cierre ajustado es mejor para la aplicación de técn
 
 ## Redes neuronales artificiales en la previsión de las series de tiempo
 
-Este epígrafe esta dividido en tres sub-epígrafes.En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.  
+Este epígrafe esta dividido en tres sub-epígrafes.En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.
 
 ### Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo
 
@@ -128,7 +128,7 @@ $$
 \begin{aligned}
 L_{out} &= \frac{L_{in} + 2*padding - dilation*(kerenel\_size - 1)-1}{stride} + 1 \\
 \end{aligned}
-$${#eq-cnn-lout} 
+$$ {#eq-cnn-lout}
 
 Donde:
 
@@ -218,10 +218,42 @@ Las LSTM pueden aprender a capturar dependencias a largo plazo ajustando los val
 
 Introducción al epígrafe.
 
-### Antecendetes
+### Problema y técnicas
 
-Introducción al sub-epígrafe.
+En este sub-epígrafe se presenta el problema de hallar la mejor composición de cartera posible, explicandose de manera general la teoría detras de los objetivos que se deben seguir para darle solución al mismo. Además se listan las técnicas más utilizadas para darle solución a este problema, diferenciandolas entre enfoques clásicos y enfoques inteligentes.
+
+Como se explica en @Gunjan2023 la optimización de cartera es el proceso de seleccionar la mejor combinación de activos para mantener en una cartera en función de objetivos predefinidos. Los objetivos pueden ser la maximización del rendimiento o la minimización del riesgo, o ambos. La optimización de la cartera implica encontrar las ponderaciones óptimas para cada activo de la cartera de manera que la cartera general cumpla con los objetivos deseados. Esto puede ser un problema desafiante debido a la gran cantidad de activos para elegir y las complejas relaciones entre ellos.
+
+La optimización de la cartera es un proceso importante para los inversores, ya que les ayuda a minimizar el riesgo y maximizar el rendimiento de sus inversiones. Al seleccionar cuidadosamente los activos que mantendrán en su cartera, los inversores pueden lograr el nivel deseado de riesgo y rendimiento mientras diversifican sus inversiones para reducir el riesgo general. La optimización de la cartera es un mecanismo crucial que se utiliza para reducir el riesgo de la inversión.
+
+Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En @Gunjan2023 estas técnicas se encuentran clasificadas en en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.
+
+Enfoques clásicos:
+
+- Media-varianza: Esta técnica, propuesta en @markowitz1967, se basa en la idea de minimizar la varianza para una determinada rentabilidad esperada o maximizar la rentabilidad esperada para una determinada varianza. Es una técnica de programación cuadrática paramétrica (en lo adelante, PQP) que se puede utilizar para resolver problemas de optimización cuadrática que surgen en la optimización de carteras (@Zhi08). El enfoque de la varianza media supone que los inversores tienen aversión al riesgo y prefieren carteras con una varianza más baja. La técnica consiste en construir una frontera de cartera que representa el conjunto de carteras que ofrecen el rendimiento esperado más alto para un nivel de riesgo dado. A continuación, se selecciona la cartera óptima de esta frontera en función de las preferencias de riesgo del inversor.
+
+- Varianza con asimetría: esta técnica amplía el enfoque de media-varianza teniendo en cuenta la asimetría de la distribución. Fue propuesta en @samuelson1970 y se puede utilizar cuando la función de distribución no es de naturaleza cuadrática. La asimetría mide la asimetría de una distribución y puede proporcionar información adicional sobre los riesgos y rendimientos potenciales de una cartera. Al incorporar la asimetría en el proceso de optimización de la cartera, los inversores pueden comprender mejor los posibles riesgos a la baja y tomar decisiones más informadas.
+
+- Valor en riesgo (VaR): este enfoque estadístico mide la pérdida potencial de valor de una cartera durante un período definido para un intervalo de confianza dado. Fue introducido en la primera edición de @jorion2007 en 1997 y requiere la determinación de tres parámetros: período de tiempo, nivel de confianza y unidad de valor en riesgo. El VaR proporciona una medida de la pérdida potencial máxima que podría ocurrir con una probabilidad dada en un horizonte de tiempo específico. Las instituciones financieras lo utilizan comúnmente para administrar su exposición al riesgo y cumplir con los requisitos reglamentarios.
+
+- Valor en riesgo condicional (CVaR): este enfoque amplía el VaR teniendo en cuenta la pérdida esperada que excede el VaR. Fue introducido en @rockafellar2002 y puede manejar pérdidas extremas mediante el uso de pesos dinámicos derivados de datos históricos. CVaR proporciona una medida de la pérdida esperada que podría ocurrir más allá del umbral de VaR. También se conoce como Expected Shortfall (ES) o Tail Value-at-Risk (TVaR) y se considera una medida de riesgo más coherente que el VaR.
+
+- Desviación media-absoluta (MAD): esta técnica se puede emplear para problemas de selección de carteras de gran escala y muy diversificados. Fue introducido en @konno1991 y penaliza tanto las desviaciones positivas como las negativas. MAD proporciona una medida de la desviación absoluta promedio de los rendimientos de la cartera de su valor medio. Se considera más sólida que las medidas basadas en la varianza, ya que es menos sensible a los valores atípicos.
+
+- Minimax: Esta técnica utiliza la rentabilidad mínima como medida de riesgo. Fue introducido en @cai2004minimax y tiene ciertas ventajas cuando los rendimientos no se distribuyen normalmente. Minimax proporciona una medida del peor de los casos para una cartera al minimizar la pérdida potencial máxima que podría ocurrir. Puede ser útil para los inversores que están particularmente preocupados por los riesgos a la baja.
+
+Enfoques inteligentes:
+
+- Redes bayesianas: estos modelos gráficos probabilísticos se pueden utilizar para modelar el riesgo y la rentabilidad. Fueron presentados en @shenoy2000bayesian y se pueden utilizar para visualizar la relación entre diferentes variables en un modelo. Las redes bayesianas proporcionan una forma de representar dependencias complejas entre variables utilizando gráficos acíclicos dirigidos (DAG). Se pueden usar para modelar relaciones inciertas entre variables y para hacer predicciones probabilísticas sobre eventos futuros. En el contexto de la gestión de carteras, las redes bayesianas se pueden utilizar para modelar las relaciones entre diferentes activos y hacer predicciones sobre sus rendimientos futuros en función de datos históricos y otra información relevante.
+
+- Regresión de vectores de soporte (SVR): esta técnica de aprendizaje automático se puede utilizar para determinar la cantidad a comprar y vender. Fue introducido por @drucker1996linear y tiene ciertas ventajas sobre las técnicas basadas en estadísticas, como su capacidad para aprender de datos históricos. SVR implica construir un hiperplano que separa puntos de datos con diferentes etiquetas mientras maximiza el margen entre ellos. Puede usarse para tareas de regresión donde el objetivo es predecir valores continuos en lugar de etiquetas discretas. En el contexto de la gestión de carteras, SVR se puede utilizar para predecir precios de activos futuros en función de datos históricos y otra información relevante.
+
+- Redes neuronales artificiales: como se explico con anterioridad estos modelos computacionales se pueden utilizar para resolver problemas computacionales y de aprendizaje complejos. En el contexto de la gestión de carteras, las redes neuronales se pueden utilizar para predecir futuros precios o rendimientos de activos en función de datos históricos y otra información relevante, que es para lo que se usan en el presente trabajo.
+
+- Aprendizaje por refuerzo: este tipo de aprendizaje automático involucra a un agente o modelo que interactúa con su entorno para aprender de sus acciones. Fue presentado en @sutton2018reinforcement y funciona para maximizar la recompensa al agente. El aprendizaje por refuerzo implica aprender a través de interacciones de prueba y error con un entorno. El agente realiza acciones en función de su estado actual y recibe recompensas o sanciones en función de los resultados de esas acciones. Con el tiempo, el agente aprende a realizar acciones que maximicen su recompensa acumulada. En el contexto de la gestión de carteras, el aprendizaje por refuerzo se puede utilizar para desarrollar estrategias comerciales que maximicen los rendimientos mientras se gestiona el riesgo.
 
 ### Programación cuadrática
 
 Introducción al sub-epígrafe.
+
+La programación cuadrática se puede elegir entre las técnicas enumeradas por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. En segundo lugar, la programación cuadrática se puede utilizar para resolver problemas como la optimización de la cartera de varianza media, donde el objetivo es minimizar la varianza de la cartera sujeta a restricciones sobre el rendimiento esperado y las ponderaciones de los activos. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.

@@ -216,7 +216,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#composición-de-carteras" id="toc-composición-de-carteras" class="nav-link" data-scroll-target="#composición-de-carteras"><span class="toc-section-number">1.3</span>  Composición de carteras</a>
   <ul class="collapse">
-  <li><a href="#antecendetes" id="toc-antecendetes" class="nav-link" data-scroll-target="#antecendetes"><span class="toc-section-number">1.3.1</span>  Antecendetes</a></li>
+  <li><a href="#problema-y-técnicas" id="toc-problema-y-técnicas" class="nav-link" data-scroll-target="#problema-y-técnicas"><span class="toc-section-number">1.3.1</span>  Problema y técnicas</a></li>
   <li><a href="#programación-cuadrática" id="toc-programación-cuadrática" class="nav-link" data-scroll-target="#programación-cuadrática"><span class="toc-section-number">1.3.2</span>  Programación cuadrática</a></li>
   </ul></li>
   </ul>
@@ -388,16 +388,39 @@ h_t &amp;= o_t * tanh(C_t) \\
 <section id="composición-de-carteras" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="composición-de-carteras"><span class="header-section-number">1.3</span> Composición de carteras</h2>
 <p>Introducción al epígrafe.</p>
-<section id="antecendetes" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="antecendetes"><span class="header-section-number">1.3.1</span> Antecendetes</h3>
-<p>Introducción al sub-epígrafe.</p>
+<section id="problema-y-técnicas" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="problema-y-técnicas"><span class="header-section-number">1.3.1</span> Problema y técnicas</h3>
+<p>En este sub-epígrafe se presenta el problema de hallar la mejor composición de cartera posible, explicandose de manera general la teoría detras de los objetivos que se deben seguir para darle solución al mismo. Además se listan las técnicas más utilizadas para darle solución a este problema, diferenciandolas entre enfoques clásicos y enfoques inteligentes.</p>
+<p>Como se explica en <span class="citation" data-cites="Gunjan2023">Gunjan (<a href="references.html#ref-Gunjan2023" role="doc-biblioref">2023</a>)</span> la optimización de cartera es el proceso de seleccionar la mejor combinación de activos para mantener en una cartera en función de objetivos predefinidos. Los objetivos pueden ser la maximización del rendimiento o la minimización del riesgo, o ambos. La optimización de la cartera implica encontrar las ponderaciones óptimas para cada activo de la cartera de manera que la cartera general cumpla con los objetivos deseados. Esto puede ser un problema desafiante debido a la gran cantidad de activos para elegir y las complejas relaciones entre ellos.</p>
+<p>La optimización de la cartera es un proceso importante para los inversores, ya que les ayuda a minimizar el riesgo y maximizar el rendimiento de sus inversiones. Al seleccionar cuidadosamente los activos que mantendrán en su cartera, los inversores pueden lograr el nivel deseado de riesgo y rendimiento mientras diversifican sus inversiones para reducir el riesgo general. La optimización de la cartera es un mecanismo crucial que se utiliza para reducir el riesgo de la inversión.</p>
+<p>Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En <span class="citation" data-cites="Gunjan2023">Gunjan (<a href="references.html#ref-Gunjan2023" role="doc-biblioref">2023</a>)</span> estas técnicas se encuentran clasificadas en en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.</p>
+<p>Enfoques clásicos:</p>
+<ul>
+<li><p>Media-varianza: Esta técnica, propuesta en <span class="citation" data-cites="markowitz1967">Markowitz y Markowitz (<a href="references.html#ref-markowitz1967" role="doc-biblioref">1967</a>)</span>, se basa en la idea de minimizar la varianza para una determinada rentabilidad esperada o maximizar la rentabilidad esperada para una determinada varianza. Es una técnica de programación cuadrática paramétrica (en lo adelante, PQP) que se puede utilizar para resolver problemas de optimización cuadrática que surgen en la optimización de carteras (<span class="citation" data-cites="Zhi08">Aijun Zhang &amp; Chun-hung Li &amp; Agus Sudjianto (<a href="references.html#ref-Zhi08" role="doc-biblioref">2008</a>)</span>). El enfoque de la varianza media supone que los inversores tienen aversión al riesgo y prefieren carteras con una varianza más baja. La técnica consiste en construir una frontera de cartera que representa el conjunto de carteras que ofrecen el rendimiento esperado más alto para un nivel de riesgo dado. A continuación, se selecciona la cartera óptima de esta frontera en función de las preferencias de riesgo del inversor.</p></li>
+<li><p>Varianza con asimetría: esta técnica amplía el enfoque de media-varianza teniendo en cuenta la asimetría de la distribución. Fue propuesta en <span class="citation" data-cites="samuelson1970">Samuelson (<a href="references.html#ref-samuelson1970" role="doc-biblioref">1970</a>)</span> y se puede utilizar cuando la función de distribución no es de naturaleza cuadrática. La asimetría mide la asimetría de una distribución y puede proporcionar información adicional sobre los riesgos y rendimientos potenciales de una cartera. Al incorporar la asimetría en el proceso de optimización de la cartera, los inversores pueden comprender mejor los posibles riesgos a la baja y tomar decisiones más informadas.</p></li>
+<li><p>Valor en riesgo (VaR): este enfoque estadístico mide la pérdida potencial de valor de una cartera durante un período definido para un intervalo de confianza dado. Fue introducido en la primera edición de <span class="citation" data-cites="jorion2007">Jorion (<a href="references.html#ref-jorion2007" role="doc-biblioref">2007</a>)</span> en 1997 y requiere la determinación de tres parámetros: período de tiempo, nivel de confianza y unidad de valor en riesgo. El VaR proporciona una medida de la pérdida potencial máxima que podría ocurrir con una probabilidad dada en un horizonte de tiempo específico. Las instituciones financieras lo utilizan comúnmente para administrar su exposición al riesgo y cumplir con los requisitos reglamentarios.</p></li>
+<li><p>Valor en riesgo condicional (CVaR): este enfoque amplía el VaR teniendo en cuenta la pérdida esperada que excede el VaR. Fue introducido en <span class="citation" data-cites="rockafellar2002">Rockafellar y Uryasev (<a href="references.html#ref-rockafellar2002" role="doc-biblioref">2002</a>)</span> y puede manejar pérdidas extremas mediante el uso de pesos dinámicos derivados de datos históricos. CVaR proporciona una medida de la pérdida esperada que podría ocurrir más allá del umbral de VaR. También se conoce como Expected Shortfall (ES) o Tail Value-at-Risk (TVaR) y se considera una medida de riesgo más coherente que el VaR.</p></li>
+<li><p>Desviación media-absoluta (MAD): esta técnica se puede emplear para problemas de selección de carteras de gran escala y muy diversificados. Fue introducido en <span class="citation" data-cites="konno1991">Konno y Yamazaki (<a href="references.html#ref-konno1991" role="doc-biblioref">1991</a>)</span> y penaliza tanto las desviaciones positivas como las negativas. MAD proporciona una medida de la desviación absoluta promedio de los rendimientos de la cartera de su valor medio. Se considera más sólida que las medidas basadas en la varianza, ya que es menos sensible a los valores atípicos.</p></li>
+<li><p>Minimax: Esta técnica utiliza la rentabilidad mínima como medida de riesgo. Fue introducido en <span class="citation" data-cites="cai2004minimax">Cai et&nbsp;al. (<a href="references.html#ref-cai2004minimax" role="doc-biblioref">2004</a>)</span> y tiene ciertas ventajas cuando los rendimientos no se distribuyen normalmente. Minimax proporciona una medida del peor de los casos para una cartera al minimizar la pérdida potencial máxima que podría ocurrir. Puede ser útil para los inversores que están particularmente preocupados por los riesgos a la baja.</p></li>
+</ul>
+<p>Enfoques inteligentes:</p>
+<ul>
+<li><p>Redes bayesianas: estos modelos gráficos probabilísticos se pueden utilizar para modelar el riesgo y la rentabilidad. Fueron presentados en <span class="citation" data-cites="shenoy2000bayesian">Shenoy y Shenoy (<a href="references.html#ref-shenoy2000bayesian" role="doc-biblioref">2000</a>)</span> y se pueden utilizar para visualizar la relación entre diferentes variables en un modelo. Las redes bayesianas proporcionan una forma de representar dependencias complejas entre variables utilizando gráficos acíclicos dirigidos (DAG). Se pueden usar para modelar relaciones inciertas entre variables y para hacer predicciones probabilísticas sobre eventos futuros. En el contexto de la gestión de carteras, las redes bayesianas se pueden utilizar para modelar las relaciones entre diferentes activos y hacer predicciones sobre sus rendimientos futuros en función de datos históricos y otra información relevante.</p></li>
+<li><p>Regresión de vectores de soporte (SVR): esta técnica de aprendizaje automático se puede utilizar para determinar la cantidad a comprar y vender. Fue introducido por <span class="citation" data-cites="drucker1996linear">Drucker et&nbsp;al. (<a href="references.html#ref-drucker1996linear" role="doc-biblioref">1996</a>)</span> y tiene ciertas ventajas sobre las técnicas basadas en estadísticas, como su capacidad para aprender de datos históricos. SVR implica construir un hiperplano que separa puntos de datos con diferentes etiquetas mientras maximiza el margen entre ellos. Puede usarse para tareas de regresión donde el objetivo es predecir valores continuos en lugar de etiquetas discretas. En el contexto de la gestión de carteras, SVR se puede utilizar para predecir precios de activos futuros en función de datos históricos y otra información relevante.</p></li>
+<li><p>Redes neuronales artificiales: como se explico con anterioridad estos modelos computacionales se pueden utilizar para resolver problemas computacionales y de aprendizaje complejos. En el contexto de la gestión de carteras, las redes neuronales se pueden utilizar para predecir futuros precios o rendimientos de activos en función de datos históricos y otra información relevante, que es para lo que se usan en el presente trabajo.</p></li>
+<li><p>Aprendizaje por refuerzo: este tipo de aprendizaje automático involucra a un agente o modelo que interactúa con su entorno para aprender de sus acciones. Fue presentado en <span class="citation" data-cites="sutton2018reinforcement">Sutton y Barto (<a href="references.html#ref-sutton2018reinforcement" role="doc-biblioref">2018</a>)</span> y funciona para maximizar la recompensa al agente. El aprendizaje por refuerzo implica aprender a través de interacciones de prueba y error con un entorno. El agente realiza acciones en función de su estado actual y recibe recompensas o sanciones en función de los resultados de esas acciones. Con el tiempo, el agente aprende a realizar acciones que maximicen su recompensa acumulada. En el contexto de la gestión de carteras, el aprendizaje por refuerzo se puede utilizar para desarrollar estrategias comerciales que maximicen los rendimientos mientras se gestiona el riesgo.</p></li>
+</ul>
 </section>
 <section id="programación-cuadrática" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="programación-cuadrática"><span class="header-section-number">1.3.2</span> Programación cuadrática</h3>
 <p>Introducción al sub-epígrafe.</p>
+<p>La programación cuadrática se puede elegir entre las técnicas enumeradas por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. En segundo lugar, la programación cuadrática se puede utilizar para resolver problemas como la optimización de la cartera de varianza media, donde el objetivo es minimizar la varianza de la cartera sujeta a restricciones sobre el rendimiento esperado y las ponderaciones de los activos. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-Zhi08" class="csl-entry" role="doc-biblioentry">
+Aijun Zhang &amp; Chun-hung Li &amp; Agus Sudjianto, Zhi-li Wu &amp;. 2008. <span>«Trace solution paths for SVMs via parametric quadratic programming»</span>. Researchgate. 2008. <a href="https://www.researchgate.net/publication/228577955_Trace_solution_paths_for_SVMs_via_parametric_quadratic_programming">https://www.researchgate.net/publication/228577955_Trace_solution_paths_for_SVMs_via_parametric_quadratic_programming</a>.
+</div>
 <div id="ref-anderson2017" class="csl-entry" role="doc-biblioentry">
 Anderson, D. R., D. J. Sweeney, T. A. Williams, D. J. Camm, y J. J Cochran. 2017. <em>Statistics for business &amp; economics</em>. Boston: Cengage Learning.
 </div>
@@ -412,6 +435,9 @@ Barone, A. 2022. <span>«Opening Price: Definition, Example, Trading Strategies�
 </div>
 <div id="ref-bmeqe" class="csl-entry" role="doc-biblioentry">
 BME. s.&nbsp;f. <span>«¿Qué es BME?»</span> Accedido 24 de abril de 2023. <a href="https://www.bolsasymercados.es/esp/Sobre-BME/Que-es">https://www.bolsasymercados.es/esp/Sobre-BME/Que-es</a>.
+</div>
+<div id="ref-cai2004minimax" class="csl-entry" role="doc-biblioentry">
+Cai, Xiaoqiang, Kok Lay Teo, XQ Yang, y Xun Yu Zhou. 2004. <span>«Minimax portfolio optimization: empirical numerical study»</span>. <em>Journal of the Operational Research Society</em> 55 (1): 65-72.
 </div>
 <div id="ref-castillo_varela2010" class="csl-entry" role="doc-biblioentry">
 Castillo, R. A., y R. Varela. 2010. <em>ECONOMETRÍA PRÁCTICA: Fundamentos de Series de Tiempo</em>. México: Universidad Autónoma de Baja California.
@@ -440,11 +466,17 @@ Dodge, Y. 2008. <span>«Time Series»</span>. En <em>The Concise Encyclopedia of
 <div id="ref-downey22" class="csl-entry" role="doc-biblioentry">
 Downey, L. 2022. <span>«Today’s Low»</span>. 2022. <a href="https://www.investopedia.com/terms/t/todayslow.asp">https://www.investopedia.com/terms/t/todayslow.asp</a>.
 </div>
+<div id="ref-drucker1996linear" class="csl-entry" role="doc-biblioentry">
+Drucker, Harris, Christopher Burges, Linda Kaufman, Alex Smola, y Vladimir Vapnik. 1996. <span>«Linear support vector regression machines»</span>. <em>Advances in neural information processing systems</em> 9 (9): 155-61.
+</div>
 <div id="ref-espallargas2012" class="csl-entry" role="doc-biblioentry">
 Espallargas, S. D., y M. V. Solís. 2012. <em>Econometría y series temporales: aplicaciones</em>. La Habana: Editorial Félix Varela.
 </div>
 <div id="ref-ganti20" class="csl-entry" role="doc-biblioentry">
 Ganti, A. 2020. <span>«Adjusted Closing Price»</span>. 2020. <a href="https://www.investopedia.com/terms/a/adjusted_closing_price.asp">https://www.investopedia.com/terms/a/adjusted_closing_price.asp</a>.
+</div>
+<div id="ref-Gunjan2023" class="csl-entry" role="doc-biblioentry">
+Gunjan, Siddhartha, Abhishek &amp; Bhattacharyya. 2023. <span>«<span>A brief review of portfolio optimization techniques</span>»</span>. <em>Artificial Intelligence Review</em> 56 (5): 3847-86. <a href="https://doi.org/10.1007/s10462-022-10273-7">https://doi.org/10.1007/s10462-022-10273-7</a>.
 </div>
 <div id="ref-GURESEN201110389" class="csl-entry" role="doc-biblioentry">
 Guresen, Erkam, Gulgun Kayakutlu, y Tugrul U. Daim. 2011. <span>«Using artificial neural network models in stock market index prediction»</span>. <em>Expert Systems with Applications</em> 38 (8): 10389-97. https://doi.org/<a href="https://doi.org/10.1016/j.eswa.2011.02.068">https://doi.org/10.1016/j.eswa.2011.02.068</a>.
@@ -464,14 +496,23 @@ IBM. 2021. <span>«Characteristics of time series»</span>. <a href="https://www
 <div id="ref-hongj20" class="csl-entry" role="doc-biblioentry">
 Jing, Hong. 2020. <span>«How Convolutional Layers Work in Deep Learning Neural Networks?»</span> Jingles, Github Blog. 2020. <a href="https://jinglescode.github.io/2020/11/01/how-convolutional-layers-work-deep-learning-neural-networks/">https://jinglescode.github.io/2020/11/01/how-convolutional-layers-work-deep-learning-neural-networks/</a>.
 </div>
+<div id="ref-jorion2007" class="csl-entry" role="doc-biblioentry">
+Jorion, Philippe. 2007. <em>Value at risk: the new benchmark for managing financial risk</em>. The McGraw-Hill Companies, Inc.
+</div>
 <div id="ref-kocenda2017" class="csl-entry" role="doc-biblioentry">
 Kocenda, E., y A. Cerný. 2017. <em>Elements of Time Series Econometrics: An Applied Approach</em>. Prague: Karolinum Press.
+</div>
+<div id="ref-konno1991" class="csl-entry" role="doc-biblioentry">
+Konno, Hiroshi, y Hiroaki Yamazaki. 1991. <span>«Mean-absolute deviation portfolio optimization model and its applications to Tokyo stock market»</span>. <em>Management science</em> 37 (5): 519-31.
 </div>
 <div id="ref-Larranaga07" class="csl-entry" role="doc-biblioentry">
 Larrañaga, Iñaki &amp; Moujahid, Pedro &amp; Inza. 2007. <span>«Tema 14. Redes Neuronales»</span>. Departamento de Ciencias de la Computaci´on e Inteligencia Artificial, Universidad del Pa´ıs Vasco–Euskal Herriko Unibertsitatea. 2007. <a href="http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/t14-neuronales.pdf">http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/t14-neuronales.pdf</a>.
 </div>
 <div id="ref-cnn" class="csl-entry" role="doc-biblioentry">
 Lecun, Y., L. Bottou, Y. Bengio, y P. Haffner. 1998. <span>«Gradient-based learning applied to document recognition»</span>. <em>Proceedings of the IEEE</em> 86 (11): 2278-2324. <a href="https://doi.org/10.1109/5.726791">https://doi.org/10.1109/5.726791</a>.
+</div>
+<div id="ref-markowitz1967" class="csl-entry" role="doc-biblioentry">
+Markowitz, Harry M, y Harry M Markowitz. 1967. <em>Portfolio selection: efficient diversification of investments</em>. J. Wiley.
 </div>
 <div id="ref-McCarthy_Minsky_Rochester_Shannon_2006" class="csl-entry" role="doc-biblioentry">
 McCarthy, John, Marvin L. Minsky, Nathaniel Rochester, y Claude E. Shannon. 2006. <span>«A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence, August 31, 1955»</span>. <em>AI Magazine</em> 27 (4): 12. <a href="https://doi.org/10.1609/aimag.v27i4.1904">https://doi.org/10.1609/aimag.v27i4.1904</a>.
@@ -485,14 +526,26 @@ Olah, Christopher. 2015. <span>«Understanding LSTM networks»</span>. Colah’s
 <div id="ref-pinset21" class="csl-entry" role="doc-biblioentry">
 Pinset, W. 2021. <span>«Understanding Stock Prices and Values»</span>. 2021. <a href="https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp">https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp</a>.
 </div>
+<div id="ref-rockafellar2002" class="csl-entry" role="doc-biblioentry">
+Rockafellar, R Tyrrell, y Stanislav Uryasev. 2002. <span>«Conditional value-at-risk for general loss distributions»</span>. <em>Journal of banking &amp; finance</em> 26 (7): 1443-71.
+</div>
 <div id="ref-ruiz2011" class="csl-entry" role="doc-biblioentry">
 Ruiz, M. C. 2011. <span>«Tema 5: Procesos Estocásticos»</span>. <a href="http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf" class="uri">http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf</a>; Departamento de Matemática y Estadística. Universidad Politécnica de Cartagena. 2011.
+</div>
+<div id="ref-samuelson1970" class="csl-entry" role="doc-biblioentry">
+Samuelson, Paul A. 1970. <span>«The fundamental approximation theorem of portfolio analysis in terms of means, variances and higher moments»</span>. <em>The Review of Economic Studies</em> 37 (4): 537-42.
 </div>
 <div id="ref-SEZER2020106181" class="csl-entry" role="doc-biblioentry">
 Sezer, Omer Berat, Mehmet Ugur Gudelek, y Ahmet Murat Ozbayoglu. 2020. <span>«Financial time series forecasting with deep learning : A systematic literature review: 2005–2019»</span>. <em>Applied Soft Computing</em> 90: 106181. https://doi.org/<a href="https://doi.org/10.1016/j.asoc.2020.106181">https://doi.org/10.1016/j.asoc.2020.106181</a>.
 </div>
+<div id="ref-shenoy2000bayesian" class="csl-entry" role="doc-biblioentry">
+Shenoy, Catherine, y Prakash P Shenoy. 2000. <span>«Bayesian network models of portfolio risk and return»</span>. En. The MIT Press.
+</div>
 <div id="ref-rafid23" class="csl-entry" role="doc-biblioentry">
 Siddiqui, J. Rafid. 2023. <span>«Why Convolve? Understanding Convolution and Feature Extraction in Deep Networks»</span>. Medium, Towards Data Science. 2023. <a href="https://towardsdatascience.com/why-convolve-understanding-convolution-and-feature-extraction-in-deep-networks-ee45d1fdd17c">https://towardsdatascience.com/why-convolve-understanding-convolution-and-feature-extraction-in-deep-networks-ee45d1fdd17c</a>.
+</div>
+<div id="ref-sutton2018reinforcement" class="csl-entry" role="doc-biblioentry">
+Sutton, Richard S, y Andrew G Barto. 2018. <em>Reinforcement learning: An introduction</em>. MIT press.
 </div>
 <div id="ref-TEALAB2018334" class="csl-entry" role="doc-biblioentry">
 Tealab, Ahmed. 2018. <span>«Time series forecasting using artificial neural networks methodologies: A systematic review»</span>. <em>Future Computing and Informatics Journal</em> 3 (2): 334-40. https://doi.org/<a href="https://doi.org/10.1016/j.fcij.2018.10.003">https://doi.org/10.1016/j.fcij.2018.10.003</a>.
