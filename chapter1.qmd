@@ -1,6 +1,6 @@
 # Capítulo I: Consideraciones teóricas
 
-Párrafo introductorio sobre las consideraciones teóticas de la utilización de técnicas estadísticas y de Deep Learning para la previsión de los precios de empresas cotizadas en bolsa o evaluación de empresas
+El objetivo de este capítulo es brindar una comprensión teórica exhaustiva sobre aspectos fundamentales relacionados con las series temporales financieras y su caracterización, así como el uso de redes neuronales artificiales y la programación cuadrática en la previsión y composición de carteras. En primer lugar, se analizará en detalle la caracterización de las series temporales financieras, explorando su naturaleza y características clave para comprender su comportamiento y aplicaciones en el ámbito financiero. Además, se examinará el uso de redes neuronales artificiales en la previsión de series de tiempo, incluyendo los antecedentes de su aplicación y centrándose específicamente en las Redes Neuronales Convolucionales y las denominadas Long Short-Term Memory. A continuación, se abordará la composición de carteras mediante programación cuadrática, presentando el problema y las técnicas asociadas, y se explorará en detalle el método dual en la optimización de carteras. A través de este capítulo, se sentarán las bases teóricas necesarias para comprender y aplicar de manera efectiva estas técnicas en capítulos posteriores, permitiendo una comprensión profunda y la capacidad de utilizar estos conceptos de manera práctica en el contexto financiero.
 
 ## Caracterización de las series temporales financieras
 
