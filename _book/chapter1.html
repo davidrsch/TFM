@@ -228,7 +228,7 @@ div.csl-indent {
 
 
 
-<p>Párrafo introductorio sobre las consideraciones teóticas de la utilización de técnicas estadísticas y de Deep Learning para la previsión de los precios de empresas cotizadas en bolsa o evaluación de empresas</p>
+<p>El objetivo de este capítulo es brindar una comprensión teórica exhaustiva sobre aspectos fundamentales relacionados con las series temporales financieras y su caracterización, así como el uso de redes neuronales artificiales y la programación cuadrática en la previsión y composición de carteras. En primer lugar, se analizará en detalle la caracterización de las series temporales financieras, explorando su naturaleza y características clave para comprender su comportamiento y aplicaciones en el ámbito financiero. Además, se examinará el uso de redes neuronales artificiales en la previsión de series de tiempo, incluyendo los antecedentes de su aplicación y centrándose específicamente en las Redes Neuronales Convolucionales y las denominadas Long Short-Term Memory. A continuación, se abordará la composición de carteras mediante programación cuadrática, presentando el problema y las técnicas asociadas, y se explorará en detalle el método dual en la optimización de carteras. A través de este capítulo, se sentarán las bases teóricas necesarias para comprender y aplicar de manera efectiva estas técnicas en capítulos posteriores, permitiendo una comprensión profunda y la capacidad de utilizar estos conceptos de manera práctica en el contexto financiero.</p>
 <section id="caracterización-de-las-series-temporales-financieras" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="caracterización-de-las-series-temporales-financieras"><span class="header-section-number">1.1</span> Caracterización de las series temporales financieras</h2>
 <p>Este epígrafe se divide en dos sub-epígrafes. En el primero se presentan los conceptos fundamentales relacionados con las series de tiempo, incluyendo sus características, componentes y clasificaciones, y se establece su relación con el análisis de las series cronológicas y la previsión, que es el objetivo de este informe. En el segundo sub-epígrafe se profundiza en las características de los precios de las acciones, comenzando por una descripción general y avanzando hacia aspectos más específicos, así como en la importancia de la estructura en la que se encuentran los datos relacionados con estos.</p>
@@ -357,7 +357,8 @@ f_t &amp;= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
 \begin{aligned}
 i_t &amp;= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
 \end{aligned}
-\tag{1.3}\]</span></span> <span id="eq-lstm-ssteps"><span class="math display">\[
+\tag{1.3}\]</span></span></p>
+<p><span id="eq-lstm-ssteps"><span class="math display">\[
 \begin{aligned}
 \tilde{C}_t &amp;= tanh(W_c [h_{t-1}, x_t] + b_c) \\
 \end{aligned}
@@ -387,7 +388,7 @@ h_t &amp;= o_t * tanh(C_t) \\
 </section>
 <section id="composición-de-carteras" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="composición-de-carteras"><span class="header-section-number">1.3</span> Composición de carteras</h2>
-<p>Introducción al epígrafe.</p>
+<p>En este epígrafe, se expone el problema de encontrar la mejor composición de cartera posible y explicar de manera general la teoría detrás de los objetivos para solucionarlo. Además, se enumerarán las técnicas más utilizadas, diferenciando entre enfoques clásicos y enfoques inteligentes. Posteriormente, se explicará qué es la programación cuadrática y se mencionarán algunas técnicas dentro de esta disciplina de optimización matemática. Se mostrará cómo el problema de optimización de carteras se puede describir como un problema de programación cuadrática. Además, se proporcionará una breve explicación del Dual Active Set Method, una técnica ampliamente utilizada en esta disciplina y que será utilizada en los capítulos siguientes.</p>
 <section id="problema-y-técnicas" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="problema-y-técnicas"><span class="header-section-number">1.3.1</span> Problema y técnicas</h3>
 <p>En este sub-epígrafe se presenta el problema de hallar la mejor composición de cartera posible, explicandose de manera general la teoría detras de los objetivos que se deben seguir para darle solución al mismo. Además se listan las técnicas más utilizadas para darle solución a este problema, diferenciandolas entre enfoques clásicos y enfoques inteligentes.</p>
@@ -413,8 +414,51 @@ h_t &amp;= o_t * tanh(C_t) \\
 </section>
 <section id="programación-cuadrática" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="programación-cuadrática"><span class="header-section-number">1.3.2</span> Programación cuadrática</h3>
-<p>Introducción al sub-epígrafe.</p>
-<p>La programación cuadrática se puede elegir entre las técnicas enumeradas por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. En segundo lugar, la programación cuadrática se puede utilizar para resolver problemas como la optimización de la cartera de varianza media, donde el objetivo es minimizar la varianza de la cartera sujeta a restricciones sobre el rendimiento esperado y las ponderaciones de los activos. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.</p>
+<p>En este sub-epígrade se explicara que es la programación cuadrática. Cuáles son algunas de las técnicas que existen dentro de esta disciplina de la optimización matemática. Se expone además como el problema de optimización de carteras se puede describir como un problema de programación cuadratica y se expondra de manera breve como funciona una de las técnicas más usadas en esta disciplina, concretamente la denominada Dual Active Set Method, la cuál es usada en los capítulos posteriores.</p>
+<p>La programación cuadrática se puede elegir entre las técnicas enumeradas en el sub-epígrafe anterior por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.</p>
+<p>Existen diversas tecnicas de programación cuadrática, entre las más utilizadas se ecuentran:</p>
+<ul>
+<li><p>Interior Point: Este es un método de programación lineal o no lineal que logra la optimización al pasar por el centro del sólido definido por el problema en lugar de alrededor de su superficie. Un algoritmo de programación lineal de tiempo polinómico utilizando un método de punto interior fue encontrado por <span class="citation" data-cites="karmarkar1984">Karmarkar (<a href="references.html#ref-karmarkar1984" role="doc-biblioref">1984</a>)</span>.</p></li>
+<li><p>Active Set: Este es un algoritmo utilizado para identificar las restricciones activas en un conjunto de restricciones de desigualdad. Las restricciones activas se expresan entonces como restricciones de igualdad, transformando así un problema restringido por la desigualdad en un subproblema más simple restringido por la igualdad. El método de conjunto activo fue introducido por primera vez en un artículo de <span class="citation" data-cites="beale1959">Beale (<a href="references.html#ref-beale1959" role="doc-biblioref">1959</a>)</span> y desarrollado por <span class="citation" data-cites="fletcher1971">Fletcher (<a href="references.html#ref-fletcher1971" role="doc-biblioref">1971</a>)</span> y <span class="citation" data-cites="bunch1977">Bunch y Kaufman (<a href="references.html#ref-bunch1977" role="doc-biblioref">1977</a>)</span>.</p></li>
+<li><p>Dual Active Set: El método, como se expone en <span class="citation" data-cites="Goldfarb1982ANS">Goldfarb y Idnani (<a href="references.html#ref-Goldfarb1982ANS" role="doc-biblioref">1982</a>)</span> y <span class="citation" data-cites="Goldfarb1983ANS">Goldfarb y Idnani (<a href="references.html#ref-Goldfarb1983ANS" role="doc-biblioref">1983</a>)</span>, es un algoritmo dual eficiente y numéricamente estable para la programación cuadrática definida positiva que aprovecha el hecho de que el mínimo sin restricciones de la función objetivo se puede usar como punto de partida.</p></li>
+<li><p>Augmented Lagrangian: Fue introducido independientemente en <span class="citation" data-cites="hestenes1969">Magnus R. Hestenes (<a href="references.html#ref-hestenes1969" role="doc-biblioref">1969</a>)</span> y <span class="citation" data-cites="powell1969">Powell (<a href="references.html#ref-powell1969" role="doc-biblioref">1969</a>)</span>. Se utiliza para resolver problemas de optimización restringidos agregando un término de penalización a la función objetivo que penaliza cualquier violación de las restricciones. El término de penalización suele ser un múltiplo de una medida de infracción de restricción, como la suma de infracciones de restricción al cuadrado.</p></li>
+<li><p>Conjugate Gradient: Este es un método iterativo para resolver sistemas de ecuaciones lineales con una matriz definida positiva simétrica. También se puede utilizar para resolver problemas de optimización sin restricciones al encontrar el mínimo de una función cuadrática. El método genera una secuencia de direcciones de búsqueda que se conjugan con respecto a la matriz que define el sistema de ecuaciones o función cuadrática. El método de gradiente conjugado fue introducido originalmente en un artículo de <span class="citation" data-cites="Hestenes1952">Magnus R. Hestenes y Stiefel (<a href="references.html#ref-Hestenes1952" role="doc-biblioref">1952</a>)</span>.</p></li>
+<li><p>Gradient Projection: El método de proyección de gradiente fue introducido en <span class="citation" data-cites="rosen1960">J. B. Rosen (<a href="references.html#ref-rosen1960" role="doc-biblioref">1960</a>)</span> y <span class="citation" data-cites="rosen1961">J. Rosen (<a href="references.html#ref-rosen1961" role="doc-biblioref">1961</a>)</span>. Este es un método iterativo para resolver problemas de optimización restringidos proyectando el gradiente en la región factible en cada iteración. El gradiente proyectado se utiliza entonces como dirección de búsqueda, y se realiza una búsqueda de línea a lo largo de esta dirección para encontrar una nueva iteración que satisfaga las restricciones y reduzca la función objetivo.</p></li>
+</ul>
+<p>De las técnicas señaladas con anterioridad se seleccionó el algoritmo Dual Active Set Method (en lo adelante, DASM) que como se mencionó con anterioridad fue introducido en <span class="citation" data-cites="Goldfarb1982ANS">Goldfarb y Idnani (<a href="references.html#ref-Goldfarb1982ANS" role="doc-biblioref">1982</a>)</span> y <span class="citation" data-cites="Goldfarb1983ANS">Goldfarb y Idnani (<a href="references.html#ref-Goldfarb1983ANS" role="doc-biblioref">1983</a>)</span>, es un algoritmo de optimización para resolver problemas de programación cuadrática. El algoritmo predice el conjunto activo de restricciones que se satisfacen con igualdad en la solución del problema. Calcula una secuencia de soluciones óptimas de problemas QP que involucran algunas de las restricciones del problema original, denominada secuencia de puntos factibles duales.</p>
+<p>A continuación se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en <span class="citation" data-cites="GOSWAMI2012620">Goswami, Mondal, y Paruya (<a href="references.html#ref-GOSWAMI2012620" role="doc-biblioref">2012</a>)</span> y <span class="citation" data-cites="rwalk14">Walker (<a href="references.html#ref-rwalk14" role="doc-biblioref">2014</a>)</span>:</p>
+<p>Bajo la suposición de que se trata de encontrar la mejor composición de una cartera en la que, por simplicidad, tenemos 2 activos, Se plantearia el problema cuadrático de la siguiente manera <a href="#eq-qpop">Ecuación&nbsp;<span>1.8</span></a>:</p>
+<p><span id="eq-qpop"><span class="math display">\[
+\begin{aligned}
+min~~Q(\vec{w}) &amp;= \vec{w}^TC\vec{w}\\
+sujeto~a:\\
+w_{1}+w_{2}=1\\
+0\leq{w_{i}}\leq{1}\\
+w_{1}\mathbb{E} + w_{2}\mathbb{E} \geq{0.005}
+\end{aligned}
+\tag{1.8}\]</span></span></p>
+<p>Suponiendo que los cuales tienen unos rendimientos mensuales medios <span class="math inline">\(r=\begin{bmatrix} 0.02 &amp; 0.03 \end{bmatrix}\)</span> y matriz de covarianza <span class="math inline">\(C=\begin{bmatrix} 0.001 &amp; 0.0008 \\ 0.0008 &amp; 0.002 \end{bmatrix}\)</span> . Se pueden construir los vectores y matrices necesarios para el algoritmo DASM de la siguiente manera:</p>
+<ul>
+<li><p>El vector de rentabilidad media mensual sería <span class="math inline">\(r=\begin{bmatrix} 0.02 &amp; 0.03 \end{bmatrix}\)</span>.</p></li>
+<li><p>La matriz de covarianza C se usaría como la matriz D en DASM.</p></li>
+<li><p>La restricción <span class="math inline">\(w_{1}+w_{2}=1\)</span> se puede escribir en forma de matriz como <span class="math inline">\(\begin{bmatrix} 1 &amp; 1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = 1\)</span>. Esta sería la primera fila de la matriz <span class="math inline">\(A\)</span> en DASM.</p></li>
+<li><p>El requisito de rentabilidad mínima <span class="math inline">\(w_{1}\mathbb{E} + w_{2}\mathbb{E} \geq{0.005}\)</span> puede escribirse en forma de matriz como <span class="math inline">\(\begin{bmatrix} 0.02 &amp; 0.03 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{0.005}\)</span>. Esta sería otra fila de la matriz <span class="math inline">\(A\)</span> en DASM.</p></li>
+<li><p>Las restricciones <span class="math inline">\(0\leq{w_i}\leq{1}\)</span> se pueden escribir en forma de matriz como <span class="math inline">\(\begin{bmatrix} 1 &amp; 0 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{0}\)</span> y <span class="math inline">\(\begin{bmatrix} 0 &amp; 1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{0}\)</span> para límites inferiores y <span class="math inline">\(\begin{bmatrix} -1 &amp; 0 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{-1}\)</span> y <span class="math inline">\(\begin{bmatrix} 0 &amp; -1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{-1}\)</span> para límites superiores.</p></li>
+<li><p>La matriz <span class="math inline">\(A\)</span> luciría así: <span class="math inline">\(A=\begin{bmatrix} 1 &amp; 1 \\ 0.02 &amp; 0.03 \\ 1 &amp; 0 \\ 0 &amp; 1 \\ -1 &amp; 0 \\ 0 &amp; -1 \end{bmatrix}\)</span></p></li>
+</ul>
+<p>El vector <span class="math inline">\(b\)</span> correspondiente sería <span class="math inline">\(\begin{bmatrix} 1 &amp; 0.005 &amp; 0 &amp; 0 &amp; -1 &amp; -1\end{bmatrix}\)</span>. Luego podemos usar el algoritmo DASM para resolver este problema de programación cuadrática y determinar la asignación óptima de activos en nuestra cartera.</p>
+<p>Paso 0: Encuentre el mínimo sin restricciones resolviendo el problema de programación cuadrática sin restricciones. Establecer el número de elementos del conjunto activo A (conjunto vacío) a cero.</p>
+<p>Paso 1: Elija una restricción violada, si la hay. En este caso, supongamos que se viola la restricción <span class="math inline">\(w_{1}+w_{2}=1\)</span>.</p>
+<p>Paso 2: Calcule las direcciones del paso primario y dual y la longitud del paso <span class="math inline">\(t=min(t_{1},t_{2})\)</span>. Supongamos que <span class="math inline">\(t=t_{2}\)</span>.</p>
+<p>Paso 3: Da un paso y actualiza el conjunto activo A y la solución (<span class="math inline">\(S\)</span>) par (x,A). Como <span class="math inline">\(t=t_{2}\)</span> , agregamos la p-ésima restricción (en este caso <span class="math inline">\(w_1+w_2=1\)</span>) a <span class="math inline">\(\bar{N}\)</span> y actualizamos <span class="math inline">\(H\)</span> y <span class="math inline">\(N^{*}\)</span> en <a href="#eq-consup">Ecuación&nbsp;<span>1.9</span></a>.</p>
+<p><span id="eq-consup"><span class="math display">\[
+\begin{aligned}
+N^{*}=(\bar{N}^{T}Q^{-1}\bar{N})\bar{N}^{T}Q^{-1}\\
+H=Q^{-1}(I-\bar{N}N^{*})
+\end{aligned}
+\tag{1.9}\]</span></span></p>
+<p>Donde <span class="math inline">\(N^{*}\)</span> es la pseudo-inversa o la inversa generalizada Moore-Penrose de <span class="math inline">\(\bar{N}\)</span>, la matriz de los vectores normales de las restricciones en el conjunto activo <span class="math inline">\(A\)</span>. <span class="math inline">\(H\)</span> es el operador hessiano inverso reducido de <span class="math inline">\(Q\)</span>.</p>
+<p>Se repetin estos pasos de manera iterativa hasta que se satisfagan todas las restricciones y se haya determinado la asignación óptima de activos.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -433,8 +477,14 @@ Banda, Hugo. 2014. <em>Inteligencia Artificial: Principios y Aplicaciones</em>. 
 <div id="ref-barone22" class="csl-entry" role="doc-biblioentry">
 Barone, A. 2022. <span>«Opening Price: Definition, Example, Trading Strategies»</span>. 2022. <a href="https://www.investopedia.com/terms/o/openingprice.asp">https://www.investopedia.com/terms/o/openingprice.asp</a>.
 </div>
+<div id="ref-beale1959" class="csl-entry" role="doc-biblioentry">
+Beale, EML. 1959. <span>«On quadratic proramming»</span>. <em>Naval Research Logistics Quarterly</em> 6 (3): 227-43.
+</div>
 <div id="ref-bmeqe" class="csl-entry" role="doc-biblioentry">
 BME. s.&nbsp;f. <span>«¿Qué es BME?»</span> Accedido 24 de abril de 2023. <a href="https://www.bolsasymercados.es/esp/Sobre-BME/Que-es">https://www.bolsasymercados.es/esp/Sobre-BME/Que-es</a>.
+</div>
+<div id="ref-bunch1977" class="csl-entry" role="doc-biblioentry">
+Bunch, James R, y Linda Kaufman. 1977. <span>«Some stable methods for calculating inertia and solving symmetric linear systems»</span>. <em>Mathematics of computation</em> 31 (137): 163-79.
 </div>
 <div id="ref-cai2004minimax" class="csl-entry" role="doc-biblioentry">
 Cai, Xiaoqiang, Kok Lay Teo, XQ Yang, y Xun Yu Zhou. 2004. <span>«Minimax portfolio optimization: empirical numerical study»</span>. <em>Journal of the Operational Research Society</em> 55 (1): 65-72.
@@ -472,8 +522,20 @@ Drucker, Harris, Christopher Burges, Linda Kaufman, Alex Smola, y Vladimir Vapni
 <div id="ref-espallargas2012" class="csl-entry" role="doc-biblioentry">
 Espallargas, S. D., y M. V. Solís. 2012. <em>Econometría y series temporales: aplicaciones</em>. La Habana: Editorial Félix Varela.
 </div>
+<div id="ref-fletcher1971" class="csl-entry" role="doc-biblioentry">
+Fletcher, Roger. 1971. <span>«A general quadratic programming algorithm»</span>. <em>IMA Journal of Applied Mathematics</em> 7 (1): 76-91.
+</div>
 <div id="ref-ganti20" class="csl-entry" role="doc-biblioentry">
 Ganti, A. 2020. <span>«Adjusted Closing Price»</span>. 2020. <a href="https://www.investopedia.com/terms/a/adjusted_closing_price.asp">https://www.investopedia.com/terms/a/adjusted_closing_price.asp</a>.
+</div>
+<div id="ref-Goldfarb1982ANS" class="csl-entry" role="doc-biblioentry">
+Goldfarb, Donald, y Ashok U. Idnani. 1982. <span>«Dual and primal-dual methods for solving strictly convex quadratic programs»</span>. En <em>Numerical Analysis</em>, editado por J. P. Hennart, 226-39. Berlin, Heidelberg: Springer Berlin Heidelberg.
+</div>
+<div id="ref-Goldfarb1983ANS" class="csl-entry" role="doc-biblioentry">
+———. 1983. <span>«A numerically stable dual method for solving strictly convex quadratic programs»</span>. <em>Mathematical Programming</em> 27: 1-33.
+</div>
+<div id="ref-GOSWAMI2012620" class="csl-entry" role="doc-biblioentry">
+Goswami, Nababithi, Supriyo K. Mondal, y Swapan Paruya. 2012. <span>«A Comparative Study of Dual Active-Set and Primal-Dual Interior-Point Method»</span>. <em>IFAC Proceedings Volumes</em> 45 (15): 620-25. https://doi.org/<a href="https://doi.org/10.3182/20120710-4-SG-2026.00029">https://doi.org/10.3182/20120710-4-SG-2026.00029</a>.
 </div>
 <div id="ref-Gunjan2023" class="csl-entry" role="doc-biblioentry">
 Gunjan, Siddhartha, Abhishek &amp; Bhattacharyya. 2023. <span>«<span>A brief review of portfolio optimization techniques</span>»</span>. <em>Artificial Intelligence Review</em> 56 (5): 3847-86. <a href="https://doi.org/10.1007/s10462-022-10273-7">https://doi.org/10.1007/s10462-022-10273-7</a>.
@@ -487,6 +549,12 @@ Hayes, A. 2021. <span>«What Is Closing Price? Definition, How It’s Used, and 
 <div id="ref-haykin1998neural" class="csl-entry" role="doc-biblioentry">
 Haykin, Simon. 1998. <em>Neural networks: a comprehensive foundation</em>. Prentice Hall PTR.
 </div>
+<div id="ref-hestenes1969" class="csl-entry" role="doc-biblioentry">
+Hestenes, Magnus R. 1969. <span>«Multiplier and gradient methods»</span>. <em>Journal of optimization theory and applications</em> 4 (5): 303-20.
+</div>
+<div id="ref-Hestenes1952" class="csl-entry" role="doc-biblioentry">
+Hestenes, Magnus R., y Eduard Stiefel. 1952. <span>«Methods of conjugate gradients for solving linear systems»</span>. <em>Journal of research of the National Bureau of Standards</em> 49: 409-35.
+</div>
 <div id="ref-SeppJur97" class="csl-entry" role="doc-biblioentry">
 Hochreiter, Jürgen, Sepp &amp; Schmidhuber. 1997. <span>«<span>Long Short-Term Memory</span>»</span>. <em>Neural Computation</em> 9 (8): 1735-80. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a>.
 </div>
@@ -498,6 +566,9 @@ Jing, Hong. 2020. <span>«How Convolutional Layers Work in Deep Learning Neural 
 </div>
 <div id="ref-jorion2007" class="csl-entry" role="doc-biblioentry">
 Jorion, Philippe. 2007. <em>Value at risk: the new benchmark for managing financial risk</em>. The McGraw-Hill Companies, Inc.
+</div>
+<div id="ref-karmarkar1984" class="csl-entry" role="doc-biblioentry">
+Karmarkar, Narendra. 1984. <span>«A new polynomial-time algorithm for linear programming»</span>. En <em>Proceedings of the sixteenth annual ACM symposium on Theory of computing</em>, 302-11.
 </div>
 <div id="ref-kocenda2017" class="csl-entry" role="doc-biblioentry">
 Kocenda, E., y A. Cerný. 2017. <em>Elements of Time Series Econometrics: An Applied Approach</em>. Prague: Karolinum Press.
@@ -526,8 +597,17 @@ Olah, Christopher. 2015. <span>«Understanding LSTM networks»</span>. Colah’s
 <div id="ref-pinset21" class="csl-entry" role="doc-biblioentry">
 Pinset, W. 2021. <span>«Understanding Stock Prices and Values»</span>. 2021. <a href="https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp">https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp</a>.
 </div>
+<div id="ref-powell1969" class="csl-entry" role="doc-biblioentry">
+Powell, Michael JD. 1969. <span>«A method for nonlinear constraints in minimization problems»</span>. <em>Optimization</em>, 283-98.
+</div>
 <div id="ref-rockafellar2002" class="csl-entry" role="doc-biblioentry">
 Rockafellar, R Tyrrell, y Stanislav Uryasev. 2002. <span>«Conditional value-at-risk for general loss distributions»</span>. <em>Journal of banking &amp; finance</em> 26 (7): 1443-71.
+</div>
+<div id="ref-rosen1961" class="csl-entry" role="doc-biblioentry">
+Rosen, JB. 1961. <span>«The gradient projection method for nonlinear programming. Part II. Nonlinear constraints»</span>. <em>Journal of the Society for Industrial and Applied Mathematics</em> 9 (4): 514-32.
+</div>
+<div id="ref-rosen1960" class="csl-entry" role="doc-biblioentry">
+Rosen, Jo Bo. 1960. <span>«The gradient projection method for nonlinear programming. Part I. Linear constraints»</span>. <em>Journal of the society for industrial and applied mathematics</em> 8 (1): 181-217.
 </div>
 <div id="ref-ruiz2011" class="csl-entry" role="doc-biblioentry">
 Ruiz, M. C. 2011. <span>«Tema 5: Procesos Estocásticos»</span>. <a href="http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf" class="uri">http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf</a>; Departamento de Matemática y Estadística. Universidad Politécnica de Cartagena. 2011.
@@ -561,6 +641,9 @@ Villagarcía, T. 2006. <span>«Series Temporales»</span>. <a href="https://halw
 </div>
 <div id="ref-villavicencio2010" class="csl-entry" role="doc-biblioentry">
 Villavicencio, J. 2010. <span>«Introducción a las series de tiempo»</span>. <a href="http://www.estadisticas.gobierno.pr/iepr/LinkClick.aspx" class="uri">http://www.estadisticas.gobierno.pr/iepr/LinkClick.aspx</a>; Instituto de estadística de Puerto Rico. 2010.
+</div>
+<div id="ref-rwalk14" class="csl-entry" role="doc-biblioentry">
+Walker, Ryan. 2014. <span>«Solving Quadratic Progams with R’s quadprog package»</span>. rwalk. 2014. <a href="https://rwalk.xyz/solving-quadratic-progams-with-rs-quadprog-package/">https://rwalk.xyz/solving-quadratic-progams-with-rs-quadprog-package/</a>.
 </div>
 <div id="ref-wongguo2010" class="csl-entry" role="doc-biblioentry">
 Wong, W. K., y Z. X. Guo. 2010. <span>«<span>A hybrid intelligent model for medium-term sales forecasting in fashion retail supply chains using extreme learning machine and harmony search algorithm</span>»</span>. <em>International Journal of Production Economics</em> 128 (2): 614-24. <a href="https://ideas.repec.org/a/eee/proeco/v128y2010i2p614-624.html">https://ideas.repec.org/a/eee/proeco/v128y2010i2p614-624.html</a>.

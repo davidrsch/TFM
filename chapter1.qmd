@@ -276,7 +276,7 @@ Existen diversas tecnicas de programación cuadrática, entre las más utilizada
 
 De las técnicas señaladas con anterioridad se seleccionó el algoritmo Dual Active Set Method (en lo adelante, DASM) que como se mencionó con anterioridad fue introducido en @Goldfarb1982ANS y @Goldfarb1983ANS, es un algoritmo de optimización para resolver problemas de programación cuadrática. El algoritmo predice el conjunto activo de restricciones que se satisfacen con igualdad en la solución del problema. Calcula una secuencia de soluciones óptimas de problemas QP que involucran algunas de las restricciones del problema original, denominada secuencia de puntos factibles duales.
 
-A continuación se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en @GOSWAMI2012620, @rwalk14 y video:
+A continuación se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en @GOSWAMI2012620 y @rwalk14:
 
 Bajo la suposición de que se trata de encontrar la mejor composición de una cartera en la que, por simplicidad, tenemos 2 activos, Se plantearia el problema cuadrático de la siguiente manera @eq-qpop:
 
@@ -308,11 +308,20 @@ El vector $b$ correspondiente sería $\begin{bmatrix} 1 & 0.005 & 0 & 0 & -1 & -
 
 Paso 0: Encuentre el mínimo sin restricciones resolviendo el problema de programación cuadrática sin restricciones. Establecer el número de elementos del conjunto activo A (conjunto vacío) a cero.
 
-Paso 1: Elija una restricción violada, si la hay. En este caso, supongamos que se viola la restricción w1+w2=1.
+Paso 1: Elija una restricción violada, si la hay. En este caso, supongamos que se viola la restricción $w_{1}+w_{2}=1$.
 
-Paso 2: Calcule las direcciones del paso primario y dual y la longitud del paso t=min(t1,t2). Supongamos que t=t2.
+Paso 2: Calcule las direcciones del paso primario y dual y la longitud del paso $t=min(t_{1},t_{2})$. Supongamos que $t=t_{2}$.
 
-Paso 3: Da un paso y actualiza el conjunto activo A y la solución (S) par (x,A). Como t=t2 , agregamos la p-ésima restricción (en este caso w1+w2=1) a N ̅ y actualizamos H y N\*.
+Paso 3: Da un paso y actualiza el conjunto activo A y la solución ($S$) par (x,A). Como $t=t_{2}$ , agregamos la p-ésima restricción (en este caso $w_1+w_2=1$) a $\bar{N}$ y actualizamos $H$ y $N^{*}$ en @eq-consup.
 
-Luego podemos repetir estos pasos hasta que se satisfagan todas las restricciones y hayamos determinado la asignación óptima de activos en nuestra cartera.
+$$
+\begin{aligned}
+N^{*}=(\bar{N}^{T}Q^{-1}\bar{N})\bar{N}^{T}Q^{-1}\\
+H=Q^{-1}(I-\bar{N}N^{*})
+\end{aligned}
+$$ {#eq-consup}
+
+Donde $N^{*}$ es la pseudo-inversa o la inversa generalizada Moore-Penrose de $\bar{N}$, la matriz de los vectores normales de las restricciones en el conjunto activo $A$. $H$ es el operador hessiano inverso reducido de $Q$. 
+
+Se repetin estos pasos de manera iterativa hasta que se satisfagan todas las restricciones y se haya determinado la asignación óptima de activos.
 
