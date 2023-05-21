@@ -32,13 +32,13 @@ Las series de tiempo financieras presentan heterocedasticidad, es decir, varianz
 
 ### Características de los precios
 
-Invertir en acciones o cualquier otro bien que cotice en el mercado de valores es una tarea compleja y desafiante, que requiere una comprensión profunda de las tendencias y fluctuaciones del mercado. En el centro de esta comprensión se encuentra la capacidad de analizar e interpretar los datos de precios del mercado de valores, lo que brinda información clave sobre el comportamiento de los participantes del mercado y los factores que impulsan los movimientos del mercado. El propósito de este sub-epígrafe es proporcionar una descripción general completa del entorno de los precios de las acciones y como son representados comunmente los mismos, señalando los aspectos más importante para la aplicación de las técnicas que se exploraran en los siguientes epígrafes.
+Invertir en acciones o cualquier otro bien que cotice en el mercado de valores es una tarea compleja y desafiante, que requiere una comprensión profunda de las tendencias y fluctuaciones del mercado. En el centro de esta comprensión se encuentra la capacidad de analizar e interpretar los datos de precios del mercado de valores, lo que brinda información clave sobre el comportamiento de los participantes del mercado y los factores que impulsan los movimientos del mercado. El propósito de este sub-epígrafe es proporcionar una descripción general completa del entorno de los precios de las acciones y como son representados comunmente los mismos, señalando los aspectos más importantes para la aplicación de las técnicas que se exploraran en los siguientes epígrafes.
 
 Como se explica en la @cnmvbv las bolsas de valores son mercados organizados donde se negocian acciones y otros valores, como renta fija, warrants, certificados y fondos cotizados. En @bmeqe se expone que, en España, existen cuatro bolsas tradicionales (Madrid, Barcelona, Bilbao y Valencia) que forman parte del holding BME (Bolsas y Mercados Españoles), que también integra otros segmentos y sistemas de negociación, compensación y liquidación de valores. Siendo, como se explica en @cnmvsibe, el Sistema de Interconexión Bursátil Español (SIBE) la plataforma que permite la contratación continua y electrónica de todos los valores admitidos a cotización en las cuatro bolsas españolas.
 
 Como expone la @cnmvacci las acciones son valores mobiliarios que representan una parte proporcional del capital social de una sociedad anónima, y sus tenedores son socios propietarios de la misma. Las acciones pueden negociarse en bolsas de valores o en otros mercados secundarios autorizados.
 
-A partir de lo expuesto en @mitchell20, @pinset21 y @cfi23 se puede concluir que para explicar el precio de las acciones de una empresa, se pueden considerar los siguientes factores:
+A partir de lo expuesto en @mitchell20, @pinset21 y @cfi23 se puede concluir que, para explicar el precio de las acciones de una empresa, se pueden considerar los siguientes factores:
 
 -   La oferta y la demanda de las acciones en el mercado: si hay más compradores que vendedores, el precio subirá y viceversa. Esto depende de las expectativas y la confianza de los inversores en el futuro de la empresa.
 
@@ -46,7 +46,7 @@ A partir de lo expuesto en @mitchell20, @pinset21 y @cfi23 se puede concluir que
 
 -   La reputación de la empresa: si la empresa tiene una buena imagen pública, se asocia con éxitos o logros, o recibe buenas valoraciones de los analistas, el precio de sus acciones puede subir. Por el contrario, si la empresa se ve involucrada en escándalos, demandas o controversias, o recibe malas valoraciones de los analistas, el precio puede bajar.
 
-En los textos @pinset21, @tinvt22 y @cfi23 también señalan la importancia de diferenciar el precio de una empresa o acción de la misma del valor intrínseco de esta. Pudiéndose resumir teniendo en cuenta lo señalado en esos textos y lo expuesto con anterioridad que el precio de una empresa o acción es lo que los compradores y vendedores están dispuestos a pagar por ella en un momento determinado, mientras que el valor intrínseco de una empresa o acción depende en gran medida de la metodología utilizada para valorar la empresas y los objetivos del evaluador.
+En los textos @pinset21, @tinvt22 y @cfi23 también señalan la importancia de diferenciar el precio de una empresa o acción de esta del valor intrínseco de esta. Pudiéndose resumir teniendo en cuenta lo señalado en esos textos y lo expuesto con anterioridad que el precio de una empresa o acción es lo que los compradores y vendedores están dispuestos a pagar por ella en un momento determinado, mientras que el valor intrínseco de una empresa o acción depende en gran medida de la metodología utilizada para valorar las empresas y los objetivos del evaluador.
 
 Una vez contextualizado de manera general el entorno en el que se encuentran los precios de las acciones y explicado algunos de los factores que pueden afectar a los mismos se explica a continuación como se encuentran estos generalmente estructurados en las distintas fuentes de las que se pueden obtener. Generalmente los precios de las acciones se encuentran registrados de forma periódica (diariamente, semanalmente, mensualmente, anualmente, etc). registrándose para cada periodo el precio de apertura, el precio más alto, el más bajo, el de cierre, el volumen y el de cierre ajustado, ver @tbl-pre_estruc.
 
@@ -72,17 +72,17 @@ Debido a ello el precio de cierre ajustado es mejor para la aplicación de técn
 
 ## Redes neuronales artificiales en la previsión de las series de tiempo
 
-Este epígrafe esta dividido en tres sub-epígrafes.En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.
+Este epígrafe esta dividido en tres sub-epígrafes. En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.
 
 ### Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo
 
-En este sub-epígrafe se abordan las redes neuronales artificiales (en lo adelante RNA) desde lo general a lo particular explicándose desde el entorno a las características básicas de las mismas. Además se exponen los antecedentes del uso de las mismas en la solución de problemas de previsión de series de tiempo.
+En este sub-epígrafe se abordan las redes neuronales artificiales (en lo adelante RNA) desde lo general a lo particular explicándose desde el entorno a las características básicas de las mismas. Además, se exponen los antecedentes del uso de estas en la solución de problemas de previsión de series de tiempo.
 
-En @chollet2018deep se plantea que el entorno de las RNA, está conformado por la inteligencia artificial (en lo adelante IA), machine learning o aprendizaje automatizado (en lo adelante ML) y deep learning o aprendizaje profundo (en lo adelante DL), @fig-DLenv. Por lo que es de vital importancia conocer los aspectos de estos campos que se encuentran íntimamente relacionados con las RNA y que se exponen brevemente a continuación.
+En @chollet2018deep se plantea que el entorno de las RNA está conformado por la inteligencia artificial (en lo adelante IA), machine learning o aprendizaje automatizado (en lo adelante ML) y deep learning o aprendizaje profundo (en lo adelante DL), @fig-DLenv. Por lo que es de vital importancia conocer los aspectos de estos campos que se encuentran íntimamente relacionados con las RNA y que se exponen brevemente a continuación.
 
 "Hacer que una máquina se comporte de tal manera que si un humano lo hiciera se le llamaría inteligente" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) es la primera definición que se le dio al problema de IA. Con el objetivo de dar solución a este problema surgieron las primeras IA, las llamadas IA simbólicas.
 
-Como se explica en @haykin1998neural, @banda2014 y @chollet2018deep, estas primeras IA, involucraban reglas codificadas creadas por los programadores. Con el objetivo de lograr que estas reglas fueran aprendidas automáticamente por las máquinas al observar los datos surgió una nueva etapa dentro del desarrollo de las IA, la denominada ML. En esta nueva etapa se da pie al surgimiento de una nueva forma de programación, diferenciándose de la clásica, en que en esta, los programadores introducen los datos y las respuestas esperadas a los mismos, y las computadoras son capaces de generar las reglas, @fig-MLprog.
+Como se explica en @haykin1998neural, @banda2014 y @chollet2018deep, estas primeras IA, involucraban reglas codificadas creadas por los programadores. Con el objetivo de lograr que estas reglas fueran aprendidas automáticamente por las máquinas al observar los datos surgió una nueva etapa dentro del desarrollo de las IA, la denominada ML. En esta nueva etapa se da pie al surgimiento de una nueva forma de programación, diferenciándose de la clásica, en que, en esta, los programadores introducen los datos y las respuestas esperadas a los mismos, y las computadoras son capaces de generar las reglas, @fig-MLprog.
 
 Por lo que se entiende que los modelos de ML tratan de encontrar representaciones apropiadas para sus datos de entrada: transformaciones de los datos que hacen que sea más susceptible a la tarea en cuestión. En DL, que es un sub-campo específico de ML, estas representaciones de datos son modeladas a través de arquitecturas compuestas de capas sucesivas, las que son llamadas RNA @chollet2018deep.
 
@@ -106,7 +106,7 @@ La historia de las RNA en el pronóstico de series temporales financieras muestr
 
 ### Redes neuronales convolucionales
 
-El modelo de RNA que se usó en este trabajo está compuesto por varias capas siendo las más importantes la capa Conv1D, un tipo especifico de CNN, y la capa LSTM, ambas mencionadas en el sub-epígrafe anterior cuando se listaron las estructuras de ANN que más se utilicen en la actualidad. Este sub-epígrafe se centra en la Capa Conv1D, por lo que a se exploran los conceptos fundamentales para comprender el funcionamiento de la misma, explicándose la convolución, las redes neuronales convolucionales y Conv1D y su uso para el análisis de series temporales. Se brinda una descripción general de la convolución y cómo se puede aplicar a los datos de series temporales. Luego, se analizan las CNN y su arquitectura, que les permite aprender características automáticamente a partir de datos de series temporales. Finalmente, se explica Conv1D, un tipo específico de capa de red neuronal convolucional que es particularmente eficaz para procesar datos de series temporales.
+El modelo de RNA que se usó en este trabajo está compuesto por varias capas siendo las más importantes la capa Conv1D, un tipo especifico de CNN, y la capa LSTM, ambas mencionadas en el sub-epígrafe anterior cuando se listaron las estructuras de ANN que más se utilicen en la actualidad. Este sub-epígrafe se centra en la Capa Conv1D, por lo que a se exploran los conceptos fundamentales para comprender el funcionamiento de esta, explicándose la convolución, las redes neuronales convolucionales y Conv1D y su uso para el análisis de series temporales. Se brinda una descripción general de la convolución y cómo se puede aplicar a los datos de series temporales. Luego, se analizan las CNN y su arquitectura, que les permite aprender características automáticamente a partir de datos de series temporales. Finalmente, se explica Conv1D, un tipo específico de capa de red neuronal convolucional que es particularmente eficaz para procesar datos de series temporales.
 
 Como se expone en @rafid23 la convolución es una operación matemática que se usa comúnmente en el procesamiento de señales y el análisis de imágenes. Implica tomar dos funciones y producir una tercera función que representa cómo una de las funciones originales modifica a la otra. En el contexto de los datos de series temporales, la convolución se puede utilizar para extraer características de los datos aplicando un filtro a la serie temporal.
 
@@ -222,13 +222,13 @@ En este epígrafe, se expone el problema de encontrar la mejor composición de c
 
 ### Problema y técnicas
 
-En este sub-epígrafe se presenta el problema de hallar la mejor composición de cartera posible, explicandose de manera general la teoría detras de los objetivos que se deben seguir para darle solución al mismo. Además se listan las técnicas más utilizadas para darle solución a este problema, diferenciandolas entre enfoques clásicos y enfoques inteligentes.
+En este sub-epígrafe se presenta el problema de hallar la mejor composición de cartera posible, explicandose de manera general la teoría detras de los objetivos que se deben seguir para darle solución al mismo. Además, se listan las técnicas más utilizadas para darle solución a este problema, diferenciandolas entre enfoques clásicos y enfoques inteligentes.
 
 Como se explica en @Gunjan2023 la optimización de cartera es el proceso de seleccionar la mejor combinación de activos para mantener en una cartera en función de objetivos predefinidos. Los objetivos pueden ser la maximización del rendimiento o la minimización del riesgo, o ambos. La optimización de la cartera implica encontrar las ponderaciones óptimas para cada activo de la cartera de manera que la cartera general cumpla con los objetivos deseados. Esto puede ser un problema desafiante debido a la gran cantidad de activos para elegir y las complejas relaciones entre ellos.
 
 La optimización de la cartera es un proceso importante para los inversores, ya que les ayuda a minimizar el riesgo y maximizar el rendimiento de sus inversiones. Al seleccionar cuidadosamente los activos que mantendrán en su cartera, los inversores pueden lograr el nivel deseado de riesgo y rendimiento mientras diversifican sus inversiones para reducir el riesgo general. La optimización de la cartera es un mecanismo crucial que se utiliza para reducir el riesgo de la inversión.
 
-Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En @Gunjan2023 estas técnicas se encuentran clasificadas en en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.
+Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En @Gunjan2023 estas técnicas se encuentran clasificadas en en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación, se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.
 
 Enfoques clásicos:
 
@@ -256,7 +256,7 @@ Enfoques inteligentes:
 
 ### Programación cuadrática
 
-En este sub-epígrade se explicara que es la programación cuadrática. Cuáles son algunas de las técnicas que existen dentro de esta disciplina de la optimización matemática. Se expone además como el problema de optimización de carteras se puede describir como un problema de programación cuadratica y se expondra de manera breve como funciona una de las técnicas más usadas en esta disciplina, concretamente la denominada Dual Active Set Method, la cuál es usada en los capítulos posteriores.
+En este sub-epígrafe se explica que es la programación cuadrática. Cuáles son algunas de las técnicas que existen dentro de esta disciplina de la optimización matemática. Se expone además como el problema de optimización de carteras se puede describir como un problema de programación cuadratica y se expondra de manera breve como funciona una de las técnicas más usadas en esta disciplina, concretamente la denominada Dual Active Set Method, la cuál es usada en los capítulos posteriores.
 
 La programación cuadrática se puede elegir entre las técnicas enumeradas en el sub-epígrafe anterior por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.
 
@@ -276,7 +276,7 @@ Existen diversas tecnicas de programación cuadrática, entre las más utilizada
 
 De las técnicas señaladas con anterioridad se seleccionó el algoritmo Dual Active Set Method (en lo adelante, DASM) que como se mencionó con anterioridad fue introducido en @Goldfarb1982ANS y @Goldfarb1983ANS, es un algoritmo de optimización para resolver problemas de programación cuadrática. El algoritmo predice el conjunto activo de restricciones que se satisfacen con igualdad en la solución del problema. Calcula una secuencia de soluciones óptimas de problemas QP que involucran algunas de las restricciones del problema original, denominada secuencia de puntos factibles duales.
 
-A continuación se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en @GOSWAMI2012620 y @rwalk14:
+A continuación, se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en @GOSWAMI2012620 y @rwalk14:
 
 Bajo la suposición de que se trata de encontrar la mejor composición de una cartera en la que, por simplicidad, tenemos 2 activos, Se plantearia el problema cuadrático de la siguiente manera @eq-qpop:
 
@@ -312,7 +312,7 @@ Paso 1: Elija una restricción violada, si la hay. En este caso, supongamos que 
 
 Paso 2: Calcule las direcciones del paso primario y dual y la longitud del paso $t=min(t_{1},t_{2})$. Supongamos que $t=t_{2}$.
 
-Paso 3: Da un paso y actualiza el conjunto activo A y la solución ($S$) par (x,A). Como $t=t_{2}$ , agregamos la p-ésima restricción (en este caso $w_1+w_2=1$) a $\bar{N}$ y actualizamos $H$ y $N^{*}$ en @eq-consup.
+Paso 3: Da un paso y actualiza el conjunto activo A y la solución ($S$) par (x, A). Como $t=t_{2}$ , agregamos la p-ésima restricción (en este caso $w_1+w_2=1$) a $\bar{N}$ y actualizamos $H$ y $N^{*}$ en @eq-consup.
 
 $$
 \begin{aligned}

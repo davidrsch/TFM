@@ -1,1 +1,25 @@
 # Apéndices Capítulo 2 {.unnumbered}
+
+```{r}
+#| echo: false
+#| message: false
+
+library(readxl)
+library(simplermarkdown)
+
+IBEX <- read.csv("data/IBEXm.csv")
+```
+
+```{r}
+#| output: asis
+#| echo: false
+
+empresas <- read_excel("data/000_empresas.xlsx")
+cat(md_table(empresas))
+```
+
+: Lista de empresas cotizadas {#tbl-emp_cotiz}
+
+::: figure-caption
+Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, @BMEexcha.
+:::

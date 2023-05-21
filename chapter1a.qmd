@@ -11,13 +11,13 @@ library(lubridate)
 library(gridExtra)
 library(quantmod)
 library(forecast)
-library(gt)
+library(simplermarkdown)
 
 IBEX <- read.csv("data/IBEXm.csv")
 ```
 
 | Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
-|-------------------|---------------------------|---------------------------|
+|------------------------|----------------------|--------------------------|
 | Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
 | Continua             | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
 
@@ -28,14 +28,15 @@ Tomada de: @ruiz2011.
 :::
 
 ```{r}
+#| output: asis
 #| echo: false
-#| label: tbl-pre_estruc
-#| tbl-cap: Estructura de datos de precios
-    
+
 ITX <- read.csv('data/ITX.MC.csv')
 ITX <- head(ITX)
-gt(ITX)
+cat(md_table(ITX))
 ```
+
+: Estructura de datos de precios {#tbl-pre_estruc}
 
 ::: figure-caption
 Elaboración propia: Mediante el uso de RStudio con la base de datos histórico de "INDITEX", obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 24-05-2001 al 31-05-2001.
@@ -222,47 +223,47 @@ Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro 
 ![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![Diferencia entre los módulos de repetición](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
 ![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4}
 
 ::: figure-caption
-Tomadas de: Understanding LSTM networks, @COlah15.
+Tomada de: Understanding LSTM networks, @COlah15.
 :::

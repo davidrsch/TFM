@@ -1,1 +1,7 @@
-# Capítulo 2:
+# Capítulo 2: Procedimiento
+
+## Datos
+
+En el presente epígrafe se exponen los pasos ejecutados para la obtención de los datos, la preparación y selección de los mismos para los procesos explicados en los siguientes epígrafes, así como un analisis general de los datos seleccionados a usar.
+
+Con el objetivo de ejemplificar como las redes neuronales artificiales y la programación cuadratica pueden ser usadas en una estrategia de gestión de cartera, se decidio en el presente trabajo utilizar datos de la bolsa del mercado español. Por lo que se decidio trabajar con la información correspondiente a las empresas que se encuentran en la lista de empresas cotizadas que se expone en @BMEexcha y puede ver en @tbl-emp_cotiz. 
