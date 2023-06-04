@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Trabajo Final de Máster - Appendix A — Anexo 1</title>
+<title>Trabajo Final de Máster - Appendix A — Datos</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -160,7 +160,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Appendix A — Anexo 1</h1>
+      <h1 class="quarto-secondary-nav-title">Appendix A — Datos</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -171,7 +171,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">Appendix A — Anexo 1</h1>
+      <h1 class="title d-none d-lg-block">Appendix A — Datos</h1>
                       </div>
   </div>
     
@@ -268,7 +268,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Annex1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Anexo 1</span></a>
+  <a href="./Annex1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Datos</span></a>
   </div>
 </li>
       </ul>
@@ -282,10 +282,11 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#datos" id="toc-datos" class="nav-link active" data-scroll-target="#datos"><span class="toc-section-number">A.1</span>  Datos</a>
+  <li><a href="#sec-A-obtdat" id="toc-sec-A-obtdat" class="nav-link active" data-scroll-target="#sec-A-obtdat"><span class="toc-section-number">A.0.1</span>  Obtención de Datos</a></li>
+  <li><a href="#sec-A-indi" id="toc-sec-A-indi" class="nav-link" data-scroll-target="#sec-A-indi"><span class="toc-section-number">A.0.2</span>  Indicadores</a></li>
+  <li><a href="#modelado" id="toc-modelado" class="nav-link" data-scroll-target="#modelado"><span class="toc-section-number">A.1</span>  Modelado</a>
   <ul class="collapse">
-  <li><a href="#sec-A-obtdat" id="toc-sec-A-obtdat" class="nav-link" data-scroll-target="#sec-A-obtdat"><span class="toc-section-number">A.1.1</span>  Obtención de Datos</a></li>
-  <li><a href="#sec-A-indi" id="toc-sec-A-indi" class="nav-link" data-scroll-target="#sec-A-indi"><span class="toc-section-number">A.1.2</span>  Indicadores</a></li>
+  <li><a href="#sec-A-vec" id="toc-sec-A-vec" class="nav-link" data-scroll-target="#sec-A-vec"><span class="toc-section-number">A.1.1</span>  Vectores</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/Annex1.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
@@ -296,11 +297,9 @@ div.csl-indent {
 
 
 
-<section id="datos" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="datos"><span class="header-section-number">A.1</span> Datos</h2>
 <p>A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Datos del capítulo 2.</p>
-<section id="sec-A-obtdat" class="level3" data-number="A.1.1">
-<h3 data-number="A.1.1" class="anchored" data-anchor-id="sec-A-obtdat"><span class="header-section-number">A.1.1</span> Obtención de Datos</h3>
+<section id="sec-A-obtdat" class="level3" data-number="A.0.1">
+<h3 data-number="A.0.1" class="anchored" data-anchor-id="sec-A-obtdat"><span class="header-section-number">A.0.1</span> Obtención de Datos</h3>
 <p>Lo primero que se realizo fue cargar la tabla de las empresas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
@@ -398,8 +397,8 @@ div.csl-indent {
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"data/data.Rdata"</span>)  </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sec-A-indi" class="level3" data-number="A.1.2">
-<h3 data-number="A.1.2" class="anchored" data-anchor-id="sec-A-indi"><span class="header-section-number">A.1.2</span> Indicadores</h3>
+<section id="sec-A-indi" class="level3" data-number="A.0.2">
+<h3 data-number="A.0.2" class="anchored" data-anchor-id="sec-A-indi"><span class="header-section-number">A.0.2</span> Indicadores</h3>
 <p>A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe indicadores del capítulo 2.</p>
 <p>Primero se descargaron los datos del IBEX, se computaron las rentabilidades del precio ajustado del mismo y se seleccionaron los valores posteriores a enero del 2005.</p>
 <div class="cell">
@@ -457,6 +456,13 @@ div.csl-indent {
 <span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  returns_indc,</span>
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"data/data.Rdata"</span>)  </span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="modelado" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="modelado"><span class="header-section-number">A.1</span> Modelado</h2>
+<p>A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Modelado del Capítulo 2.</p>
+<section id="sec-A-vec" class="level3" data-number="A.1.1">
+<h3 data-number="A.1.1" class="anchored" data-anchor-id="sec-A-vec"><span class="header-section-number">A.1.1</span> Vectores</h3>
+<p>A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">

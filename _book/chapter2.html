@@ -207,7 +207,7 @@ div.csl-indent {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Annex1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Anexo 1</span></a>
+  <a href="./Annex1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Datos</span></a>
   </div>
 </li>
       </ul>
@@ -226,6 +226,10 @@ div.csl-indent {
   <li><a href="#sec-Chapt2-obtdat" id="toc-sec-Chapt2-obtdat" class="nav-link" data-scroll-target="#sec-Chapt2-obtdat"><span class="toc-section-number">2.1.1</span>  Obtención de Datos</a></li>
   <li><a href="#indicadores" id="toc-indicadores" class="nav-link" data-scroll-target="#indicadores"><span class="toc-section-number">2.1.2</span>  Indicadores</a></li>
   </ul></li>
+  <li><a href="#modelado" id="toc-modelado" class="nav-link" data-scroll-target="#modelado"><span class="toc-section-number">2.2</span>  Modelado</a>
+  <ul class="collapse">
+  <li><a href="#vectores" id="toc-vectores" class="nav-link" data-scroll-target="#vectores"><span class="toc-section-number">2.2.1</span>  Vectores</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/chapter2.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
     </div>
@@ -241,7 +245,7 @@ div.csl-indent {
 <p>Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe el proceso de obtención de los datos necesarios para la realización de el resto del procedimiento. En el primero se detallan los pasos llevados a cabo para obtener los datos de las empresas y seleccionar aquellas con las que se trabajó en el resto del procedimiento. En el segundo sub-epígrafe se presenta una breve explicación de los indicadores computados que se utilizarán como variables de entrada, en conjunto con los valores históricos de rentabilidad de las empresas seleccionadas en el primer sub-epígrafe.</p>
 <section id="sec-Chapt2-obtdat" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="sec-Chapt2-obtdat"><span class="header-section-number">2.1.1</span> Obtención de Datos</h3>
-<p>En el presente sub-epígrafe se exponen los pasos ejecutados para la obtención y selección de los datos, para los procesos explicados en los siguientes sub-epígrafes. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex1.html#sec-A-obtdat"><span>Sección&nbsp;A.1.1</span></a>.</p>
+<p>En el presente sub-epígrafe se exponen los pasos ejecutados para la obtención y selección de los datos, para los procesos explicados en los siguientes sub-epígrafes. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex1.html#sec-A-obtdat"><span>Sección&nbsp;A.0.1</span></a>.</p>
 <p>Con el objetivo de ejemplificar como las redes neuronales artificiales y la programación cuadratica pueden ser usadas en una estrategia de gestión de cartera, se decidio en el presente trabajo utilizar datos de la bolsa del mercado español. Por lo que se decidio trabajar con la información correspondiente a las empresas que se encuentran en la lista de empresas cotizadas que se expone en <span class="citation" data-cites="BMEexcha"><span>«Empresas cotizadas»</span> (<a href="references.html#ref-BMEexcha" role="doc-biblioref">s.&nbsp;f.</a>)</span> y puede ver en <a href="chapter2a.html#tbl-emp_cotiz">Tabla&nbsp;<span>1</span></a>.</p>
 <p>En la <a href="chapter2a.html#tbl-emp_cotiz">Tabla&nbsp;<span>1</span></a> se recogen los datos de 120 empresas. Siendo los datos recogidos el nombre, ticker, sector y subsector, mercado, indice de cada una de las empresas y si fueron selecciondas o no para realizar el resto del procedimiento después de la realización de los pasos expuestos en el presente sub-epígrafe.</p>
 <p>Con el objetivo de obtener los datos de las empresas y analizarlas para selccionar aquellas con las que se trabajó en el resto del procedimietno se usó como fuente <span class="citation" data-cites="yahoofin"> (<a href="references.html#ref-yahoofin" role="doc-biblioref">s.&nbsp;f.a</a>)</span>. A continuación, se expone el proceso llevado a cabo para la obtención y selección de los datos.</p>
@@ -255,7 +259,7 @@ div.csl-indent {
 </section>
 <section id="indicadores" class="level3" data-number="2.1.2">
 <h3 data-number="2.1.2" class="anchored" data-anchor-id="indicadores"><span class="header-section-number">2.1.2</span> Indicadores</h3>
-<p>En el presente sub-epígrafe se expone una breve explicación de las variables computadas para usar como variables de entradas en conjunto con los valores historicos de las rentabilidades de las empresas. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex1.html#sec-A-indi"><span>Sección&nbsp;A.1.2</span></a>.</p>
+<p>En el presente sub-epígrafe se expone una breve explicación de las variables computadas para usar como variables de entradas en conjunto con los valores historicos de las rentabilidades de las empresas. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex1.html#sec-A-indi"><span>Sección&nbsp;A.0.2</span></a>.</p>
 <section id="volatilidad" class="level4" data-number="2.1.2.1">
 <h4 data-number="2.1.2.1" class="anchored" data-anchor-id="volatilidad"><span class="header-section-number">2.1.2.1</span> Volatilidad</h4>
 <p>A partir de lo expuesto en <span class="citation" data-cites="hargrave23">Hargrave (<a href="references.html#ref-hargrave23" role="doc-biblioref">2023</a>)</span> y <span class="citation" data-cites="hayesA23vola">Hayes (<a href="references.html#ref-hayesA23vola" role="doc-biblioref">2023</a>)</span> la desviación estándar y la volatilidad son dos conceptos relacionados que miden cuánto fluctúa el precio de una acción u otro activo a lo largo del tiempo. La desviación estándar es un término estadístico que cuantifica la dispersión de un conjunto de puntos de datos alrededor de su valor medio. La volatilidad es un término financiero que describe el grado de variación en los rendimientos de un activo durante un período de tiempo determinado.</p>
@@ -290,6 +294,20 @@ div.csl-indent {
 <p>Como se explica en <span class="citation" data-cites="monaghan19bvsc">Monaghan (<a href="references.html#ref-monaghan19bvsc" role="doc-biblioref">2019</a>)</span> Beta está relacionado con la correlación, pero no son lo mismo. Como se explicó con antrioridad la correlación es una medida de cuán linealmente relacionadas están dos variables, Beta, por otro lado, es una medida de cuán fuertemente relacionadas están dos variables, lo que indica cuánto cambia una variable cuando otra variable cambia en una unidad. Beta se puede calcular a partir de la correlación usando la siguiente fórmula:</p>
 <p><span id="eq-beta"><span class="math display">\[\beta = \frac{\rho_{xy} \sigma_x}{\sigma_y} \tag{2.3}\]</span></span></p>
 <p>donde: - <span class="math inline">\(\rho_{xy}\)</span> es el coeficiente de correlación entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> - <span class="math inline">\(\sigma_x\)</span> es la volatilidad de x - <span class="math inline">\(\sigma_y\)</span> es la volatilidad de y.</p>
+</section>
+</section>
+</section>
+<section id="modelado" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="modelado"><span class="header-section-number">2.2</span> Modelado</h2>
+<p>El presente epígrade se encuentra dividido en tres sub-epígrafes, los que en su conjunto explican el procedimiento llevado a cabo para la creación de los distintos modelos probados. En el primero de los sub-epígrafes se explica como se la da forma a los vectores de entrada y salida con los que se entrena y prueba el modelo a partir de los datos resultantes del epígrafe anterior. En el segundo sub-epígrafe se exponen las distintas estructuras de modelos de RNA, conformadas a partir de distintas combinaciones de capas CNN y LSTM, que se probaron, además de profundizarse un poco más en aspectos a tener en cuenta en la construcción de modelos de RNA. Por último en el tercer sub-epígrafe se expone la metodología de entrenamiento utlizada y el procedimiento realizado para el entrenamiento de los distintos modelos.</p>
+<section id="vectores" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="vectores"><span class="header-section-number">2.2.1</span> Vectores</h3>
+<p>En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex1.html#sec-A-obtdat"><span>Sección&nbsp;A.0.1</span></a>.</p>
+<p>La estructura del conjunto de vectores de entradas y salidas es de vital importancia en el modelado de técnicas de ML teniendo un impacto importante en su eficacia. El conjunto debe de vectores debe crearse de manera representativa del problema a resolver, por lo que los pasos descritos a continuación explican en detalle los aspectos del problema a dar respuesta en el presente trabajo y como dar forma al conjunto de vectores de entradas y salidas para ello.</p>
+<p>Como se ha mencionado con anterioridad el objetivo del presente trabajo es exponer un procedimiento para la utilización de modelos de RNA y programación cuadrática en una estrategia de inversión.</p>
+<p>El modelado atiende a la necesidad de obtener unas predicciones lo más acertada posible para posteriormente, basandose en las predicciones y en los datos historicos, hallar la composición de cartera idonea. Por lo que lo primero que se debe plantear es que horizonte temporal se desea preveer.</p>
+<p>La definición del horizonte temporal que se desee preveer es un aspecto clave en la creación de los conjuntos de entradas y de salidas. El número de observaciones definido como horizonte temporal determinara el tamaño de las salidas, en el presente trabajo se deterino como horizonte temporal una observación ya que se desea predecir la rentabilidad del próximo mes de las distintas empresas seleccionadas.</p>
+<p>Otro parámetro fundamental a decidir es cuantas observaciones debe observar el modelo para inferir la salida deseada. Esto define el tamaño de los vectores de entrada, en el presente trabajo se determino probar distintos tamaños de entrada siendo estos 1,2 y 3. Probandose así de cierta manera como el tamaño de las entradas afecta la predicción obtenida.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -324,7 +342,6 @@ Monaghan, B. 2019. <span>«Correlation vs. Beta: What is The Difference and Why 
 Ross, S. 2022. <span>«How Do I Calculate Correlation Between Market Indicators and Specific Stocks?»</span> 2022. <a href="https://www.investopedia.com/ask/answers/032315/how-do-i-calculate-correlation-between-market-indicators-and-specific-stocks.asp">https://www.investopedia.com/ask/answers/032315/how-do-i-calculate-correlation-between-market-indicators-and-specific-stocks.asp</a>.
 </div>
 </div>
-</section>
 </section>
 </section>
 

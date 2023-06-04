@@ -1,5 +1,3 @@
-# Anexo 1
-
 ## Datos
 
 A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Datos del capítulo 2.
@@ -161,10 +159,10 @@ IBEXsel <- IBEXsel |>
 
 Luego se agregaron los valores de las rentabilidades del IBEX a las tablas de las rentabilidades de las acciones de las empresas seleccionadas, y se computaron y agregaron las variables listadas a continuación a cada una de las tablas:
 
-- Volatilidad de la empresa
-- Volatilidad del indice
-- Correlación entre las rentabilidades de la empresa y el indice
-- La Beta entre la empresa y el indice
+-   Volatilidad de la empresa
+-   Volatilidad del indice
+-   Correlación entre las rentabilidades de la empresa y el indice
+-   La Beta entre la empresa y el indice
 
 ```{r}
 #| eval: false
@@ -195,3 +193,11 @@ save(
   returns_indc,
   file = "data/data.Rdata")  
 ```
+
+## Modelado
+
+A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Modelado del Capítulo 2.
+
+### Vectores {#sec-A-vec}
+
+A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.
