@@ -1,7 +1,94 @@
 # Capítulo 2: Procedimiento
 
-## Datos
+Objetivo del capitulo
 
-En el presente epígrafe se exponen los pasos ejecutados para la obtención de los datos, la preparación y selección de los mismos para los procesos explicados en los siguientes epígrafes, así como un analisis general de los datos seleccionados a usar.
+## Datos {#sec-Chapt2-Dat}
 
-Con el objetivo de ejemplificar como las redes neuronales artificiales y la programación cuadratica pueden ser usadas en una estrategia de gestión de cartera, se decidio en el presente trabajo utilizar datos de la bolsa del mercado español. Por lo que se decidio trabajar con la información correspondiente a las empresas que se encuentran en la lista de empresas cotizadas que se expone en @BMEexcha y puede ver en @tbl-emp_cotiz. 
+Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe el proceso de obtención de los datos necesarios para la realización de el resto del procedimiento. En el primero se detallan los pasos llevados a cabo para obtener los datos de las empresas y seleccionar aquellas con las que se trabajó en el resto del procedimiento. En el segundo sub-epígrafe se presenta una breve explicación de los indicadores computados que se utilizarán como variables de entrada, en conjunto con los valores históricos de rentabilidad de las empresas seleccionadas en el primer sub-epígrafe.
+
+### Obtención de Datos {#sec-Chapt2-obtdat}
+
+En el presente sub-epígrafe se exponen los pasos ejecutados para la obtención y selección de los datos, para los procesos explicados en los siguientes sub-epígrafes. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-obtdat.
+
+Con el objetivo de ejemplificar como las redes neuronales artificiales y la programación cuadratica pueden ser usadas en una estrategia de gestión de cartera, se decidio en el presente trabajo utilizar datos de la bolsa del mercado español. Por lo que se decidio trabajar con la información correspondiente a las empresas que se encuentran en la lista de empresas cotizadas que se expone en @BMEexcha y puede ver en @tbl-emp_cotiz.
+
+En la @tbl-emp_cotiz se recogen los datos de `r nrow(empresas)` empresas. Siendo los datos recogidos el nombre, ticker, sector y subsector, mercado, indice de cada una de las empresas y si fueron selecciondas o no para realizar el resto del procedimiento después de la realización de los pasos expuestos en el presente sub-epígrafe.
+
+Con el objetivo de obtener los datos de las empresas y analizarlas para selccionar aquellas con las que se trabajó en el resto del procedimietno se usó como fuente @yahoofin. A continuación, se expone el proceso llevado a cabo para la obtención y selección de los datos.
+
+Se decidió descargar los datos mensuales de cada una de las empresas recogidas en @tbl-emp_cotiz. Obteniendose todos los datos comprendidos entre el 31 de enero del 2000 al 28 de febrero del 2023 de cada una de las entidades.
+
+Con el objetivo de simplificar el proceso expuesto en el resto del procedimiento se decidió seleccionar solo aquellas empresas que contaban con el mayor número de observaciones, quedando con `r length(select_emps)` empresas de las `r nrow(empresas)` que se recogen en la @tbl-emp_cotiz, cada una de las empresas seleccionadas cuenta con `r max_obs` observaciones.
+
+Una vez realizada una primera selección se paso evaluar la calidad de los datos correspondietes a las empresas seleccionadas. Realizandose para dicha evalución un análisis exploratorio visual de los precios ajustado ya que, como se explicó en el capitulo anterior estos son los ideales para usar en cualquier metodlogía de analisis historicos.
+
+Durante el mencionado analisis exploratorio visual, se detectó que existian irregularidades en los precios ajustados de algunas de las mismas. Las irregularidades detectadas consitían en el incorrecto registro de los precios ajustados, así como errores en el cálculo de estos. Estos errores se detectaron facilmente al observar las gráficas de los valores de el precio de cierre ajustado, de las empresas seccionadas, tendencia constante en periodos largos de tiempo, como se observa en @fig-tend_const_nxt, lo que indica un registro erroneo de las variaciones de los precios; así como cambios bruscos de hasta más de un 100% en los mismos en un solo período de tiempo, lo que puede indicar un mal cálculo en el precio ajustado, como se ve en @fig-radi_chang_btc, en este último caso se verificó con otras fuentes como @investing, para comprobar que de echo estaban mal computados los precios.
+
+Dado el tiempo con el que se contaba para realizar el estudio expuesto en el procedimiento y la extensa cantidad de tiempo que requeriría la investigación a realizar para sustituir lo valores erroneos en las series se decidió eliminar estas irregularidades eliminando aquellas series en las que las variaciones de los precios sin registrar sea en más de 10 observaciones, así como también se decidió trabajar con los valores posteriores a enero del 2005, que ya no presentaban inconsistencia en el calculo del precio ajustado.
+
+Quedando tras los ajustes realizados `r length(returns_emps3)` empresas, como se ve en la columna seleccionadas de la @tbl-emp_cotiz, cada una con `r (dim(returns_emps3[[1]])[1]+1)` observaciones.
+
+Una vez selecciondas las empresas con las que se trabajó se computaron las rentabilidades de estas a partir de los precios ajustados. Además de las rentabilidades correspondientes a las empresas seleccionadas se usaron las rentabilidades del precio de cierre ajustado del IBEX 35, además se computaron otras variables que sirven como indicadores del comportamiento de las rentabilidades, y la relación de estas  con las del indice, en este caso las del IBEX 35. Entre estas variables se ecuentran las volatilidades de las empresas y el indice, la correlación entre los valores de las series y el IBEX, y la beta de las empresas en relación con el IBEX.
+
+### Indicadores
+
+En el presente sub-epígrafe se expone una breve explicación de las variables computadas para usar como variables de entradas en conjunto con los valores historicos de las rentabilidades de las empresas. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-indi.
+
+#### Volatilidad
+
+A partir de lo expuesto en @hargrave23 y @hayesA23vola la desviación estándar y la volatilidad son dos conceptos relacionados que miden cuánto fluctúa el precio de una acción u otro activo a lo largo del tiempo. La desviación estándar es un término estadístico que cuantifica la dispersión de un conjunto de puntos de datos alrededor de su valor medio. La volatilidad es un término financiero que describe el grado de variación en los rendimientos de un activo durante un período de tiempo determinado.
+
+La desviación estándar y la volatilidad son importantes en el análisis del mercado de valores porque indican el riesgo y la incertidumbre asociados con la inversión en un activo en particular. Una desviación estándar o volatilidad alta significa que el precio del activo puede cambiar significativamente en cualquier dirección, lo que implica un mayor potencial de ganancias o pérdidas. Una desviación estándar o volatilidad baja significa que el precio del activo es relativamente estable y predecible, lo que implica un menor potencial de ganancias o pérdidas @hayesA23vola.
+
+Para calcular la volatilidad de una acción o indice se calcula la desviación estandar de las rentabilidades. Siendo por tanto los calculos necesarios los que se muestran a continuación:
+
+$$R_i = \frac{P_i - P_{i-1}}{P_{i-1}}$$
+
+$$\sigma = \sqrt{\frac{\sum_{i=1}^N (R_i - \bar{R})^2}{N} }$${#eq-volatility}
+
+donde:
+- $R_i$ es la rentabilidad de la acción en el periodo $i$
+- $P_i$ y $P_{i-1}$ son los precios de una acción en periodos de tiempo $i$ e $i-1$, respectivamente.
+- $\sigma$ es la desviación estandar
+- $N$ es el número de observaciones
+- $\bar{R}$ es la rentabilidad media de la acción.
+
+La desviación estándar y la volatilidad son herramientas útiles para que los inversores y analistas evalúen el equilibrio riesgo-recompensa de diferentes activos y carteras. También pueden ayudar a comparar el rendimiento de diferentes activos y carteras a lo largo del tiempo y en diferentes condiciones de mercado.
+
+#### Correlación
+
+Como se explica en @edwards22 la correlación es una medida estadística que determina cómo dos variables se mueven entre sí. En el análisis del mercado de valores, la correlación puede ayudar a comprender el comportamiento de diferentes acciones o indicadores del mercado a lo largo del tiempo. Tomando como ejemplo los datos que se usan en este trabajo, si los precios de una de las empresas seleccionadas tienden a subir y bajar junto con el IBEX 35, estos precios tienen una correlación positiva. Si al contrario los precios de la empresa tienden a subir cuando el indicador del IBEX 35 baja, tienen una correlación negativa. Un coeficiente de correlación de cero significa que no existe una relación lineal entre las variables, siendo en este caso los valores del IBEX 35 y los precios de una de las empresas determinadas.
+
+Como se expone en @ross22 la correlación entre dos variables se calcula usando la siguiente equación:
+
+$$\rho_{xy} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}$$ {#eq-correlation}
+
+donde:
+
+- $\rho_{xy}$ es el coeficiente de correlación
+- $n$ es el número de observaciones
+- $x_i$ y $y_i$ son los valores de las dos variables para la $i$ observación
+- $\bar{x}$ y $\bar{y}$ son las medias de las dos variables.
+
+Como se explica también en @edwards22, el coeficiente de correlación se encuentra en un rango de -1 a 1, donde -1 indica una correlación negativa perfecta, 1 indica una correlación positiva perfecta, y 0 indica que no existe correlación alguna. Pudiendose entender que, mientras más cercano se encuentre el coeficiente de correlación tanto a -1 como a 1, más fuerte es la relación lineal entre las variables analizadas.
+
+Como ya se explicó con anterioridad el coeficiente de correlación, en el presente trabajo, se puede utilizar para analizar que tan parecido se mueven las rentabilidades de una empresa en comparación con las del IBEX 35. La correlación también se puede utilizar para diversificar una cartera eligiendo acciones que tengan una correlación baja o negativa entre sí, como se explica en @boytew22. Esto puede ayudar a reducir el riesgo general de la cartera, ya que las pérdidas de una acción pueden compensarse con las ganancias de otra. Sin embargo, la correlación no es constante y puede cambiar con el tiempo debido a varios factores, como las condiciones del mercado, los eventos económicos o las noticias de la empresa. Por lo tanto, es importante monitorear la correlación de acciones regularmente y ajustar la cartera en consecuencia @boytew22.
+
+La correlación es una herramienta valiosa en el análisis del mercado de valores, pero no implica causalidad. Tener una correlación alta o baja entre dos variables no implica que una variable cause cambios en la otra. La correlación simplemente mide la fuerza y dirección de la relación lineal entre dos variables, sin considerar otros factores que puedan influir en ellas.
+
+Como se expone también en @edwards22 la correlación guarda una intima relación con la volatilidad del mercado y de las acciones, pudiendose ver que durante períodos de mayor volatilidad, como la crisis financiera de 2008, las acciones pueden tener una tendencia a estar más correlacionadas, incluso si se encuentran en diferentes sectores. Los mercados internacionales también pueden volverse altamente correlacionados durante tiempos de inestabilidad. Los inversores pueden querer incluir activos en sus carteras que tengan una baja correlación de mercado con los mercados de valores para ayudar a administrar su riesgo.
+
+#### Beta
+
+Como se explica en @kneton22beta Beta es una medida de cuán sensibles son los rendimientos de una acción a los cambios en los rendimientos del mercado. Se calcula como la pendiente de la línea de regresión que se ajusta a los rendimientos históricos de la acción y del mercado. Una beta de 1 significa que la acción se mueve en sincronía con el mercado, una beta superior a 1 significa que la acción es más volátil que el mercado y una beta inferior a 1 significa que la acción es menos volátil que el mercado.
+
+Beta es importante en el análisis del mercado de valores porque, como se explica en @kneton22beta, ayuda a los inversores a evaluar el riesgo y el rendimiento de una cartera. Al conocer la versión beta de cada acción en una cartera, los inversores pueden estimar cuánto fluctuará la cartera con los movimientos del mercado y ajustar su asignación de activos en consecuencia. Por ejemplo, si un inversor quiere reducir el riesgo de su cartera, puede elegir acciones con valores beta bajos o negativos que tienden a moverse en dirección opuesta al mercado.
+
+Como se explica en @monaghan19bvsc Beta está relacionado con la correlación, pero no son lo mismo. Como se explicó con antrioridad la correlación es una medida de cuán linealmente relacionadas están dos variables, Beta, por otro lado, es una medida de cuán fuertemente relacionadas están dos variables, lo que indica cuánto cambia una variable cuando otra variable cambia en una unidad. Beta se puede calcular a partir de la correlación usando la siguiente fórmula:
+
+$$\beta = \frac{\rho_{xy} \sigma_x}{\sigma_y}$${#eq-beta}
+
+donde:
+- $\rho_{xy}$ es el coeficiente de correlación entre $x$ y $y$
+- $\sigma_x$ es la volatilidad de x
+- $\sigma_y$ es la volatilidad de y.

@@ -1,20 +1,13 @@
 # Apéndices Capítulo 2 {.unnumbered}
 
 ```{r}
-#| echo: false
-#| message: false
-
-library(readxl)
-library(simplermarkdown)
-
-IBEX <- read.csv("data/IBEXm.csv")
-```
-
-```{r}
 #| output: asis
 #| echo: false
 
-empresas <- read_excel("data/000_empresas.xlsx")
+empresas <- read_excel("data/000_empresas.xlsx") |>
+  mutate(
+    Seleccionadas = if_else(is.element(TICKERS,names(returns_emps3)),"X","")
+  )
 cat(md_table(empresas))
 ```
 
@@ -22,4 +15,53 @@ cat(md_table(empresas))
 
 ::: figure-caption
 Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, @BMEexcha.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-tend_const_nxt
+#| fig-alt: >
+#|   Una gráfica que muestra la inconsistencia en el registro de los 
+#|   precio de cierre ajustado de la serie correspondiente 
+#|   a la empresa NUEVA EXPRESION TEXTIL, S.A., al observarse que 
+#|   no existe variación del precio de cierre ajustado en periodo 
+#|   correspondiente a 06-2009 al 04-2014.
+#| cap-location: top
+#| fig-cap: >
+#|   Tendencia constante en los precios de cierre ajustado de la empresa "Nueva Expreción Textil S.A"
+
+fig_df <- select_emps[["NXT.MC"]] |>
+  mutate(Date = as.Date(Date))
+ggplot(fig_df, aes(x=Date, y=Adjusted, group = 1)) +
+  geom_line(color="#065AD8") +
+  annotate(geom = 'point',x=fig_df$Date[142],y=2.6,size=26, shape=1, color="red")
+```
+
+::: figure-caption
+Elaboración propia: A partir de los datos obtenidos de @yahoofin correspondientes a la empresa "Nueva Expreción Textil S.A" en el periodo del 31 de enero del 2000 al 28 de febrero del 2023.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-radi_chang_btc
+#| fig-alt: >
+#|   Una gráfica que muestra cambios bruscos en los precios de cierre 
+#|   ajustado en relación al resto de valores de la serie, lo que puede 
+#|   indicar un calculo erroneo de los valores durante cierto periodo de 
+#|   tiempo.
+#| cap-location: top
+#| fig-cap: >
+#|   cambio brusco de precios que reflejan calculo erroneo de los precios de cierre ajustado, "BANKINTER,S.A."
+
+fig_df <- select_emps[["BKT.MC"]] |>
+  mutate(Date = as.Date(Date))
+ggplot(fig_df, aes(x=Date, y=Adjusted, group = 1)) +
+  geom_line(color="#065AD8") +
+  annotate(geom = 'point',x=fig_df$Date[1],y=15,size=76, shape=1, color="red")
+```
+
+::: figure-caption
+Elaboración propia: A partir de los datos obtenidos de @yahoofin correspondientes a la empresa "Nueva Expreción Textil S.A" en el periodo del 31 de enero del 2000 al 28 de febrero del 2023.
 :::

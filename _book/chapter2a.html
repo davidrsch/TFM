@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -65,6 +84,9 @@ ul.task-list li input[type="checkbox"] {
       background: #D60D8C;
     }
     </style>
+
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="my_style.css">
@@ -161,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapter2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 2:</span></a>
+  <a href="./chapter2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 2: Procedimiento</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -174,6 +196,21 @@ ul.task-list li input[type="checkbox"] {
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Appendices</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Anexo 1</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -187,8 +224,1030 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div id="tbl-emp_cotiz" class="anchored">
+<table class="table">
+<caption>Tabla&nbsp;1: Lista de empresas cotizadas</caption>
+<colgroup>
+<col style="width: 21%">
+<col style="width: 4%">
+<col style="width: 39%">
+<col style="width: 8%">
+<col style="width: 18%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>NOMBRE</th>
+<th>TICKERS</th>
+<th>SECTOR-SUBSECTOR</th>
+<th>MERCADO</th>
+<th>INDICE</th>
+<th>Seleccionadas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ACCIONA,S.A.</td>
+<td>ANA.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>ACERINOX, S.A.</td>
+<td>ACX.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>ACS,ACTIVIDADES DE CONST.Y SERVICIOS S.A</td>
+<td>ACS.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ADOLFO DOMINGUEZ, S.A.</td>
+<td>ADZ.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Textil, Vestido y Calzado</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>AEDAS HOMES, S.A.</td>
+<td>AEDAS.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AENA, S.M.E., S.A.</td>
+<td>AENA.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Transporte y Distribución</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AIRBUS SE</td>
+<td>AIR.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Aerospacial</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AIRTIFICIAL INTELLIGENCE STRUCTURES S.A.</td>
+<td>AI.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Ingeniería y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ALANTRA PARTNERS, S.A.</td>
+<td>ALNT.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Cartera y Holding</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ALMIRALL, S.A.</td>
+<td>ALM.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AMADEUS IT GROUP, S.A.</td>
+<td>AMS.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Electrónica y Software</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AMPER, S.A.</td>
+<td>AMP.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Electrónica y Software</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>AMREST HOLDINGS, S.E.</td>
+<td>EAT.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Ocio, Turismo y Hostelería</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>APERAM, SOCIETE ANONYME</td>
+<td>APAM.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>APPLUS SERVICES, S.A.</td>
+<td>APPS.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Ingeniería y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ARCELORMITTAL, S.A.</td>
+<td>MTS.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ÁRIMA REAL ESTATE SOCIMI, S.A.</td>
+<td>ARM.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;SOCIMI</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ATRESMEDIA CORP. DE MEDIOS DE COM. S.A.</td>
+<td>A3M.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Medios de Comunicación y Publicidad</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ATRYS HEALTH, S.A.</td>
+<td>ATRY.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>AUDAX RENOVABLES, S.A.</td>
+<td>ADX.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>AZKOYEN S.A.</td>
+<td>AZK.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Fabric. y Montaje Bienes de Equipo</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>BANCO BILBAO VIZCAYA ARGENTARIA, S.A.</td>
+<td>BBVA.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>BANCO DE SABADELL, S.A.</td>
+<td>SAB.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>BANCO SANTANDER, S.A.</td>
+<td>SAN.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>BANKINTER,S.A.</td>
+<td>BKT.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>BERKELEY ENERGIA LIMITED</td>
+<td>BKY.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>BODEGAS RIOJANAS, S.A.</td>
+<td>RIO.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>BORGES AGRICULTURAL &amp; INDUST. NUTS, S.A.</td>
+<td>BAIN.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CAIXABANK, S.A.</td>
+<td>CABK.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CAJA DE AHORROS DEL MEDITERRANEO</td>
+<td>CAM.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CASH, S.A.</td>
+<td>CASH.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Otros Servicios</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CELLNEX TELECOM, S.A.</td>
+<td>CLNX.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Telecomunicaciones y Otros</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CIA. DE DIST. INTEG. LOGISTA HOLDINGS</td>
+<td>LOG.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Transporte y Distribución</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CIA. ESPAÑOLA VIVIENDAS EN ALQUILER,S.A</td>
+<td>CEV.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CIA.LEVANTINA, EDIFICACION DE O.PUBLICAS</td>
+<td>CLEO.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>CIE AUTOMOTIVE, S.A.</td>
+<td>CIE.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CLINICA BAVIERA, S.A.</td>
+<td>CBAV.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Otros Servicios</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>COCA-COLA EUROPACIFIC PARTNERS PLC</td>
+<td>CCEP.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CONSTRUCC. Y AUX. DE FERROCARRILES, S.A.</td>
+<td>CAF.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Fabric. y Montaje Bienes de Equipo</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>CORP. ACCIONA ENERGÍAS RENOVABLES, S.A.</td>
+<td>ANE.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>CORPORACION FINANCIERA ALBA, S.A.</td>
+<td>ALB.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Cartera y Holding</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>DEOLEO, S.A.</td>
+<td>OLE.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DESA</td>
+<td>DESA.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>DIA-DISTRIBUIDORA INT. DE ALIMENT. S.A.</td>
+<td>DIA.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Comercio</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>DURO FELGUERA, S.A.</td>
+<td>MDF.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Ingeniería y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>EBRO FOODS, S.A.</td>
+<td>EBRO.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>EDREAMS ODIGEO, S.A.</td>
+<td>EDR.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Ocio, Turismo y Hostelería</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ELECNOR S. A.</td>
+<td>ENO.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Fabric. y Montaje Bienes de Equipo</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ENAGAS, S.A.</td>
+<td>ENG.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Electricidad y Gas</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ENCE ENERGIA Y CELULOSA, S.A.</td>
+<td>ENC.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Papel y Artes Gráficas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ENDESA, SOCIEDAD ANONIMA</td>
+<td>ELE.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Electricidad y Gas</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>ERCROS S.A.</td>
+<td>ECR.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Industria Química</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>FAES FARMA, S.A.</td>
+<td>FAE.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>FERROVIAL, S.A.</td>
+<td>FER.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>FLUIDRA, S.A.</td>
+<td>FDR.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Ingeniería y Otros</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>FOMENTO DE CONSTR. Y CONTRATAS S.A.</td>
+<td>FCC.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>GENERAL DE ALQUILER DE MAQUINARIA, S.A.</td>
+<td>GAM.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Ingeniería y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GESTAMP AUTOMOCION, S.A.</td>
+<td>GEST.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Fabric. y Montaje Bienes de Equipo</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GLOBAL DOMINION ACCESS, S.A.</td>
+<td>DOM.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Telecomunicaciones y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GRENERGY RENOVABLES, S.A.</td>
+<td>GRE.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GRIFOLS, S.A.</td>
+<td>GRF.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GRUPO CATALANA OCCIDENTE, S.A.</td>
+<td>GCO.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Seguros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>GRUPO ECOENER, S.A.</td>
+<td>ENER.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>GRUPO EMPRESARIAL SAN JOSE, S.A.</td>
+<td>GSJ.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>GRUPO EZENTIS, S.A.</td>
+<td>EZE.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Telecomunicaciones y Otros</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>IBERDROLA, S.A.</td>
+<td>IBE.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Electricidad y Gas</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>IBERPAPEL GESTION, S.A.</td>
+<td>IBG.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Papel y Artes Gráficas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>INDRA SISTEMAS, S.A., SERIE A</td>
+<td>IDR.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Electrónica y Software</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INDUSTRIA DE DISEÑO TEXTIL, SA “INDITEX”</td>
+<td>ITX.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Textil, Vestido y Calzado</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>INMOBILIARIA COLONIAL SOCIMI, S.A.</td>
+<td>COL.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;SOCIMI</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INMOBILIARIA DEL SUR, S.A.</td>
+<td>ISUR.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>INNOVATIVE SOLUTIONS ECOSYSTEM, S.A.</td>
+<td>ISE.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Comercio</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>INTERNATIONAL CONSOLIDAT. AIRLINES GROUP</td>
+<td>IAG.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Transporte y Distribución</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LABORATORIO REIG JOFRE, S.A.</td>
+<td>RJF.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LABORATORIOS FARMACEUTICOS ROVI, S.A.</td>
+<td>ROVI.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LAR ESPAÑA REAL ESTATE, SOCIMI, S.A.</td>
+<td>LRE.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;SOCIMI</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LIBERTAS 7, S.A.</td>
+<td>LIB.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>LINEA DIRECTA ASEGURADORA, S.A.</td>
+<td>LDA.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Seguros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>LINGOTES ESPECIALES, S.A.</td>
+<td>LGT.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>MAPFRE, S.A.</td>
+<td>MAP.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Seguros</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>MEDIASET ESPAÑA COMUNICACION, S.A.</td>
+<td>TL5.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Medios de Comunicación y Publicidad</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>MELIA HOTELS INTERNATIONAL, S.A.</td>
+<td>MEL.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Ocio, Turismo y Hostelería</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>MERLIN PROPERTIES, SOCIMI, S.A.</td>
+<td>MRL.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;SOCIMI</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>METROVACESA, S.A.</td>
+<td>MVC.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>MIQUEL Y COSTAS &amp; MIQUEL, S.A.</td>
+<td>MCM.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Papel y Artes Gráficas</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>MONTEBALITO, S.A.</td>
+<td>MTB.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NATURGY ENERGY GROUP, S.A.</td>
+<td>NTGY.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Electricidad y Gas</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>NATURHOUSE HEALTH, S.A.</td>
+<td>NTH.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NEINOR HOMES, S.A.</td>
+<td>HOME.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NH HOTEL GROUP, S.A.</td>
+<td>NHH.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Ocio, Turismo y Hostelería</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>NICOLAS CORREA S.A.</td>
+<td>NEA.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Fabric. y Montaje Bienes de Equipo</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>NUEVA EXPRESION TEXTIL, S.A.</td>
+<td>NXT.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Textil, Vestido y Calzado</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>NYESA VALORES CORPORACION, S.A.</td>
+<td>NYE.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>OBRASCON HUARTE LAIN, S.A.</td>
+<td>OHLA.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>OPDENERGY HOLDING, S.A.</td>
+<td>OPDE.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ORYZON GENOMICS, S.A.</td>
+<td>ORY.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PESCANOVA, S.A.</td>
+<td>PVA.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PHARMA MAR, S.A.</td>
+<td>PHM.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PRIM, S.A.</td>
+<td>PRM.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Productos farmaceúticos y Biotecnología</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>PROMOTORA DE INFORMACIONES,S.A.</td>
+<td>PRS.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Medios de Comunicación y Publicidad</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>PROSEGUR , CIA. DE SEGURIDAD, S.A.</td>
+<td>PSG.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Otros Servicios</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>REALIA BUSINESS, S.A.</td>
+<td>RLIA.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RED ELECTRICA CORPORACION, S.A.</td>
+<td>RED.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Electricidad y Gas</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>RENTA 4 BANCO, S.A.</td>
+<td>R4.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Servicios de Inversión</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>RENTA CORPORACION REAL ESTATE, S.A.</td>
+<td>REN.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>REPSOL, S.A.</td>
+<td>REP.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Petróleo</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>SACYR, S.A.</td>
+<td>SCYR.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Construcción</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>SOLARIA ENERGIA Y MEDIO AMBIENTE, S.A.</td>
+<td>SLR.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>SOLTEC POWER HOLDINGS, S.A.</td>
+<td>SOL.MC</td>
+<td>Petróleo y Energía&nbsp;-&nbsp;Energías Renovables</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>SQUIRREL MEDIA, S.A</td>
+<td>SQRL.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Medios de Comunicación y Publicidad</td>
+<td>Mercado Continuo</td>
+<td>NA</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>TALGO, S.A.</td>
+<td>TLGO.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Fabric. y Montaje Bienes de Equipo</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>TECNICAS REUNIDAS, S.A.</td>
+<td>TRE.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Ingeniería y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>TELEFONICA, S.A.</td>
+<td>TEF.MC</td>
+<td>Tecnología y Telecomunicaciones&nbsp;-&nbsp;Telecomunicaciones y Otros</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>TUBACEX, S.A.</td>
+<td>TUB.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>TUBOS REUNIDOS,S.A.</td>
+<td>TRG.MC</td>
+<td>Mat.Basicos, Industria y Construcción&nbsp;-&nbsp;Mineral, Metales y Transformación</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>UNICAJA BANCO, S.A.</td>
+<td>UNI.MC</td>
+<td>Servicios Financieros&nbsp;-&nbsp;Bancos y Cajas de Ahorro</td>
+<td>Mercado Continuo</td>
+<td>IBEX 35®, IGBM</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>URBAS GRUPO FINANCIERO, S.A.</td>
+<td>UBS.MC</td>
+<td>Servicios Inmobiliarios&nbsp;-&nbsp;Inmobiliarias y Otros</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>VIDRALA S.A.</td>
+<td>VID.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Otros Bienes de Consumo</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td>X</td>
+</tr>
+<tr class="odd">
+<td>VISCOFAN, S.A.</td>
+<td>VIS.MC</td>
+<td>Bienes de Consumo&nbsp;-&nbsp;Alimentación y Bebidas</td>
+<td>Mercado Continuo</td>
+<td>IGBM, IBEX TOP Dividendo®</td>
+<td>X</td>
+</tr>
+<tr class="even">
+<td>VOCENTO, S.A.</td>
+<td>VOC.MC</td>
+<td>Servicios de Consumo&nbsp;-&nbsp;Medios de Comunicación y Publicidad</td>
+<td>Mercado Continuo</td>
+<td>IGBM</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="figure-caption">
+<p>Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, <span class="citation" data-cites="BMEexcha"><span>«Empresas cotizadas»</span> (<a href="references.html#ref-BMEexcha" role="doc-biblioref">s.&nbsp;f.</a>)</span>.</p>
+</div>
+<div class="cell caption-top">
+<div class="cell-output-display">
+<div id="fig-tend_const_nxt" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Figura&nbsp;1: Tendencia constante en los precios de cierre ajustado de la empresa “Nueva Expreción Textil S.A”</figcaption><p></p>
+<p><img src="chapter2a_files/figure-html/fig-tend_const_nxt-1.png" class="img-fluid figure-img" alt="Una gráfica que muestra la inconsistencia en el registro de los precio de cierre ajustado de la serie correspondiente a la empresa NUEVA EXPRESION TEXTIL, S.A., al observarse que no existe variación del precio de cierre ajustado en periodo correspondiente a 06-2009 al 04-2014. " width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="figure-caption">
+<p>Elaboración propia: A partir de los datos obtenidos de <span class="citation" data-cites="yahoofin"> (<a href="references.html#ref-yahoofin" role="doc-biblioref">s.&nbsp;f.</a>)</span> correspondientes a la empresa “Nueva Expreción Textil S.A” en el periodo del 31 de enero del 2000 al 28 de febrero del 2023.</p>
+</div>
+<div class="cell caption-top">
+<div class="cell-output-display">
+<div id="fig-radi_chang_btc" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p></p><figcaption class="figure-caption">Figura&nbsp;2: cambio brusco de precios que reflejan calculo erroneo de los precios de cierre ajustado, “BANKINTER,S.A.”</figcaption><p></p>
+<p><img src="chapter2a_files/figure-html/fig-radi_chang_btc-1.png" class="img-fluid figure-img" alt="Una gráfica que muestra cambios bruscos en los precios de cierre ajustado en relación al resto de valores de la serie, lo que puede indicar un calculo erroneo de los valores durante cierto periodo de tiempo. " width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="figure-caption">
+<p>Elaboración propia: A partir de los datos obtenidos de <span class="citation" data-cites="yahoofin"> (<a href="references.html#ref-yahoofin" role="doc-biblioref">s.&nbsp;f.</a>)</span> correspondientes a la empresa “Nueva Expreción Textil S.A” en el periodo del 31 de enero del 2000 al 28 de febrero del 2023.</p>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-yahoofin" class="csl-entry" role="doc-biblioentry">
+s.&nbsp;f. Yahoo Finance. <a href="https://finance.yahoo.com/">https://finance.yahoo.com/</a>.
+</div>
+<div id="ref-BMEexcha" class="csl-entry" role="doc-biblioentry">
+<span>«Empresas cotizadas»</span>. s.&nbsp;f. BME Exchange. Accedido 21 de mayo de 2023. <a href="https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones/Mercado-Continuo/Empresas-Cotizadas">https://www.bolsasymercados.es/bme-exchange/es/Mercados-y-Cotizaciones/Acciones/Mercado-Continuo/Empresas-Cotizadas</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -327,7 +1386,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./chapter2.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 2:</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Capítulo 2: Procedimiento</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

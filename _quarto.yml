@@ -39,6 +39,8 @@ book:
     - chapter2.qmd
     - chapter2a.qmd
     - references.qmd
+  appendices:
+    - Annex1.qmd
 
 bibliography: references.bib
 

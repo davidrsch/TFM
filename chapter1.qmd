@@ -321,7 +321,6 @@ H=Q^{-1}(I-\bar{N}N^{*})
 \end{aligned}
 $$ {#eq-consup}
 
-Donde $N^{*}$ es la pseudo-inversa o la inversa generalizada Moore-Penrose de $\bar{N}$, la matriz de los vectores normales de las restricciones en el conjunto activo $A$. $H$ es el operador hessiano inverso reducido de $Q$. 
+Donde $N^{*}$ es la pseudo-inversa o la inversa generalizada Moore-Penrose de $\bar{N}$, la matriz de los vectores normales de las restricciones en el conjunto activo $A$. $H$ es el operador hessiano inverso reducido de $Q$.
 
 Se repetin estos pasos de manera iterativa hasta que se satisfagan todas las restricciones y se haya determinado la asignación óptima de activos.
-

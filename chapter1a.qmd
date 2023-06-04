@@ -1,21 +1,5 @@
 # Apéndices Capítulo 1 {.unnumbered}
 
-```{r}
-#| echo: false
-#| message: false
-
-library(readr)
-library(ggplot2)
-library(dplyr)
-library(lubridate)
-library(gridExtra)
-library(quantmod)
-library(forecast)
-library(simplermarkdown)
-
-IBEX <- read.csv("data/IBEXm.csv")
-```
-
 | Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
 |------------------------|----------------------|--------------------------|
 | Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |

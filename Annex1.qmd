@@ -1,0 +1,197 @@
+# Anexo 1
+
+## Datos
+
+A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Datos del capítulo 2.
+
+### Obtención de Datos {#sec-A-obtdat}
+
+Lo primero que se realizo fue cargar la tabla de las empresas.
+
+```{r}
+#| eval: false
+library(readxl)
+empresas <- read_excel("data/000_empresas.xlsx")
+```
+
+Luego se extrageron los ticks de las empresas.
+
+```{r}
+#| eval: false
+library(dplyr)
+ticks <- empresas |> 
+  select(TICKERS) |> 
+  pull()
+```
+
+Una vez almacenados los ticks de las empresas en la variable `ticks` se procedio a descargar los datos correspondientes a dichas empresas desde Yahoo Finance usando el paquete quantmod de @quantmod23.
+
+```{r}
+#| eval: false
+library(quantmod)
+nombres_colum <- c("Date","Open","High","Low","Close","Volume","Adjusted")
+qmddata <- list()
+for (i in 1:length(ticks)) {
+  tick <- ticks[i]
+  value <- getSymbols(
+    tick,
+    from = "2000-01-02",
+    to = "2023-03-01",
+    auto.assign = F,
+    periodicity = "monthly") |>
+    as.data.frame()
+  dates <- row.names(value)
+  row.names(value) <- NULL
+  value <- cbind(dates,value)
+  names(value) <- nombres_colum
+  qmddata[[tick]] <-  value
+}
+```
+
+Con el objetivo de simplicar el proceso se decidió trabajar con aquellas empresas que tenían el máximo número de observaciones para lo que se uso el siguiente código
+
+```{r}
+#| eval: false
+max_obs <- max(sapply(qmddata,dim)[1,])
+select_emps <- qmddata |>
+  lapply(function(x, maxobs = max_obs){
+    if(dim(x)[1] == maxobs){
+     emp <- x 
+    }else{}
+  }) |>
+  Filter(f=(function(x){ !is.null(x)}))
+```
+
+Con el objetivo de determinar si los datos que habían sido importados contaban con valores faltantes se ejecuto el siguiente código:
+
+```{r}
+#| eval: false
+navalues <- select_emps |>
+  sapply(function(x){
+    na <- length(which(is.na(x)))
+  })
+emp_con_nan <- which(navalues > 0)
+```
+
+Con el objetivo de realizar un análisis exploratorio de los datos, se decidió realizar una evaluación visual de los datos historicos del precio ajustado para lo que se ejecutó:
+
+```{r}
+#| eval: false
+lapply(select_emps, function(x){
+  x |>
+    ggplot(aes(x=as.Date(Date), y=Adjusted))+
+             geom_line(color="#065AD8")
+})
+```
+
+Tras el análisis visual ejecutado con el fragmento de código anterior se persivió la existencia de precios constantes, así como calculos erroneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de solucionar el primero de los problemas mencionados se decidio eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el sguiente código.
+
+```{r}
+#| eval: false
+returns_emps <- select_emps[-emp_con_nan] |>
+  lapply(function(x){
+    returns <- x |>
+      select(Date, Adjusted) |>
+      mutate(Return_Ad = Delt(Adjusted)[,1]) |>
+      na.omit() |>
+      select(Date, Return_Ad)
+  })
+```
+
+Una vez computadas las rentabilidades se eliminaron aquellas series que presentaban en más de 10 observaciones rentabilidad 0, para lo que se ejecutó el siguiente código.
+
+```{r}
+#| eval: false
+zerovalues <- returns_emps |>
+  sapply(function(x){
+    zeros <- length(which(x[,2]==0))
+  })
+returns_emps2 <- returns_emps[zerovalues<10]
+```
+
+Una vez eliminadas aquellas series sin variaciones en los precios se procedió a seleccionar, en las series restantes, solo aquellas observaciones posteriores a enero del 2005 con la meta de eliminar aquellas observaciones en las que el calculo del precio ajustado se realizo de manera erronea.
+
+```{r}
+#| eval: false
+returns_emps3 <- returns_emps2 |>
+  lapply(function(x){
+    emps <- x |>
+      filter(Date >= "2005-01-31")
+  })
+save(
+  qmddata,
+  select_emps,
+  max_obs,
+  emp_con_nan,
+  returns_emps,
+  returns_emps2,
+  returns_emps3,
+  file = "data/data.Rdata")  
+```
+
+### Indicadores {#sec-A-indi}
+
+A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe indicadores del capítulo 2.
+
+Primero se descargaron los datos del IBEX, se computaron las rentabilidades del precio ajustado del mismo y se seleccionaron los valores posteriores a enero del 2005.
+
+```{r}
+#| eval: false
+
+#Importando IBEX
+IBEXsel <- getSymbols(
+  "^IBEX",
+  from = "1990-01-01",
+  to = "2023-03-01",
+  auto.assign = F,
+  periodicity = "monthly") |>
+  as.data.frame()
+dates <- row.names(IBEXsel)
+row.names(IBEXsel) <- NULL
+IBEXsel <- cbind(dates,IBEXsel)
+names(IBEXsel) <- nombres_colum
+# Calculando rentabilidad y seleccionando observaciones posteriores a
+# enero del 2005.
+IBEXsel <- IBEXsel |>
+  mutate(Return_I = Delt(Adjusted)[,1]) |>
+  na.omit() |>
+  filter(Date >= "2005-01-31") |>
+  select(Date, Return_I)
+```
+
+Luego se agregaron los valores de las rentabilidades del IBEX a las tablas de las rentabilidades de las acciones de las empresas seleccionadas, y se computaron y agregaron las variables listadas a continuación a cada una de las tablas:
+
+- Volatilidad de la empresa
+- Volatilidad del indice
+- Correlación entre las rentabilidades de la empresa y el indice
+- La Beta entre la empresa y el indice
+
+```{r}
+#| eval: false
+
+returns_indc <- returns_emps3 |>
+  lapply(function(x, ind = IBEXsel){
+    emp <- x |>
+      left_join(ind) |>
+      mutate(
+        VE = sqrt(cumsum((Return_Ad - cummean(Return_Ad))^2)/1:length(Return_Ad)),
+        VI = sqrt(cumsum((Return_I - cummean(Return_I))^2)/1:length(Return_I)),
+        Cor = cumsum((Return_Ad-cummean(Return_Ad))*(Return_I-cummean(Return_I)))/(sqrt(cumsum((Return_Ad-cummean(Return_Ad))^2))*sqrt(cumsum((Return_I-cummean(Return_I))^2)))
+      )|>
+      na.omit() |>
+      mutate(
+        Beta = (Cor*VE)/VI
+      )
+  })
+save(
+  qmddata,
+  select_emps,
+  max_obs,
+  emp_con_nan,
+  returns_emps,
+  returns_emps2,
+  returns_emps3,
+  IBEXsel,
+  returns_indc,
+  file = "data/data.Rdata")  
+```
