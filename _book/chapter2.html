@@ -267,7 +267,13 @@ div.csl-indent {
 <p>Para calcular la volatilidad de una acción o indice se calcula la desviación estandar de las rentabilidades. Siendo por tanto los calculos necesarios los que se muestran a continuación:</p>
 <p><span class="math display">\[R_i = \frac{P_i - P_{i-1}}{P_{i-1}}\]</span></p>
 <p><span id="eq-volatility"><span class="math display">\[\sigma = \sqrt{\frac{\sum_{i=1}^N (R_i - \bar{R})^2}{N} } \tag{2.1}\]</span></span></p>
-<p>donde: - <span class="math inline">\(R_i\)</span> es la rentabilidad de la acción en el periodo <span class="math inline">\(i\)</span> - <span class="math inline">\(P_i\)</span> y <span class="math inline">\(P_{i-1}\)</span> son los precios de una acción en periodos de tiempo <span class="math inline">\(i\)</span> e <span class="math inline">\(i-1\)</span>, respectivamente. - <span class="math inline">\(\sigma\)</span> es la desviación estandar - <span class="math inline">\(N\)</span> es el número de observaciones - <span class="math inline">\(\bar{R}\)</span> es la rentabilidad media de la acción.</p>
+<p>donde:</p>
+<ul>
+<li><p><span class="math inline">\(R_i\)</span> es la rentabilidad de la acción en el periodo <span class="math inline">\(i\)</span></p></li>
+<li><p><span class="math inline">\(P_i\)</span> y <span class="math inline">\(P_{i-1}\)</span> son los precios de una acción en periodos de tiempo <span class="math inline">\(i\)</span> e <span class="math inline">\(i-1\)</span>, respectivamente.</p></li>
+<li><p><span class="math inline">\(\sigma\)</span> es la desviación estandar - <span class="math inline">\(N\)</span> es el número de observaciones</p></li>
+<li><p><span class="math inline">\(\bar{R}\)</span> es la rentabilidad media de la acción.</p></li>
+</ul>
 <p>La desviación estándar y la volatilidad son herramientas útiles para que los inversores y analistas evalúen el equilibrio riesgo-recompensa de diferentes activos y carteras. También pueden ayudar a comparar el rendimiento de diferentes activos y carteras a lo largo del tiempo y en diferentes condiciones de mercado.</p>
 </section>
 <section id="correlación" class="level4" data-number="2.1.2.2">
@@ -277,10 +283,10 @@ div.csl-indent {
 <p><span id="eq-correlation"><span class="math display">\[\rho_{xy} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}} \tag{2.2}\]</span></span></p>
 <p>donde:</p>
 <ul>
-<li><span class="math inline">\(\rho_{xy}\)</span> es el coeficiente de correlación</li>
-<li><span class="math inline">\(n\)</span> es el número de observaciones</li>
-<li><span class="math inline">\(x_i\)</span> y <span class="math inline">\(y_i\)</span> son los valores de las dos variables para la <span class="math inline">\(i\)</span> observación</li>
-<li><span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(\bar{y}\)</span> son las medias de las dos variables.</li>
+<li><p><span class="math inline">\(\rho_{xy}\)</span> es el coeficiente de correlación</p></li>
+<li><p><span class="math inline">\(n\)</span> es el número de observaciones</p></li>
+<li><p><span class="math inline">\(x_i\)</span> y <span class="math inline">\(y_i\)</span> son los valores de las dos variables para la <span class="math inline">\(i\)</span> observación</p></li>
+<li><p><span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(\bar{y}\)</span> son las medias de las dos variables.</p></li>
 </ul>
 <p>Como se explica también en <span class="citation" data-cites="edwards22">Edwards (<a href="references.html#ref-edwards22" role="doc-biblioref">2022</a>)</span>, el coeficiente de correlación se encuentra en un rango de -1 a 1, donde -1 indica una correlación negativa perfecta, 1 indica una correlación positiva perfecta, y 0 indica que no existe correlación alguna. Pudiendose entender que, mientras más cercano se encuentre el coeficiente de correlación tanto a -1 como a 1, más fuerte es la relación lineal entre las variables analizadas.</p>
 <p>Como ya se explicó con anterioridad el coeficiente de correlación, en el presente trabajo, se puede utilizar para analizar que tan parecido se mueven las rentabilidades de una empresa en comparación con las del IBEX 35. La correlación también se puede utilizar para diversificar una cartera eligiendo acciones que tengan una correlación baja o negativa entre sí, como se explica en <span class="citation" data-cites="boytew22">Boyte-White (<a href="references.html#ref-boytew22" role="doc-biblioref">2022</a>)</span>. Esto puede ayudar a reducir el riesgo general de la cartera, ya que las pérdidas de una acción pueden compensarse con las ganancias de otra. Sin embargo, la correlación no es constante y puede cambiar con el tiempo debido a varios factores, como las condiciones del mercado, los eventos económicos o las noticias de la empresa. Por lo tanto, es importante monitorear la correlación de acciones regularmente y ajustar la cartera en consecuencia <span class="citation" data-cites="boytew22">Boyte-White (<a href="references.html#ref-boytew22" role="doc-biblioref">2022</a>)</span>.</p>
@@ -293,7 +299,12 @@ div.csl-indent {
 <p>Beta es importante en el análisis del mercado de valores porque, como se explica en <span class="citation" data-cites="kneton22beta">Kenton (<a href="references.html#ref-kneton22beta" role="doc-biblioref">2022</a>)</span>, ayuda a los inversores a evaluar el riesgo y el rendimiento de una cartera. Al conocer la versión beta de cada acción en una cartera, los inversores pueden estimar cuánto fluctuará la cartera con los movimientos del mercado y ajustar su asignación de activos en consecuencia. Por ejemplo, si un inversor quiere reducir el riesgo de su cartera, puede elegir acciones con valores beta bajos o negativos que tienden a moverse en dirección opuesta al mercado.</p>
 <p>Como se explica en <span class="citation" data-cites="monaghan19bvsc">Monaghan (<a href="references.html#ref-monaghan19bvsc" role="doc-biblioref">2019</a>)</span> Beta está relacionado con la correlación, pero no son lo mismo. Como se explicó con antrioridad la correlación es una medida de cuán linealmente relacionadas están dos variables, Beta, por otro lado, es una medida de cuán fuertemente relacionadas están dos variables, lo que indica cuánto cambia una variable cuando otra variable cambia en una unidad. Beta se puede calcular a partir de la correlación usando la siguiente fórmula:</p>
 <p><span id="eq-beta"><span class="math display">\[\beta = \frac{\rho_{xy} \sigma_x}{\sigma_y} \tag{2.3}\]</span></span></p>
-<p>donde: - <span class="math inline">\(\rho_{xy}\)</span> es el coeficiente de correlación entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> - <span class="math inline">\(\sigma_x\)</span> es la volatilidad de x - <span class="math inline">\(\sigma_y\)</span> es la volatilidad de y.</p>
+<p>donde:</p>
+<ul>
+<li><p><span class="math inline">\(\rho_{xy}\)</span> es el coeficiente de correlación entre <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span></p></li>
+<li><p><span class="math inline">\(\sigma_x\)</span> es la volatilidad de x</p></li>
+<li><p><span class="math inline">\(\sigma_y\)</span> es la volatilidad de y.</p></li>
+</ul>
 </section>
 </section>
 </section>
@@ -304,10 +315,27 @@ div.csl-indent {
 <h3 data-number="2.2.1" class="anchored" data-anchor-id="vectores"><span class="header-section-number">2.2.1</span> Vectores</h3>
 <p>En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex1.html#sec-A-obtdat"><span>Sección&nbsp;A.0.1</span></a>.</p>
 <p>La estructura del conjunto de vectores de entradas y salidas es de vital importancia en el modelado de técnicas de ML teniendo un impacto importante en su eficacia. El conjunto debe de vectores debe crearse de manera representativa del problema a resolver, por lo que los pasos descritos a continuación explican en detalle los aspectos del problema a dar respuesta en el presente trabajo y como dar forma al conjunto de vectores de entradas y salidas para ello.</p>
-<p>Como se ha mencionado con anterioridad el objetivo del presente trabajo es exponer un procedimiento para la utilización de modelos de RNA y programación cuadrática en una estrategia de inversión.</p>
-<p>El modelado atiende a la necesidad de obtener unas predicciones lo más acertada posible para posteriormente, basandose en las predicciones y en los datos historicos, hallar la composición de cartera idonea. Por lo que lo primero que se debe plantear es que horizonte temporal se desea preveer.</p>
-<p>La definición del horizonte temporal que se desee preveer es un aspecto clave en la creación de los conjuntos de entradas y de salidas. El número de observaciones definido como horizonte temporal determinara el tamaño de las salidas, en el presente trabajo se deterino como horizonte temporal una observación ya que se desea predecir la rentabilidad del próximo mes de las distintas empresas seleccionadas.</p>
-<p>Otro parámetro fundamental a decidir es cuantas observaciones debe observar el modelo para inferir la salida deseada. Esto define el tamaño de los vectores de entrada, en el presente trabajo se determino probar distintos tamaños de entrada siendo estos 1,2 y 3. Probandose así de cierta manera como el tamaño de las entradas afecta la predicción obtenida.</p>
+<p>Como se ha mencionado con anterioridad el objetivo del presente trabajo es exponer un procedimiento para la utilización de modelos de RNA y programación cuadrática en una estrategia de inversión. El modelado atiende a la necesidad de obtener unas predicciones lo más acertada posible para posteriormente, basandose en las predicciones y en los datos historicos, hallar la composición de cartera idonea. Por lo que el problema a representar con los conjuntos de vectores de entradas y salidas es como explicar el comportamiendo de la rentabilidad de una empresa en un instante de tiempo <span class="math inline">\(i+1\)</span> con los valores de varias variables en el instante de tiempo <span class="math inline">\(i\)</span>.</p>
+<p>Para la representación de este problema se crearon vectores tridimensionales, siguiendo lo expuesto en <span class="citation" data-cites="chollet2018deep">Chollet y Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span>. Las dimensiones de estos vectores se explican de la siguiente manera:</p>
+<ul>
+<li><p>La primera dimensión esta comprendida por el número de muestras obtenidas al seccionar las observaciones de las distintas series en en vectores bidimensionales bidimensionales consecutivos.</p></li>
+<li><p>La segunda dimensión esta comprendida por el número de observaciones, de las distintas series, recogido en cada vector bidimensional.</p></li>
+<li><p>La tercera dimensión es el número de series en cada vector bidimensional.</p></li>
+</ul>
+<p>Por lo que para la correcta obtención de estas muestras se deben definir primero que series serán utilizadas para los vectores de entrada y salida. Las series a utilizar en los vectores de entrada fueron definidas en el epígrafe anterior, siendo estas: la rentabilidades historicas de la empresa y el IBEX, las volatilidades historicas de la empresa y el IBEX, la correlación historica de la empresa y el IBEX, y el Beta historico de la empresa y el IBEX. Por otro lado la serie a utilizar para los vectores de salida es la rentabilidades historicas de la empresa.</p>
+<p>Posteriormente se definió el horizonte temporal que se desea preveer, este es un aspecto clave en la creación de los conjuntos de entradas y de salidas. El número de observaciones definido como horizonte temporal determina las observaciones los vectores de salida, en el presente trabajo se deterinó como horizonte temporal una observación ya que se desea predecir la rentabilidad del próximo mes de las distintas empresas seleccionadas.</p>
+<p>Y el último aspecto a definir es cuantas observaciones debe observar el modelo para inferir la salida deseada. Esto define la cantidad de observaciones que se tomaran de cada serie de tiempo para conformar los vectores de entrada. Para determinar este aspecto se debe realizar un proceso iterativo probando distintas cantidades y evaluar los resultados obtenidos por los modelos que se entrenen con dichos. Para simplificar el proceso, en el presente trabajo se determinó probar distintos tamaños de entrada siendo estos 1, 2 y 3 observaciones. Probandose así de cierta manera como el tamaño de las entradas afecta la predicción obtenida.</p>
+<p>Por lo que si sabemos que cada una de las series utilizadas para los vectores de entrada contien unas 217 observaciones se puede calcular el número de muestras que se obtuvo de cada serie siguiendo la siguiente ecuacíon:</p>
+<p><span id="eq-muestras"><span class="math display">\[
+m = n - (i-1+o)
+\tag{2.4}\]</span></span></p>
+<p>donde:</p>
+<ul>
+<li><p><span class="math inline">\(m\)</span> el número de muestras</p></li>
+<li><p><span class="math inline">\(n\)</span> la cantidad de observaciones de las series</p></li>
+<li><p><span class="math inline">\(i\)</span> y <span class="math inline">\(o\)</span> el número de observaciones en los vecotres de entrada y salida respectivamente.</p></li>
+</ul>
+<p>En la <a href="chapter2a.html#tbl-muestras">Tabla&nbsp;<span>2</span></a> se expone la cantidad de muestras obtenidas por serie para los distintos tamaños de vectores de entrada planteados, así como el número de muestras totales teniendo en cuenta las 36 seleccionadas. En la <a href="chapter2a.html#fig-muestras">Figura&nbsp;<span>3</span></a> se expone como lucen los vectores de entrada y salida, en el caso deque el vector de entrada cuenta con 3 observaciones.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -319,6 +347,9 @@ s.&nbsp;f.a. Yahoo Finance. <a href="https://finance.yahoo.com/">https://finance
 </div>
 <div id="ref-boytew22" class="csl-entry" role="doc-biblioentry">
 Boyte-White, C. 2022. <span>«How Does Correlation Affect the Stock Market?»</span> 2022. <a href="https://www.investopedia.com/ask/answers/021716/how-does-correlation-affect-stock-market.asp">https://www.investopedia.com/ask/answers/021716/how-does-correlation-affect-stock-market.asp</a>.
+</div>
+<div id="ref-chollet2018deep" class="csl-entry" role="doc-biblioentry">
+Chollet, F., y J. J. Allaire. 2018. <em>Deep Learning with R</em>. Manning Publications. <a href="https://books.google.es/books?id=xnIRtAEACAAJ">https://books.google.es/books?id=xnIRtAEACAAJ</a>.
 </div>
 <div id="ref-edwards22" class="csl-entry" role="doc-biblioentry">
 Edwards, J. 2022. <span>«Why Market Correlation Matters?»</span> 2022. <a href="https://www.investopedia.com/articles/financial-advisors/022516/4-reasons-why-market-correlation-matters.asp">https://www.investopedia.com/articles/financial-advisors/022516/4-reasons-why-market-correlation-matters.asp</a>.

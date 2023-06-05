@@ -1,0 +1,7 @@
+## Modelado
+
+A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Modelado del Capítulo 2.
+
+### Vectores {#sec-A-vec}
+
+A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.

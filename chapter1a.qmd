@@ -204,49 +204,49 @@ Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro 
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro padding afecta el tamaño del vector de salida.
 :::
 
-![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct}
+![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose}
+![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway}
+![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Diferencia entre los módulos de repetición](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm}
+![Diferencia entre los módulos de repetición](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1}
+![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1 width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2}
+![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2 width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3}
+![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3 width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4}
+![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4 width=600}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
