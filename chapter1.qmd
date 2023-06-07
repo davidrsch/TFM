@@ -194,7 +194,7 @@ $$
 \end{aligned}
 $$ {#eq-lstm-ssteps}
 
-3.  Se actualiza el estado de la celda anterior, $C_{t-1}$ en el nuevo estado de la celda $C_{t}$. Se multiplica el estado anterior por $f_{t}$, olvidando lo necesario, luego se agrega \$i_t\* \tilde{C}\_t \$. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, @fig-COLSTMstep3, ecuación 1.09.
+3.  Se actualiza el estado de la celda anterior, $C_{t-1}$ en el nuevo estado de la celda $C_{t}$. Se multiplica el estado anterior por $f_{t}$, olvidando lo necesario, luego se agrega $i_{t} * \tilde{C}_{t}$. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, @fig-COLSTMstep3, ecuación 1.09.
 
 $$
 \begin{aligned}

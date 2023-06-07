@@ -162,91 +162,144 @@ grid.arrange(ggAcf(ts), ggPacf(ts), ncol = 2)
 Elaboración propia: Mediante el uso de RStudio.
 :::
 
-![DLenv](images/a1_DL-env.png "Relación entre IA-ML-DL"){#fig-DLenv fig-alt="IA engloba a ML y ML engloba a DL"}
+![Relación entre IA-ML-DL](images/a1_DL-env.png "Relación entre IA-ML-DL"){#fig-DLenv fig-alt="IA engloba a ML y ML engloba a DL"}
 
 ::: figure-caption
 Tomada de: Deep learning with R de @chollet2018deep.
 :::
 
-![MLprog](images/a1_ML-prog.png "Programación clásica y machine learning"){#fig-MLprog fig-alt="Muestra un esquema que explica de manera general el paradigma de la programación clasica y el uso de machine learning. Mostrandose en el primero como se introducen reglas y datos para obtener respuestas, mientras que en machine learning se introducen datos y respuestas para obtener reglas"}
+![Programación clásica y machine learning](images/a1_ML-prog.png "Programación clásica y machine learning"){#fig-MLprog fig-alt="Muestra un esquema que explica de manera general el paradigma de la programación clasica y el uso de machine learning. Mostrandose en el primero como se introducen reglas y datos para obtener respuestas, mientras que en machine learning se introducen datos y respuestas para obtener reglas"}
 
 ::: figure-caption
 Tomada de: Deep learning with R de @chollet2018deep.
 :::
 
-![RNAstruct](images/a1_RNA-struct.png "Estructura básica de una red neuronal artificial"){#fig-RNAstruct fig-alt="Muestra un esquema el esquema de la estructura básica de una RNA. Se muestra como los diferentes las diferentes entradas se conectan a cada uno de los nodos de las capa oculta y a su vez como cada uno de los nodos de la capa oculta se conecta a los nodos de la capa de salida. Los nodos de la capa oculta y la capa de salida también están conectados a un parámetro bias "}
+![Estructura básica de una red neuronal artificial](images/a1_RNA-struct.png "Estructura básica de una red neuronal artificial"){#fig-RNAstruct fig-alt="Muestra un esquema el esquema de la estructura básica de una RNA. Se muestra como los diferentes las diferentes entradas se conectan a cada uno de los nodos de las capa oculta y a su vez como cada uno de los nodos de la capa oculta se conecta a los nodos de la capa de salida. Los nodos de la capa oculta y la capa de salida también están conectados a un parámetro bias "}
 
 ::: figure-caption
 Tomada de: Tema 14: redes neuronales de @Larranaga07.
 :::
 
-![Como kernel_size afecta el vector de salida](images/a1_HJ-ks.gif "Como kernel_size afecta el vector de salida"){#fig-HJks}
+::: {#fig-HJks}
+::: {.content-visible when-format="html"}
+<img src="images/a1_HJ-ks.gif" class="img-fluid figure-img">
+:::
+::: {.content-visible when-format="docx"}
+```{r, echo =FALSE}
+knitr::include_graphics("images/a1_HJ-ks.gif")
+```
+:::
+::: {.content-visible when-format="pdf"}
+[<img src="images/a1_HJ-ks.png">](https://gist.github.com/davidrsch/bbf81cd68d062d324996a1002571f206)
+:::
+Como kernel_size afecta el vector de salida
+:::
+
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el tamaño del vector de salida cambia según el tamaño de filtro que se usa.
 :::
 
-![Como stride afecta el vector de salida](images/a1_HJ-stride.gif "Como stride afecta el vector de salida"){#fig-HJstride}
+::: {#fig-HJstride}
+::: {.content-visible when-format="html"}
+<img src="images/a1_HJ-stride.gif" class="img-fluid figure-img">
+:::
+::: {.content-visible when-format="docx"}
+```{r, echo =FALSE}
+knitr::include_graphics("images/a1_HJ-stride.gif")
+```
+:::
+::: {.content-visible when-format="pdf"}
+[<img src="images/a1_HJ-stride.png">](https://gist.github.com/davidrsch/613c9a2e7356707806f901580a145bf9)
+:::
+Como stride afecta el vector de salida
+:::
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro stride afecta el tamaño del vector de salida.
 :::
 
-![Como dilation afecta el vector de salida](images/a1_HJ-dilation.gif "Como dilation afecta el vector de salida"){#fig-HJdilation}
+::: {#fig-HJdilation}
+::: {.content-visible when-format="html"}
+<img src="images/a1_HJ-dilation.gif" class="img-fluid figure-img">
+:::
+::: {.content-visible when-format="docx"}
+```{r, echo =FALSE}
+knitr::include_graphics("images/a1_HJ-dilation.gif")
+```
+:::
+::: {.content-visible when-format="pdf"}
+[<img src="images/a1_HJ-dilation.png">](https://gist.github.com/davidrsch/333418b0a2d1ff0ff96b210eb276d863)
+:::
+Como dilation afecta el vector de salida
+:::
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro dilation afecta el tamaño del vector de salida.
 :::
 
-![Como padding afecta el vector de salida](images/a1_HJ-padding.gif "Como padding afecta el vector de salida"){#fig-HJpadding}
+::: {#fig-HJpadding}
+::: {.content-visible when-format="html"}
+<img src="images/a1_HJ-padding.gif" class="img-fluid figure-img">
+:::
+::: {.content-visible when-format="docx"}
+```{r, echo =FALSE}
+knitr::include_graphics("images/a1_HJ-padding.gif")
+```
+:::
+::: {.content-visible when-format="pdf"}
+[<img src="images/a1_HJ-padding.png">](https://gist.github.com/davidrsch/0098e9662d54d3c7860f454ced9a5561)
+:::
+Como padding afecta el vector de salida
+:::
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro padding afecta el tamaño del vector de salida.
 :::
 
-![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct width=600}
+![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose width=600}
+![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway width=600}
+![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Diferencia entre los módulos de repetición](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm width=600}
+![Diferencia entre los módulos de repetición](images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1 width=600}
+![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1 width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2 width=600}
+![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2 width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3 width=600}
+![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3 width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4 width=600}
+![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4 width="600"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.

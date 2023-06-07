@@ -4,7 +4,7 @@ A continuación, se presenta el código utilizado durante el proceso descrito en
 
 ### Obtención de Datos {#sec-A-obtdat}
 
-Lo primero que se realizo fue cargar la tabla de las empresas.
+Lo primero que se realizó fue cargar la tabla de las empresas.
 
 ```{r}
 #| eval: false
@@ -46,7 +46,7 @@ for (i in 1:length(ticks)) {
 }
 ```
 
-Con el objetivo de simplicar el proceso se decidió trabajar con aquellas empresas que tenían el máximo número de observaciones para lo que se uso el siguiente código
+Con el objetivo de simplicar el proceso se decidió trabajar con aquellas empresas que tenían el máximo número de observaciones para lo que se usó el siguiente código
 
 ```{r}
 #| eval: false
@@ -60,7 +60,7 @@ select_emps <- qmddata |>
   Filter(f=(function(x){ !is.null(x)}))
 ```
 
-Con el objetivo de determinar si los datos que habían sido importados contaban con valores faltantes se ejecuto el siguiente código:
+Con el objetivo de determinar si los datos que habían sido importados contaban con valores faltantes se ejecutó el siguiente código:
 
 ```{r}
 #| eval: false
@@ -71,7 +71,7 @@ navalues <- select_emps |>
 emp_con_nan <- which(navalues > 0)
 ```
 
-Con el objetivo de realizar un análisis exploratorio de los datos, se decidió realizar una evaluación visual de los datos historicos del precio ajustado para lo que se ejecutó:
+Con el objetivo de realizar un análisis exploratorio de los datos, se decidió realizar una evaluación visual de los datos históricos del precio ajustado para lo que se ejecutó:
 
 ```{r}
 #| eval: false
@@ -82,7 +82,7 @@ lapply(select_emps, function(x){
 })
 ```
 
-Tras el análisis visual ejecutado con el fragmento de código anterior se persivió la existencia de precios constantes, así como calculos erroneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de solucionar el primero de los problemas mencionados se decidio eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el sguiente código.
+Tras el análisis visual ejecutado con el fragmento de código anterior se persivió la existencia de precios constantes, así como calculos erroneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de solucionar el primero de los problemas mencionados se decidio eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el siguiente código.
 
 ```{r}
 #| eval: false
@@ -107,7 +107,7 @@ zerovalues <- returns_emps |>
 returns_emps2 <- returns_emps[zerovalues<10]
 ```
 
-Una vez eliminadas aquellas series sin variaciones en los precios se procedió a seleccionar, en las series restantes, solo aquellas observaciones posteriores a enero del 2005 con la meta de eliminar aquellas observaciones en las que el calculo del precio ajustado se realizo de manera erronea.
+Una vez eliminadas aquellas series sin variaciones en los precios se procedió a seleccionar, en las series restantes, solo aquellas observaciones posteriores a enero del 2005 con la meta de eliminar aquellas observaciones en las que el calculo del precio ajustado se realizó de manera errónea.
 
 ```{r}
 #| eval: false
@@ -116,20 +116,11 @@ returns_emps3 <- returns_emps2 |>
     emps <- x |>
       filter(Date >= "2005-01-31")
   })
-save(
-  qmddata,
-  select_emps,
-  max_obs,
-  emp_con_nan,
-  returns_emps,
-  returns_emps2,
-  returns_emps3,
-  file = "data/data.Rdata")  
 ```
 
 ### Indicadores {#sec-A-indi}
 
-A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe indicadores del capítulo 2.
+A continuación, se expone el código utilizado durante el proceso expuesto en el sub-epígrafe indicadores del capítulo 2.
 
 Primero se descargaron los datos del IBEX, se computaron las rentabilidades del precio ajustado del mismo y se seleccionaron los valores posteriores a enero del 2005.
 
@@ -160,7 +151,7 @@ IBEXsel <- IBEXsel |>
 Luego se agregaron los valores de las rentabilidades del IBEX a las tablas de las rentabilidades de las acciones de las empresas seleccionadas, y se computaron y agregaron las variables listadas a continuación a cada una de las tablas:
 
 -   Volatilidad de la empresa
--   Volatilidad del indice
+-   Volatilidad del índice
 -   Correlación entre las rentabilidades de la empresa y el indice
 -   La Beta entre la empresa y el indice
 

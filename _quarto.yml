@@ -27,7 +27,7 @@ book:
   search: true
   repo-url: https://github.com/davidrsch/TFM
   repo-actions: [edit]
-  downloads: [pdf, epub]
+  downloads: [docx, pdf, epub]
   sharing: [twitter]
   page-navigation: true
   chapters:
@@ -41,6 +41,7 @@ book:
     - references.qmd
   appendices:
     - Annex1.qmd
+    - Annex2.qmd
 
 bibliography: references.bib
 
@@ -54,14 +55,17 @@ format:
     lang:
       es
  #   language: 
-#      lang/custom.yml
+ #     lang/custom.yml
   pdf:
     documentclass: scrreprt
-    template-partials: 
-      - "template/before-body.tex"
-      - "template/_titlepage.tex"
-    include-in-header:
-      - "template/in-header.tex"
+    papersize: letter
+    highlight-style: github
+    fig-width: 2
+    fig-height: 2
+    fig-cap-location: top
+    lang: 
+      es
+    
   docx:
     reference-doc: referencia_formato.docx
     lang:
