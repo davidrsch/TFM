@@ -1,7 +1,7 @@
 # Apéndices Capítulo 1 {.unnumbered}
 
 | Variable dependiente | Subíndice Discreto                           | Subíndice Continuo                           |
-|------------------------|----------------------|--------------------------|
+|----------------------|----------------------------------------------|----------------------------------------------|
 | Discreta             | Proceso de estado discreto y tiempo discreto | Proceso de estado discreto y tiempo continuo |
 | Continua             | Proceso de estado continuo y tiempo discreto | Proceso de estado continuo y tiempo continuo |
 
@@ -35,6 +35,7 @@ Elaboración propia: Mediante el uso de RStudio con la base de datos histórico 
 #| cap-location: top
 #| fig-cap: >
 #|   Tendencia alcista y heterocedástica
+#| fig-height: 2.5
 
 IBEX |>
   filter(Date > "1995-01" & Date < "1997-01") |>
@@ -59,6 +60,7 @@ Elaboración propia: Mediante el uso de RStudio con la base de datos histórico 
 #| cap-location: top
 #| fig-cap: >
 #|   Tendencia bajista y heterocedástica
+#| fig-height: 2.5
 
 IBEX |>
   filter(Date > "2000-01" & Date < "2003-01") |>
@@ -83,6 +85,7 @@ Elaboración propia: Mediante el uso de RStudio con la base de datos histórico 
 #| cap-location: top
 #| fig-cap: >
 #|   Sin tendencia, homocedástica y estacionaria
+#| fig-height: 2.5
 
 IBEX |>
   mutate(CloseI = Delt(CloseI)) |>
@@ -108,6 +111,7 @@ Elaboración propia: Mediante el uso de RStudio con la base de datos histórico 
 #|   Una gráfica que muestra los componentes de estacionalidad y error.
 #| fig-cap: >
 #|   Descomposición: estacionalidad y error
+#| fig-height: 2.5
 
 IBEXts <- IBEX |>
   filter(Date > "2000-01" & Date < "2023-01") |>
@@ -150,6 +154,7 @@ Elaboración propia: Mediante el uso de RStudio con la base de datos histórico 
 #|   Correlogramas de autocorrelación y correlación parcial.
 #| fig-cap: >
 #|   Correlograma
+#| fig-height: 2.5
 
 ts <- IBEX |>
   filter(Date > "2000-01" & Date < "2023-01") |>
@@ -180,96 +185,83 @@ Tomada de: Deep learning with R de @chollet2018deep.
 Tomada de: Tema 14: redes neuronales de @Larranaga07.
 :::
 
-::: {#fig-HJks}
-::: {.content-visible when-format="html"}
-<img src="images/a1_HJ-ks.gif" class="img-fluid figure-img">
-:::
-::: {.content-visible when-format="docx"}
-```{r, echo =FALSE}
-knitr::include_graphics("images/a1_HJ-ks.gif")
-```
-:::
-::: {.content-visible when-format="pdf"}
-[<img src="images/a1_HJ-ks.png">](https://gist.github.com/davidrsch/bbf81cd68d062d324996a1002571f206)
-:::
-Como kernel_size afecta el vector de salida
-:::
+```{r}
+#| echo: false
+#| warning: false
 
+if(knitr::pandoc_to("html") ||
+   knitr::pandoc_to("docx")){
+  knitr::asis_output("![Como el tamaño del filtro afecta el vector de salida](images/a1_HJ-ks.gif){#fig-HJks}")
+}else if(knitr::pandoc_to("latex")){
+  knitr::asis_output('[![Como el tamaño del filtro afecta el vector de salida](images/a1_HJ-ks.png){#fig-HJks}](https://gist.github.com/davidrsch/bbf81cd68d062d324996a1002571f206)')
+}
+```
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el tamaño del vector de salida cambia según el tamaño de filtro que se usa.
 :::
 
-::: {#fig-HJstride}
-::: {.content-visible when-format="html"}
-<img src="images/a1_HJ-stride.gif" class="img-fluid figure-img">
-:::
-::: {.content-visible when-format="docx"}
-```{r, echo =FALSE}
-knitr::include_graphics("images/a1_HJ-stride.gif")
+```{r}
+#| echo: false
+#| warning: false
+
+if(knitr::pandoc_to("html") ||
+   knitr::pandoc_to("docx")){
+  knitr::asis_output("![Como stride afecta el vector de salida](images/a1_HJ-stride.gif){#fig-HJstride}")
+}else if(knitr::pandoc_to("latex")){
+  knitr::asis_output('[![Como stride afecta el vector de salida](images/a1_HJ-stride.png){#fig-HJstride}](https://gist.github.com/davidrsch/613c9a2e7356707806f901580a145bf9)')
+}
 ```
-:::
-::: {.content-visible when-format="pdf"}
-[<img src="images/a1_HJ-stride.png">](https://gist.github.com/davidrsch/613c9a2e7356707806f901580a145bf9)
-:::
-Como stride afecta el vector de salida
-:::
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro stride afecta el tamaño del vector de salida.
 :::
 
-::: {#fig-HJdilation}
-::: {.content-visible when-format="html"}
-<img src="images/a1_HJ-dilation.gif" class="img-fluid figure-img">
-:::
-::: {.content-visible when-format="docx"}
-```{r, echo =FALSE}
-knitr::include_graphics("images/a1_HJ-dilation.gif")
+```{r}
+#| echo: false
+#| warning: false
+
+if(knitr::pandoc_to("html") ||
+   knitr::pandoc_to("docx")){
+  knitr::asis_output("![Como dilation afecta el vector de salida](images/a1_HJ-dilation.gif){#fig-HJdilation}")
+}else if(knitr::pandoc_to("latex")){
+  knitr::asis_output('[![Como dilation afecta el vector de salida](images/a1_HJ-dilation.png){#fig-HJdilation}](https://gist.github.com/davidrsch/333418b0a2d1ff0ff96b210eb276d863)')
+}
 ```
-:::
-::: {.content-visible when-format="pdf"}
-[<img src="images/a1_HJ-dilation.png">](https://gist.github.com/davidrsch/333418b0a2d1ff0ff96b210eb276d863)
-:::
-Como dilation afecta el vector de salida
-:::
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro dilation afecta el tamaño del vector de salida.
 :::
 
-::: {#fig-HJpadding}
-::: {.content-visible when-format="html"}
-<img src="images/a1_HJ-padding.gif" class="img-fluid figure-img">
-:::
-::: {.content-visible when-format="docx"}
-```{r, echo =FALSE}
-knitr::include_graphics("images/a1_HJ-padding.gif")
+```{r}
+#| echo: false
+#| warning: false
+
+if(knitr::pandoc_to("html") ||
+   knitr::pandoc_to("docx")){
+  knitr::asis_output("![Como padding afecta el vector de salida](images/a1_HJ-padding.gif){#fig-HJpadding}")
+}else if(knitr::pandoc_to("latex")){
+  knitr::asis_output('[![Como padding afecta el vector de salida](images/a1_HJ-padding.png){#fig-HJpadding}](https://gist.github.com/davidrsch/0098e9662d54d3c7860f454ced9a5561)')
+}
 ```
-:::
-::: {.content-visible when-format="pdf"}
-[<img src="images/a1_HJ-padding.png">](https://gist.github.com/davidrsch/0098e9662d54d3c7860f454ced9a5561)
-:::
-Como padding afecta el vector de salida
-:::
 
 ::: figure-caption
 Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro padding afecta el tamaño del vector de salida.
 :::
 
-![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct width="600"}
+![Despliegue del bucle de una red neuronal recurrente estándar](images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct width="550"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose width="600"}
+![Información relevante cercana](images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose width="550"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway width="600"}
+![Información relevante lejana](images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway width="550"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
@@ -281,25 +273,25 @@ Tomada de: Understanding LSTM networks, @COlah15.
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1 width="600"}
+![LSTM funcionalidad: Representación del paso 1](images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1 height="200"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2 width="600"}
+![LSTM funcionalidad: Representación del paso 2](images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2 height="180"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3 width="600"}
+![LSTM funcionalidad: Representación del paso 3](images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3 height="250"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4 width="600"}
+![LSTM funcionalidad: Representación del paso 4](images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4 height="235"}
 
 ::: figure-caption
 Tomada de: Understanding LSTM networks, @COlah15.

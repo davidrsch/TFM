@@ -1,7 +1,9 @@
 ## Cargando librerias ----
 library(readxl)
 library(simplermarkdown)
+#library(htmltools)
 library(readr)
+library(gt)
 library(ggplot2)
 library(lubridate)
 library(gridExtra)

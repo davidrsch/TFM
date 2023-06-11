@@ -184,4 +184,3 @@ save(
   returns_indc,
   file = "data/data.Rdata")  
 ```
-
