@@ -60,11 +60,15 @@ format:
     documentclass: scrreprt
     papersize: letter
     highlight-style: github
-    fig-width: 2
-    fig-height: 2
     fig-cap-location: top
+    fig-pos: H
     lang: 
       es
+    include-in-header: 
+      text: |
+        \usepackage{lscape}
+        \newcommand{\blandscape}{\begin{landscape}}
+        \newcommand{\elandscape}{\end{landscape}}
     
   docx:
     reference-doc: referencia_formato.docx
