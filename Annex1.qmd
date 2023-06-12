@@ -172,15 +172,4 @@ returns_indc <- returns_emps3 |>
         Beta = (Cor*VE)/VI
       )
   })
-save(
-  qmddata,
-  select_emps,
-  max_obs,
-  emp_con_nan,
-  returns_emps,
-  returns_emps2,
-  returns_emps3,
-  IBEXsel,
-  returns_indc,
-  file = "data/data.Rdata")  
 ```

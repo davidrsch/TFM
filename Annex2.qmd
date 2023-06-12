@@ -6,4 +6,95 @@ A continuación, se presenta el código utilizado durante el proceso descrito en
 
 A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.
 
+El primer paso llevado a cabo para la ejecución del proceso explicado en el sub-epígrafe en cuestión fue crear una función que permitió obtener las muestras consecutivas para cada serie utilizada. La función expuesta a continuación, como ya se mencionó, permite obtener las muestras consecutivas de una serie, para lo que se utilizan los parametros mencionados en el sub-epígrafe, número de observaciones de entradas y número de observaciones de salida, así como un parametro condicional con el que se indica si el vector a crear es de entrada o de salida.
 
+```{r}
+#| eval: false
+
+vector2dmaker <- function(vec, ent, sal, eos=T){
+  if(eos==T){
+    emp <- 1
+    term <- (length(vec) - (ent+sal-1))
+    ob <- ent
+  }else{
+    emp <- ent + 1
+    term <- (length(vec)-sal+1)
+    ob <- sal
+  }
+  
+  vec2d <- sapply(emp:term,
+               function(x) vec[x:(x + ob-1)]) |>
+    matrix(nrow = ob) |>
+    t()
+  
+  return(vec2d)
+}
+```
+
+A continuación se muestra el código utilizado para la creación de los vectores de entrada de correspondiente a cada una de las series.
+
+```{r}
+#| eval: false
+
+#Se define el horizonte temporal
+ht <- 1
+
+#Se define el observaciones de entrada
+oe <- 1
+
+#Se crean los vectores de entrada 3d para tamaño de entrada 1
+vec3d1e <- lapply(returns_indc, function(x,inp=oe,out=ht){
+  empre <- x
+  series <- 2:dim(x)[2]
+  for (i in series) {
+    if(i==series[1]){
+      vec3d <- vector2dmaker(empre[[i]],ent=inp,sal=out)
+    }else{
+      vec3d <- abind(vec3d,vector2dmaker(empre[[i]],ent=inp,sal=out), along = 3)
+    }
+  }
+  return(vec3d)
+})
+```
+
+El código anterior se ejecutó dos veces más para crear las listas de vectores tridimensionales de entradas por empresa `vec3d2e` y `vec3d3e` que corresponden a aquellos casos en los que se seleccionaron 2 y 3 entradas. De igual manera se ralizó con el código siguiente, con el objetivo de crear además los vectores tridimensionales de salidas por empresa `vec3d2s` y `vec3d3s`, que son los vectores de salidas correspondientes a aquellos casos en los que se selccionaron 2 y 3 entradas respectivamente. 
+
+```{r}
+#| eval: false
+
+#Se define el horizonte temporal
+ht <- 1
+
+#Se define el observaciones de entrada
+oe <- 1
+
+#Se crean los vectores de salida 3d para tamaño de entrada 1
+vec3d1s <- lapply(returns_indc, function(x,inp=oe,out=ht){
+  empre <- x[["Return_Ad"]]
+  vec3d <- vector2dmaker(empre,ent=inp,sal=out,F)
+  dim(vec3d) <- c(dim(vec3d),1)
+  return(vec3d)
+})
+
+save(
+  qmddata,
+  select_emps,
+  max_obs,
+  emp_con_nan,
+  returns_emps,
+  returns_emps2,
+  returns_emps3,
+  IBEXsel,
+  returns_indc,
+  file = "data/data.Rdata")
+save(
+  vector2dmaker,
+  vec3d1e,
+  vec3d2e,
+  vec3d3e,
+  vec3d1s,
+  vec3d2s,
+  vec3d3s,
+  file = "data/modeling.Rdata"
+)
+```
