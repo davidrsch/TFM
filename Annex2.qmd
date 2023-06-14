@@ -98,3 +98,35 @@ save(
   file = "data/modeling.Rdata"
 )
 ```
+
+```{r}
+inp <- layer_input(
+  shape = c(NULL,1,6))
+inp2 <- layer_input(
+  shape = c(NULL,1,1))
+#### Hiden layers----
+cnn <- inp |>
+  layer_conv_1d(
+    filters = 64,
+    kernel_size = 1,
+    # kernel_regularizer = regularizer_l1(0.01),
+    # bias_regularizer = regularizer_l1(0.01),
+    activation = layer_activation_leaky_relu()) |>
+  layer_dense(1)
+hidd <- cnn |>
+  layer_concatenate(inp2) |>
+  layer_lstm(64)
+#### Output layers----
+out <- hidd |> 
+  layer_dense(1*1)
+### Building model---- 
+model <- keras_model(c(inp, inp2),c(cnn, out))
+#### Compiling model ----
+model |> 
+  compile(loss = "mse", optimizer = optimizer_adam())
+#### Summary ----  
+model
+modelcarct <- getconfig(model)
+modelcarct
+grViz(plot_modelk(modelcarct))
+```
