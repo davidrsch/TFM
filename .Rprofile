@@ -35,7 +35,7 @@ getconfig <- function(model){
   a <- gsub("True","true",a)
   a <- gsub(",]","]",a)
   jsonmodeldata <- fromJSON(a,flatten = T)
-  modeldata <- jdata$layers
+  modeldata <- jsonmodeldata$layers
   
   #Extrayendo las características principales
   # Nombre de la capa
@@ -130,7 +130,7 @@ getconfig <- function(model){
   return(modelconfig)
   
 }
-modelcarct
+
 # Función para graficar un modelo de keras----
 plot_modelk <- function(modelca){
   #starting graph
@@ -177,7 +177,7 @@ plot_modelk <- function(modelca){
     }
   }
   #Connections
-  conectedlayers <- which(modelcarct[[3]]!="NULL")
+  conectedlayers <- which(modelca[[3]]!="NULL")
   
   for (i in 1:length(conectedlayers)) {
     n <- conectedlayers[i]
@@ -207,18 +207,3 @@ plot_modelk <- function(modelca){
   graph <- paste0(graph_start,nodes,connections,endgraph)
   return(graph)
 }
-
-is.null(modelcarct[[3]])
-grViz('
-digraph{
-  fontname="Helvetica,Arial,sans-serif"
-  node [fontname="Helvetica,Arial,sans-serif"]
-  edge [fontname="Helvetica,Arial,sans-serif"]
-  concentrate=True;
-  rankdir=TB;
-  node [shape=record];
-  1[label="input_3: InputLayer\n|{entrada:|salida:}|{{AA}|{c(1,2,3)}}"];
-  2[label="conv1d_2: Conv1D\n|{entrada:|salida:}|{{A|A}|{c(1,2,3)}}"];
-  
-  1->2;
-}')
