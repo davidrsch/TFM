@@ -1,0 +1,119 @@
+# 2.3 Composición de carteras {.unnumbered}
+
+En este epígrafe, se expone el problema de encontrar la mejor composición de cartera posible y explicar de manera general la teoría detrás de los objetivos para solucionarlo. Además, se enumerarán las técnicas más utilizadas, diferenciando entre enfoques clásicos y enfoques inteligentes. Posteriormente, se explicará qué es la programación cuadrática y se mencionarán algunas técnicas dentro de esta disciplina de optimización matemática. Se mostrará cómo el problema de optimización de carteras se puede describir como un problema de programación cuadrática. Además, se proporcionará una breve explicación del Dual Active Set Method, una técnica ampliamente utilizada en esta disciplina y que será utilizada en los capítulos siguientes.
+
+## 2.3.1 Problema y técnicas
+
+Como se explica en @Gunjan2023 la optimización de cartera es el proceso de seleccionar la mejor combinación de activos para mantener en una cartera en función de objetivos predefinidos. Los objetivos pueden ser la maximización del rendimiento o la minimización del riesgo, o ambos. La optimización de la cartera implica encontrar las ponderaciones óptimas para cada activo de la cartera de manera que la cartera general cumpla con los objetivos deseados. Esto puede ser un problema desafiante debido a la gran cantidad de activos para elegir y las complejas relaciones entre ellos.
+
+La optimización de la cartera es un proceso importante para los inversores, ya que les ayuda a minimizar el riesgo y maximizar el rendimiento de sus inversiones. Al seleccionar cuidadosamente los activos que mantendrán en su cartera, los inversores pueden lograr el nivel deseado de riesgo y rendimiento mientras diversifican sus inversiones para reducir el riesgo general. La optimización de la cartera es un mecanismo crucial que se utiliza para reducir el riesgo de la inversión.
+
+Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En @Gunjan2023 estas técnicas se encuentran clasificadas en en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación, se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.
+
+Enfoques clásicos:
+
+-   Media-varianza: Esta técnica, propuesta en @markowitz1967, se basa en la idea de minimizar la varianza para una determinada rentabilidad esperada o maximizar la rentabilidad esperada para una determinada varianza. Es una técnica de programación cuadrática paramétrica (en lo adelante, PQP) que se puede utilizar para resolver problemas de optimización cuadrática que surgen en la optimización de carteras (@Zhi08). El enfoque de la varianza media supone que los inversores tienen aversión al riesgo y prefieren carteras con una varianza más baja. La técnica consiste en construir una frontera de cartera que representa el conjunto de carteras que ofrecen el rendimiento esperado más alto para un nivel de riesgo dado. A continuación, se selecciona la cartera óptima de esta frontera en función de las preferencias de riesgo del inversor.
+
+-   Varianza con asimetría: esta técnica amplía el enfoque de media-varianza teniendo en cuenta la asimetría de la distribución. Fue propuesta en @samuelson1970 y se puede utilizar cuando la función de distribución no es de naturaleza cuadrática. La asimetría mide la asimetría de una distribución y puede proporcionar información adicional sobre los riesgos y rendimientos potenciales de una cartera. Al incorporar la asimetría en el proceso de optimización de la cartera, los inversores pueden comprender mejor los posibles riesgos a la baja y tomar decisiones más informadas.
+
+-   Valor en riesgo (VaR): este enfoque estadístico mide la pérdida potencial de valor de una cartera durante un período definido para un intervalo de confianza dado. Fue introducido en la primera edición de @jorion2007 en 1997 y requiere la determinación de tres parámetros: período de tiempo, nivel de confianza y unidad de valor en riesgo. El VaR proporciona una medida de la pérdida potencial máxima que podría ocurrir con una probabilidad dada en un horizonte de tiempo específico. Las instituciones financieras lo utilizan comúnmente para administrar su exposición al riesgo y cumplir con los requisitos reglamentarios.
+
+-   Valor en riesgo condicional (CVaR): este enfoque amplía el VaR teniendo en cuenta la pérdida esperada que excede el VaR. Fue introducido en @rockafellar2002 y puede manejar pérdidas extremas mediante el uso de pesos dinámicos derivados de datos históricos. CVaR proporciona una medida de la pérdida esperada que podría ocurrir más allá del umbral de VaR. También se conoce como Expected Shortfall (ES) o Tail Value-at-Risk (TVaR) y se considera una medida de riesgo más coherente que el VaR.
+
+-   Desviación media-absoluta (MAD): esta técnica se puede emplear para problemas de selección de carteras de gran escala y muy diversificados. Fue introducido en @konno1991 y penaliza tanto las desviaciones positivas como las negativas. MAD proporciona una medida de la desviación absoluta promedio de los rendimientos de la cartera de su valor medio. Se considera más sólida que las medidas basadas en la varianza, ya que es menos sensible a los valores atípicos.
+
+-   Minimax: Esta técnica utiliza la rentabilidad mínima como medida de riesgo. Fue introducido en @cai2004minimax y tiene ciertas ventajas cuando los rendimientos no se distribuyen normalmente. Minimax proporciona una medida del peor de los casos para una cartera al minimizar la pérdida potencial máxima que podría ocurrir. Puede ser útil para los inversores que están particularmente preocupados por los riesgos a la baja.
+
+Enfoques inteligentes:
+
+-   Redes bayesianas: estos modelos gráficos probabilísticos se pueden utilizar para modelar el riesgo y la rentabilidad. Fueron presentados en @shenoy2000bayesian y se pueden utilizar para visualizar la relación entre diferentes variables en un modelo. Las redes bayesianas proporcionan una forma de representar dependencias complejas entre variables utilizando gráficos acíclicos dirigidos (DAG). Se pueden usar para modelar relaciones inciertas entre variables y para hacer predicciones probabilísticas sobre eventos futuros. En el contexto de la gestión de carteras, las redes bayesianas se pueden utilizar para modelar las relaciones entre diferentes activos y hacer predicciones sobre sus rendimientos futuros en función de datos históricos y otra información relevante.
+
+-   Regresión de vectores de soporte (SVR): esta técnica de aprendizaje automático se puede utilizar para determinar la cantidad a comprar y vender. Fue introducido por @drucker1996linear y tiene ciertas ventajas sobre las técnicas basadas en estadísticas, como su capacidad para aprender de datos históricos. SVR implica construir un hiperplano que separa puntos de datos con diferentes etiquetas mientras maximiza el margen entre ellos. Puede usarse para tareas de regresión donde el objetivo es predecir valores continuos en lugar de etiquetas discretas. En el contexto de la gestión de carteras, SVR se puede utilizar para predecir precios de activos futuros en función de datos históricos y otra información relevante.
+
+-   Redes neuronales artificiales: como se explico con anterioridad estos modelos computacionales se pueden utilizar para resolver problemas computacionales y de aprendizaje complejos. En el contexto de la gestión de carteras, las redes neuronales se pueden utilizar para predecir futuros precios o rendimientos de activos en función de datos históricos y otra información relevante, que es para lo que se usan en el presente trabajo.
+
+-   Aprendizaje por refuerzo: este tipo de aprendizaje automático involucra a un agente o modelo que interactúa con su entorno para aprender de sus acciones. Fue presentado en @sutton2018reinforcement y funciona para maximizar la recompensa al agente. El aprendizaje por refuerzo implica aprender a través de interacciones de prueba y error con un entorno. El agente realiza acciones en función de su estado actual y recibe recompensas o sanciones en función de los resultados de esas acciones. Con el tiempo, el agente aprende a realizar acciones que maximicen su recompensa acumulada. En el contexto de la gestión de carteras, el aprendizaje por refuerzo se puede utilizar para desarrollar estrategias comerciales que maximicen los rendimientos mientras se gestiona el riesgo.
+
+## 2.3.1 Programación cuadrática
+
+En este sub-epígrafe se explica que es la programación cuadrática. Cuáles son algunas de las técnicas que existen dentro de esta disciplina de la optimización matemática. Se expone además como el problema de optimización de carteras se puede describir como un problema de programación cuadratica y se expondra de manera breve cómo funciona una de las técnicas más usadas en esta disciplina, concretamente la denominada Dual Active Set Method, la cuál es usada en los capítulos posteriores.
+
+La programación cuadrática se puede elegir entre las técnicas enumeradas en el sub-epígrafe anterior por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.
+
+Existen diversas técnicas de programación cuadrática, entre las más utilizadas se encuentran:
+
+-   Interior Point: Este es un método de programación lineal o no lineal que logra la optimización al pasar por el centro del sólido definido por el problema en lugar de alrededor de su superficie. Un algoritmo de programación lineal de tiempo polinómico utilizando un método de punto interior fue encontrado por @karmarkar1984.
+
+-   Active Set: Este es un algoritmo utilizado para identificar las restricciones activas en un conjunto de restricciones de desigualdad. Las restricciones activas se expresan entonces como restricciones de igualdad, transformando así un problema restringido por la desigualdad en un subproblema más simple restringido por la igualdad. El método de conjunto activo fue introducido por primera vez en un artículo de @beale1959 y desarrollado por @fletcher1971 y @bunch1977.
+
+-   Dual Active Set: El método, como se expone en @Goldfarb1982ANS y @Goldfarb1983ANS, es un algoritmo dual eficiente y numéricamente estable para la programación cuadrática definida positiva que aprovecha el hecho de que el mínimo sin restricciones de la función objetivo se puede usar como punto de partida.
+
+-   Augmented Lagrangian: Fue introducido independientemente en @hestenes1969 y @powell1969. Se utiliza para resolver problemas de optimización restringidos agregando un término de penalización a la función objetivo que penaliza cualquier violación de las restricciones. El término de penalización suele ser un múltiplo de una medida de infracción de restricción, como la suma de infracciones de restricción al cuadrado.
+
+-   Conjugate Gradient: Este es un método iterativo para resolver sistemas de ecuaciones lineales con una matriz definida positiva simétrica. También se puede utilizar para resolver problemas de optimización sin restricciones al encontrar el mínimo de una función cuadrática. El método genera una secuencia de direcciones de búsqueda que se conjugan con respecto a la matriz que define el sistema de ecuaciones o función cuadrática. El método de gradiente conjugado fue introducido originalmente en un artículo de @Hestenes1952.
+
+-   Gradient Projection: El método de proyección de gradiente fue introducido en @rosen1960 y @rosen1961. Este es un método iterativo para resolver problemas de optimización restringidos proyectando el gradiente en la región factible en cada iteración. El gradiente proyectado se utiliza entonces como dirección de búsqueda, y se realiza una búsqueda de línea a lo largo de esta dirección para encontrar una nueva iteración que satisfaga las restricciones y reduzca la función objetivo.
+
+De las técnicas señaladas con anterioridad se seleccionó el algoritmo Dual Active Set Method (en lo adelante, DASM) que como se mencionó con anterioridad fue introducido en @Goldfarb1982ANS y @Goldfarb1983ANS, es un algoritmo de optimización para resolver problemas de programación cuadrática. El algoritmo predice el conjunto activo de restricciones que se satisfacen con igualdad en la solución del problema. Calcula una secuencia de soluciones óptimas de problemas QP que involucran algunas de las restricciones del problema original, denominada secuencia de puntos factibles duales.
+
+A continuación, se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en @GOSWAMI2012620 y @rwalk14:
+
+Bajo la suposición de que se trata de encontrar la mejor composición de una cartera en la que, por simplicidad, tenemos 2 activos, Se plantearia el problema cuadrático de la siguiente manera @eq-qpop:
+
+$$
+\begin{aligned}
+min~~Q(\vec{w}) &= \vec{w}^TC\vec{w}\\
+sujeto~a:\\
+w_{1}+w_{2}=1\\
+0\leq{w_{i}}\leq{1}\\
+w_{1}\mathbb{E} + w_{2}\mathbb{E} \geq{0.005}
+\end{aligned}
+$$ {#eq-qpop}
+
+Suponiendo que los cuales tienen unos rendimientos mensuales medios $r=\begin{bmatrix} 0.02 & 0.03 \end{bmatrix}$ y matriz de covarianza $C=\begin{bmatrix} 0.001 & 0.0008 \\ 0.0008 & 0.002 \end{bmatrix}$ . Se pueden construir los vectores y matrices necesarios para el algoritmo DASM de la siguiente manera:
+
+-   El vector de rentabilidad media mensual sería $r=\begin{bmatrix} 0.02 & 0.03 \end{bmatrix}$.
+
+-   La matriz de covarianza C se usaría como la matriz D en DASM.
+
+-   La restricción $w_{1}+w_{2}=1$ se puede escribir en forma de matriz como $\begin{bmatrix} 1 & 1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} = 1$. Esta sería la primera fila de la matriz $A$ en DASM.
+
+-   El requisito de rentabilidad mínima $w_{1}\mathbb{E} + w_{2}\mathbb{E} \geq{0.005}$ puede escribirse en forma de matriz como $\begin{bmatrix} 0.02 & 0.03 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{0.005}$. Esta sería otra fila de la matriz $A$ en DASM.
+
+-   Las restricciones $0\leq{w_i}\leq{1}$ se pueden escribir en forma de matriz como $\begin{bmatrix} 1 & 0 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{0}$ y $\begin{bmatrix} 0 & 1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{0}$ para límites inferiores y $\begin{bmatrix} -1 & 0 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{-1}$ y $\begin{bmatrix} 0 & -1 \end{bmatrix} \begin{bmatrix} w_1 \\ w_2 \end{bmatrix} \geq{-1}$ para límites superiores.
+
+-   La matriz $A$ luciría así: $A=\begin{bmatrix} 1 & 1 \\ 0.02 & 0.03 \\ 1 & 0 \\ 0 & 1 \\ -1 & 0 \\ 0 & -1 \end{bmatrix}$
+
+El vector $b$ correspondiente sería $\begin{bmatrix} 1 & 0.005 & 0 & 0 & -1 & -1\end{bmatrix}$. Luego podemos usar el algoritmo DASM para resolver este problema de programación cuadrática y determinar la asignación óptima de activos en nuestra cartera.
+
+Paso 0: Encuentre el mínimo sin restricciones resolviendo el problema de programación cuadrática sin restricciones. Establecer el número de elementos del conjunto activo A (conjunto vacío) a cero.
+
+Paso 1: Elija una restricción violada, si la hay. En este caso, supongamos que se viola la restricción $w_{1}+w_{2}=1$.
+
+Paso 2: Calcule las direcciones del paso primario y dual y la longitud del paso $t=min(t_{1},t_{2})$. Supongamos que $t=t_{2}$.
+
+Paso 3: Da un paso y actualiza el conjunto activo A y la solución ($S$) par (x, A). Como $t=t_{2}$ , agregamos la p-ésima restricción (en este caso $w_1+w_2=1$) a $\bar{N}$ y actualizamos $H$ y $N^{*}$ en @eq-consup.
+
+$$
+\begin{aligned}
+N^{*}=(\bar{N}^{T}Q^{-1}\bar{N})\bar{N}^{T}Q^{-1}\\
+H=Q^{-1}(I-\bar{N}N^{*})
+\end{aligned}
+$$ {#eq-consup}
+
+Donde:
+
+::: margin
+$N^{*}$ es la pseudo-inversa o la inversa generalizada Moore-Penrose de $\bar{N}$.
+:::
+
+::: margin
+$\bar{N}$ es la matriz de los vectores normales de las restricciones en el conjunto activo $A$.
+:::
+
+::: margin
+$H$ es el operador hessiano inverso reducido de $Q$.
+:::
+
+Se repetin estos pasos de manera iterativa hasta que se satisfagan todas las restricciones y se haya determinado la asignación óptima de activos.
+

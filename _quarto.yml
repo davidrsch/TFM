@@ -1,10 +1,13 @@
 project:
   type: book
+  post-render: 
+    - fix-links.R
 
 book:
-  cover-image: udclogo.png
+  cover-image: projectlogo.png
+  favicon: icologo.png
   title: "Trabajo Final de Máster"
-  subtitle: "Titulo a definir"
+  subtitle: "Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras"
   author: 
     - name: David Díaz Rodríguez
       affiliations:
@@ -19,34 +22,65 @@ book:
         - ref: udc
       orcid: https://orcid.org/0000-0003-2452-4864
       email: xose.martinez@udc.es
-    - name: Ramón Miñones Crespo
-      affiliations:
-        - ref: udc
-      email: ramon.minones@udc.es
-  date: "11/2/2023"
   search: true
   repo-url: https://github.com/davidrsch/TFM
   repo-actions: [edit]
-  downloads: [docx, pdf, epub]
   sharing: [twitter]
   page-navigation: true
+  sidebar: 
+    collapse-level: 1
+    pinned: true
+    tools:
+      - icon: translate
+        menu:
+          - text: "English"
+            href: en/index.html
+          - text: "Galego"
+            href: gal/index.html  
+  page-footer: 
+    left: |
+      Trabajo Final de Máster presentado en
+      [![](feelogo.png){fig-alt="FEE" width=65px}](https://fee.udc.es/)
+      [![](udclogo.png){fig-alt="UDC" width=65px}](https://www.udc.es/)
+    center:
+      - text: "David Díaz Rodríguez"
+    right:
+      - icon: linkedin
+        url: https://www.linkedin.com/in/david-d-6257951b8/
+        aria-label: Linkedin
+      - icon: github
+        url: https://github.com/davidrsch/TFM/
+        aria-label: TFM GitHub
+  
   chapters:
     - index.qmd
-    - summary.qmd
+    - greetings.qmd
+    - summaryes.qmd
+    - summaryen.qmd
+    - summarygal.qmd
     - intro.qmd
-    - chapter1.qmd
-    - chapter1a.qmd
-    - chapter2.qmd
-    - chapter2a.qmd
+    - part: body.qmd
+      chapters: 
+        - FSandP.qmd
+        - ANNinTSF.qmd
+        - PC.qmd
+        - Data.qmd
+        - MandT.qmd
+        - Results.qmd
+    - conclusions.qmd
     - references.qmd
-  appendices:
-    - Annex1.qmd
-    - Annex2.qmd
-
+    - part: "Anexos"
+      chapters: 
+        - Annex1.qmd
+        - Annex2.qmd
+        - Annex3.qmd
+        - Annex4.qmd
+        
 bibliography: references.bib
 
 format:
   html:
+    include-after-body: [my_scripts.html]
     theme: cosmo
     title-block-banner: "#D60D8C"
     fig-cap-location: top
@@ -54,26 +88,5 @@ format:
     css: my_style.css
     lang:
       es
- #   language: 
- #     lang/custom.yml
-  pdf:
-    documentclass: scrreprt
-    papersize: letter
-    highlight-style: github
-    fig-cap-location: top
-    fig-pos: H
-    lang: 
-      es
-    include-in-header: 
-      text: |
-        \usepackage{lscape}
-        \newcommand{\blandscape}{\begin{landscape}}
-        \newcommand{\elandscape}{\end{landscape}}
-    
-  docx:
-    reference-doc: referencia_formato.docx
-    lang:
-      es
 
 editor: visual
-

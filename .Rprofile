@@ -10,18 +10,27 @@ library(lubridate)
 library(gridExtra)
 library(quantmod)
 library(forecast)
+library(jsonlite)
+library(stringr)
+library(Metrics)
+library(Matrix)
 library(knitr)
 library(keras)
 library(tensorflow)
+library(tibble)
+library(tidyr)
 library(dplyr)
-library(jsonlite)
-library(stringr)
+library(quadprog)
+library(kableExtra)
+library(xml2)
+library(babelquarto)
 
 ## Cargando datos ----
 empresas <- read_excel("data/000_empresas.xlsx")
 IBEX <- read_csv("data/IBEXm.csv")
 load("data/data.Rdata")
 load("data/modeling.Rdata")
+load("data/results.Rdata")
 
 ## Función para obtener las características de un modelo de keras ----
 getconfig <- function(model){
@@ -36,7 +45,6 @@ getconfig <- function(model){
   a <- gsub(",]","]",a)
   jsonmodeldata <- fromJSON(a,flatten = T)
   modeldata <- jsonmodeldata$layers
-  
   #Extrayendo las características principales
   # Nombre de la capa
   Layer <- modeldata$name
@@ -57,6 +65,8 @@ getconfig <- function(model){
   filters <- modeldata$config.filters
   units <- modeldata$config.units
   inputs <- modeldata$config.batch_input_shape
+  returnseq <- modeldata$config.return_sequences
+  targetshape <- modeldata$config.target_shape
   
   #Creando un data frame con las características principales
   modelconfig <- tibble(
@@ -65,7 +75,9 @@ getconfig <- function(model){
     Connected,
     filters,
     units,
-    inputs
+    inputs,
+    returnseq,
+    targetshape
    )
   
   #Definiendo Output Shape
@@ -74,7 +86,11 @@ getconfig <- function(model){
     if(modelconfig$Connected[i] == "NULL" &&
        modelconfig$Type[i] == "InputLayer"){
       Shape[i] <- modelconfig$inputs[i]
-    }else{
+    }else if(modelconfig$Type[i] == "Flatten"){
+      Shape[i][[1]] <- c(NA,prod(na.omit(Shape[i-1][[1]])))
+    }else if(modelconfig$Type[i] == "Reshape"){
+      Shape[i][[1]] <- c(NA,modelconfig$targetshape[i][[1]])
+    }else {
       
       conected <- modelconfig$Connected[i]
       
@@ -109,7 +125,11 @@ getconfig <- function(model){
         preSO[[1]][lpreSO] <- fu
         Shape[i] <- preSO
       }
-    } 
+    }
+    if(modelconfig$returnseq[i] == "FALSE" &&
+       modelconfig$Type[i] == "LSTM"){
+      Shape[i] <- list(c(Shape[i][[1]][1],Shape[i][[1]][3]))
+    }
   }
   
   for (i in 1:length(Shape)) {
