@@ -1,0 +1,17 @@
+# 1 Introducción {.unnumbered}
+
+En el ámbito financiero, la gestión eficiente de carteras es una tarea crucial para los inversionistas y administradores de activos, ya que busca maximizar los rendimientos y minimizar los riesgos asociados a las inversiones. En los últimos años, el campo de la inteligencia artificial y el aprendizaje automático ha experimentado un notable avance, lo que ha permitido la aplicación de técnicas innovadoras para mejorar el proceso de toma de decisiones financieras.
+
+Este trabajo se enfoca en la integración de dos poderosas herramientas: las redes neuronales artificiales y la programación cuadrática, para abordar el desafío de la gestión de carteras. La combinación de estas técnicas ofrece un enfoque sólido y prometedor para la previsión de series de tiempo financieras y la composición de carteras en un entorno financiero altamente dinámico y complejo.
+
+El desarrollo del trabajo se estructura en varias secciones fundamentales para abordar de manera integral el tema. En primer lugar, se realiza una caracterización detallada de las series temporales financieras, examinando sus características y propiedades esenciales para entender mejor el comportamiento de los precios de los activos.
+
+A continuación, se explora el potencial de las redes neuronales artificiales en la previsión de las series de tiempo. Se presentan los antecedentes del uso de estas redes en este contexto y se destacan dos arquitecturas ampliamente utilizadas: las redes neuronales convolucionales y las redes Long Short-Term Memory (LSTM), ambas con la capacidad de capturar patrones complejos en los datos financieros.
+
+La sección sobre composición de carteras aborda el problema y presenta diversas técnicas aplicadas en la gestión de activos. Es aquí donde se introduce la programación cuadrática como una herramienta relevante y eficiente para la construcción óptima de carteras de inversión.
+
+La obtención de datos precisos y relevantes es crucial para cualquier análisis financiero y el trabajo con algoritmos de Machine Learning. Se describe la metodología aplicada para la obtención de datos, y como se computaron algunos de los indicadores más comunes utilizados en finanzas para usar como variables descriptivas del problema en conjunto con los datos históricos. Se expone además como se estructuran los vectores que se utilizarán en el modelado y entrenamiento de las redes neuronales.
+
+En las últimas secciones, se aborda el proceso de modelado y entrenamiento, que implica la configuración adecuada de las redes neuronales y la implementación de la programación cuadrática para obtener resultados óptimos. Finalmente, se presentan los resultados obtenidos, incluyendo las predicciones generadas por las redes neuronales y la composición de carteras recomendadas, demostrando así la efectividad de la metodología propuesta en la gestión de carteras financieras.
+
+En conjunto, este trabajo busca aportar una visión integral y actualizada sobre el uso de redes neuronales artificiales y programación cuadrática en la gestión de carteras, destacando su potencial como una opción para mejorar la toma de decisiones financieras y brindar a los inversionistas una herramienta valiosa para optimizar sus estrategias de inversión en un entorno cambiante y competitivo.
