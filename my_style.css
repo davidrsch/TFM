@@ -1,3 +1,20 @@
 .margin {
   margin-left: 5%;
 }
+
+.quarto-title{
+  color: white;
+  text-align: center;
+}
+
+#sublead{
+  font-size: 1.05em;
+}
+
+#sub_sublead{
+  font-size: 0.80em;
+}
+
+.table{
+  --bs-table-striped-bg: white;
+}
