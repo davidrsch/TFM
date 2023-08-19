@@ -1,0 +1,82 @@
+# 2.6 Resultado {.unnumbered}
+
+Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe de forma breve los resultados obtenidos. En el primero de los sub-epígrafe se describen y analizan las predicciones. En el segundo sub-epígrafe se exponen los resultados de aplicar la programación cuadrática para la composición de cartera a partir de las predicciones obtenidas.
+
+## 2.6.1 Predicciones {#sec-predicciones}
+
+Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en @sec-A-predicciones.
+
+Como se explicó con anterioridad a la par que se entrenaba el modelo se obtuvieron las predicciones. Al igual que se realizó con los modelos de redes neuronales artificiales, las predicciones se computaron para las distintas observaciones usando la media aritmética de las observaciones. Se usó la media aritmética porque es una de las medidas que se usa con mayor frecuencia como indicador de posible comportamiento futuro en el estudio de las series de tiempo financieras.
+
+Las predicciones se evaluarán mediante el computo del MSE y los valores reales y el $R^2$ de los resultados obtenidos por los modelos de redes neuronales artificiales y las medias aritméticas.
+
+Como se explica en @Glen23 el MSE te dice qué tan cerca está una línea de regresión de un conjunto de puntos. Lo hace tomando las distancias desde los puntos hasta la línea de regresión (estas distancias son los "errores") y elevándolas al cuadrado. Elevar al cuadrado es necesario para eliminar cualquier signo negativo. También da más peso a las diferencias más grandes. Se llama el error cuadrático medio ya que estás encontrando el promedio de un conjunto de errores. Cuanto menor sea el MSE, mejor será el pronóstico, la muestra @eq-mse como se calcula.
+
+$$
+\begin{aligned}
+MSE &= \frac{1}{n} * \sum_{i=1}^{n}{(Y_i-\hat{Y_i})^2} \\
+\end{aligned}
+$$ {#eq-mse}
+
+Donde:
+
+::: margin
+$n$: número de observaciones
+:::
+
+::: margin
+$Y_i$: valor real
+:::
+
+::: margin
+$\hat{Y_i}$: valor esperado
+:::
+
+Como se explica en @Nandakumar20 $R^2$ se utiliza comúnmente para explicar que tan bien lo hace un modelo en comparación con la media total de las observaciones, @eq-r2:
+
+$$
+\begin{aligned}
+R^2 &= 1-\frac{SSR}{SST}\\
+R^2 &= 1-\frac{\sum_{i=1}^{n}{(Y_i-\hat{Y_i})^2}}{\sum_{i=1}^{n}{(Y_i-\tilde{Y})^2}}\\
+\end{aligned}
+$$ {#eq-r2}
+
+Donde:
+
+::: margin
+$\tilde{Y}$: media aritmética de todas las observaciones
+:::
+
+Pero este puede ser un indicador injusto del desempeño de un modelo de regresión ya que se asume que se conocen todas las observaciones sobre las que se computa una media, y como ya se mencionó con anterioridad este no es el caso para los modelos de redes neuronales artificiales entrenados usando la metodología de walk forward validation. Debido a esto se modificó el cálculo del $R^2$, como se ha hecho en otras investigaciones como @NBERw25398, para que el modelo con el que se comparan los resultados obtenidos por las RNA utilizadas sea el comprendido por las medias aritméticas de las observaciones anteriores a la que se predice.
+
+A continuación, se describirán de manera breve los distintos resultados obtenidos por los distintos modelos construidos. Cabe destacar que, aunque se plantearon 3 modelos diversos de cada uno de ellos se construyeron 10, con el objetivo de estandarizar los resultados obtenidos, ya que el proceso de construcción y entrenamiento de redes neuronales contiene un factor aleatorio. Por lo que los resultados descritos a continuación son los resultados medios obtenidos por los diversos modelos construidos.
+
+### 2.6.1.1 Una observación
+
+Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con una observación de cada serie mostraron, como se ve en la @fig-ind_evo_oo, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo y aprendiendo de las nuevas observaciones. Se ve claramente también que en la mayoría de los periodos el $R^2$ de este modelo es negativo. Además, se observa un pico en el MSE del modelo a principios del 2020, lo que se entiende como una pérdida de efectividad del modelo, esta pérdida de efectividad del modelo pudiese estar relacionados con los movimientos bruscos de mercado consecuentes de las afectaciones económicas de la Covid-19.
+
+El análisis anterior del comportamiento de los indicadores de estos modelos por periodo nos da una visión general de como se desempeñaron estos modelos, pero dado que para la composición de cartera es fundamental los resultados obtenidos en las empresas, a continuación, analizaremos el comportamiento observado en los resultados obtenidos por las 20 empresas que presentaron los mejores y peores resultados, basándose como criterio el $R^2$ obtenido.
+
+Observando los resultados de los indicadores expuestos en la @tbl-indicadores aquellas empresas que presentaron un peor $R^2$ presentan también un MSE bajo lo que indica que es menos probable que la composición de cartera se vea alterada por los resultados obtenidos por estas empresas. Por otro lado, entre las empresas que obtuvieron un mejor $R^2$ se encuentran algunas que obtuvieron un MSE alto acompañado de un $R^2$ mayor de un 5%. Esto indica que se pudieran generar diferencias entre las composiciones de las carteras debido a las diferencias en las predicciones y que además se trata de empresas que no tienen un buen MSE.
+
+Los resultados descritos en el párrafo anterior son similares para los casos de los modelos construidos con dos y tres observaciones respectivamente.
+
+### 2.6.1.2 Dos observaciones
+
+Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con dos observaciones de cada serie se encontró, como se ve en la @fig-ind_evo_twoo, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo, pero decaen a un ritmo más lento que aquellos modelos entrenados con vectores de entrada con una observación. Se ve claramente también que el $R^2$ de estos modelos tiene una menor variación que el $R^2$ de los modelos analizados con anterioridad, viéndose que para estos modelos el $R^2$ es positivo en la mayoría de los periodos. Además, al igual que en el caso de los modelos analizados con anterioridad también se observa un pico en el MSE del modelo a principios del 2020.
+
+### 2.6.1.3 Tres observaciones
+
+Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con tres observaciones de cada serie se encontró, como se ve en la @fig-ind_evo_threeo, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo, pero decaen a un ritmo más lento que aquellos modelos entrenados con vectores de entrada con una observación. Se ve claramente que el R2 de estos modelos tiene una mayor variación que el R2 de los modelos analizados con anterioridad, observándose como esta variación disminuye para aquellas predicciones después del 2015. Estos modelos, al igual que los primeros presentaron un R2 negativo en la mayoría de los periodos. Además, al igual que en los casos anteriores también se observa un pico en el MSE del modelo a principios del 2020.
+
+## 2.6.2 Composición de carteras {#sec-cc}
+
+Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en @sec-A-cc.
+
+En el presente sub-epígrafe se describen los resultados obtenidos tras aplicar programación cuadrática para determinar la composición de la cartera. Esto al igual que las predicciones se realizó periodo a periodo con el objetivo de emular una situación real en la que se aplicaran las técnicas en su conjunto. Por lo que el presente análisis se enfoca en el comportamiento observado al usar los diversos modelos y la comparación de estos resultados con los obtenidos con el uso de las medias.
+
+Como se observa en la @fig-pf_evo_oo las carteras conformadas a partir de las predicciones obtenidas por los modelos de redes neuronales que contaban con una observación obtuvieron en lo general mejores resultados que las carteras compuestas a partir de las predicciones usando la media. Se observa que ambos grupos de cartera presentaron una rentabilidad menor que el índice, IBEX, en el periodo comprendido entre el 2009 y el 2016.
+
+Al realizar el análisis del comportamiento de las rentabilidades obtenidas por los modelos con dos observaciones de entrada, @fig-pf_evo_twoo, se observa: el comportamiento de las rentabilidades obtenidas por los distintos modelos varía menos que los analizados con anterioridad; en este caso y contrario al caso anterior las rentabilidades se mantienen similares en el periodo comprendido entre 2009 y 2016; y aunque el resultado final dista del resultado obtenido por las medias, es inferior al obtenido por los modelos anteriores, esto último se debe a que la evaluación de los modelos en este caso comienza en un periodo anterior a las de los modelos analizados con anterioridad.
+
+Al observar los resultados obtenidos por los últimos modelos, @fig-pf_evo_threeo, se observa: una distribución de las rentabilidades superior a aquellos entrenados con dos observaciones pero inferior a los que se entrenaron con una observación; se observa que las rentabilidades comienzan a superar las del índice después del 2013 en lugar del 2016 como en años anteriores; y además se observa que las rentabilidades de los modelos de RNA son superiores a los de las medias y constituyen también las rentabilidades máximas obtenidas entre las distintas estructuras de modelos de RNA.
