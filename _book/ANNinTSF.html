@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Trabajo Final de Máster - 2.2 Redes neuronales artificiales en la previsión de las series de tiempo</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./PC.html" rel="next">
+<link href="./FSandP.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #D60D8C;
+      }
+</style>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="my_style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Desarrollo del trabajo</a></li><li class="breadcrumb-item"><a href="./ANNinTSF.html">2.2 Redes neuronales artificiales en la previsión de las series de tiempo</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">2.2 Redes neuronales artificiales en la previsión de las series de tiempo</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Trabajo Final de Máster</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.docx">
+              <i class="bi bi-bi-file-word pe-1"></i>
+            Download Docx
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Agradecimientos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summaryes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./body.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Desarrollo del trabajo</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./FSandP.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Caracterización de las series temporales financieras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ANNinTSF.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.2 Redes neuronales artificiales en la previsión de las series de tiempo</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Composición de carteras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MandT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Modelado y entrenamiento</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Resultado</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Conclusiones</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliografía</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Anexos</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexo. 1 Figuras</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexo. 2 Gráficas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexo. 3 Tablas</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Anexo. 4 Códigos</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo" id="toc-antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo" class="nav-link active" data-scroll-target="#antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo">2.2.1 Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo</a></li>
+  <li><a href="#redes-neuronales-convolucionales" id="toc-redes-neuronales-convolucionales" class="nav-link" data-scroll-target="#redes-neuronales-convolucionales">2.2.2 Redes neuronales convolucionales</a></li>
+  <li><a href="#long-short-term-memory" id="toc-long-short-term-memory" class="nav-link" data-scroll-target="#long-short-term-memory">2.2.3 Long short-term memory</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/ANNinTSF.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>Este epígrafe está dividido en tres sub-epígrafes. En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.</p>
+<section id="antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo" class="level2">
+<h2 class="anchored" data-anchor-id="antecedentes-del-uso-de-redes-neuronales-artificiales-en-la-previsión-de-series-de-tiempo">2.2.1 Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo</h2>
+<p>En <span class="citation" data-cites="chollet2018deep">Chollet y Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span> se plantea que el entorno de las RNA está conformado por la inteligencia artificial (en lo adelante IA), machine learning o aprendizaje automatizado (en lo adelante ML) y deep learning o aprendizaje profundo (en lo adelante DL), <a href="Annex1.html#fig-DLenv">Figura&nbsp;<span>1</span></a>. Por lo que es de vital importancia conocer los aspectos de estos campos que se encuentran íntimamente relacionados con las RNA y que se exponen brevemente a continuación.</p>
+<p>“Hacer que una máquina se comporte de tal manera que si un humano lo hiciera se le llamaría inteligente” (<span class="citation" data-cites="McCarthy_Minsky_Rochester_Shannon_2006">McCarthy et&nbsp;al. (<a href="references.html#ref-McCarthy_Minsky_Rochester_Shannon_2006" role="doc-biblioref">2006</a>)</span>, p.11) es la primera definición que se le dio al problema de IA. Con el objetivo de dar solución a este problema surgieron las primeras IA, las llamadas IA simbólicas.</p>
+<p>Como se explica en <span class="citation" data-cites="haykin1998neural">Haykin (<a href="references.html#ref-haykin1998neural" role="doc-biblioref">1998</a>)</span>, <span class="citation" data-cites="banda2014">Banda (<a href="references.html#ref-banda2014" role="doc-biblioref">2014</a>)</span> y <span class="citation" data-cites="chollet2018deep">Chollet y Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span>, estas primeras IA, involucraban reglas codificadas creadas por los programadores. Con el objetivo de lograr que estas reglas fueran aprendidas automáticamente por las máquinas al observar los datos surgió una nueva etapa dentro del desarrollo de las IA, la denominada ML. En esta nueva etapa se da pie al surgimiento de una nueva forma de programación, diferenciándose de la clásica, en que, en esta, los programadores introducen los datos y las respuestas esperadas a los mismos, y las computadoras son capaces de generar las reglas, <a href="Annex1.html#fig-MLprog">Figura&nbsp;<span>2</span></a>.</p>
+<p>Por lo que se entiende que los modelos de ML tratan de encontrar representaciones apropiadas para sus datos de entrada: transformaciones de los datos que hacen que sea más susceptible a la tarea en cuestión. En DL, que es un sub-campo específico de ML, estas representaciones de datos son modeladas a través de arquitecturas compuestas de capas sucesivas, las que son llamadas RNA <span class="citation" data-cites="chollet2018deep">Chollet y Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span>.</p>
+<p>Tras el estudio de lo expuesto en <span class="citation" data-cites="haykin1998neural">Haykin (<a href="references.html#ref-haykin1998neural" role="doc-biblioref">1998</a>)</span>, <span class="citation" data-cites="Larranaga07">Larrañaga (<a href="references.html#ref-Larranaga07" role="doc-biblioref">2007</a>)</span>, <span class="citation" data-cites="banda2014">Banda (<a href="references.html#ref-banda2014" role="doc-biblioref">2014</a>)</span> y <span class="citation" data-cites="chollet2018deep">Chollet y Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span> sobre las RNA se puede afirmar que están inspiradas en el funcionamiento del cerebro humano, dichos textos confirman y concuerdan en que en una RNA se pueden diferenciar tres tipos de capas: de entrada, de salida y ocultas. Una capa de entrada está compuesta por neuronas que reciben los vectores de entradas. Una capa de salida se compone de neuronas que, durante el entrenamiento reciben los vectores de salidas y que luego generan la respuesta. Una capa oculta se encuentra conectada al entorno a través de las capas de entrada y salida, este tipo de capa oculta procesa la entrada recibida para obtener la salida correspondiente, <a href="Annex1.html#fig-RNAstruct">Figura&nbsp;<span>3</span></a>.</p>
+<p>Una de las aplicaciones de las RNA es la previsión de series temporales. cuyo objetivo es predecir los valores futuros de las variables en función de sus observaciones pasadas. Como se expuso con anterioridad las series de tiempo financieras a menudo son no lineales, ruidosas, caóticas y no estacionarias, lo que las hace difíciles de modelar y pronosticar. Las RNA tienen la ventaja de poder capturar relaciones no lineales complejas y adaptarse a condiciones cambiantes sin requerir suposiciones previas sobre la distribución o estructura de datos.</p>
+<p>La historia de las RNA en la previsión de series temporales financieras se remonta a finales de la década de 1980 y principios de la de 1990, cuando los investigadores comenzaron a explorar el potencial de las RNA como una alternativa a los métodos estadísticos tradicionales, como el modelo autorregresivo integrado de media móviles, más conocido como ARIMA (por sus siglas en inglés Autoregressive Integrated Moving Average) y los modelos autorregresivos generalizados con heterocedasticidad condicional, más conocido como GARCH (por sus siglas en inglés Generalized Autoregressive Conditional Heteroskedasticity). Se demostró que las RNA tienen varias ventajas sobre estos métodos, como la capacidad de capturar relaciones no lineales y dinámicas, manejar datos ruidosos e incompletos y adaptarse a las condiciones cambiantes del mercado (<span class="citation" data-cites="ZHANG199835">B. Eddy Patuwo &amp; Michael Y. Hu (<a href="references.html#ref-ZHANG199835" role="doc-biblioref">1998</a>)</span>).</p>
+<p>Sin embargo, las RNA también enfrentan algunas limitaciones y desafíos en el pronóstico de series temporales financieras, como la dificultad de elegir una arquitectura de red adecuada, un algoritmo de entrenamiento, una función de activación y variables de entrada; el riesgo de sobreajuste y problemas de generalización; la falta de interpretabilidad y transparencia; y el alto costo computacional y tiempo (<span class="citation" data-cites="TEALAB2018334">Tealab (<a href="references.html#ref-TEALAB2018334" role="doc-biblioref">2018</a>)</span>).</p>
+<p>Para superar estas limitaciones y desafíos, los investigadores han propuesto varias mejoras y extensiones de RNA para el pronóstico de series temporales financieras en las últimas décadas. Algunos de los principales desarrollos incluyen:</p>
+<ul>
+<li><p>El uso de modelos híbridos que combinan RNA con otras técnicas, como lógica difusa, algoritmos genéticos, análisis de ondículas, máquinas de vectores de soporte y aprendizaje profundo para mejorar el rendimiento y la solidez de las RNA (<span class="citation" data-cites="wongguo2010">Wong y Guo (<a href="references.html#ref-wongguo2010" role="doc-biblioref">2010</a>)</span>).</p></li>
+<li><p>El uso de redes neuronales recurrentes (en lo adelante RNR) o bidireccional, que son un tipo especial de RNA que pueden procesar datos secuenciales y capturar dependencias temporales. Se ha demostrado que las RNR superan a las redes neuronales unidireccionales en series temporales complejas y no lineales (<span class="citation" data-cites="GURESEN201110389">Guresen, Kayakutlu, y Daim (<a href="references.html#ref-GURESEN201110389" role="doc-biblioref">2011</a>)</span>).</p></li>
+<li><p>El uso de modelos de RNA más complejas mediante la combinación de distintas capas, como son las redes neuronales convolucionales (en lo adelante, CNN), las long short-term memory (en lo adelante, LSTM), las gated recurrent units (en lo adelante, GRU) se han aplicado a la previsión de series temporales financieras con resultados prometedores (<span class="citation" data-cites="SEZER2020106181">Sezer, Gudelek, y Ozbayoglu (<a href="references.html#ref-SEZER2020106181" role="doc-biblioref">2020</a>)</span>).</p></li>
+</ul>
+<p>La historia de las RNA en el pronóstico de series temporales financieras muestra que las mismas han ido evolucionando y mejorando con el tiempo para hacer frente a la complejidad y la incertidumbre de los mercados financieros. Sin embargo, todavía persisten algunos de los desafíos y limitaciones señalados con anterioridad como el sobreajuste, la generalización, la interpretabilidad, la robustez y el costo computacional.</p>
+</section>
+<section id="redes-neuronales-convolucionales" class="level2">
+<h2 class="anchored" data-anchor-id="redes-neuronales-convolucionales">2.2.2 Redes neuronales convolucionales</h2>
+<p>El modelo de RNA que se usó en este trabajo está compuesto por varias capas siendo las más importantes la capa Conv1D, un tipo especifico de CNN, y la capa LSTM, ambas mencionadas en el sub-epígrafe anterior cuando se listaron las estructuras de ANN que más se utilicen en la actualidad. Este sub-epígrafe se centra en la Capa Conv1D, por lo que se exploran los conceptos fundamentales para comprender el funcionamiento de esta, explicándose la convolución, las redes neuronales convolucionales y Conv1D y su uso para el análisis de series temporales. Se brinda una descripción general de la convolución y cómo se puede aplicar a los datos de series temporales. Luego, se analizan las CNN y su arquitectura, que les permite aprender características automáticamente a partir de datos de series temporales. Finalmente, se explica Conv1D, un tipo específico de capa de red neuronal convolucional que es particularmente eficaz para procesar datos de series temporales.</p>
+<p>Como se expone en <span class="citation" data-cites="rafid23">Siddiqui (<a href="references.html#ref-rafid23" role="doc-biblioref">2023</a>)</span> la convolución es una operación matemática que se usa comúnmente en el procesamiento de señales y el análisis de imágenes. Implica tomar dos funciones y producir una tercera función que representa cómo una de las funciones originales modifica a la otra. En el contexto de los datos de series temporales, la convolución se puede utilizar para extraer características de los datos aplicando un filtro a la serie temporal.</p>
+<p>Además de extraer características de los datos de series temporales, la convolución también se puede utilizar para otras tareas, como la reducción de ruido, la detección de anomalías y la predicción. Por ejemplo, se puede entrenar una CNN para predecir valores futuros de una serie temporal aprendiendo los patrones subyacentes en los datos. En general, la convolución es una herramienta poderosa para analizar datos de series temporales y sus aplicaciones son numerosas <span class="citation" data-cites="rafid23">Siddiqui (<a href="references.html#ref-rafid23" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Las CNN fueron por primera vez introducidas en <span class="citation" data-cites="cnn">Lecun et&nbsp;al. (<a href="references.html#ref-cnn" role="doc-biblioref">1998</a>)</span> son un tipo de modelo de aprendizaje profundo que se usa comúnmente para el análisis de imágenes. Sin embargo, como se ha mencionado con anterioridad también se pueden utilizar para el análisis de series temporales, ya que son muy adecuados para aprender características a partir de datos que tienen una estructura espacial o temporal.</p>
+<p>La arquitectura de una CNN consta de una o más capas convolucionales, que aplican filtros a los datos de entrada para extraer características. Cada filtro es un conjunto de pesos que se aprenden durante el proceso de entrenamiento. Al deslizar el filtro sobre los datos de entrada, la capa convolucional calcula un producto escalar en cada posición, produciendo un nuevo mapa de características <span class="citation" data-cites="cnn">Lecun et&nbsp;al. (<a href="references.html#ref-cnn" role="doc-biblioref">1998</a>)</span>.</p>
+<p>En un contexto de series de tiempo, una CNN puede aprender a extraer automáticamente características de los datos en diferentes escalas e intervalos de tiempo, lo que la convierte en una herramienta poderosa para el análisis de series de tiempo. Una ventaja clave de usar una CNN para el análisis de series de tiempo es que reduce la necesidad de ingeniería de características manual. En lugar de diseñar filtros a mano, CNN aprende a extraer automáticamente características de los datos, haciéndolo más flexible y adaptable a diferentes tipos de datos de series temporales.</p>
+<p>En general, la arquitectura de una CNN le permite aprender características automáticamente a partir de datos de series temporales, lo que la convierte en una herramienta poderosa para el análisis de series temporales, siendo las Conv1D una de las estructuras de CNN más usadas para esta tarea.</p>
+<p>Como se explica en <span class="citation" data-cites="hongj20">Jing (<a href="references.html#ref-hongj20" role="doc-biblioref">2020</a>)</span> Conv1D es un tipo específico de capa de CNN que está diseñado para procesar datos unidimensionales, como datos de series temporales. Mientras que las CNN tradicionales están diseñadas para procesar datos bidimensionales, Conv1D está optimizado específicamente para datos unidimensionales, lo que lo hace más eficiente y eficaz para el análisis de series temporales.</p>
+<p>La arquitectura de una capa Conv1D es similar a la de una CNN tradicional, pero con algunas diferencias clave. En lugar de usar filtros bidimensionales, Conv1D usa filtros unidimensionales, que se aplican a la serie temporal de entrada para extraer características. Las características que se extraen de la serie dependerán de las distintas configuraciones usadas para la configuración del filtro y la cantidad de filtros utilizados, siendo la fórmula para calcular la cantidad de característica que extrae cada filtro la siguiente <a href="#eq-cnn-lout">Ecuación&nbsp;<span>1</span></a> (<span class="citation" data-cites="hongj20">Jing (<a href="references.html#ref-hongj20" role="doc-biblioref">2020</a>)</span>):</p>
+<p><span id="eq-cnn-lout"><span class="math display">\[
+\begin{aligned}
+L_{out} &amp;= \frac{L_{in} + 2*padding - dilation*(kerenel\_size - 1)-1}{stride} + 1 \\
+\end{aligned}
+\tag{1}\]</span></span></p>
+<p>Donde:</p>
+<div class="margin">
+<p><em>Lout</em>: es la longitud de la salida del proceso de filtrado o la cantidad de características.</p>
+</div>
+<div class="margin">
+<p><em>Lin</em>: la longitud del vector de entrada, correspondiendo en el análisis de series de tiempo a la cantidad de observaciones que contienen las muestras de la serie de tiempo que se pasan al filtro.</p>
+</div>
+<div class="margin">
+<p><em>kernel_size</em>: es el tamaño del filtro, lo que define cuantas observaciones del vector de entradas se pasan al filtro cada vez. <a href="Annex1.html#fig-HJks">Figura&nbsp;<span>4</span></a> representa como el tamaño del filtro puede afectar la longitud del vector de salida.</p>
+</div>
+<div class="margin">
+<p><em>stride</em>: representa la cantidad de pasos u observaciones en las que se mueve la selección de observaciones que se pasa al filtro. <a href="Annex1.html#fig-HJstride">Figura&nbsp;<span>5</span></a> representa como el parámetro stride puede afectar la longitud del vector de salida.</p>
+</div>
+<div class="margin">
+<p><em>dilation</em>: es la distancia de las observaciones que pasan al filtro. <a href="Annex1.html#fig-HJdilation">Figura&nbsp;<span>6</span></a> representa como el parámetro dilation puede afectar la longitud del vector de salida.</p>
+</div>
+<div class="margin">
+<p><em>padding</em>: representa la cantidad de zeros que se añade a cada extremo del vector. <a href="Annex1.html#fig-HJpadding">Figura&nbsp;<span>7</span></a> representa como el parámetro padding puede afectar la longitud del vector de salida.</p>
+</div>
+<p>En general, Conv1D es una herramienta poderosa para procesar datos de series temporales y sus ventajas incluyen la eficiencia computacional y la capacidad de capturar dependencias temporales en los datos. Sus casos de uso son numerosos y abarcan diferentes campos, lo que lo convierte en una herramienta valiosa para el análisis de series temporales.</p>
+</section>
+<section id="long-short-term-memory" class="level2">
+<h2 class="anchored" data-anchor-id="long-short-term-memory">2.2.3 Long short-term memory</h2>
+<p>En el presente subepigrafe se explica por qué las LSTM son una de las estructuras más usadas de RNA en la previsión de series de tiempo, partiendo de una breve explicación de las RNR y porque estas son de utilidad en la solución de problemas de previsión de series de tiempo, profundizando en por qué las LSTM se diferencian del resto de las RNN, y el funcionamiento de cada una de las capas que componen la estructura de una capa LSTM.</p>
+<p>En <span class="citation" data-cites="COlah15">Olah (<a href="references.html#ref-COlah15" role="doc-biblioref">2015</a>)</span> se explica que una RNN puede considerarse como copias múltiples de la misma red, <a href="Annex1.html#fig-CORNRstruct">Figura&nbsp;<span>8</span></a>, expone que este aspecto revela que las RNR están íntimamente relacionadas con secuencias y listas, lo que hace que este tipo de RNA sea el que se use naturalmente para el trabajo con series de tiempo.</p>
+<p>Las RNR convencionales presentan un problema en lo relacionado con la capacidad de retener la información, como se explica en <span class="citation" data-cites="COlah15">Olah (<a href="references.html#ref-COlah15" role="doc-biblioref">2015</a>)</span>, las RNN estándar se desempeñan con gran capacidad solo si, la información relevante para la situación actual es reciente, es decir donde la brecha entre la información relevante y el lugar en que se necesita es pequeña, <a href="Annex1.html#fig-CORInclose">Figura&nbsp;<span>9</span></a>; expone además que a medida que crece la brecha, las RNN estándar son incapaces de acceder a la información relevante, <a href="Annex1.html#fig-CORInaway">Figura&nbsp;<span>10</span></a>.</p>
+<p>Como se ha mencionado con anterioridad las LSTM son un tipo de RNR que puede aprender dependencias a largo plazo en datos secuenciales. Estas fueron propuestas en <span class="citation" data-cites="SeppJur97">Hochreiter (<a href="references.html#ref-SeppJur97" role="doc-biblioref">1997</a>)</span> y ha sido ampliamente utilizado para diversas tareas como el modelado del lenguaje, el reconocimiento de voz, la traducción automática, la descripción de imágenes y la previsión de series de tiempo.</p>
+<p>La idea principal de LSTM es introducir una celda de memoria que pueda almacenar y actualizar información durante largos pasos de tiempo. La celda de memoria está controlada por tres puertas: una puerta de entrada, una puerta de olvido y una puerta de salida. Estas puertas son redes neuronales que aprenden a regular el flujo de información dentro y fuera de la célula <a href="Annex1.html#fig-CODrnrlstm">Figura&nbsp;<span>11</span></a>.</p>
+<p>La puerta de entrada decide qué cantidad de la nueva entrada agregar al estado de la celda. La puerta de olvido decide qué parte del estado de celda anterior mantener o borrar. La puerta de salida decide qué parte del estado de celda actual se va a enviar a la siguiente capa. <span class="citation" data-cites="COlah15">Olah (<a href="references.html#ref-COlah15" role="doc-biblioref">2015</a>)</span> basado en lo expuesto en <span class="citation" data-cites="SeppJur97">Hochreiter (<a href="references.html#ref-SeppJur97" role="doc-biblioref">1997</a>)</span>, describe la operativa de las puertas en cuatro pasos:</p>
+<ol type="1">
+<li>Decidir qué información se olvida del estado de la celda a través de la puerta, forget gate layer <span class="math inline">\(f_t\)</span>. Esta puerta ve a <span class="math inline">\(h_{t-1}\)</span>, estado oculto del período de tiempo anterior, y <span class="math inline">\(x_{t}\)</span>, entrada del instante de tiempo actual, y genera un número entre 0 (deshacerse) y 1 (mantener) para cada número en el estado de la celda <span class="math inline">\(C_{t-1}\)</span>, <a href="Annex1.html#fig-COLSTMstep1">Figura&nbsp;<span>12</span></a>, <a href="#eq-lstm-fstep">Ecuación&nbsp;<span>2</span></a>.</li>
+</ol>
+<p><span id="eq-lstm-fstep"><span class="math display">\[
+\begin{aligned}
+f_t &amp;= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
+\end{aligned}
+\tag{2}\]</span></span></p>
+<ol start="2" type="1">
+<li>Decidir qué nueva información se almacena en el estado de la celda. Para esto primero la puerta llamada input gate layer decide qué valores actualizar y luego, una capa tanh (tangente hiperbólica) crea un vector de nuevos valores candidatos (<span class="math inline">\(\tilde{C}_t\)</span>) que podrían agregarse al estado, <a href="Annex1.html#fig-COLSTMstep2">Figura&nbsp;<span>13</span></a>, <a href="#eq-lstm-sstepf">Ecuación&nbsp;<span>3</span></a> y <a href="#eq-lstm-ssteps">Ecuación&nbsp;<span>4</span></a>.</li>
+</ol>
+<p><span id="eq-lstm-sstepf"><span class="math display">\[
+\begin{aligned}
+i_t &amp;= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
+\end{aligned}
+\tag{3}\]</span></span></p>
+<p><span id="eq-lstm-ssteps"><span class="math display">\[
+\begin{aligned}
+\tilde{C}_t &amp;= tanh(W_c [h_{t-1}, x_t] + b_c) \\
+\end{aligned}
+\tag{4}\]</span></span></p>
+<ol start="3" type="1">
+<li>Se actualiza el estado de la celda anterior, <span class="math inline">\(C_{t-1}\)</span> en el nuevo estado de la celda <span class="math inline">\(C_{t}\)</span>. Se multiplica el estado anterior por <span class="math inline">\(f_{t}\)</span>, olvidando lo necesario, luego se agrega <span class="math inline">\(i_{t} * \tilde{C}_{t}\)</span>. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, <a href="Annex1.html#fig-COLSTMstep3">Figura&nbsp;<span>14</span></a>, ecuación 1.09.</li>
+</ol>
+<p><span id="eq-lstm-tstep"><span class="math display">\[
+\begin{aligned}
+C_t &amp;= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
+\end{aligned}
+\tag{5}\]</span></span></p>
+<ol start="4" type="1">
+<li>Se genera una salida basándose en el estado de celda. Ejecutándose primero una capa sigmoidea que decide qué partes del estado de la celda es la salida; luego el estado de la celda pasa a través de una función tanh (escalando los valores entre −1 y 1) y se multiplican por la salida de la puerta, output gate, <a href="Annex1.html#fig-COLSTMstep4">Figura&nbsp;<span>15</span></a>, <a href="#eq-lstm-fstepf">Ecuación&nbsp;<span>6</span></a> y <a href="#eq-lstm-fsteps">Ecuación&nbsp;<span>7</span></a>.</li>
+</ol>
+<p><span id="eq-lstm-fstepf"><span class="math display">\[
+\begin{aligned}
+o_t &amp;= \sigma(W_o [h_{t-1}, x_t] + b_o) \\
+\end{aligned}
+\tag{6}\]</span></span> <span id="eq-lstm-fsteps"><span class="math display">\[
+\begin{aligned}
+h_t &amp;= o_t * tanh(C_t) \\
+\end{aligned}
+\tag{7}\]</span></span></p>
+<p>Las LSTM pueden aprender a capturar dependencias a largo plazo ajustando los valores de la puerta a través de la propagación inversa. Por ejemplo, si una determinada entrada es relevante para una salida posterior, la puerta de entrada aprenderá a dejarla entrar, y la puerta olvidada aprenderá a conservarla en el estado de celda hasta que sea necesaria. Por el contrario, si una entrada es irrelevante u obsoleta, la puerta de entrada aprenderá a ignorarla, y la puerta olvidada aprenderá a borrarla del estado de la celda.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-ZHANG199835" class="csl-entry" role="listitem">
+B. Eddy Patuwo &amp; Michael Y. Hu, Guoqiang Zhang &amp;. 1998. <span>«Forecasting with artificial neural networks:: The state of the art»</span>. <em>International Journal of Forecasting</em> 14 (1): 35-62. https://doi.org/<a href="https://doi.org/10.1016/S0169-2070(97)00044-7">https://doi.org/10.1016/S0169-2070(97)00044-7</a>.
+</div>
+<div id="ref-banda2014" class="csl-entry" role="listitem">
+Banda, Hugo. 2014. <em>Inteligencia Artificial: Principios y Aplicaciones</em>. Quito, Ecuador: Escuela Politécnica Nacional.
+</div>
+<div id="ref-chollet2018deep" class="csl-entry" role="listitem">
+Chollet, F., y J. J. Allaire. 2018. <em>Deep Learning with R</em>. Manning Publications. <a href="https://books.google.es/books?id=xnIRtAEACAAJ">https://books.google.es/books?id=xnIRtAEACAAJ</a>.
+</div>
+<div id="ref-GURESEN201110389" class="csl-entry" role="listitem">
+Guresen, Erkam, Gulgun Kayakutlu, y Tugrul U. Daim. 2011. <span>«Using artificial neural network models in stock market index prediction»</span>. <em>Expert Systems with Applications</em> 38 (8): 10389-97. https://doi.org/<a href="https://doi.org/10.1016/j.eswa.2011.02.068">https://doi.org/10.1016/j.eswa.2011.02.068</a>.
+</div>
+<div id="ref-haykin1998neural" class="csl-entry" role="listitem">
+Haykin, Simon. 1998. <em>Neural networks: a comprehensive foundation</em>. Prentice Hall PTR.
+</div>
+<div id="ref-SeppJur97" class="csl-entry" role="listitem">
+Hochreiter, Jürgen, Sepp &amp; Schmidhuber. 1997. <span>«<span>Long Short-Term Memory</span>»</span>. <em>Neural Computation</em> 9 (8): 1735-80. <a href="https://doi.org/10.1162/neco.1997.9.8.1735">https://doi.org/10.1162/neco.1997.9.8.1735</a>.
+</div>
+<div id="ref-hongj20" class="csl-entry" role="listitem">
+Jing, Hong. 2020. <span>«How Convolutional Layers Work in Deep Learning Neural Networks?»</span> Jingles, Github Blog. 2020. <a href="https://jinglescode.github.io/2020/11/01/how-convolutional-layers-work-deep-learning-neural-networks/">https://jinglescode.github.io/2020/11/01/how-convolutional-layers-work-deep-learning-neural-networks/</a>.
+</div>
+<div id="ref-Larranaga07" class="csl-entry" role="listitem">
+Larrañaga, Iñaki &amp; Moujahid, Pedro &amp; Inza. 2007. <span>«Tema 14. Redes Neuronales»</span>. Departamento de Ciencias de la Computaci´on e Inteligencia Artificial, Universidad del Pa´ıs Vasco–Euskal Herriko Unibertsitatea. 2007. <a href="http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/t14-neuronales.pdf">http://www.sc.ehu.es/ccwbayes/docencia/mmcc/docs/t14-neuronales.pdf</a>.
+</div>
+<div id="ref-cnn" class="csl-entry" role="listitem">
+Lecun, Y., L. Bottou, Y. Bengio, y P. Haffner. 1998. <span>«Gradient-based learning applied to document recognition»</span>. <em>Proceedings of the IEEE</em> 86 (11): 2278-2324. <a href="https://doi.org/10.1109/5.726791">https://doi.org/10.1109/5.726791</a>.
+</div>
+<div id="ref-McCarthy_Minsky_Rochester_Shannon_2006" class="csl-entry" role="listitem">
+McCarthy, John, Marvin L. Minsky, Nathaniel Rochester, y Claude E. Shannon. 2006. <span>«A Proposal for the Dartmouth Summer Research Project on Artificial Intelligence, August 31, 1955»</span>. <em>AI Magazine</em> 27 (4): 12. <a href="https://doi.org/10.1609/aimag.v27i4.1904">https://doi.org/10.1609/aimag.v27i4.1904</a>.
+</div>
+<div id="ref-COlah15" class="csl-entry" role="listitem">
+Olah, Christopher. 2015. <span>«Understanding LSTM networks»</span>. Colah’s blog. 2015. <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">https://colah.github.io/posts/2015-08-Understanding-LSTMs/</a>.
+</div>
+<div id="ref-SEZER2020106181" class="csl-entry" role="listitem">
+Sezer, Omer Berat, Mehmet Ugur Gudelek, y Ahmet Murat Ozbayoglu. 2020. <span>«Financial time series forecasting with deep learning : A systematic literature review: 2005–2019»</span>. <em>Applied Soft Computing</em> 90: 106181. https://doi.org/<a href="https://doi.org/10.1016/j.asoc.2020.106181">https://doi.org/10.1016/j.asoc.2020.106181</a>.
+</div>
+<div id="ref-rafid23" class="csl-entry" role="listitem">
+Siddiqui, J. Rafid. 2023. <span>«Why Convolve? Understanding Convolution and Feature Extraction in Deep Networks»</span>. Medium, Towards Data Science. 2023. <a href="https://towardsdatascience.com/why-convolve-understanding-convolution-and-feature-extraction-in-deep-networks-ee45d1fdd17c">https://towardsdatascience.com/why-convolve-understanding-convolution-and-feature-extraction-in-deep-networks-ee45d1fdd17c</a>.
+</div>
+<div id="ref-TEALAB2018334" class="csl-entry" role="listitem">
+Tealab, Ahmed. 2018. <span>«Time series forecasting using artificial neural networks methodologies: A systematic review»</span>. <em>Future Computing and Informatics Journal</em> 3 (2): 334-40. https://doi.org/<a href="https://doi.org/10.1016/j.fcij.2018.10.003">https://doi.org/10.1016/j.fcij.2018.10.003</a>.
+</div>
+<div id="ref-wongguo2010" class="csl-entry" role="listitem">
+Wong, W. K., y Z. X. Guo. 2010. <span>«<span>A hybrid intelligent model for medium-term sales forecasting in fashion retail supply chains using extreme learning machine and harmony search algorithm</span>»</span>. <em>International Journal of Production Economics</em> 128 (2): 614-24. <a href="https://ideas.repec.org/a/eee/proeco/v128y2010i2p614-624.html">https://ideas.repec.org/a/eee/proeco/v128y2010i2p614-624.html</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script type="text/javascript">
+
+  const elementWithauthor = document.querySelector('.quarto-title-meta-author');
+  
+  if(elementWithauthor){
+    
+    //Ad more description in title banner
+    let TFMtitle = document.getElementById('title-block-header');
+    let TFMtitlefc = TFMtitle.firstElementChild;
+    let TFMtitlefcfc = TFMtitlefc.firstElementChild;
+    const sublead = document.createElement('p');
+      sublead.className = 'subtitle lead';
+      sublead.id = 'sublead';
+      sublead.textContent = 'Máster Universitario en Banca y Finanzas Curso académico 2022/2023';
+    const sub_sublead = document.createElement('p');
+      sub_sublead.className = 'subtitle lead';
+      sub_sublead.id='sub_sublead';
+      sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+    TFMtitlefcfc.appendChild(sublead);
+    TFMtitlefcfc.appendChild(sub_sublead);
+    
+    //Fix authoring info
+    const authorsElement = document.querySelector('.quarto-title-meta-heading');
+    authorsElement.textContent = "AUTOR";
+    const authorsInfo = authorsElement.parentElement;
+    const tutorname = authorsElement.cloneNode(true);
+    tutorname.textContent = "TUTOR";
+    tutorname.style.marginTop = '0';
+    const tutorafili = tutorname.cloneNode(true);
+    tutorafili.textContent = "";
+    authorsInfo.insertBefore(tutorafili, authorsInfo.children[4]);
+    authorsInfo.insertBefore(tutorname, authorsInfo.children[4]);
+    
+  }else{
+    let TFMtitle = document.getElementById('title-block-header');
+    let TFMtitlefc = TFMtitle.firstElementChild;
+    let TFMtitlefcfc = TFMtitlefc.firstElementChild;
+    const sub_sublead = document.createElement('p');
+      sub_sublead.className = 'subtitle lead';
+      sub_sublead.id='sub_sublead';
+      sub_sublead.textContent = 'Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras';
+    TFMtitlefcfc.appendChild(sub_sublead);
+    
+    
+    
+  }
+</script>
+
+<script>
+
+// Read the HTML content from a file
+async function readHTMLFile(filePath) {
+  try {
+    const response = await fetch(filePath);
+    const htmlContent = await response.text();
+    return htmlContent;
+  } catch (error) {
+    console.error('Error reading HTML file:', error);
+    return null;
+  }
+}
+
+// Main function to process the HTML file
+async function processHtmlFile(filePath, patternToMatch, patternToReplace, replacement) {
+  const htmlContent = await readHTMLFile(filePath);
+  const idsToSearch = [];
+
+  if (htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+
+    const elementsWithMatchingIds = Array.from(doc.querySelectorAll('[id^="' + patternToMatch + '"]'));
+    elementsWithMatchingIds.forEach(element => {
+      const id = element.getAttribute('id');
+      idsToSearch.push(id);
+    });
+  }
+
+  const anchorElements = Array.from(document.querySelectorAll('a'));
+
+  anchorElements.forEach(anchorElement => {
+    const href = anchorElement.getAttribute('href');
+    if (idsToSearch.some(id => href && href.endsWith(id))) {
+      anchorElement.innerHTML = anchorElement.innerHTML.replace(patternToReplace, replacement);
+    }
+  });
+}
+
+
+const filePath = 'Annex2.html'; 
+const patternToMatch = 'fig-'; 
+const patternToReplace = 'Figura&nbsp;';
+const replacement = 'Gráfica ';
+
+processHtmlFile(filePath, patternToMatch, patternToReplace, replacement);
+  
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./FSandP.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.1 Caracterización de las series temporales financieras</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./PC.html" class="pagination-link">
+        <span class="nav-page-text">2.3 Composición de carteras</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Trabajo Final de Máster de <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="FEE" width="65"></a></div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ David Díaz Rodríguez
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/david-d-6257951b8/">
+      <i class="bi bi-linkedin" role="img" aria-label="Linkedin">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/davidrsch/TFM/">
+      <i class="bi bi-github" role="img" aria-label="TFM GitHub">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
