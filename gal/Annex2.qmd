@@ -1,0 +1,481 @@
+# Anexo. 2 Gráficas {.unnumbered}
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-tend_pos
+#| fig-alt: >
+#|   Una gráfica que muestra una tendencia alcista y heterocedástica.
+#| cap-location: top
+#| fig-cap: >
+#|   Tendencia alcista y heterocedástica
+#| fig-height: 2.5
+
+IBEX |>
+  filter(Date > "1995-01" & Date < "1997-01") |>
+  mutate(Date = ym(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = CloseI), color = "black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Precio de Cierre") +
+  xlab("Fecha")
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX, obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 01-1995 al 01-1997.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-tend_neg
+#| fig-alt: >
+#|   Una gráfica que muestra una tendencia bajista y heterocedástica.
+#| cap-location: top
+#| fig-cap: >
+#|   Tendencia bajista y heterocedástica
+#| fig-height: 2.5
+
+IBEX |>
+  filter(Date > "2000-01" & Date < "2003-01") |>
+  mutate(Date = ym(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = CloseI), color = "black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Precio de Cierre") +
+  xlab("Fecha")
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX, obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 01-2000 al 01-2003.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-tend_nul
+#| fig-alt: >
+#|   Una gráfica que muestra una tendencia bajista y heterocedástica.
+#| cap-location: top
+#| fig-cap: >
+#|   Sin tendencia, homocedástica y estacionaria
+#| fig-height: 2.5
+
+IBEX |>
+  mutate(CloseI = Delt(CloseI)) |>
+  na.omit() |>
+  filter(Date > "2000-01" & Date < "2003-01") |>
+  mutate(Date = ym(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = CloseI), color = "black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Rentabilida de Cierre") +
+  xlab("Fecha")
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 01-2000 al 01-2003, usando las rentabilidades calculadas a partir del precio de cierre.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-est_err
+#| fig-alt: >
+#|   Una gráfica que muestra los componentes de estacionalidad y error.
+#| fig-cap: >
+#|   Descomposición: estacionalidad y error
+#| fig-height: 2.5
+
+IBEXts <- IBEX |>
+  filter(Date > "2000-01" & Date < "2023-01") |>
+  select(CloseI) |>
+  ts(frequency = 12) |>
+  decompose()
+
+pp1 <- IBEX |>
+  filter(Date > "2000-01" & Date < "2023-01") |>
+  mutate(seasonal = as.vector(IBEXts$seasonal)) |>
+  mutate(Date = ym(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = seasonal), color = "black") +
+  theme(axis.title.x = element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+  ylab("Estacionalidad") +
+  xlab("Fecha")
+pp2 <- IBEX |>
+  filter(Date > "2000-01" & Date < "2023-01") |>
+  mutate(Random = as.vector(IBEXts$random)) |>
+  mutate(Date = ym(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = Random), color = "black") +
+  theme(axis.text.x = element_text(angle = 90)) +
+  ylab("Residuos") +
+  xlab("Fecha")
+grid.arrange(pp1, pp2, ncol = 1, heights = c(1.4, 2))
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de RStudio con la base de datos histórico del IBEX obtenida de https://finance.yahoo.com/, descomponiendo la serie de tiempo conformada por las observaciones que abarcan el periodo del 01-2000 al 01-2023.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-acf_pacf
+#| fig-alt: >
+#|   Correlogramas de autocorrelación y correlación parcial.
+#| fig-cap: >
+#|   Correlograma
+#| fig-height: 2.5
+
+ts <- IBEX |>
+  filter(Date > "2000-01" & Date < "2023-01") |>
+  select(CloseI) |>
+  ts(frequency = 12)
+grid.arrange(ggAcf(ts), ggPacf(ts), ncol = 2)
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de RStudio.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-tend_const_nxt
+#| fig-alt: >
+#|   Una gráfica que muestra la inconsistencia en el registro de los 
+#|   precio de cierre ajustado de la serie correspondiente 
+#|   a la empresa NUEVA EXPRESION TEXTIL, S.A., al observarse que 
+#|   no existe variación del precio de cierre ajustado en periodo 
+#|   correspondiente a 06-2009 al 04-2014.
+#| cap-location: top
+#| fig-cap: >
+#|   Tendencia constante en los precios de cierre ajustado de la empresa "Nueva Expresión Textil S.A"
+#| fig-height: 4 
+
+fig_df <- select_emps[["NXT.MC"]] |>
+  mutate(Date = as.Date(Date))
+ggplot(fig_df, aes(x=Date, y=Adjusted, group = 1)) +
+  geom_line(color="#065AD8") +
+  annotate(geom = 'point',x=fig_df$Date[142],y=2.6,size=26, shape=1, color="red")
+```
+
+::: figure-caption
+Elaboración propia: A partir de los datos obtenidos de @yahoofin correspondientes a la empresa "Nueva Expreción Textil S.A" en el periodo del 31 de enero del 2000 al 28 de febrero del 2023.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-radi_chang_btc
+#| fig-alt: >
+#|   Una gráfica que muestra cambios bruscos en los precios de cierre 
+#|   ajustado en relación al resto de valores de la serie, lo que puede 
+#|   indicar un calculo erroneo de los valores durante cierto periodo de 
+#|   tiempo.
+#| cap-location: top
+#| fig-cap: >
+#|   Cambio brusco de precios que reflejan calculo erróneo de los precios de cierre ajustado, "BANKINTER,S.A."
+#| fig-height: 4
+
+fig_df <- select_emps[["BKT.MC"]] |>
+  mutate(Date = as.Date(Date))
+ggplot(fig_df, aes(x=Date, y=Adjusted, group = 1)) +
+  geom_line(color="#065AD8") +
+  annotate(geom = 'point',x=fig_df$Date[1],y=15,size=76, shape=1, color="red")
+```
+
+::: figure-caption
+Elaboración propia: A partir de los datos obtenidos de @yahoofin correspondientes a la empresa "Nueva Expreción Textil S.A" en el periodo del 31 de enero del 2000 al 28 de febrero del 2023.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-ind_evo_oo
+#| cap-location: top
+#| fig-cap: >
+#|   Evolución de los indicadores – Entradas con una observación
+
+data <- do.call(cbind,resultscnnlstmssing1$resultsD)
+data |>
+  rowwise() |>
+  mutate(
+    Date = `001.Date`,
+    meanmse = mean(c_across(contains("mse"))),
+    meanrsqrd = mean(c_across(contains("rsqrd")))
+    ) |>
+  select(
+    Date, meanmse,meanrsqrd
+  )|>
+  mutate(
+    Date = as.Date(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = meanmse, color = "MSE")) +
+  geom_line(aes(y = meanrsqrd, color = "R2")) +
+  scale_color_manual(values = c("blue", "green")) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(x = "Fecha", y = "Valores", color = "Indicadores")
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de R y Rstudio.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-ind_evo_twoo
+#| cap-location: top
+#| fig-cap: >
+#|   Evolución de los indicadores – Entradas con dos observaciónes
+
+data <- do.call(cbind,resultscnnlstmssing2$resultsD)
+data |>
+  rowwise() |>
+  mutate(
+    Date = `001.Date`,
+    meanmse = mean(c_across(contains("mse"))),
+    meanrsqrd = mean(c_across(contains("rsqrd")))
+    ) |>
+  select(
+    Date, meanmse,meanrsqrd
+  )|>
+  mutate(
+    Date = as.Date(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = meanmse, color = "MSE")) +
+  geom_line(aes(y = meanrsqrd, color = "R2")) +
+  scale_color_manual(values = c("blue", "green")) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(x = "Fecha", y = "Valores", color = "Indicadores")
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de R y Rstudio.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-ind_evo_threeo
+#| cap-location: top
+#| fig-cap: >
+#|   Evolución de los indicadores – Entradas con tres observaciónes
+
+data <- do.call(cbind,resultscnnlstmssing3$resultsD)
+data |>
+  rowwise() |>
+  mutate(
+    Date = `001.Date`,
+    meanmse = mean(c_across(contains("mse"))),
+    meanrsqrd = mean(c_across(contains("rsqrd")))
+    ) |>
+  select(
+    Date, meanmse,meanrsqrd
+  )|>
+  mutate(
+    Date = as.Date(Date)) |>
+  ggplot(aes(x = Date, group = 1)) +
+  geom_line(aes(y = meanmse, color = "MSE")) +
+  geom_line(aes(y = meanrsqrd, color = "R2")) +
+  scale_color_manual(values = c("blue", "green")) +
+  theme(axis.text.x = element_text(angle = 90)) +
+  labs(x = "Fecha", y = "Valores", color = "Indicadores")
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de R y Rstudio.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-pf_evo_oo
+#| cap-location: top
+#| fig-cap: >
+#|   Evolución de las carteras y el IBEX – Entradas con una observación
+
+data <- do.call(cbind,resultscnnlstmssing1$resultsD)
+data_summary <- data |>
+  mutate(
+    Date = `001.Date`,
+    IBEX = `001.IBEX`,
+    Means = resultscnnlstmssing1$resultsMEANS) |>
+  mutate_at(vars(contains("Portre")), ~ cumsum(.)) |>
+  mutate(
+    IBEX = cumsum(IBEX),
+    Means = cumsum(Means)) |>
+  group_by(Date) |>
+  summarize(
+    meanPortre = mean(c_across(contains("Portre"))),
+    max_y = max(c_across(contains("Portre"))),
+    min_y = min(c_across(contains("Portre"))),
+    min_5 = unname(quantile(c_across(contains("Portre")),0.05)),
+    max_95 = unname(quantile(c_across(contains("Portre")),0.95)),
+    IBEX = IBEX,
+    Means = Means)
+data_summary |>
+  mutate(
+    Date = as.Date(Date)) |>
+ggplot(aes(x = Date)) +
+  geom_ribbon(aes(ymin = min_y, ymax = min_5), fill = "blue", alpha = 0.3) +
+  geom_ribbon(aes(ymin = max_y, ymax = max_95), fill = "blue", alpha = 0.3) +
+  geom_ribbon(aes(ymin = min_5, ymax = max_95), fill = "blue", alpha = 0.6) +
+  geom_line(
+    aes(y = meanPortre, color = "Media RNA1"),
+    linetype = "dashed") +
+  geom_line(aes(y = max_y), color = "blue") +
+  geom_line(aes(y = min_y), color = "blue") +
+  geom_line(aes(y = max_95), color = "blue") +
+  geom_line(aes(y = min_5, color = "RNA1")) +
+  geom_line(aes(y = IBEX, color = "IBEX")) +
+  geom_line(aes(y = Means, color = "Medias")) +
+  scale_color_manual(
+    values = c(
+      "Media RNA1"="blue",
+      "RNA1" = "blue",
+      "IBEX" = "red",
+      "Medias" = "green")) +
+  guides(
+    color = guide_legend(
+      override.aes = list(
+        linetype = c("solid","dashed","solid","solid"))))+
+  labs(x = "Fecha",
+       y = "Valores",
+       color = "Leyenda")+
+  theme_minimal()
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de R y Rstudio.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-pf_evo_twoo
+#| cap-location: top
+#| fig-cap: >
+#|   Evolución de las carteras y el IBEX – Entradas con dos observaciones
+
+data <- do.call(cbind,resultscnnlstmssing2$resultsD)
+data_summary <- data |>
+  mutate(
+    Date = `001.Date`,
+    IBEX = `001.IBEX`,
+    Means = resultscnnlstmssing2$resultsMEANS) |>
+  mutate_at(vars(contains("Portre")), ~ cumsum(.)) |>
+  mutate(
+    IBEX = cumsum(IBEX),
+    Means = cumsum(Means)) |>
+  group_by(Date) |>
+  summarize(
+    meanPortre = mean(c_across(contains("Portre"))),
+    max_y = max(c_across(contains("Portre"))),
+    min_y = min(c_across(contains("Portre"))),
+    min_5 = unname(quantile(c_across(contains("Portre")),0.05)),
+    max_95 = unname(quantile(c_across(contains("Portre")),0.95)),
+    IBEX = IBEX,
+    Means = Means)
+data_summary |>
+  mutate(
+    Date = as.Date(Date)) |>
+ggplot(aes(x = Date)) +
+  geom_ribbon(aes(ymin = min_y, ymax = min_5), fill = "blue", alpha = 0.3) +
+  geom_ribbon(aes(ymin = max_y, ymax = max_95), fill = "blue", alpha = 0.3) +
+  geom_ribbon(aes(ymin = min_5, ymax = max_95), fill = "blue", alpha = 0.6) +
+  geom_line(
+    aes(y = meanPortre, color = "Media RNA2"),
+    linetype = "dashed") +
+  geom_line(aes(y = max_y), color = "blue") +
+  geom_line(aes(y = min_y), color = "blue") +
+  geom_line(aes(y = max_95), color = "blue") +
+  geom_line(aes(y = min_5, color = "RNA2")) +
+  geom_line(aes(y = IBEX, color = "IBEX")) +
+  geom_line(aes(y = Means, color = "Medias")) +
+  scale_color_manual(
+    values = c(
+      "Media RNA2"="blue",
+      "RNA2" = "blue",
+      "IBEX" = "red",
+      "Medias" = "green")) +
+  guides(
+    color = guide_legend(
+      override.aes = list(
+        linetype = c("solid","dashed","solid","solid"))))+
+  labs(x = "Fecha",
+       y = "Valores",
+       color = "Leyenda")+
+  theme_minimal()
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de R y Rstudio.
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| label: fig-pf_evo_threeo
+#| cap-location: top
+#| fig-cap: >
+#|   Evolución de las carteras y el IBEX – Entradas con tres observaciones
+
+data <- do.call(cbind,resultscnnlstmssing3$resultsD)
+data_summary <- data |>
+  mutate(
+    Date = `001.Date`,
+    IBEX = `001.IBEX`,
+    Means = resultscnnlstmssing3$resultsMEANS) |>
+  mutate_at(vars(contains("Portre")), ~ cumsum(.)) |>
+  mutate(
+    IBEX = cumsum(IBEX),
+    Means = cumsum(Means)) |>
+  group_by(Date) |>
+  summarize(
+    meanPortre = mean(c_across(contains("Portre"))),
+    max_y = max(c_across(contains("Portre"))),
+    min_y = min(c_across(contains("Portre"))),
+    min_5 = unname(quantile(c_across(contains("Portre")),0.05)),
+    max_95 = unname(quantile(c_across(contains("Portre")),0.95)),
+    IBEX = IBEX,
+    Means = Means)
+data_summary |>
+  mutate(
+    Date = as.Date(Date)) |>
+ggplot(aes(x = Date)) +
+  geom_ribbon(aes(ymin = min_y, ymax = min_5), fill = "blue", alpha = 0.3) +
+  geom_ribbon(aes(ymin = max_y, ymax = max_95), fill = "blue", alpha = 0.3) +
+  geom_ribbon(aes(ymin = min_5, ymax = max_95), fill = "blue", alpha = 0.6) +
+  geom_line(
+    aes(y = meanPortre, color = "Media RNA3"),
+    linetype = "dashed") +
+  geom_line(aes(y = max_y), color = "blue") +
+  geom_line(aes(y = min_y), color = "blue") +
+  geom_line(aes(y = max_95), color = "blue") +
+  geom_line(aes(y = min_5, color = "RNA3")) +
+  geom_line(aes(y = IBEX, color = "IBEX")) +
+  geom_line(aes(y = Means, color = "Medias")) +
+  scale_color_manual(
+    values = c(
+      "Media RNA3"="blue",
+      "RNA3" = "blue",
+      "IBEX" = "red",
+      "Medias" = "green")) +
+  guides(
+    color = guide_legend(
+      override.aes = list(
+        linetype = c("solid","dashed","solid","solid"))))+
+  labs(x = "Fecha",
+       y = "Valores",
+       color = "Leyenda")+
+  theme_minimal()
+```
+
+::: figure-caption
+Elaboración propia: Mediante el uso de R y Rstudio.
+:::
