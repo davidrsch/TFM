@@ -43,7 +43,6 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -51,6 +50,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./conclusions.html" rel="next">
 <link href="./MandT.html" rel="prev">
+<link href="./icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,30 +134,22 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Trabajo Final de Máster</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.docx">
-              <i class="bi bi-bi-file-word pe-1"></i>
-            Download Docx
+            <a class="dropdown-item sidebar-tools-main-item" href="./en/index.html">
+            English
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
+            <a class="dropdown-item sidebar-tools-main-item" href="./gal/index.html">
+            Galego
             </a>
           </li>
       </ul>
     </div>
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
@@ -172,6 +164,12 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greetings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimientos</span></a>
   </div>
 </li>
@@ -185,6 +183,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarygal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -297,13 +301,13 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#predicciones" id="toc-predicciones" class="nav-link active" data-scroll-target="#predicciones">2.6.1 Predicciones</a>
+  <li><a href="#sec-predicciones" id="toc-sec-predicciones" class="nav-link active" data-scroll-target="#sec-predicciones">2.6.1 Predicciones</a>
   <ul class="collapse">
   <li><a href="#una-observación" id="toc-una-observación" class="nav-link" data-scroll-target="#una-observación">2.6.1.1 Una observación</a></li>
   <li><a href="#dos-observaciones" id="toc-dos-observaciones" class="nav-link" data-scroll-target="#dos-observaciones">2.6.1.2 Dos observaciones</a></li>
   <li><a href="#tres-observaciones" id="toc-tres-observaciones" class="nav-link" data-scroll-target="#tres-observaciones">2.6.1.3 Tres observaciones</a></li>
   </ul></li>
-  <li><a href="#composición-de-carteras" id="toc-composición-de-carteras" class="nav-link" data-scroll-target="#composición-de-carteras">2.6.2 Composición de carteras</a></li>
+  <li><a href="#sec-cc" id="toc-sec-cc" class="nav-link" data-scroll-target="#sec-cc">2.6.2 Composición de carteras</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/Results.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
     </div>
@@ -314,8 +318,9 @@ div.csl-indent {
 
 
 <p>Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe de forma breve los resultados obtenidos. En el primero de los sub-epígrafe se describen y analizan las predicciones. En el segundo sub-epígrafe se exponen los resultados de aplicar la programación cuadrática para la composición de cartera a partir de las predicciones obtenidas.</p>
-<section id="predicciones" class="level2">
-<h2 class="anchored" data-anchor-id="predicciones">2.6.1 Predicciones</h2>
+<section id="sec-predicciones" class="level2">
+<h2 class="anchored" data-anchor-id="sec-predicciones">2.6.1 Predicciones</h2>
+<p>Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en <a href="Annex4.html#sec-A-predicciones"><span>Sección&nbsp;3.1</span></a>.</p>
 <p>Como se explicó con anterioridad a la par que se entrenaba el modelo se obtuvieron las predicciones. Al igual que se realizó con los modelos de redes neuronales artificiales, las predicciones se computaron para las distintas observaciones usando la media aritmética de las observaciones. Se usó la media aritmética porque es una de las medidas que se usa con mayor frecuencia como indicador de posible comportamiento futuro en el estudio de las series de tiempo financieras.</p>
 <p>Las predicciones se evaluarán mediante el computo del MSE y los valores reales y el <span class="math inline">\(R^2\)</span> de los resultados obtenidos por los modelos de redes neuronales artificiales y las medias aritméticas.</p>
 <p>Como se explica en <span class="citation" data-cites="Glen23">Glen (<a href="references.html#ref-Glen23" role="doc-biblioref">2023</a>)</span> el MSE te dice qué tan cerca está una línea de regresión de un conjunto de puntos. Lo hace tomando las distancias desde los puntos hasta la línea de regresión (estas distancias son los “errores”) y elevándolas al cuadrado. Elevar al cuadrado es necesario para eliminar cualquier signo negativo. También da más peso a las diferencias más grandes. Se llama el error cuadrático medio ya que estás encontrando el promedio de un conjunto de errores. Cuanto menor sea el MSE, mejor será el pronóstico, la muestra <a href="#eq-mse">Ecuación&nbsp;<span>1</span></a> como se calcula.</p>
@@ -363,8 +368,9 @@ R^2 &amp;= 1-\frac{\sum_{i=1}^{n}{(Y_i-\hat{Y_i})^2}}{\sum_{i=1}^{n}{(Y_i-\tilde
 <p>Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con tres observaciones de cada serie se encontró, como se ve en la <a href="Annex2.html#fig-ind_evo_threeo">Figura&nbsp;<span>10</span></a>, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo, pero decaen a un ritmo más lento que aquellos modelos entrenados con vectores de entrada con una observación. Se ve claramente que el R2 de estos modelos tiene una mayor variación que el R2 de los modelos analizados con anterioridad, observándose como esta variación disminuye para aquellas predicciones después del 2015. Estos modelos, al igual que los primeros presentaron un R2 negativo en la mayoría de los periodos. Además, al igual que en los casos anteriores también se observa un pico en el MSE del modelo a principios del 2020.</p>
 </section>
 </section>
-<section id="composición-de-carteras" class="level2">
-<h2 class="anchored" data-anchor-id="composición-de-carteras">2.6.2 Composición de carteras</h2>
+<section id="sec-cc" class="level2">
+<h2 class="anchored" data-anchor-id="sec-cc">2.6.2 Composición de carteras</h2>
+<p>Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en <a href="Annex4.html#sec-A-cc"><span>Sección&nbsp;3.2</span></a>.</p>
 <p>En el presente sub-epígrafe se describen los resultados obtenidos tras aplicar programación cuadrática para determinar la composición de la cartera. Esto al igual que las predicciones se realizó periodo a periodo con el objetivo de emular una situación real en la que se aplicaran las técnicas en su conjunto. Por lo que el presente análisis se enfoca en el comportamiento observado al usar los diversos modelos y la comparación de estos resultados con los obtenidos con el uso de las medias.</p>
 <p>Como se observa en la <a href="Annex2.html#fig-pf_evo_oo">Figura&nbsp;<span>11</span></a> las carteras conformadas a partir de las predicciones obtenidas por los modelos de redes neuronales que contaban con una observación obtuvieron en lo general mejores resultados que las carteras compuestas a partir de las predicciones usando la media. Se observa que ambos grupos de cartera presentaron una rentabilidad menor que el índice, IBEX, en el periodo comprendido entre el 2009 y el 2016.</p>
 <p>Al realizar el análisis del comportamiento de las rentabilidades obtenidas por los modelos con dos observaciones de entrada, <a href="Annex2.html#fig-pf_evo_twoo">Figura&nbsp;<span>12</span></a>, se observa: el comportamiento de las rentabilidades obtenidas por los distintos modelos varía menos que los analizados con anterioridad; en este caso y contrario al caso anterior las rentabilidades se mantienen similares en el periodo comprendido entre 2009 y 2016; y aunque el resultado final dista del resultado obtenido por las medias, es inferior al obtenido por los modelos anteriores, esto último se debe a que la evaluación de los modelos en este caso comienza en un periodo anterior a las de los modelos analizados con anterioridad.</p>
@@ -403,8 +409,11 @@ Nandakumar, S. 2020. <span>«How can r-squared be negative when the correlation 
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
       sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+    const udclogo = document.createElement('p');
+      udclogo.innerHTML='<img src="udclogo.png" style="width: 25%;">'
     TFMtitlefcfc.appendChild(sublead);
     TFMtitlefcfc.appendChild(sub_sublead);
+    TFMtitlefcfc.appendChild(udclogo);
     
     //Fix authoring info
     const authorsElement = document.querySelector('.quarto-title-meta-heading');
@@ -730,7 +739,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Trabajo Final de Máster de <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="FEE" width="65"></a></div>   
+    <div class="nav-footer-left">Trabajo Final de Máster presentado en <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

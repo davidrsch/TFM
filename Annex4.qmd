@@ -1,4 +1,4 @@
-# Anexo. 4 Códigos {.unnumbered}
+# Anexo. 4 Códigos {#sec-code .unnumbered}
 
 A continuación, se presenta el código utilizado para la realización del procedimiento descrito en el desarrollo del trabajo.
 
@@ -10,7 +10,7 @@ Lo primero que se realizó fue cargar la tabla de las empresas.
 
 ```{r}
 #| eval: false
-library(readxl)
+
 empresas <- read_excel("data/000_empresas.xlsx")
 ```
 
@@ -18,7 +18,7 @@ Luego se extrageron los ticks de las empresas.
 
 ```{r}
 #| eval: false
-library(dplyr)
+
 ticks <- empresas |> 
   select(TICKERS) |> 
   pull()
@@ -28,7 +28,7 @@ Una vez almacenados los ticks de las empresas en la variable `ticks` se procedio
 
 ```{r}
 #| eval: false
-library(quantmod)
+
 nombres_colum <- c("Date","Open","High","Low","Close","Volume","Adjusted")
 qmd_data <- list()
 for (i in 1:length(ticks)) {
@@ -495,7 +495,7 @@ El procedimiento expuesto en las secciones @sec-A-modelos y @sec-A-entrenamiento
 
 A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Resultado.
 
-### Predicciones{#sec-A-predicciones}
+### Predicciones {#sec-A-predicciones}
 
 El análisis expuesto en la @sec-predicciones fue realizado a partir de gráficas (vea @fig-ind_evo_oo, @fig-ind_evo_twoo y @fig-ind_evo_threeo), en las que se recogen los valores de los indicadores MSE y $R^2$ para cada una de las estructuras probadas.
 

@@ -77,13 +77,13 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./Annex3.html" rel="prev">
+<link href="./icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -122,6 +122,8 @@ div.csl-indent {
 <link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="my_style.css">
 </head>
@@ -168,30 +170,22 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Trabajo Final de Máster</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.docx">
-              <i class="bi bi-bi-file-word pe-1"></i>
-            Download Docx
+            <a class="dropdown-item sidebar-tools-main-item" href="./en/index.html">
+            English
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
+            <a class="dropdown-item sidebar-tools-main-item" href="./gal/index.html">
+            Galego
             </a>
           </li>
       </ul>
     </div>
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
@@ -206,6 +200,12 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greetings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimientos</span></a>
   </div>
 </li>
@@ -219,6 +219,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarygal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -335,11 +341,17 @@ div.csl-indent {
   <ul class="collapse">
   <li><a href="#sec-A-obtdat" id="toc-sec-A-obtdat" class="nav-link" data-scroll-target="#sec-A-obtdat">Obtención de Datos</a></li>
   <li><a href="#sec-A-indi" id="toc-sec-A-indi" class="nav-link" data-scroll-target="#sec-A-indi">Indicadores</a></li>
-  </ul></li>
-  <li><a href="#modelado" id="toc-modelado" class="nav-link" data-scroll-target="#modelado">Modelado</a>
-  <ul class="collapse">
   <li><a href="#sec-A-vec" id="toc-sec-A-vec" class="nav-link" data-scroll-target="#sec-A-vec">Vectores</a></li>
-  <li><a href="#sec-A-modelos" id="toc-sec-A-modelos" class="nav-link" data-scroll-target="#sec-A-modelos">Modelos</a></li>
+  </ul></li>
+  <li><a href="#modelado-y-entrenamiento" id="toc-modelado-y-entrenamiento" class="nav-link" data-scroll-target="#modelado-y-entrenamiento">Modelado y entrenamiento</a>
+  <ul class="collapse">
+  <li><a href="#sec-A-modelos" id="toc-sec-A-modelos" class="nav-link" data-scroll-target="#sec-A-modelos">Modelado</a></li>
+  <li><a href="#sec-A-entrenamiento" id="toc-sec-A-entrenamiento" class="nav-link" data-scroll-target="#sec-A-entrenamiento">Entrenamiento</a></li>
+  </ul></li>
+  <li><a href="#resultado" id="toc-resultado" class="nav-link" data-scroll-target="#resultado">Resultado</a>
+  <ul class="collapse">
+  <li><a href="#sec-A-predicciones" id="toc-sec-A-predicciones" class="nav-link" data-scroll-target="#sec-A-predicciones">Predicciones</a></li>
+  <li><a href="#sec-A-cc" id="toc-sec-A-cc" class="nav-link" data-scroll-target="#sec-A-cc">Composición de carteras</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/Annex4.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
@@ -350,9 +362,9 @@ div.csl-indent {
 
 
 
+<p>A continuación, se presenta el código utilizado para la realización del procedimiento descrito en el desarrollo del trabajo.</p>
 <section id="datos" class="level2">
 <h2 class="anchored" data-anchor-id="datos">Datos</h2>
-<p>A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Datos del capítulo 2.</p>
 <section id="sec-A-obtdat" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-obtdat">Obtención de Datos</h3>
 <p>Lo primero que se realizó fue cargar la tabla de las empresas.</p>
@@ -371,7 +383,7 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>nombres_colum <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Date"</span>,<span class="st">"Open"</span>,<span class="st">"High"</span>,<span class="st">"Low"</span>,<span class="st">"Close"</span>,<span class="st">"Volume"</span>,<span class="st">"Adjusted"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>qmddata <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>qmd_data <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(ticks)) {</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  tick <span class="ot">&lt;-</span> ticks[i]</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  value <span class="ot">&lt;-</span> <span class="fu">getSymbols</span>(</span>
@@ -385,12 +397,12 @@ div.csl-indent {
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row.names</span>(value) <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  value <span class="ot">&lt;-</span> <span class="fu">cbind</span>(dates,value)</span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>(value) <span class="ot">&lt;-</span> nombres_colum</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  qmddata[[tick]] <span class="ot">&lt;-</span>  value</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  qmd_data[[tick]] <span class="ot">&lt;-</span>  value</span>
 <span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Con el objetivo de realizar un análisis exploratorio de los datos, se decidió realizar una evaluación visual de los datos históricos del precio ajustado para lo que se ejecutó:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(qmddata, <span class="cf">function</span>(x){</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(qmd_data, <span class="cf">function</span>(x){</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">|&gt;</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">as.Date</span>(Date), <span class="at">y=</span>Adjusted))<span class="sc">+</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_line</span>(<span class="at">color=</span><span class="st">"#065AD8"</span>)</span>
@@ -398,7 +410,7 @@ div.csl-indent {
 </div>
 <p>Tras el análisis visual ejecutado con el fragmento de código anterior se persivió la existencia de precios constantes, así como calculos erroneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de eliminar estas irregularidades se seleccionaron solo aquellas observaciones posteriores a enero del 2005.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>returns_emps <span class="ot">&lt;-</span> qmddata <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>returns_emps <span class="ot">&lt;-</span> qmd_data <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(x){</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    emps <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Date <span class="sc">&gt;=</span> <span class="st">"2005-01-31"</span>)</span>
@@ -406,15 +418,15 @@ div.csl-indent {
 </div>
 <p>Con el objetivo de determinar si los datos que habían sido importados contaban con valores faltantes se ejecutó el siguiente código:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>navalues <span class="ot">&lt;-</span> returns_emps <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>na_values <span class="ot">&lt;-</span> returns_emps <span class="sc">|&gt;</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(<span class="cf">function</span>(x){</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    na <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">which</span>(<span class="fu">is.na</span>(x)))</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>emp_con_nan <span class="ot">&lt;-</span> <span class="fu">which</span>(navalues <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>emp_con_na <span class="ot">&lt;-</span> <span class="fu">which</span>(na_values <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Con el objetivo de solucionar el problema con respecto al incorrecto registro de los datos se decidio eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el siguiente código, mediante el cual además se eliminaron las series con valores faltantes.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>returns_emps2 <span class="ot">&lt;-</span> returns_emps[<span class="sc">-</span>emp_con_nan] <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>returns_emps2 <span class="ot">&lt;-</span> returns_emps[<span class="sc">-</span>emp_con_na] <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(x){</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    returns <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(Date, Adjusted) <span class="sc">|&gt;</span></span>
@@ -425,11 +437,11 @@ div.csl-indent {
 </div>
 <p>Una vez computadas las rentabilidades se eliminaron aquellas series que presentaban en más de 10 observaciones rentabilidad 0, para lo que se ejecutó el siguiente código.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>zerovalues <span class="ot">&lt;-</span> returns_emps2 <span class="sc">|&gt;</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>zero_values <span class="ot">&lt;-</span> returns_emps2 <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sapply</span>(<span class="cf">function</span>(x){</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    zeros <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">which</span>(x[,<span class="dv">2</span>]<span class="sc">==</span><span class="dv">0</span>))</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>returns_emps3 <span class="ot">&lt;-</span> returns_emps2[zerovalues<span class="sc">&lt;</span><span class="dv">10</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>returns_emps3 <span class="ot">&lt;-</span> returns_emps2[zero_values<span class="sc">&lt;</span><span class="dv">10</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="sec-A-indi" class="level3">
@@ -481,10 +493,6 @@ div.csl-indent {
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  })</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-</section>
-<section id="modelado" class="level2">
-<h2 class="anchored" data-anchor-id="modelado">Modelado</h2>
-<p>A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Modelado del Capítulo 2.</p>
 <section id="sec-A-vec" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-vec">Vectores</h3>
 <p>A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.</p>
@@ -556,85 +564,588 @@ div.csl-indent {
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">outputs =</span> outs</span>
 <span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  vecs3d1e[[<span class="fu">names</span>(returns_indc)[i]]] <span class="ot">&lt;-</span> tibblex</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>  qmddata,</span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>  select_emps,</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>  max_obs,</span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>  emp_con_nan,</span>
-<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>  returns_emps,</span>
-<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>  returns_emps2,</span>
-<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>  returns_emps3,</span>
-<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  IBEXsel,</span>
-<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  returns_indc,</span>
-<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"data/data.Rdata"</span>)</span>
-<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(</span>
-<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>  vector2dmaker,</span>
-<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>  input3dmaker,</span>
-<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>  output3dmaker,</span>
-<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>  vecs3d1e,</span>
-<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>  vecs3d2e,</span>
-<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>  vecs3d3e,</span>
-<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"data/modeling.Rdata"</span></span>
-<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+</section>
+<section id="modelado-y-entrenamiento" class="level2">
+<h2 class="anchored" data-anchor-id="modelado-y-entrenamiento">Modelado y entrenamiento</h2>
+<p>A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Modelado y entrenamiento.</p>
 <section id="sec-A-modelos" class="level3">
-<h3 class="anchored" data-anchor-id="sec-A-modelos">Modelos</h3>
+<h3 class="anchored" data-anchor-id="sec-A-modelos">Modelado</h3>
+<p>Para la creación de los modelos el primer paso a ejecutar es obtener la información de los vectores para los que se va a construir el modelo, lo que se hizo ejecutando el siguiente código:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>inp <span class="ot">&lt;-</span> <span class="fu">layer_input</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="fu">c</span>(<span class="cn">NULL</span>,<span class="dv">1</span>,<span class="dv">6</span>))</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>inp2 <span class="ot">&lt;-</span> <span class="fu">layer_input</span>(</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="fu">c</span>(<span class="cn">NULL</span>,<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">#### Hiden layers----</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>cnn <span class="ot">&lt;-</span> inp <span class="sc">|&gt;</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_conv_1d</span>(</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">filters =</span> <span class="dv">64</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">kernel_size =</span> <span class="dv">1</span>,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># kernel_regularizer = regularizer_l1(0.01),</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># bias_regularizer = regularizer_l1(0.01),</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">activation =</span> <span class="fu">layer_activation_leaky_relu</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="dv">1</span>)</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>hidd <span class="ot">&lt;-</span> cnn <span class="sc">|&gt;</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_concatenate</span>(inp2) <span class="sc">|&gt;</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_lstm</span>(<span class="dv">64</span>)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="do">#### Output layers----</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> hidd <span class="sc">|&gt;</span> </span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="dv">1</span><span class="sc">*</span><span class="dv">1</span>)</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="do">### Building model---- </span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model</span>(<span class="fu">c</span>(inp, inp2),<span class="fu">c</span>(cnn, out))</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="do">#### Compiling model ----</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>model <span class="sc">|&gt;</span> </span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compile</span>(<span class="at">loss =</span> <span class="st">"mse"</span>, <span class="at">optimizer =</span> <span class="fu">optimizer_adam</span>())</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="do">#### Summary ----  </span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>model</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(vecs3d1e)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> data  <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>inputsinfo <span class="ot">&lt;-</span> data<span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(inputs) <span class="sc">|&gt;</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>outputsinfo <span class="ot">&lt;-</span> data<span class="sc">|&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(outputs) <span class="sc">|&gt;</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>() <span class="sc">|&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Definir parámetros</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>n_ob_pas <span class="ot">&lt;-</span> inputsinfo[<span class="dv">2</span>]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>n_variables <span class="ot">&lt;-</span> inputsinfo[<span class="dv">3</span>]</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>n_ob_fut <span class="ot">&lt;-</span> outputsinfo[<span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Luego se constituyo la estructura de los modelos con los aspectos descritos en <a href="MandT.html#sec-modelado"><span>Sección&nbsp;1</span></a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>model <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getconfig</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_modelk</span>() <span class="sc">|&gt;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grViz</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Capa de entrada</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>inp <span class="ot">&lt;-</span> <span class="fu">layer_input</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">shape =</span> <span class="fu">c</span>(<span class="cn">NULL</span>,n_ob_pas,n_variables))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Capas ocultas</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co"># - CNN</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>cnn <span class="ot">&lt;-</span> inp <span class="sc">|&gt;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_conv_1d</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">filters =</span> <span class="dv">64</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">kernel_size =</span> <span class="dv">1</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">activation =</span> <span class="fu">layer_activation_leaky_relu</span>())</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># - LSTM</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>lstm <span class="ot">&lt;-</span> cnn <span class="sc">|&gt;</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_lstm</span>(<span class="dv">64</span>)</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Capa de Salida</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> lstm <span class="sc">|&gt;</span> </span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layer_dense</span>(</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    n_ob_fut<span class="sc">*</span><span class="dv">1</span>)</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Juntar las capas para constituir el modelo </span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model</span>(inp, out)</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Estableciendo parámetros de aprendizaje</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>model <span class="sc">|&gt;</span> </span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">compile</span>(<span class="at">loss =</span> <span class="st">"mse"</span>, <span class="at">optimizer =</span> <span class="fu">optimizer_sgd</span>(<span class="fl">0.0005</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><em>Nota:</em> Puede encontrar modelos sin entrenar en la carpeta <code>data</code> del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión <code>hdf5</code> y bajo los nombres <code>model1e</code>, <code>model2e</code> y <code>model3e</code>.</p>
+</section>
+<section id="sec-A-entrenamiento" class="level3">
+<h3 class="anchored" data-anchor-id="sec-A-entrenamiento">Entrenamiento</h3>
+<p>El primer paso es definir la función a utilizar para el entrenamiento de los modelos. Esta función fue construida con el objetivo de emplear el método de entrenamiento descrito en <a href="MandT.html#sec-entrenamiento"><span>Sección&nbsp;2</span></a>. Como resultado esta función devolvera una lista que contendra las predicciones obtenidas y el modelo después de haber sido entrenado y tomará como entradas principales el tibble llamado <code>data</code> constituido en el primer paso que se expone en <a href="#sec-A-modelos"><span>Sección&nbsp;2.1</span></a> y el modelo además de otros argumentos que permite la utilización de la función con unos inputs principales que no sean los utilizados en el presente trabajo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>list3dvec <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="st">"vec3d1e"</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>nmues <span class="ot">&lt;-</span> (<span class="fu">dim</span>(list3dvec[[<span class="dv">1</span>]])[<span class="dv">1</span>] <span class="sc">*</span> <span class="fu">length</span>(list3dvec))</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>intercalated_vec <span class="ot">&lt;-</span> <span class="fu">array</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="cn">NA</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dim =</span> <span class="fu">c</span>(</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    nmues,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dim</span>(list3dvec[[<span class="dv">1</span>]])[<span class="dv">2</span>],</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">dim</span>(list3dvec[[<span class="dv">1</span>]])[<span class="dv">3</span>])</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>nmuesvec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>nmues</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create 3d vector mixing 3d vec sample by sample</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">dim</span>(list3dvec[[<span class="dv">1</span>]])[<span class="dv">1</span>]) {</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  nm <span class="ot">&lt;-</span> nmuesvec[((i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fu">length</span>(list3dvec) <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>(i <span class="sc">*</span> <span class="fu">length</span>(vec3d1e))]</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(list3dvec)) {</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    intercalated_vec[nm[j], , ] <span class="ot">&lt;-</span> list3dvec[[j]][i, , ,drop<span class="ot">=</span>F]</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>wfv_train <span class="ot">&lt;-</span> <span class="cf">function</span>(x, modelo, seq_var_name, <span class="at">inp_var_name =</span> <span class="st">"inputs"</span>, <span class="at">out_var_name =</span> <span class="st">"outputs"</span>, <span class="at">progress_bar=</span>T){</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  predictions <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  seq_val <span class="ot">&lt;-</span> <span class="fu">unique</span>(x[[seq_var_name]])</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(progress_bar){</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    pb <span class="ot">&lt;-</span> <span class="fu">txtProgressBar</span>(<span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="fu">length</span>(seq_val), <span class="at">initial =</span> <span class="dv">0</span>, <span class="at">style =</span> <span class="dv">3</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Iteración que se ejecutará para cada valor unico en la variable que define la secuencia de los datos. Por ello es de vital importancia que los datos en el tibble x se encuentren ordenados por la variable de secuencia cuyo nombre se pasa a seq_var_name</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(seq_val)) {</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    val_seq <span class="ot">&lt;-</span> seq_val[i]</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Extraer entradas y salidas correspondiente al periodo en la variable de secuencia actual</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    inputs <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="sc">!!</span><span class="fu">sym</span>(seq_var_name) <span class="sc">==</span> val_seq) <span class="sc">|&gt;</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">!!</span><span class="fu">sym</span>(inp_var_name)) <span class="sc">|&gt;</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>()</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>    outputs <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="sc">!!</span><span class="fu">sym</span>(seq_var_name) <span class="sc">==</span> val_seq) <span class="sc">|&gt;</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">!!</span><span class="fu">sym</span>(out_var_name)) <span class="sc">|&gt;</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>()</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>    outputs <span class="ot">&lt;-</span> outputs[,,<span class="dv">1</span>]</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Usar entradas para obtener predicciones para los periodos en la variable secuencia a excepción del primero</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;</span> <span class="dv">1</span>){</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>      pred <span class="ot">&lt;-</span> modelo <span class="sc">|&gt;</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">predict</span>(inputs, <span class="at">verbose =</span> <span class="dv">3</span>)</span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>      predictions <span class="ot">&lt;-</span> <span class="fu">rbind</span>(predictions, pred)</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Entrenar el modelo</span></span>
+<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>    modelo <span class="sc">|&gt;</span></span>
+<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fit</span>(</span>
+<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>        inputs,</span>
+<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>        outputs,</span>
+<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">epochs =</span> <span class="dv">1</span>,</span>
+<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">batch_size =</span> <span class="dv">10</span>,</span>
+<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">shuffle =</span> F,</span>
+<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">verbose =</span> <span class="dv">0</span>)</span>
+<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(progress_bar){</span>
+<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">setTxtProgressBar</span>(pb,i)</span>
+<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(progress_bar){</span>
+<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">close</span>(pb)</span>
+<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>  results <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>  results[[<span class="st">'predicciones'</span>]] <span class="ot">&lt;-</span> predictions</span>
+<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>  results[[<span class="st">'modelo'</span>]] <span class="ot">&lt;-</span> modelo</span>
+<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(results)</span>
+<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Una vez creada la función se obtuvieron las predicciones utilizando el siguiente código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>resultados <span class="ot">&lt;-</span> <span class="fu">wfv_train</span>(data,model,<span class="st">'Date'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>predicciones1e <span class="ot">&lt;-</span> resultados<span class="sc">$</span>predicciones</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Nota:</em> Puede encontrar modelos entrenados en la carpeta <code>data</code> del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión <code>hdf5</code> y bajo los nombres <code>model1etd</code>, <code>model2etd</code> y <code>model3etd</code>.</p>
+<p>Como se explica en <a href="Results.html#sec-predicciones"><span>Sección&nbsp;1</span></a> además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmetica, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creo la siguiente función:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>wfv_means <span class="ot">&lt;-</span> <span class="cf">function</span>(x, seq_var_name, <span class="at">inp_var_name =</span> <span class="st">"inputs"</span>, <span class="at">out_var_name =</span> <span class="st">"outputs"</span>, id_var_name, <span class="at">progress_bar=</span>T){</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  means <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  seq_val <span class="ot">&lt;-</span> <span class="fu">unique</span>(x[[seq_var_name]])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(progress_bar){</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    pb <span class="ot">&lt;-</span> <span class="fu">txtProgressBar</span>(<span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="fu">length</span>(seq_val), <span class="at">initial =</span> <span class="dv">0</span>, <span class="at">style =</span> <span class="dv">3</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(seq_val)) {</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    val_seq <span class="ot">&lt;-</span> seq_val[i]</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    inputs <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="sc">!!</span><span class="fu">sym</span>(seq_var_name) <span class="sc">==</span> val_seq) <span class="sc">|&gt;</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">!!</span><span class="fu">sym</span>(inp_var_name)) <span class="sc">|&gt;</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>()</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    inputspred <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="sc">!!</span><span class="fu">sym</span>(seq_var_name) <span class="sc">==</span> val_seq) <span class="sc">|&gt;</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">!!</span><span class="fu">sym</span>(inp_var_name)) <span class="sc">|&gt;</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>()</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    outputs <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="sc">!!</span><span class="fu">sym</span>(seq_var_name) <span class="sc">==</span> val_seq) <span class="sc">|&gt;</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">!!</span><span class="fu">sym</span>(out_var_name)) <span class="sc">|&gt;</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>()</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>    outputs <span class="ot">&lt;-</span> outputs[,,<span class="dv">1</span>]</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>    ids <span class="ot">&lt;-</span> x <span class="sc">|&gt;</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(<span class="sc">!!</span><span class="fu">sym</span>(seq_var_name) <span class="sc">==</span> val_seq) <span class="sc">|&gt;</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(<span class="sc">!!</span><span class="fu">sym</span>(id_var_name)) <span class="sc">|&gt;</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>()</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(i<span class="sc">==</span><span class="dv">1</span>){</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>      dfmeans <span class="ot">&lt;-</span> inputs[,,<span class="dv">1</span>] <span class="sc">|&gt;</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cbind</span>(<span class="at">ID =</span> ids)</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span>{</span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>      dfmeansupd <span class="ot">&lt;-</span> inputs[,<span class="fu">dim</span>(inputs)[<span class="dv">2</span>],<span class="dv">1</span>] <span class="sc">|&gt;</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>        <span class="fu">as.data.frame</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>        <span class="fu">cbind</span>(<span class="at">ID =</span> ids)</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">names</span>(dfmeansupd)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"V"</span>,(<span class="fu">dim</span>(dfmeans)[<span class="dv">2</span>]))</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>      idsdf <span class="ot">&lt;-</span> <span class="fu">unique</span>(<span class="fu">c</span>(ids, dfmeans[[id_var_name]]))</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>      idsdf <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">ID =</span> idsdf)</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>      dfmeansupd <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(idsdf, dfmeansupd, <span class="at">by =</span> <span class="st">"ID"</span>)</span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ifelse</span>(</span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>        <span class="fu">dim</span>(dfmeansupd)[<span class="dv">1</span>] <span class="sc">&gt;</span> <span class="fu">dim</span>(dfmeans)[<span class="dv">1</span>],</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>        dfmeans <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(dfmeansupd, dfmeans, <span class="at">by =</span> <span class="st">"ID"</span>),</span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>        dfmeans <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">left_join</span>(dfmeans, dfmeansupd, <span class="at">by =</span> <span class="st">"ID"</span>)</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(i <span class="sc">&gt;</span> <span class="dv">1</span>){</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>      MEANS <span class="ot">&lt;-</span>  dfmeans <span class="sc">|&gt;</span></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>        <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mutate</span>(</span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>          <span class="at">means =</span> <span class="fu">mean</span>(<span class="fu">c_across</span>(<span class="sc">-!!</span><span class="fu">sym</span>(id_var_name)), <span class="at">na.rm =</span> T)) <span class="sc">|&gt;</span></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>        <span class="fu">slice</span>(<span class="fu">match</span>(ids,<span class="sc">!!</span><span class="fu">sym</span>(id_var_name))) <span class="sc">|&gt;</span></span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>        <span class="fu">pull</span>(means) <span class="sc">|&gt;</span></span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>        <span class="fu">as.matrix</span>()</span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>      means <span class="ot">&lt;-</span> <span class="fu">rbind</span>(means, MEANS)</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(progress_bar){</span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">setTxtProgressBar</span>(pb,i)</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(progress_bar){</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>    <span class="fu">close</span>(pb)</span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(means)</span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Una vez creada la función se obtuvieron las predicciones utilizando el siguiente código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>meanse1 <span class="ot">&lt;-</span> <span class="fu">wfv_train</span>(data,<span class="st">'Date'</span>,<span class="at">id_var_name =</span> <span class="st">"ID"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Nota:</em> En adición a lo expuesto con anterioridad se crearon dos funciones <code>getconfig</code> y <code>plot_modelk</code>, en el archivo .Rprofile del repositorio en el que se encuentra este trabajo, que permiten graficar la estructura de los modelos mediante el uso del paquete <span class="citation" data-cites="Diagrammer">(<a href="references.html#ref-Diagrammer" role="doc-biblioref"><strong>Diagrammer?</strong></a>)</span>, como se ve en la <a href="Annex1.html#fig-estructuras">Figura&nbsp;<span>17</span></a>. El código a utilizar sería:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Las funciones están creadas para graficar las estructuras utilizadas en el presente trabajo.</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>model <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">getconfig</span>() <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_modelk</span>() <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">grViz</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>El procedimiento expuesto en las secciones <a href="#sec-A-modelos"><span>Sección&nbsp;2.1</span></a> y <a href="#sec-A-entrenamiento"><span>Sección&nbsp;2.2</span></a> fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a <code>vecs3d1e</code> por <code>vecs3d2e</code> y <code>vecs3d3e</code>,según el grupo de vectores tridimensionanales utilizado.</p>
+</section>
+</section>
+<section id="resultado" class="level2">
+<h2 class="anchored" data-anchor-id="resultado">Resultado</h2>
+<p>A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Resultado.</p>
+<section id="sec-A-predicciones" class="level3">
+<h3 class="anchored" data-anchor-id="sec-A-predicciones">Predicciones</h3>
+<p>El análisis expuesto en la <a href="Results.html#sec-predicciones"><span>Sección&nbsp;1</span></a> fue realizado a partir de gráficas (vea <a href="Annex2.html#fig-ind_evo_oo">Figura&nbsp;<span>8</span></a>, <a href="Annex2.html#fig-ind_evo_twoo">Figura&nbsp;<span>9</span></a> y <a href="Annex2.html#fig-ind_evo_threeo">Figura&nbsp;<span>10</span></a>), en las que se recogen los valores de los indicadores MSE y <span class="math inline">\(R^2\)</span> para cada una de las estructuras probadas.</p>
+<p>El primer paso para la obtención de estas gráficas fue el de computar los indicadores, para cada periodo de tiempo, para cada una de las predicciones obtenidas a partir de los distintos modelos construidos con cada estructura. Esto se realizo mediante el siguiente código.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Extraer salidas reales</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>salidas <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    Date <span class="sc">&gt;</span> data<span class="sc">$</span>Date[<span class="dv">1</span>]</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(outputs) <span class="sc">|&gt;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>salidas <span class="ot">&lt;-</span> salidas[,,<span class="dv">1</span>]</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">#Computar indicadores MSE y R2</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>indicadores <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">&gt;</span> data<span class="sc">$</span>Date[<span class="dv">1</span>]) <span class="sc">|&gt;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="at">predicciones =</span> predicciones1e[,<span class="dv">1</span>]) <span class="sc">|&gt;</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="at">means =</span> meanse1) <span class="sc">|&gt;</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">salidas =</span> salidas) <span class="sc">|&gt;</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, predicciones, means, salidas) <span class="sc">|&gt;</span></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Date) <span class="sc">|&gt;</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">r2 =</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="fu">sum</span>((salidas <span class="sc">-</span> predicciones)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>((salidas <span class="sc">-</span> means)<span class="sc">^</span><span class="dv">2</span>)),</span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">mse =</span> <span class="fu">mse</span>(predicciones, salidas),</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los diferentes indicadores computados para cada uno de las 10 modelos entrenados con cada una de las estructuras fueron guardados en una lista llamada <code>list_indicadores</code>. Esto se realizo utilizando el siguiente código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>list_indicadores[[<span class="st">"indicadores1"</span>]] <span class="ot">&lt;-</span>  indicadores</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Una vez realizado esto se obtiene una lista que contiene 10 data frames (<code>indicadores1</code>,…,<code>indicadores10</code>), los cuales a su vez contienen los valores de los de MSe y <span class="math inline">\(R^2\)</span> de las predicciones obtenidas por los modelos de RNA para cada una de las empresas agrupados por fecha. Por lo que luego se construyo la gráfica mediante el uso del siguiente código.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar la información de las distintas construcciones en un solo data frame</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>indi_graf_data <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind,list_indicadores)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener los resultados medios, para cada periodo de tiempo, usando las distintas construcciones</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>indi_graf_data <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> <span class="st">`</span><span class="at">indicadores1.Date</span><span class="st">`</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">meanmse =</span> <span class="fu">mean</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">"mse"</span>))),</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">meanr2 =</span> <span class="fu">mean</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">"r2"</span>)))</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">|&gt;</span></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>    Date, meanmse,meanr2</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">|&gt;</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Graficar</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> <span class="fu">as.Date</span>(Date)) <span class="sc">|&gt;</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> meanmse, <span class="at">color =</span> <span class="st">"MSE"</span>)) <span class="sc">+</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> meanr2, <span class="at">color =</span> <span class="st">"R2"</span>)) <span class="sc">+</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>)) <span class="sc">+</span></span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>)) <span class="sc">+</span></span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fecha"</span>, <span class="at">y =</span> <span class="st">"Valores"</span>, <span class="at">color =</span> <span class="st">"Indicadores"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Además de las gráficas se utilzo también en el análisis de los resultados la <a href="Annex3.html#tbl-indicadores">Tabla&nbsp;<span>4</span></a>, en la que se ecuentran las empresas que obtuvieron mejores y peores indicadores para cada estructura, para la obtención de estos datos se uso el siguiente código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>indicadores_X_emp <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">&gt;</span> data<span class="sc">$</span>Date[<span class="dv">1</span>]) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="at">predicciones =</span> predicciones1e[,<span class="dv">1</span>]) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cbind</span>(<span class="at">means =</span> meanse1) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">salidas =</span> salidas) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, predicciones, means, salidas, ID) <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">|&gt;</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">r2 =</span> <span class="dv">1</span> <span class="sc">-</span> (<span class="fu">sum</span>((salidas <span class="sc">-</span> predicciones)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span><span class="fu">sum</span>((salidas <span class="sc">-</span> means)<span class="sc">^</span><span class="dv">2</span>)),</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">mse =</span> <span class="fu">mse</span>(predicciones, salidas)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, r2, mse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Al igual que los indicadores computados por fecha para guardar los indicadores computados por empresa se creo una lista denominada <code>list_indic_emp</code>. Luego de haber almacenado los 10 data frames de indicadores por empresa en la lista se extrajeron las empresas con los mejores y peores resultados mediante el siguiente código:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar la información de las distintas construcciones en un solo data frame</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ind_emp_t <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, list_indic_emp)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Computar los R2 y MSE medios por empresa</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>ind_emp_t <span class="ot">&lt;-</span> ind_emp_t <span class="sc">|&gt;</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">|&gt;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">r2 =</span> <span class="fu">mean</span>(r2),</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mse=</span> <span class="fu">mean</span>(mse)) <span class="sc">|&gt;</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(r2))</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener las 10 empresas con mejores y peores indicadores</span></span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>mejores10 <span class="ot">&lt;-</span> <span class="fu">head</span>(ind_emp_t,<span class="dv">10</span>)</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>peores10 <span class="ot">&lt;-</span> <span class="fu">tail</span>(ind_emp_t,<span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Y mediante la utilización de las variables anteriores y el uso de las funciones <code>rbind()</code> y <code>cbind</code> fue como se creo la <a href="Annex3.html#tbl-indicadores">Tabla&nbsp;<span>4</span></a>.</p>
+</section>
+<section id="sec-A-cc" class="level3">
+<h3 class="anchored" data-anchor-id="sec-A-cc">Composición de carteras</h3>
+<p>En esta sección se explica como se realizo el análisis del compratamiento de los resultados obtenidos por las distintas carteras (ver <a href="Annex2.html#fig-pf_evo_oo">Figura&nbsp;<span>11</span></a>, <a href="Annex2.html#fig-pf_evo_twoo">Figura&nbsp;<span>12</span></a> y <a href="Annex2.html#fig-pf_evo_threeo">Figura&nbsp;<span>13</span></a>). Para ello es necesario primero obtener la composición de las carteras, por fecha, a partir de las predicciones obtenidas mediante el uso de las medias aritmeticas y los modelos de RNA.</p>
+<p>Para el calculo de la composición de las carteras se uso el paquete de R <span class="citation" data-cites="quadprog">(<a href="references.html#ref-quadprog" role="doc-biblioref"><strong>quadprog?</strong></a>)</span>, a continuación se muestra el código utilizado para hallar la composición de carteras a partir de las predicciones de la media:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo un data frame en el que se guardo toda la información:</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Valores del IBEX, como indice de referencia</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Valores de las predicciones, tanto las obtenidas por el modelo de RNA como por las medias aritmeticas</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(IBEXsel, <span class="at">by =</span><span class="st">"Date"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">IBEX =</span> Return_I) <span class="sc">|&gt;</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(Date) <span class="sc">|&gt;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    Date <span class="sc">&gt;</span> data<span class="sc">$</span>Date[<span class="dv">1</span>]</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">predicciones =</span> predicciones1e[,<span class="dv">1</span>]) <span class="sc">|&gt;</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Real =</span> salidas,</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">RNA =</span> predicciones,</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">Means =</span> meanse1</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, Real, IBEX, RNA, Means, ID)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir del data frame DATA se crearon:</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co">#    - Un data frame cuyas columnas son los datos reales de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#    - Un data frame cuyas columnas son los datos obtenidos mediante el uso de las medias aritmeticas de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>pvtReal <span class="ot">&lt;-</span> DATA <span class="sc">|&gt;</span></span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, Real, ID) <span class="sc">|&gt;</span></span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> ID,</span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Real</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-30"><a href="#cb26-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-31"><a href="#cb26-31" aria-hidden="true" tabindex="-1"></a>pvtMeans <span class="ot">&lt;-</span> DATA <span class="sc">|&gt;</span></span>
+<span id="cb26-32"><a href="#cb26-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, Means, ID) <span class="sc">|&gt;</span></span>
+<span id="cb26-33"><a href="#cb26-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb26-34"><a href="#cb26-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> ID,</span>
+<span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Means</span>
+<span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvo predicción</span></span>
+<span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>weightsm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteración mediante la cual se halla la composición de las carteras</span></span>
+<span id="cb26-42"><a href="#cb26-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-43"><a href="#cb26-43" aria-hidden="true" tabindex="-1"></a>pb <span class="ot">&lt;-</span> <span class="fu">txtProgressBar</span>(<span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>]), <span class="at">initial =</span> <span class="dv">0</span>, <span class="at">style =</span> <span class="dv">3</span>)</span>
+<span id="cb26-44"><a href="#cb26-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>])) {</span>
+<span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">&gt;</span><span class="dv">1</span>){</span>
+<span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este esta creado por los datos reales hasta la fecha y la previsión del siguiente periodo</span></span>
+<span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a>    datamQP <span class="ot">&lt;-</span> pvtReal <span class="sc">|&gt;</span></span>
+<span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Date <span class="sc">&lt;</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>][i]) <span class="sc">|&gt;</span></span>
+<span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(pvtMeans <span class="sc">|&gt;</span></span>
+<span id="cb26-52"><a href="#cb26-52" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(Date <span class="sc">==</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>][i])</span>
+<span id="cb26-53"><a href="#cb26-53" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb26-54"><a href="#cb26-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-55"><a href="#cb26-55" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Elimina aquellas empresas que no tengan ni datos reales o de previsión</span></span>
+<span id="cb26-56"><a href="#cb26-56" aria-hidden="true" tabindex="-1"></a>    nare <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(datamQP[<span class="fu">dim</span>(datamQP)[<span class="dv">1</span>],]))</span>
+<span id="cb26-57"><a href="#cb26-57" aria-hidden="true" tabindex="-1"></a>    naremo <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(datamQP[(<span class="fu">dim</span>(datamQP)[<span class="dv">1</span>]<span class="sc">-</span><span class="dv">1</span>),]))</span>
+<span id="cb26-58"><a href="#cb26-58" aria-hidden="true" tabindex="-1"></a>    nare <span class="ot">&lt;-</span> <span class="fu">c</span>(nare,naremo)</span>
+<span id="cb26-59"><a href="#cb26-59" aria-hidden="true" tabindex="-1"></a>    nare <span class="ot">&lt;-</span> <span class="fu">unique</span>(nare)</span>
+<span id="cb26-60"><a href="#cb26-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">length</span>(nare) <span class="sc">!=</span> <span class="dv">0</span>){</span>
+<span id="cb26-61"><a href="#cb26-61" aria-hidden="true" tabindex="-1"></a>      carteram <span class="ot">&lt;-</span> datamQP[, <span class="sc">-</span> nare]</span>
+<span id="cb26-62"><a href="#cb26-62" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span>{</span>
+<span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a>      carteram <span class="ot">&lt;-</span> datamQP</span>
+<span id="cb26-64"><a href="#cb26-64" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extre las previsiones</span></span>
+<span id="cb26-67"><a href="#cb26-67" aria-hidden="true" tabindex="-1"></a>    returnm <span class="ot">&lt;-</span> carteram[<span class="fu">dim</span>(carteram)[<span class="dv">1</span>], <span class="sc">-</span><span class="dv">1</span>] <span class="sc">|&gt;</span></span>
+<span id="cb26-68"><a href="#cb26-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.matrix</span>() <span class="sc">|&gt;</span></span>
+<span id="cb26-69"><a href="#cb26-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">t</span>()</span>
+<span id="cb26-70"><a href="#cb26-70" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-71"><a href="#cb26-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcula la matriz de covarianza</span></span>
+<span id="cb26-72"><a href="#cb26-72" aria-hidden="true" tabindex="-1"></a>    covmm <span class="ot">&lt;-</span> <span class="fu">cov</span>(carteram[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb26-73"><a href="#cb26-73" aria-hidden="true" tabindex="-1"></a>    npcovmm <span class="ot">&lt;-</span> <span class="fu">nearPD</span>(covmm)<span class="sc">$</span>mat <span class="sc">|&gt;</span> </span>
+<span id="cb26-74"><a href="#cb26-74" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.matrix</span>()</span>
+<span id="cb26-75"><a href="#cb26-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extrae el número de empresas</span></span>
+<span id="cb26-76"><a href="#cb26-76" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">ncol</span>(npcovmm)</span>
+<span id="cb26-77"><a href="#cb26-77" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-78"><a href="#cb26-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Halla la composición de la cartera</span></span>
+<span id="cb26-79"><a href="#cb26-79" aria-hidden="true" tabindex="-1"></a>    qp_outm <span class="ot">&lt;-</span> <span class="fu">solve.QP</span>(</span>
+<span id="cb26-80"><a href="#cb26-80" aria-hidden="true" tabindex="-1"></a>      <span class="at">Dmat =</span> <span class="dv">2</span><span class="sc">*</span>npcovmm,</span>
+<span id="cb26-81"><a href="#cb26-81" aria-hidden="true" tabindex="-1"></a>      <span class="at">dvec =</span> <span class="fu">rep</span>(<span class="dv">0</span>,n),</span>
+<span id="cb26-82"><a href="#cb26-82" aria-hidden="true" tabindex="-1"></a>      <span class="at">Amat =</span> <span class="fu">cbind</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fu">diag</span>(n)),</span>
+<span id="cb26-83"><a href="#cb26-83" aria-hidden="true" tabindex="-1"></a>      <span class="at">bvec =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fu">rep</span>(<span class="dv">0</span>,n)),</span>
+<span id="cb26-84"><a href="#cb26-84" aria-hidden="true" tabindex="-1"></a>      <span class="at">meq =</span> <span class="dv">1</span>)</span>
+<span id="cb26-85"><a href="#cb26-85" aria-hidden="true" tabindex="-1"></a>    qp_outm <span class="ot">&lt;-</span> qp_outm<span class="sc">$</span>solution</span>
+<span id="cb26-86"><a href="#cb26-86" aria-hidden="true" tabindex="-1"></a>    qp_outm <span class="ot">&lt;-</span> <span class="fu">floor</span>(qp_outm<span class="sc">*</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb26-87"><a href="#cb26-87" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(qp_outm)){</span>
+<span id="cb26-88"><a href="#cb26-88" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(qp_outm[j] <span class="sc">&lt;</span> <span class="fl">0.001</span>){</span>
+<span id="cb26-89"><a href="#cb26-89" aria-hidden="true" tabindex="-1"></a>        qp_outm[j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb26-90"><a href="#cb26-90" aria-hidden="true" tabindex="-1"></a>      }<span class="cf">else</span>{}</span>
+<span id="cb26-91"><a href="#cb26-91" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb26-92"><a href="#cb26-92" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-93"><a href="#cb26-93" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guarda la composición de la cartera</span></span>
+<span id="cb26-94"><a href="#cb26-94" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(qp_outm) <span class="ot">&lt;-</span> <span class="fu">names</span>(carteram[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb26-95"><a href="#cb26-95" aria-hidden="true" tabindex="-1"></a>    weightsm <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(weightsm, qp_outm)</span>
+<span id="cb26-96"><a href="#cb26-96" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb26-97"><a href="#cb26-97" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb26-98"><a href="#cb26-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setTxtProgressBar</span>(pb,i)</span>
+<span id="cb26-99"><a href="#cb26-99" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb26-100"><a href="#cb26-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-101"><a href="#cb26-101" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(pb)</span>
+<span id="cb26-102"><a href="#cb26-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-103"><a href="#cb26-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Sustituir los pesos y observaciones reales con valores faltantes con cero</span></span>
+<span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a>pvtReal[<span class="fu">is.na</span>(pvtReal)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a>weightsm[<span class="fu">is.na</span>(weightsm)] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumio que se invertia uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando las rentabilidades de las carteras conformadas a partir de las predicciones de la media aritmetica</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>return_CM <span class="ot">&lt;-</span>  weightsm <span class="sc">*</span> pvtReal[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>return_CM <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(return_CM)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>return_CM <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,return_CM)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>return_CM <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Date =</span> pvtReal[,<span class="dv">1</span>],</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> return_CM</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los mismos pasos que se realizaron para hallar el comportamiento de la rentabilidad de las carteras a partir de las medias aritmeticas se realizaron para hallar el comportamiento a partir de las predicciones obtenidas por el modelo de RNA como se ve en el código a continuación.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir del data frame DATA se creo un data frame cuyas columnas son los datos obtenidos mediante el uso del model de RNA de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pvtRNA <span class="ot">&lt;-</span> DATA <span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, RNA, ID) <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> ID,</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> RNA</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvo predicción</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>weightse <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteración mediante la cual se halla la composición de las carteras</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>pb <span class="ot">&lt;-</span> <span class="fu">txtProgressBar</span>(<span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>]), <span class="at">initial =</span> <span class="dv">0</span>, <span class="at">style =</span> <span class="dv">3</span>)</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>])) {</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">&gt;</span><span class="dv">1</span>){</span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este esta creado por los datos reales hasta la fecha y la previsión del siguiente periodo</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    dataeQP <span class="ot">&lt;-</span> pvtReal <span class="sc">|&gt;</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Date <span class="sc">&lt;</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>][i]) <span class="sc">|&gt;</span></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(pvtRNA <span class="sc">|&gt;</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a>              <span class="fu">filter</span>(Date <span class="sc">==</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>][<span class="sc">-</span><span class="dv">1</span>][i])</span>
+<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Elimina aquellas empresas que no tengan ni datos reales o de previsión</span></span>
+<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a>    nare <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(dataeQP[<span class="fu">dim</span>(dataeQP)[<span class="dv">1</span>],]))</span>
+<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a>    naremo <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">is.na</span>(dataeQP[(<span class="fu">dim</span>(dataeQP)[<span class="dv">1</span>]<span class="sc">-</span><span class="dv">1</span>),]))</span>
+<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>    nare <span class="ot">&lt;-</span> <span class="fu">c</span>(nare,naremo)</span>
+<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    nare <span class="ot">&lt;-</span> <span class="fu">unique</span>(nare)</span>
+<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="fu">length</span>(nare) <span class="sc">!=</span> <span class="dv">0</span>){</span>
+<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>      carterae <span class="ot">&lt;-</span> dataeQP[, <span class="sc">-</span> nare]</span>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>    }<span class="cf">else</span>{</span>
+<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>      carterae <span class="ot">&lt;-</span> dataeQP</span>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extre las previsiones</span></span>
+<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    returne <span class="ot">&lt;-</span> carterae[<span class="fu">dim</span>(carterae)[<span class="dv">1</span>], <span class="sc">-</span><span class="dv">1</span>] <span class="sc">|&gt;</span></span>
+<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.matrix</span>() <span class="sc">|&gt;</span></span>
+<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">t</span>()</span>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Calcula la matriz de covarianza</span></span>
+<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a>    covme <span class="ot">&lt;-</span> <span class="fu">cov</span>(carterae[, <span class="sc">-</span><span class="dv">1</span>], <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>    npcovme <span class="ot">&lt;-</span> <span class="fu">nearPD</span>(covme)<span class="sc">$</span>mat <span class="sc">|&gt;</span> </span>
+<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.matrix</span>()</span>
+<span id="cb28-45"><a href="#cb28-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extrae el número de empresas</span></span>
+<span id="cb28-46"><a href="#cb28-46" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">ncol</span>(npcovme)</span>
+<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Halla la composición de la cartera</span></span>
+<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a>    qp_oute <span class="ot">&lt;-</span> <span class="fu">solve.QP</span>(</span>
+<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">Dmat =</span> <span class="dv">2</span><span class="sc">*</span>npcovme,</span>
+<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">dvec =</span> <span class="fu">rep</span>(<span class="dv">0</span>,n),</span>
+<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">Amat =</span> <span class="fu">cbind</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fu">diag</span>(n)),</span>
+<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a>      <span class="at">bvec =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="fu">rep</span>(<span class="dv">0</span>,n)),</span>
+<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a>      <span class="at">meq =</span> <span class="dv">1</span>)</span>
+<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>    qp_oute <span class="ot">&lt;-</span> qp_oute<span class="sc">$</span>solution</span>
+<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>    qp_oute <span class="ot">&lt;-</span> <span class="fu">floor</span>(qp_oute<span class="sc">*</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">100</span></span>
+<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(qp_oute)){</span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(qp_outm[j] <span class="sc">&lt;</span> <span class="fl">0.001</span>){</span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>        qp_outm[j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>      }<span class="cf">else</span>{}</span>
+<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Guarda la composición de la cartera</span></span>
+<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a>    <span class="fu">names</span>(qp_oute) <span class="ot">&lt;-</span> <span class="fu">names</span>(carterae[, <span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a>    weightse <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(weightse, qp_oute)</span>
+<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">setTxtProgressBar</span>(pb,i)</span>
+<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a><span class="fu">close</span>(pb)</span>
+<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Sustituir los pesos con valores faltantes con cero</span></span>
+<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>weightse[<span class="fu">is.na</span>(weightse)] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumio que se invertia uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando las rentabilidades de las carteras conformadas a partir de las predicciones del modelo RNA</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>return_CRNA <span class="ot">&lt;-</span>  weightse <span class="sc">*</span> pvtReal[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>return_CRNA <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(return_CRNA)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>return_CRNA <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,return_CRNA)</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>return_CRNA <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Date =</span> pvtReal[,<span class="dv">1</span>],</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">RNA =</span> return_CRNA</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Luego, al igual que con los indicadores se creo un lista <code>list_ret_RNA</code> en la que se guardaron los data frames de los distintos modelos construidos con cada una de las estructuras. Después se ejecutó el siguiente código para obtener la gráfica.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando el comportamiento de las rentabilidades del IBEX para el periodo</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>IBEXvals <span class="ot">&lt;-</span> IBEXsel <span class="sc">|&gt;</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Date <span class="sc">&gt;</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="dv">2</span>]) <span class="sc">|&gt;</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="dv">2</span>) <span class="sc">|&gt;</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>()</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>IBEXvals <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, IBEXvals)</span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>data_rent_RNA <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind,list_ret_RNA)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>data_rent_RNA <span class="ot">&lt;-</span> data_rent_RNA <span class="sc">|&gt;</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> RNA1.Date,</span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">IBEX =</span> IBEXvals,</span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">Means =</span> return_CM<span class="sc">$</span>Mean) <span class="sc">|&gt;</span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="fu">contains</span>(<span class="st">".RNA"</span>)), <span class="sc">~</span> <span class="fu">cumsum</span>(.)) <span class="sc">|&gt;</span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">IBEX =</span> <span class="fu">cumsum</span>(IBEX),</span>
+<span id="cb30-18"><a href="#cb30-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">Means =</span> <span class="fu">cumsum</span>(Means)) <span class="sc">|&gt;</span></span>
+<span id="cb30-19"><a href="#cb30-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Date) <span class="sc">|&gt;</span></span>
+<span id="cb30-20"><a href="#cb30-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb30-21"><a href="#cb30-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">meanRNA =</span> <span class="fu">mean</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">".RNA"</span>))),</span>
+<span id="cb30-22"><a href="#cb30-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_y =</span> <span class="fu">max</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">".RNA"</span>))),</span>
+<span id="cb30-23"><a href="#cb30-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_y =</span> <span class="fu">min</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">".RNA"</span>))),</span>
+<span id="cb30-24"><a href="#cb30-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">min_5 =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">".RNA"</span>)),<span class="fl">0.05</span>)),</span>
+<span id="cb30-25"><a href="#cb30-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_95 =</span> <span class="fu">unname</span>(<span class="fu">quantile</span>(<span class="fu">c_across</span>(<span class="fu">contains</span>(<span class="st">".RNA"</span>)),<span class="fl">0.95</span>)),</span>
+<span id="cb30-26"><a href="#cb30-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">IBEX =</span> IBEX,</span>
+<span id="cb30-27"><a href="#cb30-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">Means =</span> Means)</span>
+<span id="cb30-28"><a href="#cb30-28" aria-hidden="true" tabindex="-1"></a>data_rent_RNA <span class="sc">|&gt;</span></span>
+<span id="cb30-29"><a href="#cb30-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb30-30"><a href="#cb30-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">Date =</span> <span class="fu">as.Date</span>(Date)) <span class="sc">|&gt;</span></span>
+<span id="cb30-31"><a href="#cb30-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Date)) <span class="sc">+</span></span>
+<span id="cb30-32"><a href="#cb30-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> min_y, <span class="at">ymax =</span> min_5), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb30-33"><a href="#cb30-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> max_y, <span class="at">ymax =</span> max_95), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb30-34"><a href="#cb30-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> min_5, <span class="at">ymax =</span> max_95), <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb30-35"><a href="#cb30-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
+<span id="cb30-36"><a href="#cb30-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">y =</span> meanRNA, <span class="at">color =</span> <span class="st">"Media RNA1"</span>),</span>
+<span id="cb30-37"><a href="#cb30-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb30-38"><a href="#cb30-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> max_y), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb30-39"><a href="#cb30-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> min_y), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb30-40"><a href="#cb30-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> max_95), <span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb30-41"><a href="#cb30-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> min_5, <span class="at">color =</span> <span class="st">"RNA1"</span>)) <span class="sc">+</span></span>
+<span id="cb30-42"><a href="#cb30-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> IBEX, <span class="at">color =</span> <span class="st">"IBEX"</span>)) <span class="sc">+</span></span>
+<span id="cb30-43"><a href="#cb30-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Means, <span class="at">color =</span> <span class="st">"Medias"</span>)) <span class="sc">+</span></span>
+<span id="cb30-44"><a href="#cb30-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb30-45"><a href="#cb30-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb30-46"><a href="#cb30-46" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Media RNA1"</span><span class="ot">=</span><span class="st">"blue"</span>,</span>
+<span id="cb30-47"><a href="#cb30-47" aria-hidden="true" tabindex="-1"></a>      <span class="st">"RNA1"</span> <span class="ot">=</span> <span class="st">"blue"</span>,</span>
+<span id="cb30-48"><a href="#cb30-48" aria-hidden="true" tabindex="-1"></a>      <span class="st">"IBEX"</span> <span class="ot">=</span> <span class="st">"red"</span>,</span>
+<span id="cb30-49"><a href="#cb30-49" aria-hidden="true" tabindex="-1"></a>      <span class="st">"Medias"</span> <span class="ot">=</span> <span class="st">"green"</span>)) <span class="sc">+</span></span>
+<span id="cb30-50"><a href="#cb30-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(</span>
+<span id="cb30-51"><a href="#cb30-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="fu">guide_legend</span>(</span>
+<span id="cb30-52"><a href="#cb30-52" aria-hidden="true" tabindex="-1"></a>      <span class="at">override.aes =</span> <span class="fu">list</span>(</span>
+<span id="cb30-53"><a href="#cb30-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">linetype =</span> <span class="fu">c</span>(<span class="st">"solid"</span>,<span class="st">"dashed"</span>,<span class="st">"solid"</span>,<span class="st">"solid"</span>))))<span class="sc">+</span></span>
+<span id="cb30-54"><a href="#cb30-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fecha"</span>,</span>
+<span id="cb30-55"><a href="#cb30-55" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Valores"</span>,</span>
+<span id="cb30-56"><a href="#cb30-56" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Leyenda"</span>)<span class="sc">+</span></span>
+<span id="cb30-57"><a href="#cb30-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -665,8 +1176,11 @@ Ryan, Jeffrey A., y Joshua M. Ulrich. 2023. <em>quantmod: Quantitative Financial
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
       sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+    const udclogo = document.createElement('p');
+      udclogo.innerHTML='<img src="udclogo.png" style="width: 25%;">'
     TFMtitlefcfc.appendChild(sublead);
     TFMtitlefcfc.appendChild(sub_sublead);
+    TFMtitlefcfc.appendChild(udclogo);
     
     //Fix authoring info
     const authorsElement = document.querySelector('.quarto-title-meta-heading');
@@ -989,7 +1503,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Trabajo Final de Máster de <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="FEE" width="65"></a></div>   
+    <div class="nav-footer-left">Trabajo Final de Máster presentado en <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

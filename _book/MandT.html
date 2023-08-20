@@ -43,7 +43,6 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -51,6 +50,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./Results.html" rel="next">
 <link href="./Data.html" rel="prev">
+<link href="./icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -132,30 +132,22 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Trabajo Final de Máster</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.docx">
-              <i class="bi bi-bi-file-word pe-1"></i>
-            Download Docx
+            <a class="dropdown-item sidebar-tools-main-item" href="./en/index.html">
+            English
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
+            <a class="dropdown-item sidebar-tools-main-item" href="./gal/index.html">
+            Galego
             </a>
           </li>
       </ul>
     </div>
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
@@ -170,6 +162,12 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greetings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimientos</span></a>
   </div>
 </li>
@@ -183,6 +181,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarygal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -295,8 +299,8 @@ div.csl-indent {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#modelado" id="toc-modelado" class="nav-link active" data-scroll-target="#modelado">2.5.1 Modelado</a></li>
-  <li><a href="#entrenamiento" id="toc-entrenamiento" class="nav-link" data-scroll-target="#entrenamiento">2.5.2 Entrenamiento</a></li>
+  <li><a href="#sec-modelado" id="toc-sec-modelado" class="nav-link active" data-scroll-target="#sec-modelado">2.5.1 Modelado</a></li>
+  <li><a href="#sec-entrenamiento" id="toc-sec-entrenamiento" class="nav-link" data-scroll-target="#sec-entrenamiento">2.5.2 Entrenamiento</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/MandT.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
     </div>
@@ -307,9 +311,10 @@ div.csl-indent {
 
 
 <p>Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe de forma breve los modelos que se construyeron y el procedimiento utilizado para entrenarlos. Explicándose en el primero de los sub-epígrafes las estructuras de los modelos utilizados, mientras que en el segundo sub-epígrafe se explican las particularidades de la metodología de entrenamiento utilizada.</p>
-<section id="modelado" class="level2">
-<h2 class="anchored" data-anchor-id="modelado">2.5.1 Modelado</h2>
-<p>Como se explicó con anterioridad los principales elementos de los modelos de redes neuronales artificiales utilizados son una capa CNN y una capa LSTM. Además de esto se utilizo una capa de entrada y una capa de salida, que son las encargadas de suministrar a los modelos la información de los vectores constituidos con anterioridad. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex4.html#sec-A-modelos"><span>Sección&nbsp;2.2</span></a>.</p>
+<section id="sec-modelado" class="level2">
+<h2 class="anchored" data-anchor-id="sec-modelado">2.5.1 Modelado</h2>
+<p>Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en <a href="Annex4.html#sec-A-modelos"><span>Sección&nbsp;2.1</span></a>.</p>
+<p>Como se explicó con anterioridad los principales elementos de los modelos de redes neuronales artificiales utilizados son una capa CNN y una capa LSTM. Además de esto se utilizo una capa de entrada y una capa de salida, que son las encargadas de suministrar a los modelos la información de los vectores constituidos con anterioridad. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex4.html#sec-A-modelos"><span>Sección&nbsp;2.1</span></a>.</p>
 <p>Dado que se definieron tres tamaños distintos de observaciones para tener en cuenta para realizar una predicción fue necesario construir tres estructuras de modelos distintas que se adaptasen a las dimensiones de los distintos vectores de entrada, las distintas estructuras se pueden observar en la <a href="Annex1.html#fig-estructuras">Figura&nbsp;<span>17</span></a>.</p>
 <p>La primera diferencia notable entre las estructuras son las salidas de las capas de entrada, esta diferencia se debe a los tamaños de las muestras si se ha escogido usar 1,2 o 3 observaciones para construir el modelo. Como se observa el tamaño de la salida de la capa de entrada modifica por consiguiente el tamaño de las entradas y las salidas de la capa CNN.</p>
 <p>Como se mencionó con anterioridad las variaciones en la segunda dimensión en las salidas de la capa CNN se pueden explicar por los distintos tamaños de los vectores de entrada. Pero como se observa el tamaño de la tercera dimensión de la salida de esta capa es igual en todas las estructuras, 64, lo que señala el número de filtros escogidos a utilizar, uno de los principales parámetros para tener en cuenta durante la configuración de estas capas. Esto último significa que las observaciones correspondientes a las 6 variables utilizadas fueron divididas en 64 variables que permiten al modelo una mejor comprensión de la relación entre las variables.</p>
@@ -319,8 +324,9 @@ div.csl-indent {
 <p>La capa CNN en todas las estructuras se encuentran enlazada a una capa LSTM, la cual en todos los casos contó con 64 neuronas. La salida de esta capa se encontraba enlazada con la capa de salida la cuál devuelve un solo valor.</p>
 <p>Para concluir con la construcción de los modelos se determinó usar el error cuadrático medio (en lo adelante MSE, por sus siglas en inglés, Mean Squared Error) como la función utilizada para evaluar una solución candidata los resultados del modelo y el optimizador SGD (por sus siglas en inglés, Stochastic Gradient Descent) con un Alpha de 0.0005.</p>
 </section>
-<section id="entrenamiento" class="level2">
-<h2 class="anchored" data-anchor-id="entrenamiento">2.5.2 Entrenamiento</h2>
+<section id="sec-entrenamiento" class="level2">
+<h2 class="anchored" data-anchor-id="sec-entrenamiento">2.5.2 Entrenamiento</h2>
+<p>Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en <a href="Annex4.html#sec-A-entrenamiento"><span>Sección&nbsp;2.2</span></a>.</p>
 <p>El entrenamiento de algoritmos de Machine Learning en la previsión de series de tiempo tienes sus peculiaridades a como se entrenan modelos con el objetivo de solucionar otro tipo de problemas. Por lo que en este sub-epígrafe se cubre de manera breve la metodología de entrenamiento utilizada, que es la denominada walk forward validation o validación de avance.</p>
 <p>Como ya se mencionó la validación de avance es un método utilizado para evaluar modelos de aprendizaje automático en datos de series temporales. Esto se debe a que como se explica en <span class="citation" data-cites="Brownlee19">Brownlee (<a href="references.html#ref-Brownlee19" role="doc-biblioref">2019</a>)</span> proporciona la evaluación más realista de modelos de aprendizaje automático en datos de series temporales. Los métodos tradicionales de evaluación de modelos a partir del aprendizaje automático, como la validación cruzada de k-fold o la división en datos de entrenamiento y validación no funcionan en el caso de datos de series temporales porque ignoran los componentes temporales inherentes al problema. La validación Walk-forward tiene en cuenta estos componentes temporales y proporciona una evaluación más realista de cómo funcionará el modelo cuando se use operativamente.</p>
 <p>Al evaluar un modelo, nos interesa su rendimiento del modelo en datos que no se usaron para entrenarlo. En el aprendizaje automático, se llaman datos no vistos o fuera de la muestra. Comúnmente para la resolución de otros problemas se dividen los datos en distintos subconjuntos: entrenamiento, prueba y validación, los que tiene como objetivo entrenar y validar el modelo. Con la metodología walk forward validation los datos se dividen por periodos de tiempo y se entrena y valida al modelo de forma consecutiva lo que permite evaluar como el modelo entiende la dependencia temporal de los datos.</p>
@@ -357,8 +363,11 @@ OmG. 2021. <span>«Difference between ReLU, ELU and Leaky ReLU. Their pros and c
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
       sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+    const udclogo = document.createElement('p');
+      udclogo.innerHTML='<img src="udclogo.png" style="width: 25%;">'
     TFMtitlefcfc.appendChild(sublead);
     TFMtitlefcfc.appendChild(sub_sublead);
+    TFMtitlefcfc.appendChild(udclogo);
     
     //Fix authoring info
     const authorsElement = document.querySelector('.quarto-title-meta-heading');
@@ -684,7 +693,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Trabajo Final de Máster de <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="FEE" width="65"></a></div>   
+    <div class="nav-footer-left">Trabajo Final de Máster presentado en <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

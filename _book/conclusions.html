@@ -24,7 +24,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -32,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
 <link href="./Results.html" rel="prev">
+<link href="./icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -113,30 +113,22 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Trabajo Final de Máster</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.docx">
-              <i class="bi bi-bi-file-word pe-1"></i>
-            Download Docx
+            <a class="dropdown-item sidebar-tools-main-item" href="./en/index.html">
+            English
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
+            <a class="dropdown-item sidebar-tools-main-item" href="./gal/index.html">
+            Galego
             </a>
           </li>
       </ul>
     </div>
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
@@ -151,6 +143,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greetings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimientos</span></a>
   </div>
 </li>
@@ -164,6 +162,12 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarygal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -307,8 +311,11 @@ ul.task-list li input[type="checkbox"] {
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
       sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+    const udclogo = document.createElement('p');
+      udclogo.innerHTML='<img src="udclogo.png" style="width: 25%;">'
     TFMtitlefcfc.appendChild(sublead);
     TFMtitlefcfc.appendChild(sub_sublead);
+    TFMtitlefcfc.appendChild(udclogo);
     
     //Fix authoring info
     const authorsElement = document.querySelector('.quarto-title-meta-heading');
@@ -634,7 +641,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Trabajo Final de Máster de <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="FEE" width="65"></a></div>   
+    <div class="nav-footer-left">Trabajo Final de Máster presentado en <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

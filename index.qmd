@@ -2,4 +2,24 @@
 
 Este es el sitio web para "Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras", un Trabajo de Fin de Máster del Máster Universitario en Banca y Finanzas de la Universidade da Coruña. El trabajo fue realizado por David Díaz Rodríguez y tutelado por Xosé Manuel Martínez Filgueira. El sitio está construido usando [Quarto](https://quarto.org/).
 
-El presente trabajo cuenta con un ![repositorio](https://github.com/davidrsch/TFM) en el que se encuentra, además del código fuente para el presente sitio, algunos de los datos resultantes del procedimiento descrito a lo largo del trabajo así como estructuras de los modelos de RNA utilizadas para la obtención de las predicciones.
+El presente trabajo cuenta con un [repositorio](https://github.com/davidrsch/TFM) en el que se encuentra, además del código fuente para el presente sitio, algunos de los datos resultantes del procedimiento descrito a lo largo del trabajo así como estructuras de los modelos de RNA utilizadas para la obtención de las predicciones.
+
+El código del procedimiento expuesto en el presente trabajo, @sec-code, fue desarrollado usando la versión 4.3.1 de R y la versión 2023.06.1-524 del software RStudio. Los paquetes necesarios para la ejecución del código son los siguientes:
+
+```{r}
+#| output: asis
+#| echo: false
+
+Paquetes <- (.packages())
+base <- sessionInfo()$basePkgs
+Paquetes <- Paquetes[-which(is.element(Paquetes,base))]
+Versiones <- lapply(sapply(Paquetes, packageVersion), function(x){paste(x, collapse = '.')})
+Versiones <- unlist(Versiones, use.names = F)
+PaqT <- data.frame(
+  Paquete = Paquetes,
+  Versión = Versiones
+) |>
+  arrange(Paquete,.locale = "en") |>
+  md_table() |>
+  cat()
+```

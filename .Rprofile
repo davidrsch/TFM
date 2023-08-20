@@ -23,7 +23,6 @@ library(dplyr)
 library(quadprog)
 library(kableExtra)
 library(xml2)
-library(babelquarto)
 
 ## Cargando datos ----
 empresas <- read_excel("data/000_empresas.xlsx")

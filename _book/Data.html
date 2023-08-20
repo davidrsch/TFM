@@ -43,7 +43,6 @@ div.csl-indent {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -51,6 +50,7 @@ div.csl-indent {
 <meta name="quarto:offset" content="./">
 <link href="./MandT.html" rel="next">
 <link href="./PC.html" rel="prev">
+<link href="./icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -134,30 +134,22 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Trabajo Final de Máster</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
-      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.docx">
-              <i class="bi bi-bi-file-word pe-1"></i>
-            Download Docx
+            <a class="dropdown-item sidebar-tools-main-item" href="./en/index.html">
+            English
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.pdf">
-              <i class="bi bi-bi-file-pdf pe-1"></i>
-            Download PDF
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./Trabajo-Final-de-Máster.epub">
-              <i class="bi bi-bi-journal pe-1"></i>
-            Download ePub
+            <a class="dropdown-item sidebar-tools-main-item" href="./gal/index.html">
+            Galego
             </a>
           </li>
       </ul>
     </div>
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
@@ -172,6 +164,12 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Descripción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greetings.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Agradecimientos</span></a>
   </div>
 </li>
@@ -185,6 +183,12 @@ div.csl-indent {
   <div class="sidebar-item-container"> 
   <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarygal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumo</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -380,7 +384,7 @@ div.csl-indent {
 </section>
 <section id="vectores" class="level2">
 <h2 class="anchored" data-anchor-id="vectores">2.4.3 Vectores</h2>
-<p>En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el sub-epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex4.html#sec-A-vec"><span>Sección&nbsp;2.1</span></a>.</p>
+<p>En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el sub-epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en <a href="Annex4.html#sec-A-vec"><span>Sección&nbsp;1.3</span></a>.</p>
 <p>La estructura del conjunto de vectores de entradas y salidas es de vital importancia en el modelado de técnicas de ML teniendo un impacto importante en su eficacia. El conjunto debe de vectores debe crearse de manera representativa del problema a resolver, por lo que los pasos descritos a continuación explican en detalle los aspectos del problema a dar respuesta en el presente trabajo y como dar forma al conjunto de vectores de entradas y salidas para ello.</p>
 <p>Como se ha mencionado con anterioridad el objetivo del presente trabajo es exponer un procedimiento para la utilización de modelos de RNA y programación cuadrática en una estrategia de inversión. El modelado atiende a la necesidad de obtener unas predicciones lo más acertada posible para posteriormente, basándose en las predicciones y en los datos históricos, hallar la composición de cartera idónea. Por lo que el problema a representar con los conjuntos de vectores de entradas y salidas es como explicar el comportamiento de la rentabilidad de una empresa en un instante de tiempo <span class="math inline">\(i+1\)</span> con los valores de varias variables en el instante de tiempo <span class="math inline">\(i\)</span>.</p>
 <p>Para la representación de este problema se crearon vectores tridimensionales, siguiendo lo expuesto en <span class="citation" data-cites="chollet2018deep">Chollet y Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span>. Las dimensiones de estos vectores se explican de la siguiente manera:</p>
@@ -461,8 +465,11 @@ Ross, S. 2022. <span>«How Do I Calculate Correlation Between Market Indicators 
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
       sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+    const udclogo = document.createElement('p');
+      udclogo.innerHTML='<img src="udclogo.png" style="width: 25%;">'
     TFMtitlefcfc.appendChild(sublead);
     TFMtitlefcfc.appendChild(sub_sublead);
+    TFMtitlefcfc.appendChild(udclogo);
     
     //Fix authoring info
     const authorsElement = document.querySelector('.quarto-title-meta-heading');
@@ -788,7 +795,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Trabajo Final de Máster de <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="FEE" width="65"></a></div>   
+    <div class="nav-footer-left">Trabajo Final de Máster presentado en <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
