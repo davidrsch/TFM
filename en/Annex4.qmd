@@ -1,4 +1,4 @@
-# Annex. 4 Codes {#sec-code .unnumbered}
+# Annex. 4 Codes {.unnumbered}
 
 The code used to carry out the procedure described in the development of the work is presented below.
 
@@ -500,7 +500,7 @@ model |>
   grViz()
 ```
 
-The procedure exposed in the sections @sec-A-models and @sec-A-training was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to `vecs3d1e` with ` in the first code exposed. vecs3d2e` and `vecs3d3e`, depending on the group of three-dimensional vectors used.
+The procedure exposed in the sections @sec-A-models and @sec-A-training was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to `vecs3d1e` with `in the first code exposed. vecs3d2e` and `vecs3d3e`, depending on the group of three-dimensional vectors used.
 
 ## Result
 

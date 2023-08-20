@@ -4,7 +4,7 @@ Este es el sitio web para "Aplicación de redes neuronales artificiales y progra
 
 El presente trabajo cuenta con un [repositorio](https://github.com/davidrsch/TFM) en el que se encuentra, además del código fuente para el presente sitio, algunos de los datos resultantes del procedimiento descrito a lo largo del trabajo así como estructuras de los modelos de RNA utilizadas para la obtención de las predicciones.
 
-El código del procedimiento expuesto en el presente trabajo, @sec-code, fue desarrollado usando la versión 4.3.1 de R y la versión 2023.06.1-524 del software RStudio. Los paquetes necesarios para la ejecución del código son los siguientes:
+El código del procedimiento expuesto en el presente trabajo, [Anexo. 4 Códigos](Annex4.html) fue desarrollado usando la versión 4.3.1 de R y la versión 2023.06.1-524 del software RStudio. Los paquetes necesarios para la ejecución del código son los siguientes:
 
 ```{r}
 #| output: asis

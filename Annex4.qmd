@@ -1,4 +1,4 @@
-# Anexo. 4 Códigos {#sec-code .unnumbered}
+# Anexo. 4 Códigos {.unnumbered}
 
 A continuación, se presenta el código utilizado para la realización del procedimiento descrito en el desarrollo del trabajo.
 

@@ -16,5 +16,5 @@ html_content <- gsub(
 # Write updated HTML content to file
 writeLines(html_content, "_book/Annex2.html", useBytes = TRUE)
 
-quarto::quarto_render("en/", as_job = F)
+#quarto::quarto_render("en/", as_job = F)
 quarto::quarto_render("gal/", as_job = F)
