@@ -1,0 +1,143 @@
+# 2.2 Redes neuronais artificiais na previsión de series temporais {.unnumbered}
+
+Este epígrafe está dividido en tres subtítulos. O primeiro trata sobre os antecedentes do uso de redes neuronais artificiais para traballar con series temporais, máis concretamente na previsión. No segundo e terceiro subtítulo exponse o funcionamento de dúas das estruturas de capa de ARN utilizadas neste traballo, sendo estas a CNN e a LSTM.
+
+## 2.2.1 Antecedentes sobre o uso de redes neuronais artificiais na predición de series temporais
+
+En @chollet2018deep indícase que o entorno ANN está formado por intelixencia artificial (en diante IA), aprendizaxe automática ou aprendizaxe automática (en diante ML) e aprendizaxe profunda ou aprendizaxe profunda (en diante DL), @fig-DLenv. Por iso, é de vital importancia coñecer os aspectos destes campos que están intimamente relacionados coa RNA e que se explican brevemente a continuación.
+
+"Facer que unha máquina se comporte de tal forma que un humano sería chamado intelixente" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) é a primeira definición que se dá ao problema da IA. Co obxectivo de resolver este problema xurdiu a primeira IA, a chamada IA ​​simbólica.
+
+Como explicaron @haykin1998neural, @banda2014 e @chollet2018deep, estas primeiras IAs implicaban regras codificadas creadas polos programadores. Co obxectivo de conseguir que estas regras fosen aprendidas automaticamente polas máquinas ao observar os datos, xurdiu unha nova etapa no desenvolvemento da IA, a denominada ML. Esta nova etapa dá lugar á aparición dunha nova forma de programación, diferenciada da clásica, na medida en que, nesta, os programadores introducen os datos e as respostas esperadas a eles, e os ordenadores son capaces de xerar as regras, @fig-MLprog.
+
+Polo tanto, enténdese que os modelos de ML intentan atopar representacións axeitadas para os seus datos de entrada: transformacións dos datos que o fan máis apto para a tarefa en cuestión. En DL, que é un subcampo específico de ML, estas representacións de datos modelízanse mediante arquitecturas compostas por capas sucesivas, que se denominan ARN @chollet2018deep.
+
+Despois de estudar o que se expuxo en @haykin1998neural, @Larranaga07, @banda2014 e @chollet2018deep sobre ANN, pódese afirmar que están inspirados no funcionamento do cerebro humano, estes textos confirman e coinciden en que se poden distinguir tres tipos de ANN capas. : entrada, saída e oculta. Unha capa de entrada está composta por neuronas que reciben os vectores de entrada. Unha capa de saída está formada por neuronas que, durante o adestramento, reciben os vectores de saída e despois xeran a resposta. Unha capa oculta está conectada ao ambiente a través das capas de entrada e saída, este tipo de capa oculta procesa a entrada recibida para obter a saída correspondente, @fig-RNAstruct.
+
+Unha das aplicacións da ANN é a previsión de series temporais. cuxo obxectivo é predicir os valores futuros das variables en función das súas observacións pasadas. Como se comentou anteriormente, as series temporales financeiras adoitan ser non lineais, ruidosas, caóticas e non estacionarias, o que dificulta a súa modelización e previsión. As ANN teñen a vantaxe de poder captar relacións non lineais complexas e adaptarse ás condicións cambiantes sen esixir presupostos previos sobre a distribución ou estrutura dos datos.
+
+A historia das ANN na previsión de series temporais financeiras remóntase a finais dos 80 e principios dos 90, cando os investigadores comezaron a explorar o potencial das ANN como alternativa aos métodos estatísticos tradicionais, como o modelo de media móbil autorregresiva integrada, máis coñecido como ARIMA. Autoregresivo Integrado Moving Average) e modelos autorregresivos xeneralizados con heterocedasticidade condicional, máis coñecidos como GARCH (Heterocedasticidade Condicional Autorregresiva Xeneralizada). Demostrouse que as ANN teñen varias vantaxes sobre estes métodos, como a capacidade de capturar relacións non lineais e dinámicas, manexar datos ruidosos e incompletos e adaptarse ás condicións cambiantes do mercado (@ZHANG199835).
+
+Non obstante, as ANN tamén se enfrontan a algunhas limitacións e desafíos na previsión de series temporais financeiras, como a dificultade de escoller unha arquitectura de rede adecuada, un algoritmo de adestramento, a función de activación e as variables de entrada; o risco de problemas de sobreadaptación e xeneralización; a falta de interpretabilidade e transparencia; e o alto custo e tempo computacional (@TEALAB2018334).
+
+Para superar estas limitacións e desafíos, os investigadores propuxeron varias melloras e ampliacións de ANN para a previsión de series temporais financeiras nas últimas décadas. Algúns dos principais desenvolvementos inclúen:
+
+-   O uso de modelos híbridos que combinan ANN con outras técnicas como a lóxica difusa, algoritmos xenéticos, análise de wavelets, máquinas vectoriais de soporte e aprendizaxe profunda para mellorar o rendemento e a robustez da ANN (@wongguo2010).
+
+-   O uso de redes neuronais recorrentes (en diante RNR) ou bidireccionais, que son un tipo especial de ANN que poden procesar datos secuenciais e capturar dependencias temporais. Demostrouse que os RNR superan as redes neuronais unidireccionais en series temporales complexas e non lineais (@GURESEN201110389).
+
+-   O uso de modelos de ARN máis complexos mediante a combinación de diferentes capas, como redes neuronais convolucionais (en diante, CNN), memoria a longo prazo (en diante, LSTM), unidades recorrentes gated (en diante GRU) aplicouse á previsión de series temporais financeiras con resultados prometedores (@SEZER2020106181).
+
+A historia das ANN na previsión de series temporais financeiras mostra que as ANN evolucionaron e melloraron co paso do tempo para facer fronte á complexidade e incerteza dos mercados financeiros. Non obstante, aínda persisten algúns dos desafíos e limitacións mencionados anteriormente, como o sobreajuste, a xeneralización, a interpretabilidade, a robustez e o custo computacional.
+
+## 2.2.2 Redes neuronais convolucionais
+
+O modelo de ARN empregado neste traballo está composto por varias capas, sendo a máis importante a capa Conv1D, un tipo específico de CNN, e a capa LSTM, ambas as mencionadas no subapartado anterior cando as estruturas ANN que máis se utilizan na actualidade. Esta subsección céntrase na Capa Conv1D, polo que se exploran os conceptos fundamentais para comprender o seu funcionamento, explicando a convolución, as redes neuronais convolucionais e Conv1D e o seu uso para a análise de series temporais. Ofrécese unha visión xeral da convolución e como se pode aplicar aos datos de series temporais. Despois, fálase das CNN e da súa arquitectura, que lles permite aprender automaticamente funcións a partir de datos de series temporais. Finalmente, explícase Conv1D, un tipo específico de capa de rede neuronal convolucional que é particularmente eficaz para procesar datos de series temporais.
+
+Como se comenta en @rafid23, a convolución é unha operación matemática que se usa habitualmente no procesamento de sinal e análise de imaxes. Implica tomar dúas funcións e producir unha terceira función que representa como unha das funcións orixinais modifica a outra. No contexto dos datos de series temporais, a convolución pódese usar para extraer características dos datos aplicando un filtro á serie temporal.
+
+Ademais de extraer funcións dos datos de series temporais, a convolución tamén se pode usar para outras tarefas como a redución de ruído, a detección de anomalías e a predición. Por exemplo, unha CNN pódese adestrar para predecir os valores futuros dunha serie temporal aprendendo os patróns subxacentes nos datos. En xeral, a convolución é unha poderosa ferramenta para analizar datos de series temporais e as súas aplicacións son numerosas @rafid23.
+
+As CNN introducíronse por primeira vez en @cnn e son un tipo de modelo de aprendizaxe profunda que se usa habitualmente para a análise de imaxes. Non obstante, como se mencionou anteriormente, tamén se poden usar para a análise de series temporais, xa que son moi axeitados para aprender características a partir de datos que teñen unha estrutura espacial ou temporal.
+
+A arquitectura dunha CNN consta dunha ou máis capas convolucionais, que aplican filtros aos datos de entrada para extraer características. Cada filtro é un conxunto de pesos que se aprenden durante o proceso de adestramento. Ao desprazar o filtro sobre os datos de entrada, a capa convolucional calcula un produto puntual en cada posición, producindo un novo mapa de características @cnn.
+
+Nun contexto de series temporais, unha CNN pode aprender a extraer automaticamente características dos datos a diferentes escalas e intervalos de tempo, o que o converte nunha poderosa ferramenta para a análise de series temporais. Unha vantaxe fundamental de usar unha CNN para a análise de series temporais é que reduce a necesidade de enxeñería manual de funcións. En lugar de deseñar filtros a man, CNN aprende a extraer automaticamente funcións dos datos, facéndoos máis flexibles e adaptables a diferentes tipos de datos de series temporais.
+
+En xeral, a arquitectura dunha CNN permítelle aprender automaticamente características dos datos de series temporais, o que o converte nunha poderosa ferramenta para a análise de series temporais, sendo Conv1D unha das estruturas de CNN máis utilizadas para esta tarefa.
+
+Como se explica en @hongj20, Conv1D é un tipo específico de capa CNN que está deseñada para procesar datos unidimensionales, como datos de series temporais. Mentres que as CNN tradicionais están deseñadas para procesar datos bidimensionais, Conv1D está optimizado especificamente para datos unidimensionais, o que o fai máis eficiente e eficaz para a análise de series temporais.
+
+A arquitectura dunha capa Conv1D é similar á dunha CNN tradicional, pero con algunhas diferenzas clave. En lugar de usar filtros bidimensionais, Conv1D usa filtros unidimensionais, que se aplican á serie temporal de entrada para extraer características. As características que se extraen da cadea dependerán das diferentes configuracións utilizadas para a configuración do filtro e do número de filtros empregados, sendo a seguinte fórmula para calcular a cantidade de característica que extrae cada filtro: @eq-cnn-lout (@hongj20):
+
+$$
+\begin{aligned}
+L_{out} &= \frac{L_{in} + 2*padding - dilation*(kerenel\_size - 1)-1}{stride} + 1 \\
+\end{aligned}
+$$ {#eq-cnn-lout}
+
+Onde:
+
+::: margin
+*Lout*: é a lonxitude da saída do proceso de filtrado ou o número de funcións.
+:::
+
+::: margin
+*Lin*: a lonxitude do vector de entrada, correspondente na análise de series temporais ao número de observacións que conteñen as mostras da serie temporal que se pasan ao filtro.
+:::
+
+::: margin
+*kernel_size*: é o tamaño do filtro, que define cantas observacións do vector de entrada se pasan ao filtro cada vez. @fig-HJks representa como o tamaño do filtro pode afectar a lonxitude do vector de saída.
+:::
+
+::: margin
+*stride*: representa o número de pasos ou observacións polos que se move a selección de observacións pasadas ao filtro. @fig-HJstride representa como o parámetro stride pode afectar a lonxitude do vector de saída.
+:::
+
+::: margin
+*dilation*: é a distancia das observacións que pasan polo filtro. @fig-HJdilation representa como o parámetro de dilatación pode afectar a lonxitude do vector de saída.
+:::
+
+::: margin
+*padding*: representa o número de ceros a engadir a cada extremo do vector. @fig-HJpadding representa como o parámetro de recheo pode afectar a lonxitude do vector de saída.
+:::
+
+En xeral, Conv1D é unha poderosa ferramenta para procesar datos de series temporais e as súas vantaxes inclúen a eficiencia computacional e a capacidade de capturar dependencias de tempo nos datos. Os seus casos de uso son numerosos e abarcan diferentes campos, polo que é unha ferramenta valiosa para a análise de series temporais.
+
+## 2.2.3 Long short-term memory
+
+Esta subsección explica por que os LSTM son unha das estruturas ANN máis utilizadas na predición de series temporais, baseándose nunha breve explicación dos RNR e por que son útiles para resolver problemas de predición de series. as RNN, e o funcionamento de cada unha das capas que conforman a estrutura dunha capa LSTM.
+
+@COlah15 explica que unha RNN pode considerarse como varias copias da mesma rede, @fig-CORNRstruct, afirma que este aspecto revela que os RNR están íntimamente relacionados con secuencias e listas, o que fai que este tipo de ARN sexa o que naturalmente se utiliza para traballar con series temporais.
+
+Os RNR convencionais presentan un problema en relación coa capacidade de reter información, como explica @COlah15, os RNN estándar só funcionan con gran capacidade se a información relevante para a situación actual é recente, é dicir, onde a brecha entre a información relevante e onde se é necesario é pequeno, @fig-CORInclose; ademais expón que a medida que a brecha crece, os RNN estándar non poden acceder á información relevante, @fig-CORInaway.
+
+Como se mencionou anteriormente, os LSTM son un tipo de RNR que pode aprender dependencias a longo prazo dos datos secuenciais. Estes foron propostos en @SeppJur97 e foron moi utilizados para varias tarefas como modelado de linguaxe, recoñecemento de voz, tradución automática, descrición de imaxes e previsión de series temporais.
+
+A idea principal de LSTM é introducir unha célula de memoria que poida almacenar e actualizar información en pasos longos. A cela de memoria está controlada por tres portas: unha porta de entrada, unha porta de esquecemento e unha porta de saída. Estas portas son redes neuronais que aprenden a regular o fluxo de información dentro e fóra da célula @fig-CODrnrlstm.
+
+A porta de entrada decide canto da nova entrada engadir ao estado da cela. A porta de esquecemento decide que parte do estado da cela anterior manter ou eliminar. A porta de saída decide que parte do estado da cela actual se enviará á seguinte capa. @COlah15 baseándose no exposto en @SeppJur97, describe o funcionamento das portas en catro pasos:
+
+1.  Decidindo que información do estado da cela se esquece a través da porta, esquece a capa de porta $f_t$. Esta porta mira $h_{t-1}$, estado oculto do período de tempo anterior, e $x_{t}$, entrada do instante de tempo actual, e mostra un número entre 0 (desfacer) e 1 (mantener) . para cada número no estado da cela $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
+
+$$
+\begin{aligned}
+f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
+\end{aligned}
+$$ {#eq-lstm-fstep}
+
+2.  Decida que información nova se almacena no estado da cela. Para isto primeiro, a capa de porta de entrada decide que valores actualizar e despois unha capa tanh (tanxente hiperbólica) crea un vector de novos valores candidatos ($\tilde{C}_t$) que se poden engadir ao estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
+
+$$
+\begin{aligned}
+i_t &= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
+\end{aligned}
+$$ {#eq-lstm-sstepf}
+
+$$
+\begin{aligned}
+\tilde{C}_t &= tanh(W_c [h_{t-1}, x_t] + b_c) \\
+\end{aligned}
+$$ {#eq-lstm-ssteps}
+
+3.  O estado da cela antiga, $C_{t-1}$, actualízase ao novo estado da cela $C_{t}$. Multiplica o estado anterior por $f_{t}$, esquecendo o que é necesario, despois engade $i_{t} * \tilde{C}_{t}$. Estes son os novos valores candidatos, escalados pola cantidade de cada valor de estado que se debe actualizar, @fig-COLSTMstep3, @eq-lstm-tstep.
+
+$$
+\begin{aligned}
+C_t &= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
+\end{aligned}
+$$ {#eq-lstm-tstep}
+
+4.  Xérase unha saída en función do estado da cela. Executar primeiro unha capa sigmoide que decide que partes do estado da célula é a saída; entón o estado da cela pásase a través dunha función tanh (escalando os valores entre -1 e 1) e multiplícase pola saída da porta, porta de saída, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
+
+$$
+\begin{aligned}
+o_t &= \sigma(W_o [h_{t-1}, x_t] + b_o) \\
+\end{aligned}
+$$ {#eq-lstm-fstepf} $$
+\begin{aligned}
+h_t &= o_t * tanh(C_t) \\
+\end{aligned}
+$$ {#eq-lstm-fsteps}
+
+Os LSTM poden aprender a capturar dependencias a longo prazo axustando os valores de porta a través da propagación posterior. Por exemplo, se unha determinada entrada é relevante para unha saída posterior, a porta de entrada aprenderá a deixala entrar e a porta esquecida aprenderá a mantela no estado da cela ata que sexa necesaria. Pola contra, se unha entrada é irrelevante ou obsoleta, a pasarela aprenderá a ignorala e a porta esquecida aprenderá a eliminala do estado da cela.

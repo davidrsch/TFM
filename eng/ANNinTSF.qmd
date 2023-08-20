@@ -1,0 +1,143 @@
+# 2.2 Artificial neural networks in the forecast of time series {.unnumbered}
+
+This epigraph is divided into three sub-headings. The first deals with the background to the use of artificial neural networks for working with time series, more specifically in forecasting. In the second and third sub-headings, the operation of two of the RNA layer structures used in this work are exposed, these being the CNN and the LSTM.
+
+## 2.2.1 Background on the use of artificial neural networks in time series forecasting
+
+In @chollet2018deep it is stated that the ANN environment is made up of artificial intelligence (hereinafter IA), machine learning or automated learning (hereinafter ML) and deep learning or deep learning (hereinafter DL), @fig-DLenv. Therefore, it is of vital importance to know the aspects of these fields that are closely related to ANN and that are briefly explained below.
+
+"Making a machine behave in such a way that a human would be called intelligent" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) is the first definition given to the AI ​​problem. With the aim of solving this problem, the first AI emerged, the so-called symbolic AI.
+
+As explained by @haykin1998neural, @banda2014 and @chollet2018deep, these early AIs involved hardcoded rules created by programmers. With the aim of achieving that these rules were automatically learned by the machines when observing the data, a new stage emerged in the development of AI, the so-called ML. This new stage gives rise to the emergence of a new form of programming, differentiating from the classic, in that, in this, the programmers introduce the data and the expected responses to them, and the computers are capable of generating the rules, @fig-MLprog.
+
+So it is understood that ML models try to find appropriate representations for your input data: transformations of the data that make it more amenable to the task at hand. In DL, which is a specific sub-field of ML, these data representations are modeled through architectures composed of successive layers, which are called RNA @chollet2018deep.
+
+After studying what was exposed in @haykin1998neural, @Larranaga07, @banda2014 and @chollet2018deep about ANN, it can be affirmed that they are inspired by the functioning of the human brain, these texts confirm and agree that three types of ANN can be distinguished layers: input, output and hidden. An input layer is composed of neurons that receive the input vectors. An output layer is made up of neurons that, during training, receive the output vectors and then generate the response. A hidden layer is connected to the environment through the input and output layers, this type of hidden layer processes the received input to obtain the corresponding output, @fig-RNAstruct.
+
+One of the applications of ANN is the forecasting of time series. whose objective is to predict the future values ​​of variables based on their past observations. As discussed previously, financial time series are often nonlinear, noisy, chaotic, and nonstationary, making them difficult to model and forecast. ANNs have the advantage of being able to capture complex nonlinear relationships and adapt to changing conditions without requiring prior assumptions about the distribution or structure of the data.
+
+The history of ANNs in financial time series forecasting dates back to the late 1980s and early 1990s, when researchers began to explore the potential of ANNs as an alternative to traditional statistical methods, such as the integrated autoregressive moving average model, better known as ARIMA (Autoregressive Integrated Moving Average) and generalized autoregressive models with conditional heteroskedasticity, better known as GARCH (Generalized Autoregressive Conditional Heteroskedasticity). ANNs were shown to have several advantages over these methods, such as the ability to capture non-linear and dynamic relationships, handle noisy and incomplete data, and adapt to changing market conditions (@ZHANG199835).
+
+However, ANNs also face some limitations and challenges in financial time series forecasting, such as the difficulty of choosing a suitable network architecture, training algorithm, activation function, and input variables; the risk of overfitting and generalization problems; the lack of interpretability and transparency; and the high computational cost and time (@TEALAB2018334).
+
+To overcome these limitations and challenges, researchers have proposed several enhancements and extensions to ANN for financial time series forecasting in recent decades. Some of the major developments include:
+
+-   The use of hybrid models that combine ANN with other techniques such as fuzzy logic, genetic algorithms, wavelet analysis, support vector machines, and deep learning to improve ANN performance and robustness (@wongguo2010).
+
+-   The use of recurrent neural networks (hereinafter RNR) or bidirectional, which are a special type of ANN that can process sequential data and capture temporal dependencies. RNRs have been shown to outperform unidirectional neural networks in complex and non-linear time series (@GURESEN201110389).
+
+-   The use of more complex RNA models by combining different layers, such as convolutional neural networks (hereinafter, CNN), long short-term memory (hereinafter, LSTM), gated recurrent units (hereinafter GRU) have been applied to financial time series forecasting with promising results (@SEZER2020106181).
+
+The history of ANNs in financial time series forecasting shows that ANNs have evolved and improved over time to cope with the complexity and uncertainty of financial markets. However, some of the previously mentioned challenges and limitations still persist, such as overfitting, generalization, interpretability, robustness, and computational cost.
+
+## 2.2.2 Convolutional Neural Networks
+
+The RNA model used in this work is composed of several layers, the most important being the Conv1D layer, a specific type of CNN, and the LSTM layer, both mentioned in the previous subsection when the ANN structures that most used today. This subsection focuses on the Conv1D Layer, so the fundamental concepts to understand its operation are explored, explaining convolution, convolutional neural networks and Conv1D and their use for time series analysis. An overview of convolution and how it can be applied to time series data is provided. Then, CNNs and their architecture, which allows them to automatically learn features from time series data, are discussed. Finally, Conv1D, a specific type of convolutional neural network layer that is particularly effective for processing time series data, is explained.
+
+As discussed in @rafid23, convolution is a mathematical operation that is commonly used in signal processing and image analysis. It involves taking two functions and producing a third function that represents how one of the original functions modifies the other. In the context of time series data, convolution can be used to extract features from the data by applying a filter to the time series.
+
+In addition to extracting features from time series data, convolution can also be used for other tasks such as noise reduction, anomaly detection, and prediction. For example, a CNN can be trained to predict future values of a time series by learning the underlying patterns in the data. In general, convolution is a powerful tool for analyzing time series data and its applications are numerous @rafid23.
+
+CNNs were first introduced at @cnn and are a type of deep learning model that is commonly used for image analysis. However, as previously mentioned, they can also be used for time series analysis, as they are well-suited for learning features from data that have a spatial or temporal structure.
+
+The architecture of a CNN consists of one or more convolutional layers, which apply filters to the input data to extract features. Each filter is a set of weights that are learned during the training process. By sliding the filter over the input data, the convolutional layer computes a dot product at each position, producing a new @cnn feature map.
+
+In a time series context, a CNN can learn to automatically extract features from data at different scales and time intervals, making it a powerful tool for time series analysis. A key advantage of using a CNN for time series analysis is that it reduces the need for manual feature engineering. Instead of designing filters by hand, CNN learns to automatically extract features from the data, making it more flexible and adaptable to different types of time series data.
+
+In general, the architecture of a CNN allows it to automatically learn features from time series data, making it a powerful tool for time series analysis, with Conv1D being one of the most widely used CNN structures for this task.
+
+As explained in @hongj20 Conv1D is a specific type of CNN layer that is designed to process one-dimensional data, such as time series data. While traditional CNNs are designed to process two-dimensional data, Conv1D is specifically optimized for one-dimensional data, making it more efficient and effective for time series analysis.
+
+The architecture of a Conv1D layer is similar to that of a traditional CNN, but with some key differences. Instead of using two-dimensional filters, Conv1D uses one-dimensional filters, which are applied to the input time series to extract features. The features that are extracted from the string will depend on the different configurations used for the filter configuration and the number of filters used, being the following formula to calculate the amount of feature that each filter extracts: @eq-cnn-lout (@hongj20):
+
+$$
+\begin{aligned}
+L_{out} &= \frac{L_{in} + 2*padding - dilation*(kerenel\_size - 1)-1}{stride} + 1 \\
+\end{aligned}
+$$ {#eq-cnn-lout}
+
+Where:
+
+::: margin
+*Lout*: is the length of the output of the filtering process or the number of features.
+:::
+
+::: margin
+*Lin*: the length of the input vector, corresponding in time series analysis to the number of observations that contain the samples of the time series that are passed to the filter.
+:::
+
+::: margin
+*kernel_size*: is the size of the filter, which defines how many observations of the input vector are passed to the filter each time. @fig-HJks represents how the size of the filter can affect the length of the output vector.
+:::
+
+::: margin
+*stride*: represents the number of steps or observations by which the selection of observations passed to the filter is moved. @fig-HJstride represents how the stride parameter can affect the length of the output vector.
+:::
+
+::: margin
+*dilation*: is the distance of the observations that pass the filter. @fig-HJdilation represents how the dilation parameter can affect the length of the output vector.
+:::
+
+::: margin
+*padding*: represents the number of zeros to add to each end of the vector. @fig-HJpadding represents how the padding parameter can affect the length of the output vector.
+:::
+
+Overall, Conv1D is a powerful tool for processing time series data, and its advantages include computational efficiency and the ability to capture time dependencies in the data. Its use cases are numerous and span different fields, making it a valuable tool for time series analysis.
+
+## 2.2.3 Long short-term memory
+
+This subsection explains why LSTMs are one of the most widely used ANN structures in time series forecasting, based on a brief explanation of RNRs and why they are useful in solving series forecasting problems. of time, delving into why LSTMs differ from the rest of the RNNs, and the operation of each of the layers that make up the structure of an LSTM layer.
+
+@COlah15 explains that an RNN can be considered as multiple copies of the same network, @fig-CORNRstruct, states that this aspect reveals that RNRs are intimately related to sequences and lists, which makes this type of RNA the one that naturally used for work with time series.
+
+Conventional RNRs present a problem in relation to the ability to retain information, as explained by @COlah15, standard RNNs perform with great capacity only if the information relevant to the current situation is recent, that is, where the gap between the relevant information and where it is needed is small, @fig-CORInclose; further exposes that as the gap grows, standard RNNs are unable to access the relevant information, @fig-CORInaway.
+
+As previously mentioned, LSTMs are a type of RNR that can learn long-term dependencies on sequential data. These were proposed in @SeppJur97 and have been widely used for various tasks such as language modeling, speech recognition, machine translation, image description, and time series forecasting.
+
+The main idea of LSTM is to introduce a memory cell that can store and update information over long steps of time. The memory cell is controlled by three gates: an entry gate, a forget gate, and an exit gate. These gates are neural networks that learn to regulate the flow of information in and out of the cell @fig-CODrnrlstm.
+
+The input gate decides how much of the new input to add to the cell state. The forget gate decides which part of the previous cell state to keep or delete. The output gate decides which part of the current cell state is to be sent to the next layer. @COlah15 based on what was exposed in @SeppJur97, describes the operation of the doors in four steps:
+
+1.  Deciding which cell state information is forgotten through the gate, forget gate layer $f_t$. This gate looks at $h_{t-1}$, hidden state from the previous time period, and $x_{t}$, input from the current time instant, and outputs a number between 0 (undo) and 1 (hold). for each number in cell state $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
+
+$$
+\begin{aligned}
+f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
+\end{aligned}
+$$ {#eq-lstm-fstep}
+
+2.  Decide what new information is stored in the cell state. For this first the input gate layer decides which values to update and then a tanh (hyperbolic tangent) layer creates a vector of new candidate values ($\tilde{C}_t$) that could be added to the state, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
+
+$$
+\begin{aligned}
+i_t &= \sigma(W_i [h_{t-1}, x_t] + b_i) \\
+\end{aligned}
+$$ {#eq-lstm-sstepf}
+
+$$
+\begin{aligned}
+\tilde{C}_t &= tanh(W_c [h_{t-1}, x_t] + b_c) \\
+\end{aligned}
+$$ {#eq-lstm-ssteps}
+
+3.  The state of the old cell, $C_{t-1}$, is updated to the new state of cell $C_{t}$. Multiply the previous state by $f_{t}$, forgetting what is necessary, then add $i_{t} * \tilde{C}_{t}$. These are the new candidate values, scaled by how much each status value needs to be updated, @fig-COLSTMstep3, @eq-lstm-tstep.
+
+$$
+\begin{aligned}
+C_t &= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
+\end{aligned}
+$$ {#eq-lstm-tstep}
+
+4.  An output is generated based on the cell state. Running first a sigmoid layer that decides what parts of the cell state is the output; then the state of the cell is passed through a tanh function (scaling the values between −1 and 1) and multiplied by the output gate, output gate, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
+
+$$
+\begin{aligned}
+o_t &= \sigma(W_o [h_{t-1}, x_t] + b_o) \\
+\end{aligned}
+$$ {#eq-lstm-fstepf} $$
+\begin{aligned}
+h_t &= o_t * tanh(C_t) \\
+\end{aligned}
+$$ {#eq-lstm-fsteps}
+
+LSTMs can learn to capture long-term dependencies by tuning gate values through back propagation. For example, if a certain input is relevant to a later exit, the input gate will learn to let it in, and the forgotten gate will learn to hold it in the cell state until it is needed. Conversely, if an input is irrelevant or stale, the gateway will learn to ignore it, and the forgotten gate will learn to remove it from the cell state.

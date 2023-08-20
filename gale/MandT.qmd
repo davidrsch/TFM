@@ -1,0 +1,39 @@
+# 2.5 Modelado e formación {.unnumbered}
+
+Este apartado divídese en dous subapartados nos que se describen brevemente os modelos que foron construídos e o procedemento utilizado para adestralos. No primeiro dos subepígrafes explícanse as estruturas dos modelos empregados, mentres que no segundo subtítulo explícanse as particularidades da metodoloxía de formación empregada.
+
+## 2.5.1 Modelado {#sec-modelado}
+
+En @sec-A-modelos pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
+
+Como se explicou anteriormente, os principais elementos dos modelos de redes neuronais artificiais utilizados son unha capa CNN e unha capa LSTM. Ademais disto, utilizouse unha capa de entrada e outra de saída, que se encargan de subministrar aos modelos a información dos vectores constituídos previamente. En @sec-A-modelos pódese atopar unha explicación máis detallada sobre o código utilizado para realizar o procedemento descrito neste subtítulo.
+
+Dado que se definiron tres tamaños de observacións diferentes a ter en conta para facer unha predición, foi necesario construír tres estruturas modelo diferentes que se adaptasen ás dimensións dos diferentes vectores de entrada, as diferentes estruturas pódense observar nas @fig-estructuras.
+
+A primeira diferenza notable entre as estruturas son as saídas das capas de entrada, esta diferenza débese aos tamaños da mostra se optou por utilizar 1, 2 ou 3 observacións para construír o modelo. Como se pode ver, o tamaño da saída da capa de entrada modifica, polo tanto, o tamaño das entradas e saídas da capa CNN.
+
+Como se mencionou anteriormente, as variacións na segunda dimensión nas saídas da capa CNN poden explicarse polos diferentes tamaños dos vectores de entrada. Pero como se pode ver, o tamaño da terceira dimensión da saída desta capa é o mesmo en todas as estruturas, 64, o que indica o número de filtros elixidos para utilizar, un dos principais parámetros a ter en conta á hora de configurar estes. capas. Isto último significa que as observacións correspondentes ás 6 variables utilizadas foron divididas en 64 variables que permiten ao modelo unha mellor comprensión da relación entre as variables.
+
+Outro aspecto que se modificou na capa CNN das estruturas foi a función de activación que por defecto se chama ReLU (polas súas siglas en inglés, Rectified Linear Unit) cambiouse a Leaky ReLU porque como se explica en @OmG21 , ReLU é unha activación non lineal. función que xera cero para entradas negativas, o que pode provocar que algunhas neuronas deixen de aprender se moitas das súas entradas son negativas, xa que os seus gradientes serán cero.
+
+Tendo en conta o exposto anteriormente e que algunhas das variables utilizadas nos valores de entrada presentan un elevado número de observacións negativas, como é o caso dos rendementos ou a correlación dalgunhas das series en determinados períodos de tempo, a utilización do A función de activación de ReLU non parecía unha boa opción. Polo tanto, decidiuse utilizar Leaky Relu como función de activación, que como se explica en @OmG21, trátase dunha variante que permite un pequeno gradiente constante, distinto de cero, para entradas negativas. Isto significa que esta función de activación permite que algunhas neuronas sigan aprendendo a partir de entradas negativas.
+
+Nos @fig-dominios obsérvase o dominio da función ReLU e Leaky ReLU, o que lle permitirá comprender mellor o que se expuxo anteriormente.
+
+A capa CNN en todas as estruturas está ligada a unha capa LSTM, que en todos os casos tiña 64 neuronas. A saída desta capa ligouse á capa de saída que devolve un único valor.
+
+Para concluír coa construción dos modelos, determinouse utilizar o erro cadrado medio (en diante MSE, polas súas siglas en inglés, Mean Squared Error) como función empregada para avaliar unha solución candidata, os resultados do modelo e o SGD. optimizador (polos seus acrónimos en inglés, Stochastic Gradient Descent) cun alfa de 0,0005.
+
+## 2.5.2 Formación {#sec-entrenamiento}
+
+En @sec-A-entrenamiento pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
+
+O adestramento de algoritmos de Machine Learning na previsión de series temporais ten as súas peculiaridades en como se adestran os modelos co obxectivo de resolver outro tipo de problemas. Polo tanto, neste subapartado cóbrase brevemente a metodoloxía de formación empregada, que é a denominada validación de andaina ou validación avanzada.
+
+Como xa se mencionou, a validación feedforward é un método usado para avaliar modelos de aprendizaxe automática en datos de series temporais. Isto débese a que, como explica @Brownlee19, ofrece a avaliación máis realista dos modelos de aprendizaxe automática sobre datos de series temporais. Os métodos tradicionais de avaliación de modelos procedentes da aprendizaxe automática, como a validación cruzada k-fold ou a división en datos de adestramento e validación, non funcionan para os datos de series temporais porque ignoran os compoñentes de tempo inherentes ao problema. A validación avanzada ten en conta estes compoñentes temporais e ofrece unha avaliación máis realista de como funcionará o modelo cando se use operativamente.
+
+Ao avaliar un modelo, interésanos saber como funciona o modelo en datos que non se utilizaron para adestralo. Na aprendizaxe automática, isto denomínase datos non vistos ou fóra da mostra. Normalmente, para a resolución doutros problemas, os datos divídense en diferentes subconxuntos: adestramento, proba e validación, cuxo obxectivo é adestrar e validar o modelo. Coa metodoloxía de validación walk forward, os datos divídense por períodos de tempo e o modelo adestrase e validase consecutivamente, o que permite avaliar como o modelo entende a dependencia temporal dos datos.
+
+Ao dividir os datos por períodos de tempo, permítenos avaliar o funcionamento real do modelo se fora aplicado desde o primeiro período, así como analizar o seu comportamento ao longo de todos os períodos, observando se o seu rendemento mellora ou non.
+
+Polo exposto neste subapartado, enténdese que os modelos foron adestrados utilizando os conxuntos de mostras correspondentes, pasando todas as mostras dispoñibles nun período de tempo determinado antes de continuar co período seguinte. Obtendo como consecuencia do anterior unha predición correspondente a cada período de tempo contemplado, a excepción dos dous primeiros que se utilizarían para adestrar o modelo por primeira vez, tal e como se ve no seguinte esquema do @fig-wfv.
