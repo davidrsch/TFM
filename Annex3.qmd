@@ -32,7 +32,11 @@ cat(md_table(empresas))
 : Lista de empresas cotizadas {#tbl-emp_cotiz}
 :::
 
-::: figure-caption Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, @BMEexcha. *Nota:* MC en MERCADO significa Mercado Continuo, IBEXTD en INDICE significa IBEX TOP Dividendo. :::
+::: figure-caption 
+
+Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, @BMEexcha. *Nota:* MC en MERCADO significa Mercado Continuo, IBEXTD en INDICE significa IBEX TOP Dividendo. 
+
+:::
 
 ```{r}
 #| output: asis

@@ -1,136 +1,135 @@
-# 2.4 Datos {.unnumbered}
+# 2.4 Data {.unnumbered}
 
-Este epígrafe se encuentra dividido en tres sub-epígrafes en los cuales se describe el proceso de obtención de los datos necesarios para la realización del resto del procedimiento. En el primero se detallan los pasos llevados a cabo para obtener los datos de las empresas y seleccionar aquellas con las que se trabajó en el resto del procedimiento. En el segundo sub-epígrafe se presenta una breve explicación de los indicadores computados que se utilizarán como variables de entrada, en conjunto con los valores históricos de rentabilidad de las empresas seleccionadas en el primer sub-epígrafe. El tercer sub-epígrafe expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del segundo sub-epígrafe.
+This section is divided into three sub-sections in which the process of obtaining the data necessary to carry out the rest of the procedure is described. The first details the steps carried out to obtain the data from the companies and select those with which they worked in the rest of the procedure. The second sub-heading presents a brief explanation of the computed indicators that will be used as input variables, together with the historical profitability values ​​of the companies selected in the first sub-heading. The third sub-heading exposes the procedure carried out for the creation of the input and output vectors from the data resulting from the second sub-heading.
 
-## 2.4.1 Obtención de Datos {#sec-obtdat}
+## 2.4.1 Data Collection {#sec-obtdat}
 
-Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-obtdat.
+A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-obtdat.
 
-Con el objetivo de ejemplificar como las redes neuronales artificiales y la programación cuadrática pueden ser usadas en una estrategia de gestión de cartera, se decidió en el presente trabajo utilizar datos de la bolsa del mercado español. Por lo que se decidió trabajar con la información correspondiente a las empresas que se encuentran en la lista de empresas cotizadas que se expone en @BMEexcha y puede ver en @tbl-emp_cotiz.
+In order to exemplify how artificial neural networks and quadratic programming can be used in a portfolio management strategy, it was decided in this paper to use data from the Spanish market. Therefore, it was decided to work with the information corresponding to the companies that are in the list of listed companies that is exposed in @BMEexcha and can be seen in @tbl-emp_cotiz.
 
-En la @tbl-emp_cotiz se recogen los datos de `r nrow(empresas)` empresas. Siendo los datos recogidos el nombre, ticker, sector y subsector, mercado, índice de cada una de las empresas y si fueron seleccionadas o no para realizar el resto del procedimiento después de la realización de los pasos expuestos en el presente sub-epígrafe.
+The @tbl-emp_cotiz collects the data of `r nrow(empresas)` companies. The data collected being the name, ticker, sector and subsector, market, index of each of the companies and whether or not they were selected to carry out the rest of the procedure after carrying out the steps set out in this sub-heading.
 
-Con el objetivo de obtener los datos de las empresas y analizarlas para seleccionar aquellas con las que se trabajó en el resto del procedimiento se usó como fuente @yahoofin. A continuación, se expone el proceso llevado a cabo para la obtención y selección de los datos.
+In order to obtain the data from the companies and analyze them to select those with which we worked in the rest of the procedure, @yahoofin was used as a source. Next, the process carried out to obtain and select the data is explained.
 
-Se decidió descargar los datos mensuales de cada una de las empresas recogidas en @tbl-emp_cotiz. Obteniendose todos los datos comprendidos entre el 31 de enero del 2000 al 28 de febrero del 2023 de cada una de las entidades.
+It was decided to download the monthly data of each of the companies collected in @tbl-emp_cotiz. Obtaining all the data between January 31, 2000 to February 28, 2023 of each of the entities.
 
-Tras obtener los datos se paso evaluar la calidad de los mismos. Se comenzó la evaluación con un evalución un análisis exploratorio visual de los precios ajustado ya que, como se explicó en el capitulo anterior estos son los ideales para usar en cualquier metodología de análisiss históricos.
+After obtaining the data, the quality of the data was evaluated. The evaluation began with a visual exploratory analysis of adjusted prices since, as explained in the previous chapter, these are the ideal ones to use in any historical analysis methodology.
 
-Durante el mencionado análisis exploratorio visual, se detectó que existían irregularidades en los precios ajustados de algunas de las series. Las irregularidades detectadas consistían en el incorrecto registro de los precios ajustados, así como errores en el cálculo de estos. Estos errores se detectaron fácilmente al observar en las gráficas de los valores del precio de cierre ajustado tendencia constante en periodos largos de tiempo, como se observa en @fig-tend_const_nxt, lo que indica un registro erróneo de las variaciones de los precios; así como cambios bruscos de hasta más de un 100% en los mismos en un solo período de tiempo, lo que puede indicar un mal cálculo en el precio ajustado, como se ve en @fig-radi_chang_btc, en este último caso se verificó con otras fuentes como @investing, para comprobar que de echo estaban mal computados los precios.
+During the aforementioned visual exploratory analysis, it was detected that there were irregularities in the adjusted prices of some of the series. The irregularities detected consisted of the incorrect registration of the adjusted prices, as well as errors in their calculation. These errors were easily detected by looking at the graphs of the constant trend adjusted closing price values over long periods of time, as seen in @fig-tend_const_nxt, which indicates misrecording of price changes; as well as sudden changes of up to more than 100% in them in a single period of time, which may indicate a miscalculation in the adjusted price, as seen in @fig-radi_chang_btc, in this last case it was verified with other sources like @investing, to verify that the prices were indeed miscalculated.
 
-Dado el tiempo con el que se contaba para realizar el estudio expuesto en el procedimiento y la extensa cantidad de tiempo que requeriría la investigación a realizar para sustituir los valores erróneos en las series se decidió eliminar estas irregularidades mediante el uso solo de los valores posteriores a enero del 2005, que ya no presentaban inconsistencia en el cálculo del precio ajustado, posteriormente se eliminaron aquellas series que aún contenían valores faltantes y que presentaban irregularidad en el registro de las variaciones, para esto último se eliminaron aquellas series en las que las variaciones de los precios sin registrar sea en más de 10 observaciones.
+Given the time available to carry out the study described in the procedure and the extensive amount of time that the investigation would require to be carried out to replace the erroneous values ​​in the series, it was decided to eliminate these irregularities by using only the values after January 2005, which no longer presented inconsistencies in the calculation of the adjusted price, subsequently those series that still contained missing values ​​and that presented irregularities in the registration of variations were eliminated. For the latter, those series in which the variations of unrecorded prices are in more than 10 observations.
 
-Quedando tras los ajustes realizados `r length(returns_emps3)` empresas, como se ve en la columna seleccionadas de la @tbl-emp_cotiz, algunaz de estas empresas cuentan con distintos números de observaciones, debido a que no todas existián o habían salido al mercado bursatil antes de enero del 2005.
+Remaining after the adjustments made `r length(returns_emps3)` companies, as seen in the selected column of the @tbl-emp_cotiz, some of these companies have different numbers of observations, because not all of them existed or had gone on the market stock market before January 2005.
 
-Una vez seleccionadas las empresas con las que se trabajó se computaron las rentabilidades de estas a partir de los precios ajustados. Además de las rentabilidades correspondientes a las empresas seleccionadas se usaron las rentabilidades del precio de cierre ajustado del IBEX 35, además se computaron otras variables que sirven como indicadores del comportamiento de las rentabilidades, y la relación de estas con las del índice, en este caso las del IBEX 35. Entre estas variables se encuentran las volatilidades de las empresas y el índice, la correlación entre los valores de las series y el IBEX, y la beta de las empresas en relación con el IBEX.
+Once the companies with which we worked were selected, their returns were computed from the adjusted prices. In addition to the returns corresponding to the selected companies, the returns of the adjusted closing price of the IBEX 35 were used, as well as other variables that serve as indicators of the behavior of the returns, and their relationship with those of the index, in this case those of the IBEX 35. These variables include the volatilities of the companies and the index, the correlation between the values of the series and the IBEX, and the beta of the companies in relation to the IBEX.
 
-## 2.4.2 Indicadores
+## 2.4.2 Indicators
 
-En el presente sub-epígrafe se expone una breve explicación de las variables computadas para usar como variables de entradas en conjunto con los valores históricos de las rentabilidades de las empresas. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-indi.
+This sub-heading presents a brief explanation of the computed variables to be used as input variables in conjunction with the historical values of the companies' returns. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-indi.
 
-### 2.4.2.1 Volatilidad
+### 2.4.2.1 Volatility
 
-A partir de lo expuesto en @hargrave23 y @hayesA23vola la desviación estándar y la volatilidad son dos conceptos relacionados que miden cuánto fluctúa el precio de una acción u otro activo a lo largo del tiempo. La desviación estándar es un término estadístico que cuantifica la dispersión de un conjunto de puntos de datos alrededor de su valor medio. La volatilidad es un término financiero que describe el grado de variación en los rendimientos de un activo durante un período de tiempo determinado.
+Building on @hargrave23 and @hayesA23vola, standard deviation and volatility are two related concepts that measure how much the price of a stock or other asset fluctuates over time. Standard deviation is a statistical term that quantifies the spread of a set of data points around its mean value. Volatility is a financial term that describes the degree of variation in the returns of an asset over a given period of time.
 
-La desviación estándar y la volatilidad son importantes en el análisis del mercado de valores porque indican el riesgo y la incertidumbre asociados con la inversión en un activo en particular. Una desviación estándar o volatilidad alta significa que el precio del activo puede cambiar significativamente en cualquier dirección, lo que implica un mayor potencial de ganancias o pérdidas. Una desviación estándar o volatilidad baja significa que el precio del activo es relativamente estable y predecible, lo que implica un menor potencial de ganancias o pérdidas @hayesA23vola.
+Standard deviation and volatility are important in stock market analysis because they indicate the risk and uncertainty associated with investing in a particular asset. A high standard deviation or volatility means that the price of the asset can change significantly in either direction, implying greater potential for profit or loss. A low standard deviation or volatility means that the asset's price is relatively stable and predictable, which means less potential for profit or loss @hayesA23vola.
 
-Para calcular la volatilidad de una acción o índice se calcula la desviación estándar de las rentabilidades. Siendo por tanto los cálculos necesarios los que se muestran a continuación en la @eq-volatility.
+To calculate the volatility of a stock or index, the standard deviation of returns is calculated. Therefore, the necessary calculations are those shown below in the @eq-volatility.
 
 $$R_i = \frac{P_i - P_{i-1}}{P_{i-1}}$$
 
 $$\sigma = \sqrt{\frac{\sum_{i=1}^N (R_i - \bar{R})^2}{N} }$$ {#eq-volatility}
 
-donde:
+where:
 
--   $R_i$ es la rentabilidad de la acción en el periodo $i$
+-   $R_i$ is the return of the stock in the period $i$
 
--   $P_i$ y $P_{i-1}$ son los precios de una acción en periodos de tiempo $i$ e $i-1$, respectivamente.
+-   $P_i$ y $P_{i-1}$ are the prices of a share in time periods $i$ and $i-1$, respectively.
 
--   $\sigma$ es la desviación estandar - $N$ es el número de observaciones
+-   $\sigma$ is the standard deviation - $N$ is the number of observations
 
--   $\bar{R}$ es la rentabilidad media de la acción.
+-   $\bar{R}$ is the average return on the stock.
 
-La desviación estándar y la volatilidad son herramientas útiles para que los inversores y analistas evalúen el equilibrio riesgo-recompensa de diferentes activos y carteras. También pueden ayudar a comparar el rendimiento de diferentes activos y carteras a lo largo del tiempo y en diferentes condiciones de mercado.
+Standard deviation and volatility are useful tools for investors and analysts to assess the risk-reward balance of different assets and portfolios. They can also help compare the performance of different assets and portfolios over time and under different market conditions.
 
-### 2.4.2.2 Correlación
+### 2.4.2.2 Correlation
 
-Como se explica en @edwards22 la correlación es una medida estadística que determina cómo dos variables se mueven entre sí. En el análisis del mercado de valores, la correlación puede ayudar a comprender el comportamiento de diferentes acciones o indicadores del mercado a lo largo del tiempo. Tomando como ejemplo los datos que se usan en este trabajo, si los precios de una de las empresas seleccionadas tienden a subir y bajar junto con el IBEX 35, estos precios tienen una correlación positiva. Si al contrario los precios de la empresa tienden a subir cuando el indicador del IBEX 35 baja, tienen una correlación negativa. Un coeficiente de correlación de cero significa que no existe una relación lineal entre las variables, siendo en este caso los valores del IBEX 35 y los precios de una de las empresas determinadas.
+As @edwards22 explains, correlation is a statistical measure that determines how two variables move relative to each other. In stock market analysis, correlation can help understand the behavior of different stocks or market indicators over time. Taking the data used in this paper as an example, if the prices of one of the selected companies tend to go up and down together with the IBEX 35, these prices have a positive correlation. If, on the contrary, the company's prices tend to rise when the IBEX 35 indicator falls, they have a negative correlation. A correlation coefficient of zero means that there is no linear relationship between the variables, being in this case the values ​​of the IBEX 35 and the prices of one of the determined companies.
 
-Como se expone en @ross22 la correlación entre dos variables se calcula usando la siguiente equación, @eq-correlation:
+As exposed by @ross22 the correlation between two variables is calculated using the following equation, @eq-correlation:
 
 $$\rho_{xy} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}$$ {#eq-correlation}
 
-donde:
+where:
 
--   $\rho_{xy}$ es el coeficiente de correlación
+-   $\rho_{xy}$ is the correlation coefficient
 
--   $n$ es el número de observaciones
+-   $n$ is the number of observations
 
--   $x_i$ y $y_i$ son los valores de las dos variables para la $i$ observación
+-   $x_i$ y $y_i$ are the values of the two variables for the $i$ observation
 
--   $\bar{x}$ y $\bar{y}$ son las medias de las dos variables.
+-   $\bar{x}$ y $\bar{y}$ are the means of the two variables.
 
-Como se explica también en @edwards22, el coeficiente de correlación se encuentra en un rango de -1 a 1, donde -1 indica una correlación negativa perfecta, 1 indica una correlación positiva perfecta, y 0 indica que no existe correlación alguna. Pudiéndose entender que, mientras más cercano se encuentre el coeficiente de correlación tanto a -1 como a 1, más fuerte es la relación lineal entre las variables analizadas.
+As also explained by @edwards22, the correlation coefficient ranges from -1 to 1, where -1 indicates perfect negative correlation, 1 indicates perfect positive correlation, and 0 indicates no correlation at all. Being able to understand that the closer the correlation coefficient is to both -1 and 1, the stronger the linear relationship between the variables analyzed.
 
-Como ya se explicó con anterioridad el coeficiente de correlación, en el presente trabajo, se puede utilizar para analizar qué tan parecido se mueven las rentabilidades de una empresa en comparación con las del IBEX 35. La correlación también se puede utilizar para diversificar una cartera eligiendo acciones que tengan una correlación baja o negativa entre sí, como se explica en @boytew22. Esto puede ayudar a reducir el riesgo general de la cartera, ya que las pérdidas de una acción pueden compensarse con las ganancias de otra. Sin embargo, la correlación no es constante y puede cambiar con el tiempo debido a varios factores, como las condiciones del mercado, los eventos económicos o las noticias de la empresa. Por lo tanto, es importante monitorear la correlación de acciones regularmente y ajustar la cartera en consecuencia @boytew22.
+As previously explained, the correlation coefficient, in this paper, can be used to analyze how similarly the returns of a company move compared to those of the IBEX 35. The correlation can also be used to diversify a portfolio by choosing stocks that have a low or negative correlation with each other, as explained by @boytew22. This can help reduce overall portfolio risk, as losses from one stock can be offset by gains from another. However, the correlation is not constant and can change over time due to various factors, such as market conditions, economic events, or company news. Therefore, it is important to monitor the stock correlation regularly and adjust the portfolio accordingly @boytew22.
 
-La correlación es una herramienta valiosa en el análisis del mercado de valores, pero no implica causalidad. Tener una correlación alta o baja entre dos variables no implica que una variable cause cambios en la otra. La correlación simplemente mide la fuerza y dirección de la relación lineal entre dos variables, sin considerar otros factores que puedan influir en ellas.
+Correlation is a valuable tool in stock market analysis, but it does not imply causation. Having a high or low correlation between two variables does not imply that one variable causes changes in the other. Correlation simply measures the strength and direction of the linear relationship between two variables, without considering other factors that may influence them.
 
-Como se expone también en @edwards22, la correlación guarda una íntima relación con la volatilidad del mercado y de las acciones, pudiéndose ver que, durante períodos de mayor volatilidad, como la crisis financiera de 2008, las acciones pueden tener una tendencia a estar más correlacionadas, incluso si se encuentran en diferentes sectores. Los mercados internacionales también pueden volverse altamente correlacionados durante tiempos de inestabilidad. Los inversores pueden querer incluir activos en sus carteras que tengan una baja correlación de mercado con los mercados de valores para ayudar a administrar su riesgo.
+As also exposed in @edwards22, the correlation is closely related to the volatility of the market and of the shares, being able to see that, during periods of greater volatility, such as the financial crisis of 2008, the shares can have a tendency to be more correlated, even if they are in different sectors. International markets can also become highly correlated during times of instability. Investors may want to include assets in their portfolios that have low market correlation to equity markets to help manage their risk.
 
 ### 2.4.2.3 Beta
 
-Como se explica en @kneton22beta Beta es una medida de cuán sensibles son los rendimientos de una acción a los cambios en los rendimientos del mercado. Se calcula como la pendiente de la línea de regresión que se ajusta a los rendimientos históricos de la acción y del mercado. Una beta de 1 significa que la acción se mueve en sincronía con el mercado, una beta superior a 1 significa que la acción es más volátil que el mercado y una beta inferior a 1 significa que la acción es menos volátil que el mercado.
+As explained by @kneton22beta Beta is a measure of how sensitive a stock's returns are to changes in market returns. It is calculated as the slope of the regression line that fits historical stock and market returns. A beta of 1 means the stock is moving in sync with the market, a beta greater than 1 means the stock is more volatile than the market, and a beta less than 1 means the stock is less volatile than the market.
 
-Beta es importante en el análisis del mercado de valores porque, como se explica en @kneton22beta, ayuda a los inversores a evaluar el riesgo y el rendimiento de una cartera. Al conocer la versión beta de cada acción en una cartera, los inversores pueden estimar cuánto fluctuará la cartera con los movimientos del mercado y ajustar su asignación de activos en consecuencia. Por ejemplo, si un inversor quiere reducir el riesgo de su cartera, puede elegir acciones con valores beta bajos o negativos que tienden a moverse en dirección opuesta al mercado.
+Beta is important in stock market analysis because, as @kneton22beta explains, it helps investors assess the risk and return of a portfolio. By knowing the beta of each stock in a portfolio, investors can estimate how much the portfolio will fluctuate with market movements and adjust their asset allocation accordingly. For example, if an investor wants to reduce the risk in their portfolio, they might choose stocks with low or negative beta values ​​that tend to move in the opposite direction of the market.
 
-Como se explica en @monaghan19bvsc Beta está relacionado con la correlación, pero no son lo mismo. Como se explicó con antrioridad la correlación es una medida de cuán linealmente relacionadas están dos variables, Beta, por otro lado, es una medida de cuán fuertemente relacionadas están dos variables, lo que indica cuánto cambia una variable cuando otra variable cambia en una unidad. Beta se puede calcular a partir de la correlación usando la siguiente ecuación, @eq-beta:
+As explained by @monaghan19bvsc Beta is related to mapping, but they are not the same. As explained above, correlation is a measure of how linearly related two variables are, Beta, on the other hand, is a measure of how strongly related two variables are, indicating how much one variable changes when another variable changes by one unit. Beta can be calculated from the correlation using the following equation, @eq-beta:
 
 $$\beta = \frac{\rho_{xy} \sigma_x}{\sigma_y}$$ {#eq-beta}
 
-donde:
+where:
 
--   $\rho_{xy}$ es el coeficiente de correlación entre $x$ y $y$
+-   $\rho_{xy}$ is the correlation coefficient between $x$ and $y$
 
--   $\sigma_x$ es la volatilidad de x
+-   $\sigma_x$ is the volatility of x
 
--   $\sigma_y$ es la volatilidad de y.
+-   $\sigma_y$ is the volatility of y
 
-## 2.4.3 Vectores
+## 2.4.3 Vectors
 
-En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el sub-epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-vec.
+In this sub-section, the procedure carried out to create the input and output vectors from the data resulting from the procedure described in the previous sub-section is explained. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-vec.
 
-La estructura del conjunto de vectores de entradas y salidas es de vital importancia en el modelado de técnicas de ML teniendo un impacto importante en su eficacia. El conjunto debe de vectores debe crearse de manera representativa del problema a resolver, por lo que los pasos descritos a continuación explican en detalle los aspectos del problema a dar respuesta en el presente trabajo y como dar forma al conjunto de vectores de entradas y salidas para ello.
+The structure of the set of input and output vectors is of vital importance in the modeling of ML techniques, having a significant impact on its effectiveness. The set of vectors must be created in a representative way of the problem to be solved, so the steps described below explain in detail the aspects of the problem to be answered in this work and how to shape the set of input and output vectors to it.
 
-Como se ha mencionado con anterioridad el objetivo del presente trabajo es exponer un procedimiento para la utilización de modelos de RNA y programación cuadrática en una estrategia de inversión. El modelado atiende a la necesidad de obtener unas predicciones lo más acertada posible para posteriormente, basándose en las predicciones y en los datos históricos, hallar la composición de cartera idónea. Por lo que el problema a representar con los conjuntos de vectores de entradas y salidas es como explicar el comportamiento de la rentabilidad de una empresa en un instante de tiempo $i+1$ con los valores de varias variables en el instante de tiempo $i$.
+As previously mentioned, the objective of this paper is to present a procedure for the use of RNA models and quadratic programming in an investment strategy. The modeling addresses the need to obtain the most accurate predictions possible so that later, based on the predictions and historical data, find the ideal portfolio composition. Therefore, the problem to be represented with the sets of input and output vectors is how to explain the behavior of the profitability of a company at an instant of time $i+1$ with the values of several variables at the instant of time $i$.
 
-Para la representación de este problema se crearon vectores tridimensionales, siguiendo lo expuesto en @chollet2018deep. Las dimensiones de estos vectores se explican de la siguiente manera:
+To represent this problem, three-dimensional vectors were created, following what was exposed in @chollet2018deep. The dimensions of these vectors are explained as follows:
 
--   La primera dimensión esta comprendida por el número de muestras obtenidas al seccionar las observaciones de las distintas series en en vectores bidimensionales bidimensionales consecutivos.
+-   The first dimension is comprised of the number of samples obtained by sectioning the observations of the different series into consecutive two-dimensional two-dimensional vectors.
 
--   La segunda dimensión esta comprendida por el número de observaciones, de las distintas series, recogido en cada vector bidimensional.
+-   The second dimension is comprised of the number of observations, of the different series, collected in each two-dimensional vector.
 
--   La tercera dimensión es el número de series en cada vector bidimensional.
+-   The third dimension is the number of series in each two-dimensional vector.
 
-Por lo que para la correcta obtención de estas muestras se deben definir primero que series serán utilizadas para los vectores de entrada y salida. Las series utilizadas en los vectores de entrada fueron definidas en el epígrafe anterior, siendo estas: las rentabilidades históricas de la empresa y el IBEX, las volatilidades históricas de la empresa y el IBEX, la correlación histórica de la empresa y el IBEX, y el Beta histórico de la empresa y el IBEX. La serie utilizada para los vectores de salida es las rentabilidades históricas de la empresa.
+Therefore, in order to correctly obtain these samples, it is necessary to first define which series will be used for the input and output vectors. The series used in the input vectors were defined in the previous section, being these: the historical returns of the company and the IBEX, the historical volatilities of the company and the IBEX, the historical correlation of the company and the IBEX, and the Historical beta of the company and the IBEX. The series used for the output vectors is the historical profitability of the company.
 
-Posteriormente se definió el horizonte temporal que se desea prever, este es un aspecto clave en la creación de los conjuntos de entradas y de salidas. El número de observaciones definido como horizonte temporal determina las observaciones los vectores de salida, en el presente trabajo se determinó como horizonte temporal una observación ya que se desea predecir la rentabilidad del próximo mes de las distintas empresas seleccionadas.
+Subsequently, the time horizon to be foreseen was defined, this is a key aspect in the creation of the sets of inputs and outputs. The number of observations defined as the time horizon determines the observations of the output vectors, in the present work an observation was determined as the time horizon since it is desired to predict the profitability of the next month of the different selected companies.
 
-Y el último aspecto a definir es cuantas observaciones debe observar el modelo para inferir la salida deseada. Esto define la cantidad de observaciones que se tomarán de cada serie de tiempo para conformar los vectores de entrada. Para determinar este aspecto se debe realizar un proceso iterativo probando distintas cantidades y evaluar los resultados obtenidos por los modelos que se entrenen con dichos. Para simplificar el proceso, en el presente trabajo se determinó probar distintos tamaños de entrada siendo estos 1, 2 y 3 observaciones. Probándose así de cierta manera como el tamaño de las entradas afecta la predicción obtenida.
+And the last aspect to define is how many observations the model must observe to infer the desired output. This defines the number of observations that will be taken from each time series to form the input vectors. To determine this aspect, an iterative process must be carried out, testing different quantities and evaluating the results obtained by the models that are trained with them. To simplify the process, in the present work it was determined to test different input sizes, these being 1, 2 and 3 observations. Thus, testing in a certain way how the size of the inputs affects the prediction obtained.
 
-Si tenemos una de serie para los vectores de entrada contiene unas `r dim(returns_indc[[1]])[1]` observaciones se puede calcular el número de muestras que se obtuvo de esta serie siguiendo la siguiente ecuacíon, @eq-muestras:
+If we have an array for the input vectors contains some `r dim(returns_indc[[1]])[1]` observations, we can calculate the number of samples obtained from this array following the following equation, @eq-muestras:
 
 $$
 m = n - (i-1+o)
 $$ {#eq-muestras}
 
-donde:
+where:
 
--   $m$ el número de muestras
+-   $m$ the number of samples
 
--   $n$ la cantidad de observaciones de las series
+-   $n$ the number of observations in the series
 
--   $i$ y $o$ el número de observaciones en los vecotres de entrada y salida respectivamente.
+-   $i$ y $o$ the number of observations in the input and output vecotres respectively.
 
-En la @tbl-muestras se expone la cantidad de muestras obtenidas para los distintos tamaños de vectores de entrada planteados, para lo que se tuvo en cuenta los distintos números de observaciones con las que cuentan las `r length(returns_indc)` seleccionadas. En la @fig-muestras se expone como lucen los vectores de entrada y salida, en el caso en el que el vector de entrada cuenta con 3 observaciones.
-
+The @tbl-muestras shows the number of samples obtained for the different sizes of input vectors proposed, for which the different numbers of observations of the selected `r length(returns_indc)` were taken into account. The @fig-muestras shows what the input and output vectors look like, in the case in which the input vector has 3 observations.

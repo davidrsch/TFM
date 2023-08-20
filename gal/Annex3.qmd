@@ -1,4 +1,4 @@
-# Anexo. 3 Tablas {.unnumbered}
+# Anexo. 3 Taboleiros {.unnumbered}
 
 ```{r}
 #| output: asis
@@ -9,10 +9,10 @@ ITX <- head(ITX)
 cat(md_table(ITX))
 ```
 
-: Estructura de datos de precios {#tbl-pre_estruc}
+: Estrutura de datos de prezos {#tbl-pre_estruc}
 
 ::: figure-caption
-Elaboración propia: Mediante el uso de RStudio con la base de datos histórico de "INDITEX", obtenida de https://finance.yahoo.com/, en el periodo comprendido entre el 24-05-2001 al 31-05-2001.
+Elaboración propia: Mediante o uso de RStudio coa base de datos histórica de "INDITEX", obtida de https://finance.yahoo.com/, no período comprendido entre o 24-05-2001 ao 31-05-2001.
 :::
 
 ::: {style="font-size:12px"}
@@ -29,10 +29,10 @@ empresast <- empresas |>
 cat(md_table(empresast))
 ```
 
-: Lista de empresas cotizadas {#tbl-emp_cotiz}
+: Listaxe de sociedades cotizadas {#tbl-emp_cotiz}
 :::
 
-::: figure-caption Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, @BMEexcha. *Nota:* MC en MERCADO significa Mercado Continuo, IBEXTD en INDICE significa IBEX TOP Dividendo. :::
+::: figure-caption Obtido de: A información exposta no sitio oficial das Bolsas e Mercados Españoles, @BMEexcha. *Nota:* MC en MARKET significa Mercado Continuo, IBEXTD en INDEX significa IBEX TOP Dividendo. :::
 
 ```{r}
 #| output: asis
@@ -51,10 +51,10 @@ muestras <- data.frame(
 cat(md_table(muestras))
 ```
 
-: Cantidades de muestras utilizadas para entrenar los modelos {#tbl-muestras}
+: Cantidades de mostras utilizadas para adestrar os modelos {#tbl-muestras}
 
 ::: figure-caption
-Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados españoles, @BMEexcha.
+Obtido de: A información exposta no sitio oficial das Bolsas e Mercados de Valores Españoles, @BMEexcha.
 :::
 
 ```{r}
@@ -62,7 +62,7 @@ Obtenido de: La información expuesta en el sitio oficial de Bolsas y Mercados e
 #| echo: false
 #| label: tbl-indicadores
 #| tbl-cap: >
-#|   Mejores y peroes empresas según los resultados obtenidos de los cálculos de los indicadores
+#|   Mellores e mellores empresas segundo os resultados obtidos dos cálculos dos indicadores
 
 for (i in 1:3) {
   listresult <- get(paste0("resultscnnlstmssing",i))

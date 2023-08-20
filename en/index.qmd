@@ -1,5 +1,25 @@
-# Descripción {.unnumbered}
+# Description {.unnumbered}
 
-Este es el sitio web para "Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras", un Trabajo de Fin de Máster del Máster Universitario en Banca y Finanzas de la Universidade da Coruña. El trabajo fue realizado por David Díaz Rodríguez y tutelado por Xosé Manuel Martínez Filgueira. El sitio está construido usando [Quarto](https://quarto.org/).
+This is the website for "Application of artificial neural networks and quadratic programming in portfolio management", a Master's Thesis of the Master's Degree in Banking and Finance from the University of A Coruña. The work was carried out by David Díaz Rodríguez and supervised by Xosé Manuel Martínez Filgueira. The site is built using [Quarto](https://quarto.org/).
 
-El presente trabajo cuenta con un ![repositorio](https://github.com/davidrsch/TFM) en el que se encuentra, además del código fuente para el presente sitio, algunos de los datos resultantes del procedimiento descrito a lo largo del trabajo así como estructuras de los modelos de RNA utilizadas para la obtención de las predicciones.
+This work has a ![repository](https://github.com/davidrsch/TFM) that contains, in addition to the source code for this site, some of the data resulting from the procedure described throughout the work, as well as structures of the RNA models used to obtain the predictions. .
+
+The code of the procedure exposed in the present work, @sec-code, was developed using version 4.3.1 of R and version 2023.06.1-524 of the RStudio software. The packages necessary for the execution of the code are the following:
+
+```{r}
+#| output: asis
+#| echo: false
+
+Paquetes <- (.packages())
+base <- sessionInfo()$basePkgs
+Paquetes <- Paquetes[-which(is.element(Paquetes,base))]
+Versiones <- lapply(sapply(Paquetes, packageVersion), function(x){paste(x, collapse = '.')})
+Versiones <- unlist(Versiones, use.names = F)
+PaqT <- data.frame(
+  Package = Paquetes,
+  Versión = Versiones
+) |>
+  arrange(Paquete,.locale = "en") |>
+  md_table() |>
+  cat()
+```

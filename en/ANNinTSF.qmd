@@ -1,54 +1,54 @@
-# 2.2 Redes neuronales artificiales en la previsión de las series de tiempo {.unnumbered}
+# 2.2 Artificial neural networks in the forecast of time series {.unnumbered}
 
-Este epígrafe está dividido en tres sub-epígrafes. En el primero se abordan los antecedentes del uso de redes neuronales artificiales para el trabajo con series de tiempo, más concretamente en la previsión. En el segundo y tercer sub-epígrafes se exponen el funcionamiento de dos de las estructuras de capas de RNA usadas en el presente trabajo, siendo estas las CNN y las LSTM.
+This epigraph is divided into three sub-headings. The first deals with the background to the use of artificial neural networks for working with time series, more specifically in forecasting. In the second and third sub-headings, the operation of two of the RNA layer structures used in this work are exposed, these being the CNN and the LSTM.
 
-## 2.2.1 Antecedentes del uso de redes neuronales artificiales en la previsión de series de tiempo
+## 2.2.1 Background on the use of artificial neural networks in time series forecasting
 
-En @chollet2018deep se plantea que el entorno de las RNA está conformado por la inteligencia artificial (en lo adelante IA), machine learning o aprendizaje automatizado (en lo adelante ML) y deep learning o aprendizaje profundo (en lo adelante DL), @fig-DLenv. Por lo que es de vital importancia conocer los aspectos de estos campos que se encuentran íntimamente relacionados con las RNA y que se exponen brevemente a continuación.
+In @chollet2018deep it is stated that the ANN environment is made up of artificial intelligence (hereinafter IA), machine learning or automated learning (hereinafter ML) and deep learning or deep learning (hereinafter DL), @fig -DLenv. Therefore, it is of vital importance to know the aspects of these fields that are closely related to ANN and that are briefly explained below.
 
-"Hacer que una máquina se comporte de tal manera que si un humano lo hiciera se le llamaría inteligente" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) es la primera definición que se le dio al problema de IA. Con el objetivo de dar solución a este problema surgieron las primeras IA, las llamadas IA simbólicas.
+"Making a machine behave in such a way that a human would be called intelligent" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) is the first definition given to the AI ​​problem. With the aim of solving this problem, the first AI emerged, the so-called symbolic AI.
 
-Como se explica en @haykin1998neural, @banda2014 y @chollet2018deep, estas primeras IA, involucraban reglas codificadas creadas por los programadores. Con el objetivo de lograr que estas reglas fueran aprendidas automáticamente por las máquinas al observar los datos surgió una nueva etapa dentro del desarrollo de las IA, la denominada ML. En esta nueva etapa se da pie al surgimiento de una nueva forma de programación, diferenciándose de la clásica, en que, en esta, los programadores introducen los datos y las respuestas esperadas a los mismos, y las computadoras son capaces de generar las reglas, @fig-MLprog.
+As explained by @haykin1998neural, @banda2014 and @chollet2018deep, these early AIs involved hardcoded rules created by programmers. With the aim of achieving that these rules were automatically learned by the machines when observing the data, a new stage emerged in the development of AI, the so-called ML. This new stage gives rise to the emergence of a new form of programming, differentiating from the classic, in that, in this, the programmers introduce the data and the expected responses to them, and the computers are capable of generating the rules, @fig-MLprog.
 
-Por lo que se entiende que los modelos de ML tratan de encontrar representaciones apropiadas para sus datos de entrada: transformaciones de los datos que hacen que sea más susceptible a la tarea en cuestión. En DL, que es un sub-campo específico de ML, estas representaciones de datos son modeladas a través de arquitecturas compuestas de capas sucesivas, las que son llamadas RNA @chollet2018deep.
+So it is understood that ML models try to find appropriate representations for your input data: transformations of the data that make it more amenable to the task at hand. In DL, which is a specific sub-field of ML, these data representations are modeled through architectures composed of successive layers, which are called RNA @chollet2018deep.
 
-Tras el estudio de lo expuesto en @haykin1998neural, @Larranaga07, @banda2014 y @chollet2018deep sobre las RNA se puede afirmar que están inspiradas en el funcionamiento del cerebro humano, dichos textos confirman y concuerdan en que en una RNA se pueden diferenciar tres tipos de capas: de entrada, de salida y ocultas. Una capa de entrada está compuesta por neuronas que reciben los vectores de entradas. Una capa de salida se compone de neuronas que, durante el entrenamiento reciben los vectores de salidas y que luego generan la respuesta. Una capa oculta se encuentra conectada al entorno a través de las capas de entrada y salida, este tipo de capa oculta procesa la entrada recibida para obtener la salida correspondiente, @fig-RNAstruct.
+After studying what was exposed in @haykin1998neural, @Larranaga07, @banda2014 and @chollet2018deep about ANN, it can be affirmed that they are inspired by the functioning of the human brain, these texts confirm and agree that three types of ANN can be distinguished layers: input, output and hidden. An input layer is composed of neurons that receive the input vectors. An output layer is made up of neurons that, during training, receive the output vectors and then generate the response. A hidden layer is connected to the environment through the input and output layers, this type of hidden layer processes the received input to obtain the corresponding output, @fig-RNAstruct.
 
-Una de las aplicaciones de las RNA es la previsión de series temporales. cuyo objetivo es predecir los valores futuros de las variables en función de sus observaciones pasadas. Como se expuso con anterioridad las series de tiempo financieras a menudo son no lineales, ruidosas, caóticas y no estacionarias, lo que las hace difíciles de modelar y pronosticar. Las RNA tienen la ventaja de poder capturar relaciones no lineales complejas y adaptarse a condiciones cambiantes sin requerir suposiciones previas sobre la distribución o estructura de datos.
+One of the applications of ANN is the forecasting of time series. whose objective is to predict the future values ​​of variables based on their past observations. As discussed previously, financial time series are often nonlinear, noisy, chaotic, and nonstationary, making them difficult to model and forecast. ANNs have the advantage of being able to capture complex nonlinear relationships and adapt to changing conditions without requiring prior assumptions about the distribution or structure of the data.
 
-La historia de las RNA en la previsión de series temporales financieras se remonta a finales de la década de 1980 y principios de la de 1990, cuando los investigadores comenzaron a explorar el potencial de las RNA como una alternativa a los métodos estadísticos tradicionales, como el modelo autorregresivo integrado de media móviles, más conocido como ARIMA (por sus siglas en inglés Autoregressive Integrated Moving Average) y los modelos autorregresivos generalizados con heterocedasticidad condicional, más conocido como GARCH (por sus siglas en inglés Generalized Autoregressive Conditional Heteroskedasticity). Se demostró que las RNA tienen varias ventajas sobre estos métodos, como la capacidad de capturar relaciones no lineales y dinámicas, manejar datos ruidosos e incompletos y adaptarse a las condiciones cambiantes del mercado (@ZHANG199835).
+The history of ANNs in financial time series forecasting dates back to the late 1980s and early 1990s, when researchers began to explore the potential of ANNs as an alternative to traditional statistical methods, such as the integrated autoregressive moving average model, better known as ARIMA (Autoregressive Integrated Moving Average) and generalized autoregressive models with conditional heteroskedasticity, better known as GARCH (Generalized Autoregressive Conditional Heteroskedasticity). ANNs were shown to have several advantages over these methods, such as the ability to capture non-linear and dynamic relationships, handle noisy and incomplete data, and adapt to changing market conditions (@ZHANG199835).
 
-Sin embargo, las RNA también enfrentan algunas limitaciones y desafíos en el pronóstico de series temporales financieras, como la dificultad de elegir una arquitectura de red adecuada, un algoritmo de entrenamiento, una función de activación y variables de entrada; el riesgo de sobreajuste y problemas de generalización; la falta de interpretabilidad y transparencia; y el alto costo computacional y tiempo (@TEALAB2018334).
+However, ANNs also face some limitations and challenges in financial time series forecasting, such as the difficulty of choosing a suitable network architecture, training algorithm, activation function, and input variables; the risk of overfitting and generalization problems; the lack of interpretability and transparency; and the high computational cost and time (@TEALAB2018334).
 
-Para superar estas limitaciones y desafíos, los investigadores han propuesto varias mejoras y extensiones de RNA para el pronóstico de series temporales financieras en las últimas décadas. Algunos de los principales desarrollos incluyen:
+To overcome these limitations and challenges, researchers have proposed several enhancements and extensions to ANN for financial time series forecasting in recent decades. Some of the major developments include:
 
--   El uso de modelos híbridos que combinan RNA con otras técnicas, como lógica difusa, algoritmos genéticos, análisis de ondículas, máquinas de vectores de soporte y aprendizaje profundo para mejorar el rendimiento y la solidez de las RNA (@wongguo2010).
+-   The use of hybrid models that combine ANN with other techniques such as fuzzy logic, genetic algorithms, wavelet analysis, support vector machines, and deep learning to improve ANN performance and robustness (@wongguo2010).
 
--   El uso de redes neuronales recurrentes (en lo adelante RNR) o bidireccional, que son un tipo especial de RNA que pueden procesar datos secuenciales y capturar dependencias temporales. Se ha demostrado que las RNR superan a las redes neuronales unidireccionales en series temporales complejas y no lineales (@GURESEN201110389).
+-   The use of recurrent neural networks (hereinafter RNR) or bidirectional, which are a special type of ANN that can process sequential data and capture temporal dependencies. RNRs have been shown to outperform unidirectional neural networks in complex and non-linear time series (@GURESEN201110389).
 
--   El uso de modelos de RNA más complejas mediante la combinación de distintas capas, como son las redes neuronales convolucionales (en lo adelante, CNN), las long short-term memory (en lo adelante, LSTM), las gated recurrent units (en lo adelante, GRU) se han aplicado a la previsión de series temporales financieras con resultados prometedores (@SEZER2020106181).
+-   The use of more complex RNA models by combining different layers, such as convolutional neural networks (hereinafter, CNN), long short-term memory (hereinafter, LSTM), gated recurrent units (hereinafter GRU) have been applied to financial time series forecasting with promising results (@SEZER2020106181).
 
-La historia de las RNA en el pronóstico de series temporales financieras muestra que las mismas han ido evolucionando y mejorando con el tiempo para hacer frente a la complejidad y la incertidumbre de los mercados financieros. Sin embargo, todavía persisten algunos de los desafíos y limitaciones señalados con anterioridad como el sobreajuste, la generalización, la interpretabilidad, la robustez y el costo computacional.
+The history of ANNs in financial time series forecasting shows that ANNs have evolved and improved over time to cope with the complexity and uncertainty of financial markets. However, some of the previously mentioned challenges and limitations still persist, such as overfitting, generalization, interpretability, robustness, and computational cost.
 
-## 2.2.2 Redes neuronales convolucionales
+## 2.2.2 Convolutional Neural Networks
 
-El modelo de RNA que se usó en este trabajo está compuesto por varias capas siendo las más importantes la capa Conv1D, un tipo especifico de CNN, y la capa LSTM, ambas mencionadas en el sub-epígrafe anterior cuando se listaron las estructuras de ANN que más se utilicen en la actualidad. Este sub-epígrafe se centra en la Capa Conv1D, por lo que se exploran los conceptos fundamentales para comprender el funcionamiento de esta, explicándose la convolución, las redes neuronales convolucionales y Conv1D y su uso para el análisis de series temporales. Se brinda una descripción general de la convolución y cómo se puede aplicar a los datos de series temporales. Luego, se analizan las CNN y su arquitectura, que les permite aprender características automáticamente a partir de datos de series temporales. Finalmente, se explica Conv1D, un tipo específico de capa de red neuronal convolucional que es particularmente eficaz para procesar datos de series temporales.
+The RNA model used in this work is composed of several layers, the most important being the Conv1D layer, a specific type of CNN, and the LSTM layer, both mentioned in the previous subsection when the ANN structures that most used today. This subsection focuses on the Conv1D Layer, so the fundamental concepts to understand its operation are explored, explaining convolution, convolutional neural networks and Conv1D and their use for time series analysis. An overview of convolution and how it can be applied to time series data is provided. Then, CNNs and their architecture, which allows them to automatically learn features from time series data, are discussed. Finally, Conv1D, a specific type of convolutional neural network layer that is particularly effective for processing time series data, is explained.
 
-Como se expone en @rafid23 la convolución es una operación matemática que se usa comúnmente en el procesamiento de señales y el análisis de imágenes. Implica tomar dos funciones y producir una tercera función que representa cómo una de las funciones originales modifica a la otra. En el contexto de los datos de series temporales, la convolución se puede utilizar para extraer características de los datos aplicando un filtro a la serie temporal.
+As discussed in @rafid23, convolution is a mathematical operation that is commonly used in signal processing and image analysis. It involves taking two functions and producing a third function that represents how one of the original functions modifies the other. In the context of time series data, convolution can be used to extract features from the data by applying a filter to the time series.
 
-Además de extraer características de los datos de series temporales, la convolución también se puede utilizar para otras tareas, como la reducción de ruido, la detección de anomalías y la predicción. Por ejemplo, se puede entrenar una CNN para predecir valores futuros de una serie temporal aprendiendo los patrones subyacentes en los datos. En general, la convolución es una herramienta poderosa para analizar datos de series temporales y sus aplicaciones son numerosas @rafid23.
+In addition to extracting features from time series data, convolution can also be used for other tasks such as noise reduction, anomaly detection, and prediction. For example, a CNN can be trained to predict future values of a time series by learning the underlying patterns in the data. In general, convolution is a powerful tool for analyzing time series data and its applications are numerous @rafid23.
 
-Las CNN fueron por primera vez introducidas en @cnn son un tipo de modelo de aprendizaje profundo que se usa comúnmente para el análisis de imágenes. Sin embargo, como se ha mencionado con anterioridad también se pueden utilizar para el análisis de series temporales, ya que son muy adecuados para aprender características a partir de datos que tienen una estructura espacial o temporal.
+CNNs were first introduced at @cnn and are a type of deep learning model that is commonly used for image analysis. However, as previously mentioned, they can also be used for time series analysis, as they are well-suited for learning features from data that have a spatial or temporal structure.
 
-La arquitectura de una CNN consta de una o más capas convolucionales, que aplican filtros a los datos de entrada para extraer características. Cada filtro es un conjunto de pesos que se aprenden durante el proceso de entrenamiento. Al deslizar el filtro sobre los datos de entrada, la capa convolucional calcula un producto escalar en cada posición, produciendo un nuevo mapa de características @cnn.
+The architecture of a CNN consists of one or more convolutional layers, which apply filters to the input data to extract features. Each filter is a set of weights that are learned during the training process. By sliding the filter over the input data, the convolutional layer computes a dot product at each position, producing a new @cnn feature map.
 
-En un contexto de series de tiempo, una CNN puede aprender a extraer automáticamente características de los datos en diferentes escalas e intervalos de tiempo, lo que la convierte en una herramienta poderosa para el análisis de series de tiempo. Una ventaja clave de usar una CNN para el análisis de series de tiempo es que reduce la necesidad de ingeniería de características manual. En lugar de diseñar filtros a mano, CNN aprende a extraer automáticamente características de los datos, haciéndolo más flexible y adaptable a diferentes tipos de datos de series temporales.
+In a time series context, a CNN can learn to automatically extract features from data at different scales and time intervals, making it a powerful tool for time series analysis. A key advantage of using a CNN for time series analysis is that it reduces the need for manual feature engineering. Instead of designing filters by hand, CNN learns to automatically extract features from the data, making it more flexible and adaptable to different types of time series data.
 
-En general, la arquitectura de una CNN le permite aprender características automáticamente a partir de datos de series temporales, lo que la convierte en una herramienta poderosa para el análisis de series temporales, siendo las Conv1D una de las estructuras de CNN más usadas para esta tarea.
+In general, the architecture of a CNN allows it to automatically learn features from time series data, making it a powerful tool for time series analysis, with Conv1D being one of the most widely used CNN structures for this task.
 
-Como se explica en @hongj20 Conv1D es un tipo específico de capa de CNN que está diseñado para procesar datos unidimensionales, como datos de series temporales. Mientras que las CNN tradicionales están diseñadas para procesar datos bidimensionales, Conv1D está optimizado específicamente para datos unidimensionales, lo que lo hace más eficiente y eficaz para el análisis de series temporales.
+As explained in @hongj20 Conv1D is a specific type of CNN layer that is designed to process one-dimensional data, such as time series data. While traditional CNNs are designed to process two-dimensional data, Conv1D is specifically optimized for one-dimensional data, making it more efficient and effective for time series analysis.
 
-La arquitectura de una capa Conv1D es similar a la de una CNN tradicional, pero con algunas diferencias clave. En lugar de usar filtros bidimensionales, Conv1D usa filtros unidimensionales, que se aplican a la serie temporal de entrada para extraer características. Las características que se extraen de la serie dependerán de las distintas configuraciones usadas para la configuración del filtro y la cantidad de filtros utilizados, siendo la fórmula para calcular la cantidad de característica que extrae cada filtro la siguiente @eq-cnn-lout (@hongj20):
+The architecture of a Conv1D layer is similar to that of a traditional CNN, but with some key differences. Instead of using two-dimensional filters, Conv1D uses one-dimensional filters, which are applied to the input time series to extract features. The features that are extracted from the string will depend on the different configurations used for the filter configuration and the number of filters used, being the following formula to calculate the amount of feature that each filter extracts: @eq-cnn-lout (@hongj20):
 
 $$
 \begin{aligned}
@@ -56,49 +56,49 @@ L_{out} &= \frac{L_{in} + 2*padding - dilation*(kerenel\_size - 1)-1}{stride} + 
 \end{aligned}
 $$ {#eq-cnn-lout}
 
-Donde:
+Where:
 
 ::: margin
-*Lout*: es la longitud de la salida del proceso de filtrado o la cantidad de características.
+*Lout*: is the length of the output of the filtering process or the number of features.
 :::
 
 ::: margin
-*Lin*: la longitud del vector de entrada, correspondiendo en el análisis de series de tiempo a la cantidad de observaciones que contienen las muestras de la serie de tiempo que se pasan al filtro.
+*Lin*: the length of the input vector, corresponding in time series analysis to the number of observations that contain the samples of the time series that are passed to the filter.
 :::
 
 ::: margin
-*kernel_size*: es el tamaño del filtro, lo que define cuantas observaciones del vector de entradas se pasan al filtro cada vez. @fig-HJks representa como el tamaño del filtro puede afectar la longitud del vector de salida.
+*kernel_size*: is the size of the filter, which defines how many observations of the input vector are passed to the filter each time. @fig-HJks represents how the size of the filter can affect the length of the output vector.
 :::
 
 ::: margin
-*stride*: representa la cantidad de pasos u observaciones en las que se mueve la selección de observaciones que se pasa al filtro. @fig-HJstride representa como el parámetro stride puede afectar la longitud del vector de salida.
+*stride*: represents the number of steps or observations by which the selection of observations passed to the filter is moved. @fig-HJstride represents how the stride parameter can affect the length of the output vector.
 :::
 
 ::: margin
-*dilation*: es la distancia de las observaciones que pasan al filtro. @fig-HJdilation representa como el parámetro dilation puede afectar la longitud del vector de salida.
+*dilation*: is the distance of the observations that pass the filter. @fig-HJdilation represents how the dilation parameter can affect the length of the output vector.
 :::
 
 ::: margin
-*padding*: representa la cantidad de zeros que se añade a cada extremo del vector. @fig-HJpadding representa como el parámetro padding puede afectar la longitud del vector de salida.
+*padding*: represents the number of zeros to add to each end of the vector. @fig-HJpadding represents how the padding parameter can affect the length of the output vector.
 :::
 
-En general, Conv1D es una herramienta poderosa para procesar datos de series temporales y sus ventajas incluyen la eficiencia computacional y la capacidad de capturar dependencias temporales en los datos. Sus casos de uso son numerosos y abarcan diferentes campos, lo que lo convierte en una herramienta valiosa para el análisis de series temporales.
+Overall, Conv1D is a powerful tool for processing time series data, and its advantages include computational efficiency and the ability to capture time dependencies in the data. Its use cases are numerous and span different fields, making it a valuable tool for time series analysis.
 
 ## 2.2.3 Long short-term memory
 
-En el presente subepigrafe se explica por qué las LSTM son una de las estructuras más usadas de RNA en la previsión de series de tiempo, partiendo de una breve explicación de las RNR y porque estas son de utilidad en la solución de problemas de previsión de series de tiempo, profundizando en por qué las LSTM se diferencian del resto de las RNN, y el funcionamiento de cada una de las capas que componen la estructura de una capa LSTM.
+This subsection explains why LSTMs are one of the most widely used ANN structures in time series forecasting, based on a brief explanation of RNRs and why they are useful in solving series forecasting problems. of time, delving into why LSTMs differ from the rest of the RNNs, and the operation of each of the layers that make up the structure of an LSTM layer.
 
-En @COlah15 se explica que una RNN puede considerarse como copias múltiples de la misma red, @fig-CORNRstruct, expone que este aspecto revela que las RNR están íntimamente relacionadas con secuencias y listas, lo que hace que este tipo de RNA sea el que se use naturalmente para el trabajo con series de tiempo.
+@COlah15 explains that an RNN can be considered as multiple copies of the same network, @fig-CORNRstruct, states that this aspect reveals that RNRs are intimately related to sequences and lists, which makes this type of RNA the one that naturally used for work with time series.
 
-Las RNR convencionales presentan un problema en lo relacionado con la capacidad de retener la información, como se explica en @COlah15, las RNN estándar se desempeñan con gran capacidad solo si, la información relevante para la situación actual es reciente, es decir donde la brecha entre la información relevante y el lugar en que se necesita es pequeña, @fig-CORInclose; expone además que a medida que crece la brecha, las RNN estándar son incapaces de acceder a la información relevante, @fig-CORInaway.
+Conventional RNRs present a problem in relation to the ability to retain information, as explained by @COlah15, standard RNNs perform with great capacity only if the information relevant to the current situation is recent, that is, where the gap between the relevant information and where it is needed is small, @fig-CORInclose; further exposes that as the gap grows, standard RNNs are unable to access the relevant information, @fig-CORInaway.
 
-Como se ha mencionado con anterioridad las LSTM son un tipo de RNR que puede aprender dependencias a largo plazo en datos secuenciales. Estas fueron propuestas en @SeppJur97 y ha sido ampliamente utilizado para diversas tareas como el modelado del lenguaje, el reconocimiento de voz, la traducción automática, la descripción de imágenes y la previsión de series de tiempo.
+As previously mentioned, LSTMs are a type of RNR that can learn long-term dependencies on sequential data. These were proposed in @SeppJur97 and have been widely used for various tasks such as language modeling, speech recognition, machine translation, image description, and time series forecasting.
 
-La idea principal de LSTM es introducir una celda de memoria que pueda almacenar y actualizar información durante largos pasos de tiempo. La celda de memoria está controlada por tres puertas: una puerta de entrada, una puerta de olvido y una puerta de salida. Estas puertas son redes neuronales que aprenden a regular el flujo de información dentro y fuera de la célula @fig-CODrnrlstm.
+The main idea of LSTM is to introduce a memory cell that can store and update information over long steps of time. The memory cell is controlled by three gates: an entry gate, a forget gate, and an exit gate. These gates are neural networks that learn to regulate the flow of information in and out of the cell @fig-CODrnrlstm.
 
-La puerta de entrada decide qué cantidad de la nueva entrada agregar al estado de la celda. La puerta de olvido decide qué parte del estado de celda anterior mantener o borrar. La puerta de salida decide qué parte del estado de celda actual se va a enviar a la siguiente capa. @COlah15 basado en lo expuesto en @SeppJur97, describe la operativa de las puertas en cuatro pasos:
+The input gate decides how much of the new input to add to the cell state. The forget gate decides which part of the previous cell state to keep or delete. The output gate decides which part of the current cell state is to be sent to the next layer. @COlah15 based on what was exposed in @SeppJur97, describes the operation of the doors in four steps:
 
-1.  Decidir qué información se olvida del estado de la celda a través de la puerta, forget gate layer $f_t$. Esta puerta ve a $h_{t-1}$, estado oculto del período de tiempo anterior, y $x_{t}$, entrada del instante de tiempo actual, y genera un número entre 0 (deshacerse) y 1 (mantener) para cada número en el estado de la celda $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
+1.  Deciding which cell state information is forgotten through the gate, forget gate layer $f_t$. This gate looks at $h_{t-1}$, hidden state from the previous time period, and $x_{t}$, input from the current time instant, and outputs a number between 0 (undo) and 1 (hold). for each number in cell state $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
 
 $$
 \begin{aligned}
@@ -106,7 +106,7 @@ f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
 \end{aligned}
 $$ {#eq-lstm-fstep}
 
-2.  Decidir qué nueva información se almacena en el estado de la celda. Para esto primero la puerta llamada input gate layer decide qué valores actualizar y luego, una capa tanh (tangente hiperbólica) crea un vector de nuevos valores candidatos ($\tilde{C}_t$) que podrían agregarse al estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
+2.  Decide what new information is stored in the cell state. For this first the input gate layer decides which values to update and then a tanh (hyperbolic tangent) layer creates a vector of new candidate values ($\tilde{C}_t$) that could be added to the state, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
 
 $$
 \begin{aligned}
@@ -120,7 +120,7 @@ $$
 \end{aligned}
 $$ {#eq-lstm-ssteps}
 
-3.  Se actualiza el estado de la celda anterior, $C_{t-1}$ en el nuevo estado de la celda $C_{t}$. Se multiplica el estado anterior por $f_{t}$, olvidando lo necesario, luego se agrega $i_{t} * \tilde{C}_{t}$. Estos son los nuevos valores candidatos, escalados según cuánto se necesita actualizar cada valor de estado, @fig-COLSTMstep3, ecuación 1.09.
+3.  The state of the old cell, $C_{t-1}$, is updated to the new state of cell $C_{t}$. Multiply the previous state by $f_{t}$, forgetting what is necessary, then add $i_{t} * \tilde{C}_{t}$. These are the new candidate values, scaled by how much each status value needs to be updated, @fig-COLSTMstep3, @eq-lstm-tstep.
 
 $$
 \begin{aligned}
@@ -128,7 +128,7 @@ C_t &= f_t * C_{t-1} + i_t * \tilde{C}_t  \\
 \end{aligned}
 $$ {#eq-lstm-tstep}
 
-4.  Se genera una salida basándose en el estado de celda. Ejecutándose primero una capa sigmoidea que decide qué partes del estado de la celda es la salida; luego el estado de la celda pasa a través de una función tanh (escalando los valores entre −1 y 1) y se multiplican por la salida de la puerta, output gate, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
+4.  An output is generated based on the cell state. Running first a sigmoid layer that decides what parts of the cell state is the output; then the state of the cell is passed through a tanh function (scaling the values between −1 and 1) and multiplied by the output gate, output gate, @fig-COLSTMstep4, @eq-lstm-fstepf y @eq-lstm-fsteps.
 
 $$
 \begin{aligned}
@@ -140,4 +140,4 @@ h_t &= o_t * tanh(C_t) \\
 \end{aligned}
 $$ {#eq-lstm-fsteps}
 
-Las LSTM pueden aprender a capturar dependencias a largo plazo ajustando los valores de la puerta a través de la propagación inversa. Por ejemplo, si una determinada entrada es relevante para una salida posterior, la puerta de entrada aprenderá a dejarla entrar, y la puerta olvidada aprenderá a conservarla en el estado de celda hasta que sea necesaria. Por el contrario, si una entrada es irrelevante u obsoleta, la puerta de entrada aprenderá a ignorarla, y la puerta olvidada aprenderá a borrarla del estado de la celda.
+LSTMs can learn to capture long-term dependencies by tuning gate values through back propagation. For example, if a certain input is relevant to a later exit, the input gate will learn to let it in, and the forgotten gate will learn to hold it in the cell state until it is needed. Conversely, if an input is irrelevant or stale, the gateway will learn to ignore it, and the forgotten gate will learn to remove it from the cell state.

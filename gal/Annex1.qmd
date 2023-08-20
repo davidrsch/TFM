@@ -3,35 +3,19 @@
 ![Relación entre IA-ML-DL](../images/a1_DL-env.png "Relación entre IA-ML-DL"){#fig-DLenv fig-alt="IA engloba a ML y ML engloba a DL"}
 
 ::: figure-caption
-Tomada de: Deep learning with R de @chollet2018deep.
+Tirado de: Deep learning with R de @chollet2018deep.
 :::
 
 ![Programación clásica y machine learning](../images/a1_ML-prog.png "Programación clásica y machine learning"){#fig-MLprog fig-alt="Muestra un esquema que explica de manera general el paradigma de la programación clasica y el uso de machine learning. Mostrandose en el primero como se introducen reglas y datos para obtener respuestas, mientras que en machine learning se introducen datos y respuestas para obtener reglas"}
 
 ::: figure-caption
-Tomada de: Deep learning with R de @chollet2018deep.
+Tirado de: Deep learning with R de @chollet2018deep.
 :::
 
-![Estructura básica de una red neuronal artificial](../images/a1_RNA-struct.png "Estructura básica de una red neuronal artificial"){#fig-RNAstruct fig-alt="Muestra un esquema el esquema de la estructura básica de una RNA. Se muestra como los diferentes las diferentes entradas se conectan a cada uno de los nodos de las capa oculta y a su vez como cada uno de los nodos de la capa oculta se conecta a los nodos de la capa de salida. Los nodos de la capa oculta y la capa de salida también están conectados a un parámetro bias "}
+![Estrutura básica dunha rede neuronal artificial](../images/a1_RNA-struct.png "Estructura básica de una red neuronal artificial"){#fig-RNAstruct fig-alt="Muestra un esquema el esquema de la estructura básica de una RNA. Se muestra como los diferentes las diferentes entradas se conectan a cada uno de los nodos de las capa oculta y a su vez como cada uno de los nodos de la capa oculta se conecta a los nodos de la capa de salida. Los nodos de la capa oculta y la capa de salida también están conectados a un parámetro bias "}
 
 ::: figure-caption
-Tomada de: Tema 14: redes neuronales de @Larranaga07.
-:::
-
-```{r}
-#| echo: false
-#| warning: false
-
-if(knitr::pandoc_to("html") ||
-   knitr::pandoc_to("docx")){
-  knitr::asis_output("![Como el tamaño del filtro afecta el vector de salida](../images/a1_HJ-ks.gif){#fig-HJks}")
-}else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![Como el tamaño del filtro afecta el vector de salida](../images/a1_HJ-ks.png){#fig-HJks}](https://gist.github.com/davidrsch/bbf81cd68d062d324996a1002571f206)')
-}
-```
-
-::: figure-caption
-Elaboración propia: Elaborada a partir de @hongj20. Muestra como el tamaño del vector de salida cambia según el tamaño de filtro que se usa.
+Tirado de: Tema 14: redes neuronales de @Larranaga07.
 :::
 
 ```{r}
@@ -40,14 +24,14 @@ Elaboración propia: Elaborada a partir de @hongj20. Muestra como el tamaño del
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![Como stride afecta el vector de salida](../images/a1_HJ-stride.gif){#fig-HJstride}")
+  knitr::asis_output("![Como afecta o tamaño do filtro ao vector de saída](../images/a1_HJ-ks.gif){#fig-HJks}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![Como stride afecta el vector de salida](../images/a1_HJ-stride.png){#fig-HJstride}](https://gist.github.com/davidrsch/613c9a2e7356707806f901580a145bf9)')
+  knitr::asis_output('[![Como afecta o tamaño do filtro ao vector de saída](../images/a1_HJ-ks.png){#fig-HJks}](https://gist.github.com/davidrsch/bbf81cd68d062d324996a1002571f206)')
 }
 ```
 
 ::: figure-caption
-Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro stride afecta el tamaño del vector de salida.
+Elaboración propia: Elaborado dende @hongj20. Mostra como cambia o tamaño do vector de saída segundo o tamaño do filtro que se utilice.
 :::
 
 ```{r}
@@ -56,14 +40,14 @@ Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro 
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![Como dilation afecta el vector de salida](../images/a1_HJ-dilation.gif){#fig-HJdilation}")
+  knitr::asis_output("![Como afecta a zancada ao vector de saída](../images/a1_HJ-stride.gif){#fig-HJstride}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![Como dilation afecta el vector de salida](../images/a1_HJ-dilation.png){#fig-HJdilation}](https://gist.github.com/davidrsch/333418b0a2d1ff0ff96b210eb276d863)')
+  knitr::asis_output('[![Como afecta a zancada ao vector de saída](../images/a1_HJ-stride.png){#fig-HJstride}](https://gist.github.com/davidrsch/613c9a2e7356707806f901580a145bf9)')
 }
 ```
 
 ::: figure-caption
-Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro dilation afecta el tamaño del vector de salida.
+Elaboración propia: Elaborado dende @hongj20. Mostra como o parámetro de zancada afecta o tamaño do vector de saída.
 :::
 
 ```{r}
@@ -72,62 +56,78 @@ Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro 
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![Como padding afecta el vector de salida](../images/a1_HJ-padding.gif){#fig-HJpadding}")
+  knitr::asis_output("![Como afecta a dilatación ao vector de saída](../images/a1_HJ-dilation.gif){#fig-HJdilation}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![Como padding afecta el vector de salida](../images/a1_HJ-padding.png){#fig-HJpadding}](https://gist.github.com/davidrsch/0098e9662d54d3c7860f454ced9a5561)')
+  knitr::asis_output('[![Como afecta a dilatación ao vector de saída](../images/a1_HJ-dilation.png){#fig-HJdilation}](https://gist.github.com/davidrsch/333418b0a2d1ff0ff96b210eb276d863)')
 }
 ```
 
 ::: figure-caption
-Elaboración propia: Elaborada a partir de @hongj20. Muestra como el parámetro padding afecta el tamaño del vector de salida.
+Elaboración propia: Elaborado dende @hongj20. Mostra como afecta o parámetro de dilatación ao tamaño do vector de saída.
 :::
 
-![Despliegue del bucle de una red neuronal recurrente estándar](../images/a1_CO-RNRstruct.png "Despliegue del bucle de una red neuronal recurrente estándar"){#fig-CORNRstruct width="550"}
+```{r}
+#| echo: false
+#| warning: false
+
+if(knitr::pandoc_to("html") ||
+   knitr::pandoc_to("docx")){
+  knitr::asis_output("![Como afecta o recheo ao vector de saída](../images/a1_HJ-padding.gif){#fig-HJpadding}")
+}else if(knitr::pandoc_to("latex")){
+  knitr::asis_output('[![Como afecta o recheo ao vector de saída](../images/a1_HJ-padding.png){#fig-HJpadding}](https://gist.github.com/davidrsch/0098e9662d54d3c7860f454ced9a5561)')
+}
+```
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Elaboración propia: Elaborado dende @hongj20. Mostra como o parámetro de recheo afecta o tamaño do vector de saída.
+:::
+
+![Implantación do bucle dunha rede neuronal recorrente estándar](../images/a1_CO-RNRstruct.png "Implantación do bucle dunha rede neuronal recorrente estándar"){#fig-CORNRstruct width="550"}
+
+::: figure-caption
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
 ![Información relevante cercana](../images/a1_CO-RInclose.png "Información relevante cercana"){#fig-CORInclose width="550"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
 ![Información relevante lejana](../images/a1_CO-RInaway.png "Información relevante lejana"){#fig-CORInaway width="550"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
-![Diferencia entre los módulos de repetición](../images/a1_CO-Drnrlstm.png "Diferencia entre los módulos de repetición"){#fig-CODrnrlstm width="600"}
+![Diferenza entre módulos de repetición](../images/a1_CO-Drnrlstm.png "Diferenza entre módulos de repetición"){#fig-CODrnrlstm width="600"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 1](../images/a1_CO-LSTMstep1.png "LSTM funcionalidad: Representación del paso 1"){#fig-COLSTMstep1 height="200"}
+![Funcionalidade LSTM: representación do paso 1](../images/a1_CO-LSTMstep1.png "Funcionalidade LSTM: representación do paso 1"){#fig-COLSTMstep1 height="200"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 2](../images/a1_CO-LSTMstep2.png "LSTM funcionalidad: Representación del paso 2"){#fig-COLSTMstep2 height="180"}
+![Funcionalidade LSTM: representación do paso 2](../images/a1_CO-LSTMstep2.png "Funcionalidade LSTM: representación do paso 2"){#fig-COLSTMstep2 height="180"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 3](../images/a1_CO-LSTMstep3.png "LSTM funcionalidad: Representación del paso 3"){#fig-COLSTMstep3 height="250"}
+![Funcionalidade LSTM: representación do paso 3](../images/a1_CO-LSTMstep3.png "Funcionalidade LSTM: representación do paso 3"){#fig-COLSTMstep3 height="250"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
-![LSTM funcionalidad: Representación del paso 4](../images/a1_CO-LSTMstep4.png "LSTM funcionalidad: Representación del paso 4"){#fig-COLSTMstep4 height="235"}
+![Funcionalidade LSTM: representación do paso 4](../images/a1_CO-LSTMstep4.png "Funcionalidade LSTM: representación do paso 4"){#fig-COLSTMstep4 height="235"}
 
 ::: figure-caption
-Tomada de: Understanding LSTM networks, @COlah15.
+Tirado de: Understanding LSTM networks, @COlah15.
 :::
 
 ```{r}
@@ -136,29 +136,29 @@ Tomada de: Understanding LSTM networks, @COlah15.
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![Visualización de vectores de entrada y salida](../images/a2_muestras.gif){#fig-muestras}")
+  knitr::asis_output("![Visualización vectorial de entrada e saída](../images/a2_muestras.gif){#fig-muestras}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![Visualización de vectores de entrada y salida](../images/a2_muestras.png){#fig-muestras}](https://gist.github.com/davidrsch/1f0b50446b5e54343b40831a87cde6bf)')
+  knitr::asis_output('[![Visualización vectorial de entrada e saída](../images/a2_muestras.png){#fig-muestras}](https://gist.github.com/davidrsch/1f0b50446b5e54343b40831a87cde6bf)')
 }
 ```
 
 ::: figure-caption
-Elaboración propia: Elaborada a partir de imagen en @chollet2018deep. Muestra como lucen los vectores tridimensionales de entradas y salidas correspondientes a los datos de una empresa, en el caso de que se usen tres observaciones para crear el vector de entrada.
+Elaboración propia: Feita a partir dunha imaxe en @chollet2018deep. Mostra como son os vectores de entrada e saída tridimensionais dos datos dunha empresa, se se usan tres observacións para crear o vector de entrada.
 :::
 
-![Distintas estructras según los distintos tamaños de vectores de entrada](../images/a2_estructuras.png){#fig-estructuras}
+![Diferentes estruturas dependendo dos diferentes tamaños dos vectores de entrada](../images/a2_estructuras.png){#fig-estructuras}
 
 ::: figure-caption
-Elaboración propia: Elaborada a partir de las distintos modelos construidos usando los paquetes keras y tensorflow en R, y fueron gráficadas mediante el uso del paquete @Diagrammer.
+Elaboración propia: Elaborouse a partir dos diferentes modelos construídos utilizando os paquetes keras e tensorflow en R, e representáronse gráficamente mediante o paquete @Diagrammer.
 :::
 
-![Dominio de ReLU y Leaky ReLU](../images/a2_dominios.png){#fig-dominios}
+![Dominio de ReLU e Leaky ReLU](../images/a2_dominios.png){#fig-dominios}
 
 ::: figure-caption
-Elaboración propia: Elaborada a partir de las imagenes que se observan en @Rallabandi23.
+Elaboración propia: Elaborada a partir das imaxes que se observan en @Rallabandi23.
 :::
 
-![Diagrama de flujo de la metodología de Walk Forward Validation](../images/a2_wfv.png){#fig-wfv}
+![Diagrama de fluxo da metodoloxía Walk Forward Validation](../images/a2_wfv.png){#fig-wfv}
 
 ::: figure-caption
 Elaboración propia

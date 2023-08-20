@@ -497,7 +497,7 @@ A continuación, se presenta el código utilizado durante el proceso descrito en
 
 ### Predicciones {#sec-A-predicciones}
 
-El análisis expuesto en la @sec-predicciones fue realizado a partir de gráficas (vea @fig-ind_evo_oo, @fig-ind_evo_twoo y @fig-ind_evo_threeo), en las que se recogen los valores de los indicadores MSE y $R^2$ para cada una de las estructuras probadas.
+El análisis expuesto en la @sec-predicciones fue realizado a partir de gráficas (vea @fig-ind_evo_oo, @fig-ind_evo_twoo y @fig-ind_evo_threeo), en las que se recogen los valores de los indicadores $MSE$ y $R^2$ para cada una de las estructuras probadas.
 
 El primer paso para la obtención de estas gráficas fue el de computar los indicadores, para cada periodo de tiempo, para cada una de las predicciones obtenidas a partir de los distintos modelos construidos con cada estructura. Esto se realizo mediante el siguiente código.
 
@@ -535,7 +535,7 @@ Los diferentes indicadores computados para cada uno de las 10 modelos entrenados
 list_indicadores[["indicadores1"]] <-  indicadores
 ```
 
-Una vez realizado esto se obtiene una lista que contiene 10 data frames (`indicadores1`,...,`indicadores10`), los cuales a su vez contienen los valores de los de MSe y $R^2$ de las predicciones obtenidas por los modelos de RNA para cada una de las empresas agrupados por fecha. Por lo que luego se construyo la gráfica mediante el uso del siguiente código.
+Una vez realizado esto se obtiene una lista que contiene 10 data frames (`indicadores1`,...,`indicadores10`), los cuales a su vez contienen los valores de los de $MSE$ y $R^2$ de las predicciones obtenidas por los modelos de RNA para cada una de las empresas agrupados por fecha. Por lo que luego se construyo la gráfica mediante el uso del siguiente código.
 
 ```{r}
 #| eval: false

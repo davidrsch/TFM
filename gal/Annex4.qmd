@@ -1,12 +1,12 @@
-# Anexo. 4 Códigos {.unnumbered}
+# Anexo. 4 Códigos {#sec-code .unnumbered}
 
-A continuación, se presenta el código utilizado para la realización del procedimiento descrito en el desarrollo del trabajo.
+A continuación preséntase o código utilizado para realizar o procedemento descrito no desenvolvemento do traballo.
 
 ## Datos
 
-### Obtención de Datos {#sec-A-obtdat}
+### Recollida de datos {#sec-A-obtdat}
 
-Lo primero que se realizó fue cargar la tabla de las empresas.
+O primeiro que se fixo foi cargar a táboa de empresas.
 
 ```{r}
 #| eval: false
@@ -14,7 +14,7 @@ library(readxl)
 empresas <- read_excel("data/000_empresas.xlsx")
 ```
 
-Luego se extrageron los ticks de las empresas.
+Despois extraíanse as carrachas das empresas.
 
 ```{r}
 #| eval: false
@@ -24,7 +24,7 @@ ticks <- empresas |>
   pull()
 ```
 
-Una vez almacenados los ticks de las empresas en la variable `ticks` se procedio a descargar los datos correspondientes a dichas empresas desde Yahoo Finance usando el paquete quantmod de @quantmod23.
+Unha vez almacenados os ticks das empresas na variable `ticks`, os datos correspondentes a ditas empresas foron descargados de Yahoo Finance mediante o paquete quantmod de @quantmod23.
 
 ```{r}
 #| eval: false
@@ -48,7 +48,7 @@ for (i in 1:length(ticks)) {
 }
 ```
 
-Con el objetivo de realizar un análisis exploratorio de los datos, se decidió realizar una evaluación visual de los datos históricos del precio ajustado para lo que se ejecutó:
+Co obxectivo de realizar unha análise exploratoria dos datos, optouse por realizar unha avaliación visual dos datos históricos do prezo axustado polo que se executou:
 
 ```{r}
 #| eval: false
@@ -59,7 +59,7 @@ lapply(qmd_data, function(x){
 })
 ```
 
-Tras el análisis visual ejecutado con el fragmento de código anterior se persivió la existencia de precios constantes, así como calculos erroneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de eliminar estas irregularidades se seleccionaron solo aquellas observaciones posteriores a enero del 2005.
+Tras a análise visual realizada co fragmento de código anterior detectouse a existencia de prezos constantes, así como cálculos erróneos no prezo axustado correspondente aos primeiros anos dalgunha serie. Para eliminar estas irregularidades, só se seleccionaron aquelas observacións posteriores a xaneiro de 2005.
 
 ```{r}
 #| eval: false
@@ -70,7 +70,7 @@ returns_emps <- qmd_data |>
   })
 ```
 
-Con el objetivo de determinar si los datos que habían sido importados contaban con valores faltantes se ejecutó el siguiente código:
+Para determinar se os datos que foran importados tiñan valores que faltaban, executouse o seguinte código:
 
 ```{r}
 #| eval: false
@@ -81,7 +81,7 @@ na_values <- returns_emps |>
 emp_con_na <- which(na_values > 0)
 ```
 
-Con el objetivo de solucionar el problema con respecto al incorrecto registro de los datos se decidio eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el siguiente código, mediante el cual además se eliminaron las series con valores faltantes.
+Para solucionar o problema de rexistro incorrecto dos datos, optouse por eliminar aqueles que non presentasen variacións de prezo en máis de 10 observacións. Para o cal, os retornos calculáronse primeiro executando o seguinte código, mediante o cal tamén se eliminaron as series con valores ausentes.
 
 ```{r}
 #| eval: false
@@ -95,7 +95,7 @@ returns_emps2 <- returns_emps[-emp_con_na] |>
   })
 ```
 
-Una vez computadas las rentabilidades se eliminaron aquellas series que presentaban en más de 10 observaciones rentabilidad 0, para lo que se ejecutó el siguiente código.
+Unha vez computados os retornos, elimináronse aquelas series que presentaban 0 retornos en máis de 10 observacións, para o que se executou o seguinte código.
 
 ```{r}
 #| eval: false
@@ -108,9 +108,9 @@ returns_emps3 <- returns_emps2[zero_values<10]
 
 ### Indicadores {#sec-A-indi}
 
-A continuación, se expone el código utilizado durante el proceso expuesto en el sub-epígrafe indicadores del capítulo 2.
+A continuación móstrase o código utilizado durante o proceso descrito no subtítulo de indicadores do capítulo 2.
 
-Primero se descargaron los datos del IBEX, se computaron las rentabilidades del precio ajustado del mismo y se seleccionaron los valores posteriores a enero del 2005.
+En primeiro lugar, descargáronse os datos do IBEX, calculáronse os rendementos do prezo axustado dos mesmos e seleccionáronse os valores posteriores a xaneiro de 2005.
 
 ```{r}
 #| eval: false
@@ -127,8 +127,8 @@ dates <- row.names(IBEXsel)
 row.names(IBEXsel) <- NULL
 IBEXsel <- cbind(dates,IBEXsel)
 names(IBEXsel) <- nombres_colum
-# Calculando rentabilidad y seleccionando observaciones posteriores a
-# enero del 2005.
+# Cálculo da rendibilidade e selección de observacións despois
+# Xaneiro 2005.
 IBEXsel <- IBEXsel |>
   mutate(Return_I = Delt(Adjusted)[,1]) |>
   na.omit() |>
@@ -136,12 +136,12 @@ IBEXsel <- IBEXsel |>
   select(Date, Return_I)
 ```
 
-Luego se agregaron los valores de las rentabilidades del IBEX a las tablas de las rentabilidades de las acciones de las empresas seleccionadas, y se computaron y agregaron las variables listadas a continuación a cada una de las tablas:
+A continuación, engadíronse os valores das rendibilidades do IBEX ás táboas de rendibilidade das accións das empresas seleccionadas, e calculáronse e engadíronse a cada unha das táboas as variables que se enumeran a continuación:
 
--   Volatilidad de la empresa
--   Volatilidad del índice
--   Correlación entre las rentabilidades de la empresa y el indice
--   La Beta entre la empresa y el indice
+-   Volatilidade da empresa
+-   Volatilidade do índice
+-   Correlación entre a rendibilidade da empresa e o índice
+-   A Beta entre a empresa e o índice
 
 ```{r}
 #| eval: false
@@ -164,9 +164,9 @@ returns_indc <- returns_emps3 |>
 
 ### Vectores {#sec-A-vec}
 
-A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.
+A continuación móstrase o código utilizado durante o proceso descrito no subtítulo de vectores do título de modelado do capítulo 2.
 
-El primer paso llevado a cabo para la ejecución del proceso explicado en el sub-epígrafe en cuestión fue crear una función que permitió obtener las muestras consecutivas para cada serie utilizada. La función expuesta a continuación, como ya se mencionó, permite obtener las muestras consecutivas de una serie, para lo que se utilizan los parametros mencionados en el sub-epígrafe, número de observaciones de entradas y número de observaciones de salida, así como un parametro condicional con el que se indica si el vector a crear es de entrada o de salida.
+O primeiro paso realizado para a execución do proceso explicado no subepígrafe en cuestión foi a creación dunha función que permitise obter as mostras consecutivas para cada serie utilizada. A función que se presenta a continuación, como xa se dixo, permite obter as mostras consecutivas dunha serie, para as que se utilizan os parámetros mencionados no subtítulo, número de observacións de entrada e número de observacións de saída, así como un parámetro condicional co que se indícase se o vector que se vai crear é de entrada ou de saída.
 
 ```{r}
 #| eval: false
@@ -191,12 +191,12 @@ vector2dmaker <- function(vec, ent, sal, eos=T){
 }
 ```
 
-A continuación se muestra el código utilizado para la creación de los vectores de entrada de correspondiente a cada una de las series. Para lo que primero se crearon dos funciones una para las entradas y otra para las salidas.
+A continuación móstrase o código utilizado para crear os vectores de entrada correspondentes a cada unha das series. Para o cal se crearon primeiro dúas funcións, unha para as entradas e outra para as saídas.
 
 ```{r}
 #| eval: false
 
-# Función que se utlizará para crear las entradas tridimensionales
+# Función que se utilizará para crear as entradas tridimensionais
 input3dmaker <- function(x,inp,out){
   empre <- x
   series <- 2:dim(x)[2]
@@ -210,7 +210,7 @@ input3dmaker <- function(x,inp,out){
   return(vec3d)
 }
 
-# Función que se utlizará para crear las salidas tridimensionales
+# Función que se utilizará para crear as saídas tridimensionais
 output3dmaker <- function(x,inp,out){
   empre <- x[["Return_Ad"]]
   vec3d <- vector2dmaker(empre,ent=inp,sal=out,F)
@@ -219,18 +219,18 @@ output3dmaker <- function(x,inp,out){
 }
 ```
 
-Luego se crearon las listas de vectores tridimensionales de entradas y salidas por empresa, ejecutandosé el siguiente código otras dos veces con el objetivo de crear las listas `vecs3d2e` y `vecs3d3e` que corresponden a aquellos casos en los que se seleccionaron 2 y 3 entradas.
+Despois creáronse as listas de vectores tridimensionais de entradas e saídas por empresa, executando outras dúas veces o seguinte código co obxectivo de crear as listas `vecs3d2e` e `vecs3d3e` que se corresponden con aqueles casos nos que foron 2 e 3 entradas. seleccionados.
 
 ```{r}
 #| eval: false
 
-#Se define el horizonte temporal
+# O horizonte temporal está definido
 ht <- 1
 
-#Se define el observaciones de entrada
+# Defínense as observacións de entrada
 oe <- 1
 
-#Se crean los vectores de entrada 3d para tamaño de entrada 1
+# Os vectores de entrada 3D créanse para o tamaño de entrada 1
 vecs3d1e <- list()
 for(i in 1:length(returns_indc)){
   emp <- returns_indc[[i]]
@@ -248,13 +248,13 @@ for(i in 1:length(returns_indc)){
 }
 ```
 
-## Modelado y entrenamiento
+## Modelado e formación
 
-A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Modelado y entrenamiento.
+A continuación preséntase o código utilizado durante o proceso descrito nas diferentes subseccións da sección Modelado e formación.
 
 ### Modelado {#sec-A-modelos}
 
-Para la creación de los modelos el primer paso a ejecutar es obtener la información de los vectores para los que se va a construir el modelo, lo que se hizo ejecutando el siguiente código:
+Para a creación dos modelos, o primeiro paso a executar é obter a información dos vectores para os que se vai construír o modelo, o que se fixo executando o seguinte código:
 
 ```{r}
 #| eval: false
@@ -278,7 +278,7 @@ n_ob_fut <- outputsinfo[2]
 
 ```
 
-Luego se constituyo la estructura de los modelos con los aspectos descritos en @sec-modelado.
+Despois constituíuse a estrutura dos modelos cos aspectos descritos en @sec-modelado.
 
 ```{r}
 #| eval: false
@@ -303,18 +303,18 @@ out <- lstm |>
   layer_dense(
     n_ob_fut*1)
 
-# Juntar las capas para constituir el modelo 
+# Unir as capas para constituír o modelo
 model <- keras_model(inp, out)
-# Estableciendo parámetros de aprendizaje
+# Establecemento de parámetros de aprendizaxe
 model |> 
   compile(loss = "mse", optimizer = optimizer_sgd(0.0005))
 ```
 
-*Nota:* Puede encontrar modelos sin entrenar en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1e`, `model2e` y `model3e`.
+*Nota:* Podes atopar modelos non adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1e`, `model2e` e `model3e`.
 
-### Entrenamiento {#sec-A-entrenamiento}
+### Formación {#sec-A-entrenamiento}
 
-El primer paso es definir la función a utilizar para el entrenamiento de los modelos. Esta función fue construida con el objetivo de emplear el método de entrenamiento descrito en @sec-entrenamiento. Como resultado esta función devolvera una lista que contendra las predicciones obtenidas y el modelo después de haber sido entrenado y tomará como entradas principales el tibble llamado `data` constituido en el primer paso que se expone en @sec-A-modelos y el modelo además de otros argumentos que permite la utilización de la función con unos inputs principales que no sean los utilizados en el presente trabajo.
+O primeiro paso é definir a función a utilizar para adestrar os modelos. Esta función creouse co obxectivo de utilizar o método de adestramento descrito en @sec-training. Como resultado, esta función devolverá unha lista que conterá as predicións obtidas e o modelo despois de ter sido adestrado e tomará como entradas principais o tibble denominado `datos` constituído no primeiro paso que se expón en @sec-A-modelos e o modelo tamén. doutros argumentos que permitan o uso da función con algunhas entradas principais que non se utilizan no presente traballo.
 
 ```{r}
 #| eval: false
@@ -328,11 +328,11 @@ wfv_train <- function(x, modelo, seq_var_name, inp_var_name = "inputs", out_var_
   }
   
   
-  # Iteración que se ejecutará para cada valor unico en la variable que define la secuencia de los datos. Por ello es de vital importancia que los datos en el tibble x se encuentren ordenados por la variable de secuencia cuyo nombre se pasa a seq_var_name
+  # Iteración que se executará para cada valor único na variable que define a secuencia de datos. Por este motivo é de vital importancia que os datos en tibble x estean ordenados pola variable de secuencia cuxo nome se pasa a seq_var_name
   
   for (i in 1:length(seq_val)) {
     val_seq <- seq_val[i]
-    #Extraer entradas y salidas correspondiente al periodo en la variable de secuencia actual
+    # Extraer entradas e saídas correspondentes ao período na variable secuencia actual
     inputs <- x |>
       filter(!!sym(seq_var_name) == val_seq) |>
       select(!!sym(inp_var_name)) |>
@@ -343,14 +343,14 @@ wfv_train <- function(x, modelo, seq_var_name, inp_var_name = "inputs", out_var_
       pull()
     outputs <- outputs[,,1]
     
-    #Usar entradas para obtener predicciones para los periodos en la variable secuencia a excepción del primero
+    # Use entradas para obter previsións para todos os períodos da variable secuencia excepto o primeiro
     if(i > 1){
       pred <- modelo |>
         predict(inputs, verbose = 3)
       predictions <- rbind(predictions, pred)
     }
     
-    # Entrenar el modelo
+    # Adestrar o modelo
     modelo |>
       fit(
         inputs,
@@ -378,7 +378,7 @@ wfv_train <- function(x, modelo, seq_var_name, inp_var_name = "inputs", out_var_
 
 ```
 
-Una vez creada la función se obtuvieron las predicciones utilizando el siguiente código:
+Unha vez creada a función, obtivéronse as predicións mediante o seguinte código:
 
 ```{r}
 #| eval: false
@@ -387,9 +387,9 @@ resultados <- wfv_train(data,model,'Date')
 predicciones1e <- resultados$predicciones
 ```
 
-*Nota:* Puede encontrar modelos entrenados en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1etd`, `model2etd` y `model3etd`.
+*Nota:* Podes atopar modelos adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1etd`, `model2etd` e `model3etd`.
 
-Como se explica en @sec-predicciones además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmetica, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creo la siguiente función:
+Segundo se explica en @sec-predicciones, ademais das predicións obtidas polos modelos, calculáronse predicións obtidas a partir do uso da media aritmética, para comparar coas obtidas cos modelos. Para calcular estas predicións, creouse a seguinte función:
 
 ```{r}
 #| eval: false
@@ -469,7 +469,7 @@ wfv_means <- function(x, seq_var_name, inp_var_name = "inputs", out_var_name = "
 
 ```
 
-Una vez creada la función se obtuvieron las predicciones utilizando el siguiente código:
+Unha vez creada a función, obtivéronse as predicións mediante o seguinte código:
 
 ```{r}
 #| eval: false
@@ -477,34 +477,34 @@ Una vez creada la función se obtuvieron las predicciones utilizando el siguient
 meanse1 <- wfv_train(data,'Date',id_var_name = "ID")
 ```
 
-*Nota:* En adición a lo expuesto con anterioridad se crearon dos funciones `getconfig` y `plot_modelk`, en el archivo .Rprofile del repositorio en el que se encuentra este trabajo, que permiten graficar la estructura de los modelos mediante el uso del paquete @Diagrammer, como se ve en la @fig-estructuras. El código a utilizar sería:
+*Nota:* Ademais do exposto anteriormente, no ficheiro .Rprofile do repositorio no que se atopa este traballo creáronse dúas funcións `getconfig` e `plot_modelk` que permiten representar gráficamente a estrutura dos modelos mediante o paquete @Diagrammer, como visto nas @fig-structures. O código a usar sería:
 
 ```{r}
 #| eval: false
 
-# Las funciones están creadas para graficar las estructuras utilizadas en el presente trabajo.
+# As funcións créanse para representar gráficamente as estruturas utilizadas neste traballo.
 model |>
   getconfig() |>
   plot_modelk() |>
   grViz()
 ```
 
-El procedimiento expuesto en las secciones @sec-A-modelos y @sec-A-entrenamiento fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a `vecs3d1e` por `vecs3d2e` y `vecs3d3e`,según el grupo de vectores tridimensionanales utilizado.
+Repetiuse o procedemento exposto nas seccións @sec-A-models e @sec-A-training para construír os 10 modelos feitos a partir de cada grupo de vectores tridimensionais, substituíndo a chamada a `vecs3d1e` por `no primeiro código exposto. .vecs3d2e` e `vecs3d3e`, dependendo do grupo de vectores tridimensionais utilizados.
 
 ## Resultado
 
-A continuación, se presenta el código utilizado durante el proceso descrito en los distintos sub-epígrafes del epígrafe Resultado.
+A continuación preséntase o código utilizado durante o proceso descrito nas diferentes subseccións da sección de Resultados.
 
-### Predicciones{#sec-A-predicciones}
+### Predicións {#sec-A-predicciones}
 
-El análisis expuesto en la @sec-predicciones fue realizado a partir de gráficas (vea @fig-ind_evo_oo, @fig-ind_evo_twoo y @fig-ind_evo_threeo), en las que se recogen los valores de los indicadores MSE y $R^2$ para cada una de las estructuras probadas.
+A análise exposta nas prediccións @sec-realizouse a partir de gráficos (ver @fig-ind_evo_oo, @fig-ind_evo_twoo e @fig-ind_evo_threeo), nos que se recollen os valores dos indicadores MSE e $R^2$ para cada unha das estruturas ensaiadas.
 
-El primer paso para la obtención de estas gráficas fue el de computar los indicadores, para cada periodo de tiempo, para cada una de las predicciones obtenidas a partir de los distintos modelos construidos con cada estructura. Esto se realizo mediante el siguiente código.
+O primeiro paso para obter estas gráficas foi o cálculo dos indicadores, para cada período de tempo, para cada unha das predicións obtidas a partir dos distintos modelos construídos con cada estrutura. Isto faise usando o seguinte código.
 
 ```{r}
 #| eval: false
 
-#Extraer salidas reales
+# Extraer os resultados reais
 salidas <- data |>
   filter(
     Date > data$Date[1]
@@ -513,7 +513,7 @@ salidas <- data |>
   pull()
 salidas <- salidas[,,1]
 
-#Computar indicadores MSE y R2
+# Calcular os indicadores MSE e R2
 indicadores <- data |>
   filter(Date > data$Date[1]) |>
   cbind(predicciones = predicciones1e[,1]) |>
@@ -527,7 +527,7 @@ indicadores <- data |>
   )
 ```
 
-Los diferentes indicadores computados para cada uno de las 10 modelos entrenados con cada una de las estructuras fueron guardados en una lista llamada `list_indicadores`. Esto se realizo utilizando el siguiente código:
+Os diferentes indicadores calculados para cada un dos 10 modelos adestrados con cada unha das estruturas foron almacenados nunha lista denominada `list_indicadores`. Isto faise usando o seguinte código:
 
 ```{r}
 #| eval: false
@@ -535,15 +535,15 @@ Los diferentes indicadores computados para cada uno de las 10 modelos entrenados
 list_indicadores[["indicadores1"]] <-  indicadores
 ```
 
-Una vez realizado esto se obtiene una lista que contiene 10 data frames (`indicadores1`,...,`indicadores10`), los cuales a su vez contienen los valores de los de MSe y $R^2$ de las predicciones obtenidas por los modelos de RNA para cada una de las empresas agrupados por fecha. Por lo que luego se construyo la gráfica mediante el uso del siguiente código.
+Feito isto, obtense unha lista que contén 10 marcos de datos (`indicadores1`,...,`indicadores10`), que á súa vez conteñen os valores dos de MSe e $R^2$ das predicións obtidas. por modelos de ARN para cada unha das empresas agrupadas por data. Entón, a gráfica foi construída usando o seguinte código.
 
 ```{r}
 #| eval: false
 
-# Agrupar la información de las distintas construcciones en un solo data frame
+# Agrupar a información das distintas construcións nun único marco de datos
 indi_graf_data <- do.call(cbind,list_indicadores)
 
-# Obtener los resultados medios, para cada periodo de tiempo, usando las distintas construcciones
+# Obter os resultados medios, para cada período de tempo, utilizando as distintas construcións
 indi_graf_data |>
   rowwise() |>
   mutate(
@@ -554,7 +554,7 @@ indi_graf_data |>
   select(
     Date, meanmse,meanr2
   )|>
-  # Graficar
+  # Gráfico
   mutate(
     Date = as.Date(Date)) |>
   ggplot(aes(x = Date, group = 1)) +
@@ -566,7 +566,7 @@ indi_graf_data |>
 
 ```
 
-Además de las gráficas se utilzo también en el análisis de los resultados la @tbl-indicadores, en la que se ecuentran las empresas que obtuvieron mejores y peores indicadores para cada estructura, para la obtención de estos datos se uso el siguiente código:
+Ademais das gráficas, na análise dos resultados tamén se utilizou o @tbl-indicadores, nos que se sitúan as empresas que obtiveron os mellores e peores indicadores para cada estrutura Para a obtención destes datos utilizouse o seguinte código:
 
 ```{r}
 #| eval: false
@@ -585,15 +585,15 @@ indicadores_X_emp <- data |>
   select(ID, r2, mse)
 ```
 
-Al igual que los indicadores computados por fecha para guardar los indicadores computados por empresa se creo una lista denominada `list_indic_emp`. Luego de haber almacenado los 10 data frames de indicadores por empresa en la lista se extrajeron las empresas con los mejores y peores resultados mediante el siguiente código:
+Do mesmo xeito que os indicadores calculados por data, para gardar os indicadores calculados por empresa, creouse unha lista chamada `list_indic_emp`. Despois de ter almacenados os 10 marcos de datos indicadores por empresa na lista, extraéronse as empresas con mellores e peores resultados mediante o seguinte código:
 
 ```{r}
 #| eval: false
 
-# Agrupar la información de las distintas construcciones en un solo data frame
+# Agrupar a información das distintas construcións nun único marco de datos
 ind_emp_t <- do.call(rbind, list_indic_emp)
 
-# Computar los R2 y MSE medios por empresa
+# Calcula a media R2 e MSE por empresa
 ind_emp_t <- ind_emp_t |>
   group_by(ID) |>
   summarize(
@@ -602,25 +602,25 @@ ind_emp_t <- ind_emp_t |>
   ungroup() |>
   arrange(desc(r2))
 
-# Obtener las 10 empresas con mejores y peores indicadores
+# Obtén as 10 empresas cos mellores e peores indicadores
 mejores10 <- head(ind_emp_t,10)
 peores10 <- tail(ind_emp_t,10)
 ```
 
-Y mediante la utilización de las variables anteriores y el uso de las funciones `rbind()` y `cbind` fue como se creo la @tbl-indicadores.
+E usando as variables anteriores e as funcións `rbind()` e `cbind`, creouse a @tbl-indicadores.
 
-### Composición de carteras {#sec-A-cc}
+### Composición de carteiras {#sec-A-cc}
 
-En esta sección se explica como se realizo el análisis del compratamiento de los resultados obtenidos por las distintas carteras (ver @fig-pf_evo_oo, @fig-pf_evo_twoo y @fig-pf_evo_threeo). Para ello es necesario primero obtener la composición de las carteras, por fecha, a partir de las predicciones obtenidas mediante el uso de las medias aritmeticas y los modelos de RNA.
+Neste apartado explícase como se realizou a análise da comparación dos resultados obtidos polas diferentes carteiras (ver @fig-pf_evo_oo, @fig-pf_evo_twoo e @fig-pf_evo_threeo). Para iso, primeiro cómpre obter a composición das carteiras, por datas, a partir das predicións obtidas mediante a utilización das medias aritméticas e dos modelos de ARN.
 
-Para el calculo de la composición de las carteras se uso el paquete de R @quadprog, a continuación se muestra el código utilizado para hallar la composición de carteras a partir de las predicciones de la media:
+Para calcular a composición das carteiras utilizouse o paquete R @quadprog. A continuación móstrase o código utilizado para atopar a composición das carteiras a partir das predicións da media:
 
 ```{r}
 #| eval: false
 
-# Se creo un data frame en el que se guardo toda la información:
-#   - Valores del IBEX, como indice de referencia
-#   - Valores de las predicciones, tanto las obtenidas por el modelo de RNA como por las medias aritmeticas
+# Creouse un marco de datos no que se almacenaba toda a información:
+#   - Valores IBEX, como índice de referencia
+#   - Valores das predicións, tanto os obtidos polo modelo de ARN como polas medias aritméticas
 
 DATA <- data |>
   left_join(IBEXsel, by ="Date") |>
@@ -637,9 +637,9 @@ DATA <- data |>
   ) |>
   select(Date, Real, IBEX, RNA, Means, ID)
 
-# A partir del data frame DATA se crearon:
-#    - Un data frame cuyas columnas son los datos reales de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.
-#    - Un data frame cuyas columnas son los datos obtenidos mediante el uso de las medias aritmeticas de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.
+# A partir do marco de datos creáronse DATA:
+#    - Un marco de datos cuxas columnas son os datos reais de cada unha das empresas para cada un dos períodos de tempo para os que se obtiveron predicións.
+#    - Un marco de datos cuxas columnas son os datos obtidos mediante a utilización das medias aritméticas de cada unha das empresas para cada un dos períodos de tempo para os que se obtiveron predicións.
 
 pvtReal <- DATA |>
   select(Date, Real, ID) |>
@@ -655,24 +655,26 @@ pvtMeans <- DATA |>
     values_from = Means
   )
 
-# Se creo el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvo predicción
+# Creouse o marco de datos no que se almacenaba a composición das carteiras para cada un dos períodos para os que se obtivo a predición
 weightsm <- data.frame()
 
-# Iteración mediante la cual se halla la composición de las carteras
+# Iteración pola que se atopa a composición das carteiras
 
 pb <- txtProgressBar(min = 0, max = length(unique(data$Date)[-1]), initial = 0, style = 3)
 
 for (i in 1:length(unique(data$Date)[-1])) {
   if(i>1){
     
-    # Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este esta creado por los datos reales hasta la fecha y la previsión del siguiente periodo
+    # Créase o marco de datos que inclúe os datos a utilizar para atopar a composición da carteira, esta é creada polos datos reais ata a data e a previsión para o próximo período
+    
     datamQP <- pvtReal |>
       filter(Date < unique(data$Date)[-1][i]) |>
       rbind(pvtMeans |>
               filter(Date == unique(data$Date)[-1][i])
       )
     
-    # Elimina aquellas empresas que no tengan ni datos reales o de previsión
+    # Elimina aquelas empresas que non teñan datos reais ou previstos
+    
     nare <- which(is.na(datamQP[dim(datamQP)[1],]))
     naremo <- which(is.na(datamQP[(dim(datamQP)[1]-1),]))
     nare <- c(nare,naremo)
@@ -683,19 +685,21 @@ for (i in 1:length(unique(data$Date)[-1])) {
       carteram <- datamQP
     }
     
-    # Extre las previsiones
+    # Extraer previsións
     returnm <- carteram[dim(carteram)[1], -1] |>
       as.matrix() |>
       t()
     
-    # Calcula la matriz de covarianza
+    # Calcula a matriz de covarianza
+    
     covmm <- cov(carteram[, -1], use = "complete.obs")
     npcovmm <- nearPD(covmm)$mat |> 
       as.matrix()
-    # Extrae el número de empresas
+    
+    # Extrae o número de empresas
     n <- ncol(npcovmm)
     
-    # Halla la composición de la cartera
+    # Busca a composición da carteira
     qp_outm <- solve.QP(
       Dmat = 2*npcovmm,
       dvec = rep(0,n),
@@ -710,7 +714,7 @@ for (i in 1:length(unique(data$Date)[-1])) {
       }else{}
     }
     
-    # Guarda la composición de la cartera
+    # Gardar a composición da carteira
     names(qp_outm) <- names(carteram[, -1])
     weightsm <- bind_rows(weightsm, qp_outm)
   }
@@ -720,17 +724,18 @@ for (i in 1:length(unique(data$Date)[-1])) {
 
 close(pb)
 
-# Sustituir los pesos y observaciones reales con valores faltantes con cero
+# Substitúe os pesos reais e as observacións polos valores que faltan por cero
+
 pvtReal[is.na(pvtReal)] <- 0
 weightsm[is.na(weightsm)] <- 0
 ```
 
-Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumio que se invertia uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.
+Despois, para atopar a rendibilidade da carteira, multiplicáronse as composicións polos rendementos reais, supouse que se investiu unha no primeiro período e realizouse unha suma acumulada ao longo dos valores para obter o comportamento da rendibilidade ao longo do período do tempo.
 
 ```{r}
 #| eval: false
 
-# Hallando las rentabilidades de las carteras conformadas a partir de las predicciones de la media aritmetica
+# Atopar os rendementos das carteiras formadas a partir das predicións da media aritmética
 
 return_CM <-  weightsm * pvtReal[-1,-1]
 return_CM <- rowSums(return_CM)
@@ -742,12 +747,12 @@ return_CM <- data.frame(
 
 ```
 
-Los mismos pasos que se realizaron para hallar el comportamiento de la rentabilidad de las carteras a partir de las medias aritmeticas se realizaron para hallar el comportamiento a partir de las predicciones obtenidas por el modelo de RNA como se ve en el código a continuación.
+Realizáronse os mesmos pasos que se realizaron para atopar o comportamento da rendibilidade das carteiras a partir das medias aritméticas para atopar o comportamento a partir das predicións obtidas polo modelo de ARN tal e como se ve no código a continuación.
 
 ```{r}
 #| eval: false
 
-# A partir del data frame DATA se creo un data frame cuyas columnas son los datos obtenidos mediante el uso del model de RNA de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.
+# A partir do marco de datos DATA creouse un marco de datos cuxas columnas son os datos obtidos mediante o uso do modelo de ARN de cada unha das empresas para cada un dos períodos de tempo para os que se obtiveron predicións.
 
 pvtRNA <- DATA |>
   select(Date, RNA, ID) |>
@@ -756,22 +761,26 @@ pvtRNA <- DATA |>
     values_from = RNA
   )
 
-# Se creo el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvo predicción
+# Creouse o marco de datos no que se almacenaba a composición das carteiras para cada un dos períodos para os que se obtivo a predición.
+
 weightse <- data.frame()
 
-# Iteración mediante la cual se halla la composición de las carteras
+# Iteración pola que se atopa a composición das carteiras
 
 pb <- txtProgressBar(min = 0, max = length(unique(data$Date)[-1]), initial = 0, style = 3)
 
 for (i in 1:length(unique(data$Date)[-1])) {
   if(i>1){
-    # Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este esta creado por los datos reales hasta la fecha y la previsión del siguiente periodo
+    
+    # Créase o marco de datos que inclúe os datos a utilizar para atopar a composición da carteira, esta é creada polos datos reais ata a data e a previsión para o próximo período.
+    
     dataeQP <- pvtReal |>
       filter(Date < unique(data$Date)[-1][i]) |>
       rbind(pvtRNA |>
               filter(Date == unique(data$Date)[-1][-1][i])
             )
-    # Elimina aquellas empresas que no tengan ni datos reales o de previsión
+    # Elimina aquelas empresas que non teñan datos reais ou previstos
+    
     nare <- which(is.na(dataeQP[dim(dataeQP)[1],]))
     naremo <- which(is.na(dataeQP[(dim(dataeQP)[1]-1),]))
     nare <- c(nare,naremo)
@@ -782,19 +791,24 @@ for (i in 1:length(unique(data$Date)[-1])) {
       carterae <- dataeQP
     }
     
-    # Extre las previsiones
+    # Extraer previsións
+    
     returne <- carterae[dim(carterae)[1], -1] |>
       as.matrix() |>
       t()
     
-    # Calcula la matriz de covarianza
+    # Calcula a matriz de covarianza
+    
     covme <- cov(carterae[, -1], use = "complete.obs")
     npcovme <- nearPD(covme)$mat |> 
       as.matrix()
-    # Extrae el número de empresas
+    
+    # Extrae o número de empresas
+    
     n <- ncol(npcovme)
     
-    # Halla la composición de la cartera
+    # Busca a composición da carteira
+    
     qp_oute <- solve.QP(
       Dmat = 2*npcovme,
       dvec = rep(0,n),
@@ -809,7 +823,8 @@ for (i in 1:length(unique(data$Date)[-1])) {
       }else{}
     }
     
-    # Guarda la composición de la cartera
+    # Gardar a composición da carteira
+    
     names(qp_oute) <- names(carterae[, -1])
     weightse <- bind_rows(weightse, qp_oute)
   }
@@ -819,16 +834,17 @@ for (i in 1:length(unique(data$Date)[-1])) {
 
 close(pb)
 
-# Sustituir los pesos con valores faltantes con cero
+# Substitúe os pesos cos valores que faltan por cero
+
 weightse[is.na(weightse)] <- 0
 ```
 
-Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumio que se invertia uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.
+Despois, para atopar a rendibilidade da carteira, multiplicáronse as composicións polos rendementos reais, supouse que se investiu unha no primeiro período e realizouse unha suma acumulada ao longo dos valores para obter o comportamento da rendibilidade ao longo do período. período.tempo.
 
 ```{r}
 #| eval: false
 
-# Hallando las rentabilidades de las carteras conformadas a partir de las predicciones del modelo RNA
+# Atopar os rendementos das carteiras formadas a partir das predicións do modelo de ARN
 
 return_CRNA <-  weightse * pvtReal[-1,-1]
 return_CRNA <- rowSums(return_CRNA)
@@ -839,12 +855,12 @@ return_CRNA <- data.frame(
 )
 ```
 
-Luego, al igual que con los indicadores se creo un lista `list_ret_RNA` en la que se guardaron los data frames de los distintos modelos construidos con cada una de las estructuras. Después se ejecutó el siguiente código para obtener la gráfica.
+Despois, ao igual que cos indicadores, creouse unha lista `list_ret_RNA` na que se almacenaban os marcos de datos dos distintos modelos construídos con cada unha das estruturas. Despois executouse o seguinte código para obter o gráfico.
 
 ```{r}
 #| eval: false
 
-# Hallando el comportamiento de las rentabilidades del IBEX para el periodo
+# Coñecer o comportamento das rendibilidades do IBEX para o período
 
 IBEXvals <- IBEXsel |>
     filter(Date > unique(data$Date)[2]) |>

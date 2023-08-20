@@ -1,16 +1,16 @@
-# 2.6 Resultado {.unnumbered}
+# 2.6 Result {.unnumbered}
 
-Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe de forma breve los resultados obtenidos. En el primero de los sub-epígrafe se describen y analizan las predicciones. En el segundo sub-epígrafe se exponen los resultados de aplicar la programación cuadrática para la composición de cartera a partir de las predicciones obtenidas.
+This epigraph is divided into two sub-headings in which the results obtained are briefly described. In the first of the sub-headings the predictions are described and analyzed. The second sub-heading presents the results of applying quadratic programming for portfolio composition based on the predictions obtained.
 
-## 2.6.1 Predicciones {#sec-predicciones}
+## 2.6.1 Predictions {#sec-predicciones}
 
-Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en @sec-A-predicciones.
+A more detailed explanation of the code used during the procedure described in this subsection can be found in @sec-A-predicciones.
 
-Como se explicó con anterioridad a la par que se entrenaba el modelo se obtuvieron las predicciones. Al igual que se realizó con los modelos de redes neuronales artificiales, las predicciones se computaron para las distintas observaciones usando la media aritmética de las observaciones. Se usó la media aritmética porque es una de las medidas que se usa con mayor frecuencia como indicador de posible comportamiento futuro en el estudio de las series de tiempo financieras.
+As explained previously, while the model was being trained, the predictions were obtained. As was done with the artificial neural network models, the predictions were computed for the different observations using the arithmetic mean of the observations. The arithmetic mean was used because it is one of the most frequently used measures as an indicator of possible future behavior in the study of financial time series.
 
-Las predicciones se evaluarán mediante el computo del MSE y los valores reales y el $R^2$ de los resultados obtenidos por los modelos de redes neuronales artificiales y las medias aritméticas.
+The predictions will be evaluated by computing the MSE and the real values ​​and the $R^2$ of the results obtained by the artificial neural network models and the arithmetic means.
 
-Como se explica en @Glen23 el MSE te dice qué tan cerca está una línea de regresión de un conjunto de puntos. Lo hace tomando las distancias desde los puntos hasta la línea de regresión (estas distancias son los "errores") y elevándolas al cuadrado. Elevar al cuadrado es necesario para eliminar cualquier signo negativo. También da más peso a las diferencias más grandes. Se llama el error cuadrático medio ya que estás encontrando el promedio de un conjunto de errores. Cuanto menor sea el MSE, mejor será el pronóstico, la muestra @eq-mse como se calcula.
+As explained by @Glen23 the MSE tells you how close a regression line is to a set of points. It does this by taking the distances from the points to the regression line (these distances are the "errors") and squaring them. Squaring is necessary to remove any negative signs. It also gives more weight to larger differences. It is called the root mean square error since you are finding the average of a set of errors. The lower the MSE, the better the forecast, shown by @eq-mse as calculated.
 
 $$
 \begin{aligned}
@@ -18,21 +18,21 @@ MSE &= \frac{1}{n} * \sum_{i=1}^{n}{(Y_i-\hat{Y_i})^2} \\
 \end{aligned}
 $$ {#eq-mse}
 
-Donde:
+Where:
 
 ::: margin
-$n$: número de observaciones
+$n$: number of observations
 :::
 
 ::: margin
-$Y_i$: valor real
+$Y_i$: real value
 :::
 
 ::: margin
-$\hat{Y_i}$: valor esperado
+$\hat{Y_i}$: expected value
 :::
 
-Como se explica en @Nandakumar20 $R^2$ se utiliza comúnmente para explicar que tan bien lo hace un modelo en comparación con la media total de las observaciones, @eq-r2:
+As explained by @Nandakumar20 $R^2$ is commonly used to explain how well a model does compared to the total mean of the observations, @eq-r2:
 
 $$
 \begin{aligned}
@@ -41,42 +41,42 @@ R^2 &= 1-\frac{\sum_{i=1}^{n}{(Y_i-\hat{Y_i})^2}}{\sum_{i=1}^{n}{(Y_i-\tilde{Y})
 \end{aligned}
 $$ {#eq-r2}
 
-Donde:
+Where:
 
 ::: margin
-$\tilde{Y}$: media aritmética de todas las observaciones
+$\tilde{Y}$: arithmetic mean of all observations
 :::
 
-Pero este puede ser un indicador injusto del desempeño de un modelo de regresión ya que se asume que se conocen todas las observaciones sobre las que se computa una media, y como ya se mencionó con anterioridad este no es el caso para los modelos de redes neuronales artificiales entrenados usando la metodología de walk forward validation. Debido a esto se modificó el cálculo del $R^2$, como se ha hecho en otras investigaciones como @NBERw25398, para que el modelo con el que se comparan los resultados obtenidos por las RNA utilizadas sea el comprendido por las medias aritméticas de las observaciones anteriores a la que se predice.
+But this can be an unfair indicator of the performance of a regression model since it is assumed that all observations over which a mean is computed are known, and as mentioned above this is not the case for neural network models. artificial animals trained using the walk forward validation methodology. Due to this, the calculation of $R^2$ was modified, as has been done in other investigations such as @NBERw25398, so that the model with which the results obtained by the ANNs used are compared is that comprised by the arithmetic means of the observations earlier than the one predicted.
 
-A continuación, se describirán de manera breve los distintos resultados obtenidos por los distintos modelos construidos. Cabe destacar que, aunque se plantearon 3 modelos diversos de cada uno de ellos se construyeron 10, con el objetivo de estandarizar los resultados obtenidos, ya que el proceso de construcción y entrenamiento de redes neuronales contiene un factor aleatorio. Por lo que los resultados descritos a continuación son los resultados medios obtenidos por los diversos modelos construidos.
+Next, the different results obtained by the different models built will be briefly described. It should be noted that, although 3 different models of each of them were proposed, 10 were built, with the aim of standardizing the results obtained, since the process of building and training neural networks contains a random factor. Therefore, the results described below are the average results obtained by the various models built.
 
-### 2.6.1.1 Una observación
+### 2.6.1.1 An observation
 
-Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con una observación de cada serie mostraron, como se ve en la @fig-ind_evo_oo, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo y aprendiendo de las nuevas observaciones. Se ve claramente también que en la mayoría de los periodos el $R^2$ de este modelo es negativo. Además, se observa un pico en el MSE del modelo a principios del 2020, lo que se entiende como una pérdida de efectividad del modelo, esta pérdida de efectividad del modelo pudiese estar relacionados con los movimientos bruscos de mercado consecuentes de las afectaciones económicas de la Covid-19.
+The results obtained by those models that were trained with input vectors that had one observation from each series showed, as seen in @fig-ind_evo_oo, that in the first periods the models presented better predictions than those obtained by the arithmetic mean. . It can be observed that the effectiveness of the models in comparison with the means decays as the model progresses in time and learns from the new observations. It is also clearly seen that in most periods the $R^2$ of this model is negative. In addition, a peak is observed in the MSE of the model at the beginning of 2020, which is understood as a loss of effectiveness of the model. This loss of effectiveness of the model could be related to sudden market movements resulting from the economic effects of the Covid-19.
 
-El análisis anterior del comportamiento de los indicadores de estos modelos por periodo nos da una visión general de como se desempeñaron estos modelos, pero dado que para la composición de cartera es fundamental los resultados obtenidos en las empresas, a continuación, analizaremos el comportamiento observado en los resultados obtenidos por las 20 empresas que presentaron los mejores y peores resultados, basándose como criterio el $R^2$ obtenido.
+The previous analysis of the behavior of the indicators of these models by period gives us an overview of how these models performed, but given that the results obtained in the companies are essential for the composition of the portfolio, we will now analyze the behavior observed in the results obtained by the 20 companies that presented the best and worst results, based on the $R^2$ obtained as a criterion.
 
-Observando los resultados de los indicadores expuestos en la @tbl-indicadores aquellas empresas que presentaron un peor $R^2$ presentan también un MSE bajo lo que indica que es menos probable que la composición de cartera se vea alterada por los resultados obtenidos por estas empresas. Por otro lado, entre las empresas que obtuvieron un mejor $R^2$ se encuentran algunas que obtuvieron un MSE alto acompañado de un $R^2$ mayor de un 5%. Esto indica que se pudieran generar diferencias entre las composiciones de las carteras debido a las diferencias en las predicciones y que además se trata de empresas que no tienen un buen MSE.
+Observing the results of the indicators exposed in the @tbl-indicadores, those companies that presented a worse $R^2$ also present a low MSE, which indicates that it is less likely that the composition of the portfolio will be altered by the results obtained by these companies. companies. On the other hand, among the companies that obtained a better $R^2$ there are some that obtained a high MSE accompanied by a $R^2$ greater than 5%. This indicates that differences could be generated between the compositions of the portfolios due to the differences in the predictions and that these are companies that do not have a good MSE.
 
-Los resultados descritos en el párrafo anterior son similares para los casos de los modelos construidos con dos y tres observaciones respectivamente.
+The results described in the previous paragraph are similar for the cases of the models built with two and three observations, respectively.
 
-### 2.6.1.2 Dos observaciones
+### 2.6.1.2 Two observations
 
-Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con dos observaciones de cada serie se encontró, como se ve en la @fig-ind_evo_twoo, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo, pero decaen a un ritmo más lento que aquellos modelos entrenados con vectores de entrada con una observación. Se ve claramente también que el $R^2$ de estos modelos tiene una menor variación que el $R^2$ de los modelos analizados con anterioridad, viéndose que para estos modelos el $R^2$ es positivo en la mayoría de los periodos. Además, al igual que en el caso de los modelos analizados con anterioridad también se observa un pico en el MSE del modelo a principios del 2020.
+The results obtained by those models that were trained with input vectors that had two observations from each series, it was found, as seen in @fig-ind_evo_twoo, that in the first periods the models presented better predictions than those obtained by the mean. arithmetic. It can be seen that the effectiveness of the models compared to the means decays as the model progresses in time, but they decay at a slower rate than those models trained with input vectors with one observation. It is also clearly seen that the $R^2$ of these models has less variation than the $R^2$ of the previously analyzed models, seeing that for these models the $R^2$ is positive in most of the periods. In addition, as in the case of the models analyzed previously, a peak is also observed in the MSE of the model at the beginning of 2020.
 
-### 2.6.1.3 Tres observaciones
+### 2.6.1.3 Three observations
 
-Los resultados obtenidos por aquellos modelos que fueron entrenados con vectores de entrada que contaban con tres observaciones de cada serie se encontró, como se ve en la @fig-ind_evo_threeo, que en los primeros periodos los modelos presentaron mejores predicciones que las obtenidas por la media aritmética. Se puede observar que la efectividad de los modelos en comparación con las medias decae según el modelo va avanzando en el tiempo, pero decaen a un ritmo más lento que aquellos modelos entrenados con vectores de entrada con una observación. Se ve claramente que el R2 de estos modelos tiene una mayor variación que el R2 de los modelos analizados con anterioridad, observándose como esta variación disminuye para aquellas predicciones después del 2015. Estos modelos, al igual que los primeros presentaron un R2 negativo en la mayoría de los periodos. Además, al igual que en los casos anteriores también se observa un pico en el MSE del modelo a principios del 2020.
+The results obtained by those models that were trained with input vectors that had three observations of each series, it was found, as seen in @fig-ind_evo_threeo, that in the first periods the models presented better predictions than those obtained by the mean. arithmetic. It can be seen that the effectiveness of the models compared to the means decays as the model progresses in time, but they decay at a slower rate than those models trained with input vectors with one observation. It is clearly seen that the R2 of these models has a greater variation than the R2 of the previously analyzed models, observing how this variation decreases for those predictions after 2015. These models, like the first ones, presented a negative R2 in most of them. of the periods. In addition, as in the previous cases, a peak is also observed in the MSE of the model at the beginning of 2020.
 
-## 2.6.2 Composición de carteras {#sec-cc}
+## 2.6.2 Composition of portfolios {#sec-cc}
 
-Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en @sec-A-cc.
+A more detailed explanation of the code used during the procedure described in this subsection can be found in @sec-A-cc.
 
-En el presente sub-epígrafe se describen los resultados obtenidos tras aplicar programación cuadrática para determinar la composición de la cartera. Esto al igual que las predicciones se realizó periodo a periodo con el objetivo de emular una situación real en la que se aplicaran las técnicas en su conjunto. Por lo que el presente análisis se enfoca en el comportamiento observado al usar los diversos modelos y la comparación de estos resultados con los obtenidos con el uso de las medias.
+This sub-heading describes the results obtained after applying quadratic programming to determine the composition of the portfolio. This, as well as the predictions, was made period by period with the aim of emulating a real situation in which the techniques were applied as a whole. Therefore, the present analysis focuses on the behavior observed when using the various models and the comparison of these results with those obtained with the use of means.
 
-Como se observa en la @fig-pf_evo_oo las carteras conformadas a partir de las predicciones obtenidas por los modelos de redes neuronales que contaban con una observación obtuvieron en lo general mejores resultados que las carteras compuestas a partir de las predicciones usando la media. Se observa que ambos grupos de cartera presentaron una rentabilidad menor que el índice, IBEX, en el periodo comprendido entre el 2009 y el 2016.
+As can be seen in @fig-pf_evo_oo, the portfolios made from the predictions obtained by the neural network models that had one observation generally obtained better results than the portfolios made from the predictions using the mean. It is observed that both portfolio groups presented a lower return than the index, IBEX, in the period between 2009 and 2016.
 
-Al realizar el análisis del comportamiento de las rentabilidades obtenidas por los modelos con dos observaciones de entrada, @fig-pf_evo_twoo, se observa: el comportamiento de las rentabilidades obtenidas por los distintos modelos varía menos que los analizados con anterioridad; en este caso y contrario al caso anterior las rentabilidades se mantienen similares en el periodo comprendido entre 2009 y 2016; y aunque el resultado final dista del resultado obtenido por las medias, es inferior al obtenido por los modelos anteriores, esto último se debe a que la evaluación de los modelos en este caso comienza en un periodo anterior a las de los modelos analizados con anterioridad.
+When carrying out the analysis of the behavior of the returns obtained by the models with two input observations, @fig-pf_evo_twoo, it is observed: the behavior of the returns obtained by the different models varies less than those previously analyzed; In this case and contrary to the previous case, the returns remain similar in the period between 2009 and 2016; and although the final result is far from the result obtained by the averages, it is lower than that obtained by the previous models, the latter being due to the fact that the evaluation of the models in this case begins in a period prior to those of the previously analyzed models.
 
-Al observar los resultados obtenidos por los últimos modelos, @fig-pf_evo_threeo, se observa: una distribución de las rentabilidades superior a aquellos entrenados con dos observaciones pero inferior a los que se entrenaron con una observación; se observa que las rentabilidades comienzan a superar las del índice después del 2013 en lugar del 2016 como en años anteriores; y además se observa que las rentabilidades de los modelos de RNA son superiores a los de las medias y constituyen también las rentabilidades máximas obtenidas entre las distintas estructuras de modelos de RNA.
+Observing the results obtained by the latest models, @fig-pf_evo_threeo, it is observed: a distribution of returns higher than those trained with two observations but lower than those trained with one observation; it is observed that the returns begin to exceed those of the index after 2013 instead of 2016 as in previous years; and it is also observed that the returns of the RNA models are higher than those of the averages and also constitute the maximum returns obtained between the different structures of RNA models.
