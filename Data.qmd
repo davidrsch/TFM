@@ -12,15 +12,15 @@ En la @tbl-emp_cotiz se recogen los datos de `r nrow(empresas)` empresas. Siendo
 
 Con el objetivo de obtener los datos de las empresas y analizarlas para seleccionar aquellas con las que se trabajó en el resto del procedimiento se usó como fuente @yahoofin. A continuación, se expone el proceso llevado a cabo para la obtención y selección de los datos.
 
-Se decidió descargar los datos mensuales de cada una de las empresas recogidas en @tbl-emp_cotiz. Obteniendose todos los datos comprendidos entre el 31 de enero del 2000 al 28 de febrero del 2023 de cada una de las entidades.
+Se decidió descargar los datos mensuales de cada una de las empresas recogidas en @tbl-emp_cotiz. Obteniéndose todos los datos comprendidos entre el 31 de enero del 2000 al 28 de febrero del 2023 de cada una de las entidades.
 
-Tras obtener los datos se paso evaluar la calidad de los mismos. Se comenzó la evaluación con un evalución un análisis exploratorio visual de los precios ajustado ya que, como se explicó en el capitulo anterior estos son los ideales para usar en cualquier metodología de análisiss históricos.
+Tras obtener los datos se pasó evaluar la calidad de estos. Se comenzó la evaluación con un análisis exploratorio visual de los precios ajustado ya que, como se explicó en el capítulo anterior estos son los ideales para usar en cualquier metodología de análisis históricos.
 
 Durante el mencionado análisis exploratorio visual, se detectó que existían irregularidades en los precios ajustados de algunas de las series. Las irregularidades detectadas consistían en el incorrecto registro de los precios ajustados, así como errores en el cálculo de estos. Estos errores se detectaron fácilmente al observar en las gráficas de los valores del precio de cierre ajustado tendencia constante en periodos largos de tiempo, como se observa en @fig-tend_const_nxt, lo que indica un registro erróneo de las variaciones de los precios; así como cambios bruscos de hasta más de un 100% en los mismos en un solo período de tiempo, lo que puede indicar un mal cálculo en el precio ajustado, como se ve en @fig-radi_chang_btc, en este último caso se verificó con otras fuentes como @investing, para comprobar que de echo estaban mal computados los precios.
 
 Dado el tiempo con el que se contaba para realizar el estudio expuesto en el procedimiento y la extensa cantidad de tiempo que requeriría la investigación a realizar para sustituir los valores erróneos en las series se decidió eliminar estas irregularidades mediante el uso solo de los valores posteriores a enero del 2005, que ya no presentaban inconsistencia en el cálculo del precio ajustado, posteriormente se eliminaron aquellas series que aún contenían valores faltantes y que presentaban irregularidad en el registro de las variaciones, para esto último se eliminaron aquellas series en las que las variaciones de los precios sin registrar sea en más de 10 observaciones.
 
-Quedando tras los ajustes realizados `r length(returns_emps3)` empresas, como se ve en la columna seleccionadas de la @tbl-emp_cotiz, algunaz de estas empresas cuentan con distintos números de observaciones, debido a que no todas existián o habían salido al mercado bursatil antes de enero del 2005.
+Quedando tras los ajustes realizados `r length(returns_emps3)` empresas, como se ve en la columna seleccionadas de la @tbl-emp_cotiz, algunas de estas empresas cuentan con distintos números de observaciones, debido a que no todas existían o habían salido al mercado bursátil antes de enero del 2005.
 
 Una vez seleccionadas las empresas con las que se trabajó se computaron las rentabilidades de estas a partir de los precios ajustados. Además de las rentabilidades correspondientes a las empresas seleccionadas se usaron las rentabilidades del precio de cierre ajustado del IBEX 35, además se computaron otras variables que sirven como indicadores del comportamiento de las rentabilidades, y la relación de estas con las del índice, en este caso las del IBEX 35. Entre estas variables se encuentran las volatilidades de las empresas y el índice, la correlación entre los valores de las series y el IBEX, y la beta de las empresas en relación con el IBEX.
 
@@ -56,7 +56,7 @@ La desviación estándar y la volatilidad son herramientas útiles para que los 
 
 Como se explica en @edwards22 la correlación es una medida estadística que determina cómo dos variables se mueven entre sí. En el análisis del mercado de valores, la correlación puede ayudar a comprender el comportamiento de diferentes acciones o indicadores del mercado a lo largo del tiempo. Tomando como ejemplo los datos que se usan en este trabajo, si los precios de una de las empresas seleccionadas tienden a subir y bajar junto con el IBEX 35, estos precios tienen una correlación positiva. Si al contrario los precios de la empresa tienden a subir cuando el indicador del IBEX 35 baja, tienen una correlación negativa. Un coeficiente de correlación de cero significa que no existe una relación lineal entre las variables, siendo en este caso los valores del IBEX 35 y los precios de una de las empresas determinadas.
 
-Como se expone en @ross22 la correlación entre dos variables se calcula usando la siguiente equación, @eq-correlation:
+Como se expone en @ross22 la correlación entre dos variables se calcula usando la siguiente ecuación, @eq-correlation:
 
 $$\rho_{xy} = \frac{\sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^n (x_i - \bar{x})^2}\sqrt{\sum_{i=1}^n (y_i - \bar{y})^2}}$$ {#eq-correlation}
 
@@ -84,7 +84,7 @@ Como se explica en @kneton22beta Beta es una medida de cuán sensibles son los r
 
 Beta es importante en el análisis del mercado de valores porque, como se explica en @kneton22beta, ayuda a los inversores a evaluar el riesgo y el rendimiento de una cartera. Al conocer la versión beta de cada acción en una cartera, los inversores pueden estimar cuánto fluctuará la cartera con los movimientos del mercado y ajustar su asignación de activos en consecuencia. Por ejemplo, si un inversor quiere reducir el riesgo de su cartera, puede elegir acciones con valores beta bajos o negativos que tienden a moverse en dirección opuesta al mercado.
 
-Como se explica en @monaghan19bvsc Beta está relacionado con la correlación, pero no son lo mismo. Como se explicó con antrioridad la correlación es una medida de cuán linealmente relacionadas están dos variables, Beta, por otro lado, es una medida de cuán fuertemente relacionadas están dos variables, lo que indica cuánto cambia una variable cuando otra variable cambia en una unidad. Beta se puede calcular a partir de la correlación usando la siguiente ecuación, @eq-beta:
+Como se explica en @monaghan19bvsc Beta está relacionado con la correlación, pero no son lo mismo. Como se explicó con anterioridad la correlación es una medida de cuán linealmente relacionadas están dos variables, Beta, por otro lado, es una medida de cuán fuertemente relacionadas están dos variables, lo que indica cuánto cambia una variable cuando otra variable cambia en una unidad. Beta se puede calcular a partir de la correlación usando la siguiente ecuación, @eq-beta:
 
 $$\beta = \frac{\rho_{xy} \sigma_x}{\sigma_y}$$ {#eq-beta}
 
@@ -106,9 +106,9 @@ Como se ha mencionado con anterioridad el objetivo del presente trabajo es expon
 
 Para la representación de este problema se crearon vectores tridimensionales, siguiendo lo expuesto en @chollet2018deep. Las dimensiones de estos vectores se explican de la siguiente manera:
 
--   La primera dimensión esta comprendida por el número de muestras obtenidas al seccionar las observaciones de las distintas series en en vectores bidimensionales bidimensionales consecutivos.
+-   La primera dimensión está comprendida por el número de muestras obtenidas al seccionar las observaciones de las distintas series en vectores bidimensionales consecutivos.
 
--   La segunda dimensión esta comprendida por el número de observaciones, de las distintas series, recogido en cada vector bidimensional.
+-   La segunda dimensión está comprendida por el número de observaciones, de las distintas series, recogido en cada vector bidimensional.
 
 -   La tercera dimensión es el número de series en cada vector bidimensional.
 
@@ -118,7 +118,7 @@ Posteriormente se definió el horizonte temporal que se desea prever, este es un
 
 Y el último aspecto a definir es cuantas observaciones debe observar el modelo para inferir la salida deseada. Esto define la cantidad de observaciones que se tomarán de cada serie de tiempo para conformar los vectores de entrada. Para determinar este aspecto se debe realizar un proceso iterativo probando distintas cantidades y evaluar los resultados obtenidos por los modelos que se entrenen con dichos. Para simplificar el proceso, en el presente trabajo se determinó probar distintos tamaños de entrada siendo estos 1, 2 y 3 observaciones. Probándose así de cierta manera como el tamaño de las entradas afecta la predicción obtenida.
 
-Si tenemos una de serie para los vectores de entrada contiene unas `r dim(returns_indc[[1]])[1]` observaciones se puede calcular el número de muestras que se obtuvo de esta serie siguiendo la siguiente ecuacíon, @eq-muestras:
+Si tenemos una de serie para los vectores de entrada contiene unas `r dim(returns_indc[[1]])[1]` observaciones se puede calcular el número de muestras que se obtuvo de esta serie siguiendo la siguiente ecuación, @eq-muestras:
 
 $$
 m = n - (i-1+o)

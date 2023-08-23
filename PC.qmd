@@ -8,7 +8,7 @@ Como se explica en @Gunjan2023 la optimización de cartera es el proceso de sele
 
 La optimización de la cartera es un proceso importante para los inversores, ya que les ayuda a minimizar el riesgo y maximizar el rendimiento de sus inversiones. Al seleccionar cuidadosamente los activos que mantendrán en su cartera, los inversores pueden lograr el nivel deseado de riesgo y rendimiento mientras diversifican sus inversiones para reducir el riesgo general. La optimización de la cartera es un mecanismo crucial que se utiliza para reducir el riesgo de la inversión.
 
-Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En @Gunjan2023 estas técnicas se encuentran clasificadas en en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación, se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.
+Existen diversas técnicas que se pueden utilizar para resolver el problema de optimización de cartera. En @Gunjan2023 estas técnicas se encuentran clasificadas en dos categorías: enfoques clásicos y enfoques inteligentes. A continuación, se explica de manera general algunas de las técnicas pertenecientes a cada enfoque.
 
 Enfoques clásicos:
 
@@ -30,13 +30,13 @@ Enfoques inteligentes:
 
 -   Regresión de vectores de soporte (SVR): esta técnica de aprendizaje automático se puede utilizar para determinar la cantidad a comprar y vender. Fue introducido por @drucker1996linear y tiene ciertas ventajas sobre las técnicas basadas en estadísticas, como su capacidad para aprender de datos históricos. SVR implica construir un hiperplano que separa puntos de datos con diferentes etiquetas mientras maximiza el margen entre ellos. Puede usarse para tareas de regresión donde el objetivo es predecir valores continuos en lugar de etiquetas discretas. En el contexto de la gestión de carteras, SVR se puede utilizar para predecir precios de activos futuros en función de datos históricos y otra información relevante.
 
--   Redes neuronales artificiales: como se explico con anterioridad estos modelos computacionales se pueden utilizar para resolver problemas computacionales y de aprendizaje complejos. En el contexto de la gestión de carteras, las redes neuronales se pueden utilizar para predecir futuros precios o rendimientos de activos en función de datos históricos y otra información relevante, que es para lo que se usan en el presente trabajo.
+-   Redes neuronales artificiales: como se explicó con anterioridad estos modelos computacionales se pueden utilizar para resolver problemas computacionales y de aprendizaje complejos. En el contexto de la gestión de carteras, las redes neuronales se pueden utilizar para predecir futuros precios o rendimientos de activos en función de datos históricos y otra información relevante, que es para lo que se usan en el presente trabajo.
 
 -   Aprendizaje por refuerzo: este tipo de aprendizaje automático involucra a un agente o modelo que interactúa con su entorno para aprender de sus acciones. Fue presentado en @sutton2018reinforcement y funciona para maximizar la recompensa al agente. El aprendizaje por refuerzo implica aprender a través de interacciones de prueba y error con un entorno. El agente realiza acciones en función de su estado actual y recibe recompensas o sanciones en función de los resultados de esas acciones. Con el tiempo, el agente aprende a realizar acciones que maximicen su recompensa acumulada. En el contexto de la gestión de carteras, el aprendizaje por refuerzo se puede utilizar para desarrollar estrategias comerciales que maximicen los rendimientos mientras se gestiona el riesgo.
 
 ## 2.3.1 Programación cuadrática
 
-En este sub-epígrafe se explica que es la programación cuadrática. Cuáles son algunas de las técnicas que existen dentro de esta disciplina de la optimización matemática. Se expone además como el problema de optimización de carteras se puede describir como un problema de programación cuadratica y se expondra de manera breve cómo funciona una de las técnicas más usadas en esta disciplina, concretamente la denominada Dual Active Set Method, la cuál es usada en los capítulos posteriores.
+En este sub-epígrafe se explica que es la programación cuadrática. Cuáles son algunas de las técnicas que existen dentro de esta disciplina de la optimización matemática. Se expone además como el problema de optimización de carteras se puede describir como un problema de cuadrática y se expone de manera breve cómo funciona una de las técnicas más usadas en esta disciplina, concretamente la denominada Dual Active Set Method, la cuál es usada en los capítulos posteriores.
 
 La programación cuadrática se puede elegir entre las técnicas enumeradas en el sub-epígrafe anterior por varias razones. En primer lugar, es una técnica bien establecida que se ha utilizado ampliamente en la optimización de carteras. Puede manejar problemas de optimización complejos con múltiples restricciones y puede proporcionar una forma eficiente y efectiva de resolver el problema de optimización de cartera. Esto lo convierte en una herramienta útil para los inversores que buscan minimizar el riesgo mientras logran el nivel de rendimiento deseado. Finalmente, la programación cuadrática tiene una sólida base teórica y ha sido ampliamente estudiada en la literatura. Esto la convierte en una técnica confiable y bien entendida que se puede utilizar con confianza en la optimización de la cartera.
 
@@ -58,7 +58,7 @@ De las técnicas señaladas con anterioridad se seleccionó el algoritmo Dual Ac
 
 A continuación, se presenta un ejemplo general de cómo podría funcionar el algoritmo DASM usando valores hipotéticos para un problema de optimización de cartera con 2 activos, el ejemplo fue construido a partir de lo expuesto en @GOSWAMI2012620 y @rwalk14:
 
-Bajo la suposición de que se trata de encontrar la mejor composición de una cartera en la que, por simplicidad, tenemos 2 activos, Se plantearia el problema cuadrático de la siguiente manera @eq-qpop:
+Bajo la suposición de que se trata de encontrar la mejor composición de una cartera en la que, por simplicidad, tenemos 2 activos, Se plantearía el problema cuadrático de la siguiente manera @eq-qpop:
 
 $$
 \begin{aligned}
@@ -115,5 +115,4 @@ $\bar{N}$ es la matriz de los vectores normales de las restricciones en el conju
 $H$ es el operador hessiano inverso reducido de $Q$.
 :::
 
-Se repetin estos pasos de manera iterativa hasta que se satisfagan todas las restricciones y se haya determinado la asignación óptima de activos.
-
+Se repiten estos pasos de manera iterativa hasta que se satisfagan todas las restricciones y se haya determinado la asignación óptima de activos.

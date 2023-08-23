@@ -79,14 +79,14 @@ Donde:
 :::
 
 ::: margin
-*padding*: representa la cantidad de zeros que se añade a cada extremo del vector. @fig-HJpadding representa como el parámetro padding puede afectar la longitud del vector de salida.
+*padding*: representa la cantidad de ceros que se añade a cada extremo del vector. @fig-HJpadding representa como el parámetro padding puede afectar la longitud del vector de salida.
 :::
 
 En general, Conv1D es una herramienta poderosa para procesar datos de series temporales y sus ventajas incluyen la eficiencia computacional y la capacidad de capturar dependencias temporales en los datos. Sus casos de uso son numerosos y abarcan diferentes campos, lo que lo convierte en una herramienta valiosa para el análisis de series temporales.
 
 ## 2.2.3 Long short-term memory
 
-En el presente subepigrafe se explica por qué las LSTM son una de las estructuras más usadas de RNA en la previsión de series de tiempo, partiendo de una breve explicación de las RNR y porque estas son de utilidad en la solución de problemas de previsión de series de tiempo, profundizando en por qué las LSTM se diferencian del resto de las RNN, y el funcionamiento de cada una de las capas que componen la estructura de una capa LSTM.
+En el presente sub-epígrafe se explica por qué las LSTM son una de las estructuras más usadas de RNA en la previsión de series de tiempo, partiendo de una breve explicación de las RNR y porque estas son de utilidad en la solución de problemas de previsión de series de tiempo, profundizando en por qué las LSTM se diferencian del resto de las RNN, y el funcionamiento de cada una de las capas que componen la estructura de una ca
 
 En @COlah15 se explica que una RNN puede considerarse como copias múltiples de la misma red, @fig-CORNRstruct, expone que este aspecto revela que las RNR están íntimamente relacionadas con secuencias y listas, lo que hace que este tipo de RNA sea el que se use naturalmente para el trabajo con series de tiempo.
 

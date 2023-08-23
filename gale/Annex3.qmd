@@ -32,9 +32,9 @@ cat(md_table(empresast))
 : Listaxe de sociedades cotizadas {#tbl-emp_cotiz}
 :::
 
-::: 
+::: figure-caption 
 
-figure-caption Obtido de: A información exposta no sitio oficial das Bolsas e Mercados Españoles, @BMEexcha. *Nota:* MC en MARKET significa Mercado Continuo, IBEXTD en INDEX significa IBEX TOP Dividendo. 
+Obtido de: A información exposta no sitio oficial das Bolsas e Mercados Españoles, @BMEexcha. *Nota:* MC en MARKET significa Mercado Continuo, IBEXTD en INDEX significa IBEX TOP Dividendo.
 
 :::
 
@@ -107,7 +107,7 @@ table <- table |>
   kable_styling(bootstrap_options = "striped") |>
   add_header_above(c("1" = 3, "2" = 3, "3" = 3))
 
-table
+#table
 ```
 
 ::: figure-caption

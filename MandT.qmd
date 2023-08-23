@@ -4,9 +4,9 @@ Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se desc
 
 ## 2.5.1 Modelado {#sec-modelado}
 
-Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en @sec-A-modelos.
+Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epígrafe se encuentra en @sec-A-modelos.
 
-Como se explicó con anterioridad los principales elementos de los modelos de redes neuronales artificiales utilizados son una capa CNN y una capa LSTM. Además de esto se utilizo una capa de entrada y una capa de salida, que son las encargadas de suministrar a los modelos la información de los vectores constituidos con anterioridad. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-modelos.
+Como se explicó con anterioridad los principales elementos de los modelos de redes neuronales artificiales utilizados son una capa CNN y una capa LSTM. Además de esto se utilizó una capa de entrada y una capa de salida, que son las encargadas de suministrar a los modelos la información de los vectores constituidos con anterioridad. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-modelos.
 
 Dado que se definieron tres tamaños distintos de observaciones para tener en cuenta para realizar una predicción fue necesario construir tres estructuras de modelos distintas que se adaptasen a las dimensiones de los distintos vectores de entrada, las distintas estructuras se pueden observar en la @fig-estructuras.
 
@@ -26,7 +26,7 @@ Para concluir con la construcción de los modelos se determinó usar el error cu
 
 ## 2.5.2 Entrenamiento {#sec-entrenamiento}
 
-Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epigrafe se encuentra en @sec-A-entrenamiento.
+Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epígrafe se encuentra en @sec-A-entrenamiento.
 
 El entrenamiento de algoritmos de Machine Learning en la previsión de series de tiempo tienes sus peculiaridades a como se entrenan modelos con el objetivo de solucionar otro tipo de problemas. Por lo que en este sub-epígrafe se cubre de manera breve la metodología de entrenamiento utilizada, que es la denominada walk forward validation o validación de avance.
 

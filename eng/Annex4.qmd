@@ -286,7 +286,7 @@ n_ob_fut <- outputsinfo[2]
 
 ```
 
-Then the structure of the models was constituted with the aspects described in @sec-modelos.
+Then the structure of the models was constituted with the aspects described in @sec-modelado.
 
 ```{r}
 #| eval: false
