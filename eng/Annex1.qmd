@@ -149,7 +149,7 @@ Own elaboration: Made from an image in @chollet2018deep. It shows what the three
 ![Different structures depending on the different sizes of input vectors](../images/a2_estructuras.png){#fig-estructuras}
 
 ::: figure-caption
-Own elaboration: Elaborated from the different models built using the keras and tensorflow packages in R, and were graphed using the @Diagrammer package.
+Own elaboration: Elaborated from the different models built using the keras and tensorflow packages in R and were graphed using the @Diagrammer package.
 :::
 
 ![ReLU and Leaky ReLU domain](../images/a2_dominios.png){#fig-dominios}

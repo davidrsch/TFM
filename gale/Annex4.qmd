@@ -307,7 +307,7 @@ out <- lstm |>
 model <- keras_model(inp, out)
 # Establecemento de parámetros de aprendizaxe
 model |> 
-  compile(loss = "mse", optimizer = optimizer_sgd(0.0005))
+  compile(loss = "$MSE$", optimizer = optimizer_sgd(0.0005))
 ```
 
 *Nota:* Podes atopar modelos non adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1e`, `model2e` e `model3e`.
@@ -497,7 +497,7 @@ A continuación preséntase o código utilizado durante o proceso descrito nas d
 
 ### Predicións {#sec-A-predicciones}
 
-A análise exposta na @sec-predicciones realizouse a partir de gráficos (ver @fig-ind_evo_oo, @fig-ind_evo_twoo e @fig-ind_evo_threeo), nos que se recollen os valores dos indicadores MSE e $R^2$ para cada unha das estruturas ensaiadas.
+A análise exposta na @sec-predicciones realizouse a partir de gráficos (ver @fig-ind_evo_oo, @fig-ind_evo_twoo e @fig-ind_evo_threeo), nos que se recollen os valores dos indicadores $MSE$ e $R^2$ para cada unha das estruturas ensaiadas.
 
 O primeiro paso para obter estas gráficas foi o cálculo dos indicadores, para cada período de tempo, para cada unha das predicións obtidas a partir dos distintos modelos construídos con cada estrutura. Isto faise usando o seguinte código.
 
@@ -535,7 +535,7 @@ Os diferentes indicadores calculados para cada un dos 10 modelos adestrados con 
 list_indicadores[["indicadores1"]] <-  indicadores
 ```
 
-Feito isto, obtense unha lista que contén 10 marcos de datos (`indicadores1`,...,`indicadores10`), que á súa vez conteñen os valores dos de MSe e $R^2$ das predicións obtidas. por modelos de ARN para cada unha das empresas agrupadas por data. Entón, a gráfica foi construída usando o seguinte código.
+Feito isto, obtense unha lista que contén 10 marcos de datos (`indicadores1`,...,`indicadores10`), que á súa vez conteñen os valores dos de $MSE$ e $R^2$ das predicións obtidas. por modelos de ARN para cada unha das empresas agrupadas por data. Entón, a gráfica foi construída usando o seguinte código.
 
 ```{r}
 #| eval: false

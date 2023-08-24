@@ -95,7 +95,7 @@ format:
       en
   
   docx:
-    reference-doc: referencia_formato.docx
+    reference-doc: ../referencia_formato.docx
     lang:
       es
 

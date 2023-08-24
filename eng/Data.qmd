@@ -74,9 +74,9 @@ As also explained by @edwards22, the correlation coefficient ranges from -1 to 1
 
 As previously explained, the correlation coefficient, in this paper, can be used to analyze how similarly the returns of a company move compared to those of the IBEX 35. The correlation can also be used to diversify a portfolio by choosing stocks that have a low or negative correlation with each other, as explained by @boytew22. This can help reduce overall portfolio risk, as losses from one stock can be offset by gains from another. However, the correlation is not constant and can change over time due to various factors, such as market conditions, economic events, or company news. Therefore, it is important to monitor the stock correlation regularly and adjust the portfolio accordingly @boytew22.
 
-Correlation is a valuable tool in stock market analysis, but it does not imply causation. Having a high or low correlation between two variables does not imply that one variable causes changes in the other. Correlation simply measures the strength and direction of the linear relationship between two variables, without considering other factors that may influence them.
+Correlation is a valuable tool in stock market analysis, but it does not imply causation. Having a high or low correlation between two variables does not imply that one variable causes change in the other. Correlation simply measures the strength and direction of the linear relationship between two variables, without considering other factors that may influence them.
 
-As also exposed in @edwards22, the correlation is closely related to the volatility of the market and of the shares, being able to see that, during periods of greater volatility, such as the financial crisis of 2008, the shares can have a tendency to be more correlated, even if they are in different sectors. International markets can also become highly correlated during times of instability. Investors may want to include assets in their portfolios that have low market correlation to equity markets to help manage their risk.
+As also exposed in @edwards22, the correlation is closely related to the volatility of the market and of the shares, being able to see that, during periods of greater volatility, such as the financial crisis of 2008, the shares can tend to be more correlated, even if they are in different sectors. International markets can also become highly correlated during times of instability. Investors may want to include assets in their portfolios that have low market correlation to equity markets to help manage their risk.
 
 ### 2.4.2.3 Beta
 
@@ -84,7 +84,7 @@ As explained by @kneton22beta Beta is a measure of how sensitive a stock's retur
 
 Beta is important in stock market analysis because, as @kneton22beta explains, it helps investors assess the risk and return of a portfolio. By knowing the beta of each stock in a portfolio, investors can estimate how much the portfolio will fluctuate with market movements and adjust their asset allocation accordingly. For example, if an investor wants to reduce the risk in their portfolio, they might choose stocks with low or negative beta values ​​that tend to move in the opposite direction of the market.
 
-As explained by @monaghan19bvsc Beta is related to mapping, but they are not the same. As explained above, correlation is a measure of how linearly related two variables are, Beta, on the other hand, is a measure of how strongly related two variables are, indicating how much one variable changes when another variable changes by one unit. Beta can be calculated from the correlation using the following equation, @eq-beta:
+As explained by @monaghan19bvsc Beta is related to mapping, but they are not the same. As explained above, correlation is a measure of how linearly related two variables are, Beta, on the other hand, is a measure of how strongly related two variables are, indicating how much one variable changes when another variable change by one unit. Beta can be calculated from the correlation using the following equation, @eq-beta:
 
 $$\beta = \frac{\rho_{xy} \sigma_x}{\sigma_y}$$ {#eq-beta}
 
@@ -106,11 +106,11 @@ As previously mentioned, the objective of this paper is to present a procedure f
 
 To represent this problem, three-dimensional vectors were created, following what was exposed in @chollet2018deep. The dimensions of these vectors are explained as follows:
 
--   The first dimension is comprised of the number of samples obtained by sectioning the observations of the different series into consecutive two-dimensional two-dimensional vectors.
+-   The first dimension is comprised of the number of samples obtained by sectioning the observations of the different series into consecutive two-dimensional vectors.
 
 -   The second dimension is comprised of the number of observations, of the different series, collected in each two-dimensional vector.
 
--   The third dimension is the number of series in each two-dimensional vector.
+-   The third dimension is the amount of series in each two-dimensional vector.
 
 Therefore, in order to correctly obtain these samples, it is necessary to first define which series will be used for the input and output vectors. The series used in the input vectors were defined in the previous section, being these: the historical returns of the company and the IBEX, the historical volatilities of the company and the IBEX, the historical correlation of the company and the IBEX, and the Historical beta of the company and the IBEX. The series used for the output vectors is the historical profitability of the company.
 
@@ -132,4 +132,4 @@ where:
 
 -   $i$ y $o$ the number of observations in the input and output vecotres respectively.
 
-The @tbl-muestras shows the number of samples obtained for the different sizes of input vectors proposed, for which the different numbers of observations of the selected `r length(returns_indc)` were taken into account. The @fig-muestras shows what the input and output vectors look like, in the case in which the input vector has 3 observations.
+The @tbl-muestras shows the number of samples obtained for the different sizes of input vectors proposed, for which the different numbers of observations of the selected `r length(returns_indc)` were considered. The @fig-muestras shows what the input and output vectors look like, in the case in which the input vector has 3 observations.

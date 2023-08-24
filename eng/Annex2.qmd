@@ -165,7 +165,7 @@ ggplot(fig_df, aes(x=Date, y=Adjusted, group = 1)) +
 ```
 
 ::: figure-caption
-Own elaboration: Based on the data obtained from @yahoofin corresponding to the company "Nueva Expreción Textil S.A" in the period from January 31, 2000 to February 28, 2023.
+Own elaboration: Based on the data obtained from @yahoofin corresponding to the company "Nueva Expresión Textil S.A" in the period from January 31, 2000 to February 28, 2023.
 :::
 
 ```{r}
@@ -190,7 +190,7 @@ ggplot(fig_df, aes(x=Date, y=Adjusted, group = 1)) +
 ```
 
 ::: figure-caption
-Own elaboration: Based on the data obtained from @yahoofin corresponding to the company "Nueva Expreción Textil S.A" in the period from January 31, 2000 to February 28, 2023.
+Own elaboration: Based on the data obtained from @yahoofin corresponding to the company "Nueva Expresión Textil S.A" in the period from January 31, 2000 to February 28, 2023.
 :::
 
 ```{r}

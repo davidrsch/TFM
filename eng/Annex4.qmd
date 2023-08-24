@@ -318,7 +318,7 @@ model |>
   compile(loss = "mse", optimizer = optimizer_sgd(0.0005))
 ```
 
-*Nota:* You can find untrained models in the `data` folder of the repository where this work is located. The models were saved using the `hdf5` extension and under the names `model1e`, `model2e` and `model3e`.
+*Note:* You can find untrained models in the `data` folder of the repository where this work is located. The models were saved using the `hdf5` extension and under the names `model1e`, `model2e` and `model3e`.
 
 ### Training {#sec-A-entrenamiento}
 
@@ -508,7 +508,7 @@ The code used during the process described in the different sub-sections of the 
 
 ### Predictions {#sec-A-predicciones}
 
-The analysis exposed in the @sec-predicciones was carried out from graphs (see @fig-ind_evo_oo, @fig-ind_evo_twoo and @fig-ind_evo_threeo), which show the values of the MSE and $R^2$ indicators. for each of the structures tested.
+The analysis exposed in the @sec-predicciones was carried out from graphs (see @fig-ind_evo_oo, @fig-ind_evo_twoo and @fig-ind_evo_threeo), which show the values of the $MSE$ and $R^2$ indicators. for each of the structures tested.
 
 The first step to obtain these graphs was to compute the indicators, for each period of time, for each of the predictions obtained from the different models built with each structure. This is done using the following code.
 
@@ -546,7 +546,7 @@ The different indicators computed for each of the 10 models trained with each of
 list_indicadores[["indicadores1"]] <-  indicadores
 ```
 
-Once this is done, a list is obtained that contains 10 data frames (`indicadores1`,...,`indicadores10`), which in turn contain the values ​​of those of MSe and $R^2$ of the predictions obtained by RNA models for each of the companies grouped by date. So then the graph was built by using the following code.
+Once this is done, a list is obtained that contains 10 data frames (`indicadores1`,...,`indicadores10`), which in turn contain the values ​​of those of $MSE$ and $R^2$ of the predictions obtained by RNA models for each of the companies grouped by date. So, then the graph was built by using the following code.
 
 ```{r}
 #| eval: false
