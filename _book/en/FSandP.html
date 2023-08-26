@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Final Master’s Project - 2.1 Characterization of financial time series</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./ANNinTSF.html" rel="next">
+<link href="./body.html" rel="prev">
+<link href="./../icologo.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner {
+        background: #D60D8C;
+      }
+</style>
+
+
+<link rel="stylesheet" href="../my_style.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Work development</a></li><li class="breadcrumb-item"><a href="./FSandP.html">2.1 Characterization of financial time series</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">2.1 Characterization of financial time series</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Final Master’s Project</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./../index.html">
+            Español
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./../gal/index.html">
+            Galego
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Description</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./greetings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Thanks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summaryes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summarygal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumo</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1 Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./body.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2 Work development</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./FSandP.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.1 Characterization of financial time series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ANNinTSF.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Artificial neural networks in the forecast of time series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./PC.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Portfolio composition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MandT.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Modeling and training</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Results.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Result</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./conclusions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3 Conclusions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bibliography</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Annex</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annex. 1 Figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annex. 2 Graphics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annex. 3 Tables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Annex4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Annex. 4 Codes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#time-series-and-their-characteristics" id="toc-time-series-and-their-characteristics" class="nav-link active" data-scroll-target="#time-series-and-their-characteristics">2.1.1 Time series and their characteristics</a></li>
+  <li><a href="#pricing-features" id="toc-pricing-features" class="nav-link" data-scroll-target="#pricing-features">2.1.2 Pricing Features</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/FSandP.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p>This heading is divided into two sub-headings. The first presents the fundamental concepts related to time series, including their characteristics, components and classifications, and establishes their relationship with the analysis of time series and forecasting, which is the objective of this report. The second sub-heading delves into the characteristics of share prices, starting with a general description and moving towards more specific aspects, as well as the importance of the structure in which the data related to these are found.</p>
+<section id="time-series-and-their-characteristics" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-and-their-characteristics">2.1.1 Time series and their characteristics</h2>
+<p>Time series are a type of stochastic process that is characterized by ordering random variables according to time. This means that each moment is associated with a value of the variable that depends on chance and that can change over time. According to <span class="citation" data-cites="ruiz2011">Ruiz (<a href="references.html#ref-ruiz2011" role="doc-biblioref">2011</a>)</span>, a stochastic process is “a collection or family of random variables, ordered according to a subscript that is usually time” (p.01). The analysis of the time series can have different purposes, such as describing the behavior of the variables or predicting or forecasting their future values, which is especially relevant for financial series.</p>
+<p>Time series analysis is a statistical tool that allows studying the behavior of a variable over time. However, there is no single consensus on the components that should be considered in this type of analysis. Some authors, such as <span class="citation" data-cites="kocenda2017">Kocenda and Cerný (<a href="references.html#ref-kocenda2017" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="anderson2017">Anderson et al. (<a href="references.html#ref-anderson2017" role="doc-biblioref">2017</a>)</span>, propose that time series can be decomposed into three components: trend, seasonality, and noise. Other authors, such as <span class="citation" data-cites="dodge2008">Dodge (<a href="references.html#ref-dodge2008" role="doc-biblioref">2008</a>)</span> and <span class="citation" data-cites="espallargas2012">Espallargas and Solís (<a href="references.html#ref-espallargas2012" role="doc-biblioref">2012</a>)</span>, suggest that a fourth component should be added: the cycle. Finally, there are authors who suggest that time series can have up to five components, these are the cases of <span class="citation" data-cites="IBM2021">IBM (<a href="references.html#ref-IBM2021" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="chirinos2018">Chirinos (<a href="references.html#ref-chirinos2018" role="doc-biblioref">2018</a>)</span>.</p>
+<p>Trend: It is the long-term pattern of change that is observed in a series of data. It can be defined as the general and persistent direction of the variations of the series over time. It can be classified as positive (<a href="Annex2.html#fig-tend_pos">Figure&nbsp;<span>1</span></a>), negative (<a href="Annex2.html#fig-tend_neg">Figure&nbsp;<span>2</span></a>) or null (<a href="Annex2.html#fig-tend_nul">Figure&nbsp;<span>3</span></a>), depending on whether the series increases, decreases or remains constant in the long term. The trend can be identified by graphical analysis or by statistical methods. This component is important to understand the historical behavior and project the future of a series of data, it is common in the different criteria mentioned.</p>
+<p>Seasonality: Also called regular cyclical variation: It refers to the variation corresponding to the movements of the series that occur every certain period of time, <a href="Annex2.html#fig-est_err">Figure&nbsp;<span>4</span></a>. This component is, like the trend, common in the aforementioned criteria. Differentiating in that those authors who expose four and five components call seasonality the periodic variations corresponding to periods less than or equal to one year (such as daily, weekly, monthly, or annual periodicity), while the periodic variations corresponding to longer periods They contemplate a component called cyclical variations. Therefore, to determine the seasonality of a time series, it is necessary to analyze them in a period of no less than two years.</p>
+<p>One component that cannot be explained by the other elements of the time series is the irregular variation or error. This component is also known as random variation, noise, or residual, and is shown in <a href="Annex2.html#fig-est_err">Figure&nbsp;<span>4</span></a>. Irregular variation is common in all three criteria mentioned above. Some authors distinguish between irregular variation, which is occasional and random, and atypical variation, which is caused by isolated events that alter the behavior of the series. Atypical variation can be classified into several types: additive, innovation, level change, transient, additive seasonality, and local trend.</p>
+<p>One way to categorize the time series is according to the degree of variability that they present over time. According to what was exposed in <span class="citation" data-cites="villagarcia2006">Villagarcía (<a href="references.html#ref-villagarcia2006" role="doc-biblioref">2006</a>)</span>, it is possible to distinguish between homoscedastic and heteroscedastic series. The homoscedastic series are those that maintain a constant range of variation, as shown in <a href="Annex2.html#fig-tend_nul">Figure&nbsp;<span>3</span></a>. On the contrary, heteroscedastic series are those that change the range of variation, increasing or decreasing its amplitude, as illustrated in <a href="Annex2.html#fig-tend_pos">Figure&nbsp;<span>1</span></a> and <a href="Annex2.html#fig-tend_neg">Figure&nbsp;<span>2</span></a>.</p>
+<p>A key concept in time series analysis is that of stationarity. A time series is stationary when its statistical properties, such as the mean, variance, and covariance, do not change with time. This implies that the series does not present a trend, cycles or seasonality. As <span class="citation" data-cites="castillo_varela2010">Castillo and Varela (<a href="references.html#ref-castillo_varela2010" role="doc-biblioref">2010</a>)</span>, <span class="citation" data-cites="villavicencio2010">Villavicencio (<a href="references.html#ref-villavicencio2010" role="doc-biblioref">2010</a>)</span> and <span class="citation" data-cites="ruiz2011">Ruiz (<a href="references.html#ref-ruiz2011" role="doc-biblioref">2011</a>)</span> point out, stationarity is a necessary condition to be able to predict the future behavior of a time series using statistical techniques. An example of a stationary time series is shown in <a href="Annex2.html#fig-tend_nul">Figure&nbsp;<span>3</span></a>.</p>
+<p>Financial time series present heteroscedasticity, that is, variances that change over time. This implies that they are not stationary and that their behavior depends on external factors. To verify the stationarity of a time series, different methods can be used, such as the correlogram, which shows the autocorrelation and partial autocorrelation functions of the series, or unit root tests, such as Dickey Fuller’s or Phillips Perron’s. , which test the null hypothesis that the series has a unit root. These methods are explained in more detail in <span class="citation" data-cites="castillo_varela2010">Castillo and Varela (<a href="references.html#ref-castillo_varela2010" role="doc-biblioref">2010</a>)</span>, <span class="citation" data-cites="villavicencio2010">Villavicencio (<a href="references.html#ref-villavicencio2010" role="doc-biblioref">2010</a>)</span> and <span class="citation" data-cites="ruiz2011">Ruiz (<a href="references.html#ref-ruiz2011" role="doc-biblioref">2011</a>)</span>. The <a href="Annex2.html#fig-acf_pacf">Figure&nbsp;<span>5</span></a> illustrates an example correlogram for a financial time series.</p>
+</section>
+<section id="pricing-features" class="level2">
+<h2 class="anchored" data-anchor-id="pricing-features">2.1.2 Pricing Features</h2>
+<p>Investing in stocks or any other asset listed on the stock market is a complex and challenging task, requiring a thorough understanding of market trends and fluctuations. At the core of this understanding is the ability to analyze and interpret stock market price data, providing key insights into the behavior of market participants and the factors that drive market movements. The purpose of this sub-section is to provide a comprehensive overview of the stock price environment and how they are commonly represented, pointing out the most important aspects for the application of the techniques that will be explored in the following sections.</p>
+<p>As explained in <span class="citation" data-cites="cnmvbv">CNMV (<a href="references.html#ref-cnmvbv" role="doc-biblioref">n.d.b</a>)</span>, stock exchanges are organized markets where shares and other securities are traded, such as fixed income, warrants, certificates and exchange-traded funds. In <span class="citation" data-cites="bmeqe">BME (<a href="references.html#ref-bmeqe" role="doc-biblioref">n.d.</a>)</span> it is stated that, in Spain, there are four traditional stock exchanges (Madrid, Barcelona, ​​Bilbao and Valencia) that are part of the holding BME (Bolsas y Mercados Españoles), which also integrates other segments and trading, clearing and settlement systems values. Being, as explained in <span class="citation" data-cites="cnmvsibe">CNMV (<a href="references.html#ref-cnmvsibe" role="doc-biblioref">n.d.c</a>)</span>, the Spanish Stock Market Interconnection System (SIBE) is the platform that allows continuous and electronic trading of all securities admitted to trading on the four Spanish stock markets.</p>
+<p>As <span class="citation" data-cites="cnmvacci">CNMV (<a href="references.html#ref-cnmvacci" role="doc-biblioref">n.d.a</a>)</span> exposes, shares are transferable securities that represent a proportional part of the share capital of a public limited company, and their holders are proprietary partners of the same. Shares may be traded on stock exchanges or other authorized secondary markets.</p>
+<p>From what was stated in <span class="citation" data-cites="mitchell20">Mitchell (<a href="references.html#ref-mitchell20" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="pinset21">Pinset (<a href="references.html#ref-pinset21" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="cfi23">C. Team (<a href="references.html#ref-cfi23" role="doc-biblioref">2023</a>)</span> it can be concluded that, to explain the price of a company’s shares, the following factors can be considered:</p>
+<ul>
+<li><p>The supply and demand of shares in the market: if there are more buyers than sellers, the price will rise and vice versa. This depends on the expectations and confidence of investors in the future of the company.</p></li>
+<li><p>Changes in the management or production of the company: if the company improves its efficiency, its profitability or its innovation, the price of its shares may increase. On the contrary, if the company has internal problems, loses competitiveness or is affected by external crises, the price may fall.</p></li>
+<li><p>The company’s reputation: If the company has a good public image, is associated with successes or achievements, or receives good ratings from analysts, its share price may rise. Conversely, if the company is embroiled in scandals, lawsuits, or controversies, or receives poor ratings from analysts, the price may drop.</p></li>
+</ul>
+<p>In the texts <span class="citation" data-cites="pinset21">Pinset (<a href="references.html#ref-pinset21" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="tinvt22">T. I. Team (<a href="references.html#ref-tinvt22" role="doc-biblioref">2022</a>)</span> and <span class="citation" data-cites="cfi23">C. Team (<a href="references.html#ref-cfi23" role="doc-biblioref">2023</a>)</span> also point out the importance of differentiating the price of a company or its share from its intrinsic value. Being able to summarize considering what is indicated in these texts and what has been previously stated that the price of a company or action is what buyers and sellers are willing to pay for it at a given moment, while the intrinsic value of a company or action depends largely on the methodology used to value the companies and the objectives of the evaluator.</p>
+<p>Once the environment in which share prices are found has been contextualized in a general way and some of the factors that may affect them have been explained, the structure in which these data usually appear is explained below. Generally, the prices of the shares are registered periodically (daily, weekly, monthly, annually, etc.). registering for each period the opening price, the highest price, the lowest, the closing price, the volume and the adjusted closing price, see <a href="Annex3.html#tbl-pre_estruc">Table&nbsp;<span>1</span></a>.</p>
+<p>From what was exposed in <span class="citation" data-cites="barone22">Barone (<a href="references.html#ref-barone22" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="chen22">Chen (<a href="references.html#ref-chen22" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="downey22">Downey (<a href="references.html#ref-downey22" role="doc-biblioref">2022</a>)</span>, <span class="citation" data-cites="hayes21">Hayes (<a href="references.html#ref-hayes21" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="ganti20">Ganti (<a href="references.html#ref-ganti20" role="doc-biblioref">2020</a>)</span> it can be understood that:</p>
+<ul>
+<li><p>The opening price is the first price at which a financial asset trades in a trading session. This price may be different from the closing price of the previous session, as there may be changes in supply and demand during the period when the market is closed. The opening price usually indicates the tone or trend of the market for that day.</p></li>
+<li><p>The highest price is the highest price at which a financial asset trades in a trading session. This price reflects the highest level of buyer interest for that asset on that day. The higher price can be an indicator of an asset’s strength or weakness, as well as its volatility.</p></li>
+<li><p>The lowest price is the lowest price at which a financial asset trades in a trading session. This price reflects the minimum level of interest of sellers for that asset on that day. The lower price can be an indicator of an asset’s pressure or resistance, as well as its volatility.</p></li>
+<li><p>The closing price is the last price at which a financial asset is traded in a trading session. This price is the one used to calculate the market value of that asset at the end of the day. The closing price is usually the most important for investors, as it summarizes the result of the day’s operations and shows the direction of the market.</p></li>
+<li><p>Volume is the number of units of a financial asset traded in a trading session. Volume shows the level of activity or liquidity of a market or an asset. Volume often accompanies price movements, as it indicates the degree of consensus or divergence among market participants.</p></li>
+<li><p>Adjusted closing price is the closing price of a financial asset that is changed to consider events such as dividends, splits, mergers or acquisitions that affect the value of the asset. The adjusted closing price allows you to compare the historical performance of an asset with greater precision and consistency.</p></li>
+</ul>
+<p>Based on what was stated in <span class="citation" data-cites="hayes21">Hayes (<a href="references.html#ref-hayes21" role="doc-biblioref">2021</a>)</span> and <span class="citation" data-cites="ganti20">Ganti (<a href="references.html#ref-ganti20" role="doc-biblioref">2020</a>)</span>, it is understood that the difference between the closing price and the adjusted closing price is of great importance, since the former can give a distorted image of the performance of a share throughout the year. while the second reflects the actual value of the stock after adjusting for the factors that alter it.</p>
+<blockquote class="blockquote">
+<p>For example, a company’s board of directors may decide to divide the company’s shares 3 by 1. Thus, the company’s outstanding shares increase by a multiple of three, while its share price is divided by three. . Let’s say a stock closed at $300 the day before your stock split. In this case, the closing price is adjusted to $100 ($300 divided by 3) per share to maintain a consistent standard of comparison. Similarly, all other previous closing prices for that company would be divided by three to get the adjusted closing prices. <span class="citation" data-cites="ganti20">Ganti (<a href="references.html#ref-ganti20" role="doc-biblioref">2020</a>)</span></p>
+</blockquote>
+<p>Due to this, the adjusted closing price is better for the application of time series analysis techniques, since it allows comparing the behavior of a stock over time without the distortions caused by corporate events. The time series most commonly used in market price analysis studies is that made up of returns calculated from the adjusted closing price.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-anderson2017" class="csl-entry" role="listitem">
+Anderson, D. R., D. J. Sweeney, T. A. Williams, D. J. Camm, and J. J Cochran. 2017. <em>Statistics for Business &amp; Economics</em>. Boston: Cengage Learning.
+</div>
+<div id="ref-barone22" class="csl-entry" role="listitem">
+Barone, A. 2022. <span>“Opening Price: Definition, Example, Trading Strategies.”</span> 2022. <a href="https://www.investopedia.com/terms/o/openingprice.asp">https://www.investopedia.com/terms/o/openingprice.asp</a>.
+</div>
+<div id="ref-bmeqe" class="csl-entry" role="listitem">
+BME. n.d. <span>“¿Qué Es BME?”</span> Accessed April 24, 2023. <a href="https://www.bolsasymercados.es/esp/Sobre-BME/Que-es">https://www.bolsasymercados.es/esp/Sobre-BME/Que-es</a>.
+</div>
+<div id="ref-castillo_varela2010" class="csl-entry" role="listitem">
+Castillo, R. A., and R. Varela. 2010. <em>ECONOMETRÍA PRÁCTICA: Fundamentos de Series de Tiempo</em>. México: Universidad Autónoma de Baja California.
+</div>
+<div id="ref-chen22" class="csl-entry" role="listitem">
+Chen, J. 2022. <span>“Today’s High.”</span> 2022. <a href="https://www.investopedia.com/terms/t/todayshigh.asp">https://www.investopedia.com/terms/t/todayshigh.asp</a>.
+</div>
+<div id="ref-chirinos2018" class="csl-entry" role="listitem">
+Chirinos, S. 2018. <span>“Series Cronológicas.”</span> <a href="https://www.slideshare.net/SuedimarChirinos/series-cronologicas-119058959" class="uri">https://www.slideshare.net/SuedimarChirinos/series-cronologicas-119058959</a>. 2018.
+</div>
+<div id="ref-cnmvacci" class="csl-entry" role="listitem">
+CNMV. n.d.a. <span>“Glosario Financiero: Acción.”</span> Accessed April 24, 2023. <a href="https://cnmv.es/Portal/Inversor/Glosario.aspx?id=0&amp;letra=A&amp;idlng=1">https://cnmv.es/Portal/Inversor/Glosario.aspx?id=0&amp;letra=A&amp;idlng=1</a>.
+</div>
+<div id="ref-cnmvbv" class="csl-entry" role="listitem">
+———. n.d.b. <span>“Glosario Financiero: Bolsa de Valores.”</span> Accessed April 24, 2023. <a href="https://cnmv.es/Portal/Inversor/Glosario.aspx?id=0&amp;letra=B&amp;idlng=1">https://cnmv.es/Portal/Inversor/Glosario.aspx?id=0&amp;letra=B&amp;idlng=1</a>.
+</div>
+<div id="ref-cnmvsibe" class="csl-entry" role="listitem">
+———. n.d.c. <span>“Glosario Financiero: Servicio de Interconexión Bursátil Español, SIBE.”</span> Accessed April 24, 2023. <a href="https://cnmv.es/Portal/Inversor/Glosario.aspx?id=0&amp;letra=S&amp;idlng=1">https://cnmv.es/Portal/Inversor/Glosario.aspx?id=0&amp;letra=S&amp;idlng=1</a>.
+</div>
+<div id="ref-dodge2008" class="csl-entry" role="listitem">
+Dodge, Y. 2008. <span>“Time Series.”</span> In <em>The Concise Encyclopedia of Statistics</em>, 536–39. New York, NY: Springer New York. <a href="https://doi.org/10.1007/978-0-387-32833-1_401">https://doi.org/10.1007/978-0-387-32833-1_401</a>.
+</div>
+<div id="ref-downey22" class="csl-entry" role="listitem">
+Downey, L. 2022. <span>“Today’s Low.”</span> 2022. <a href="https://www.investopedia.com/terms/t/todayslow.asp">https://www.investopedia.com/terms/t/todayslow.asp</a>.
+</div>
+<div id="ref-espallargas2012" class="csl-entry" role="listitem">
+Espallargas, S. D., and M. V. Solís. 2012. <em>Econometría y Series Temporales: Aplicaciones</em>. La Habana: Editorial Félix Varela.
+</div>
+<div id="ref-ganti20" class="csl-entry" role="listitem">
+Ganti, A. 2020. <span>“Adjusted Closing Price.”</span> 2020. <a href="https://www.investopedia.com/terms/a/adjusted_closing_price.asp">https://www.investopedia.com/terms/a/adjusted_closing_price.asp</a>.
+</div>
+<div id="ref-hayes21" class="csl-entry" role="listitem">
+Hayes, A. 2021. <span>“What Is Closing Price? Definition, How It’s Used, and Example.”</span> 2021. <a href="https://www.investopedia.com/terms/c/closingprice.asp">https://www.investopedia.com/terms/c/closingprice.asp</a>.
+</div>
+<div id="ref-IBM2021" class="csl-entry" role="listitem">
+IBM. 2021. <span>“Characteristics of Time Series.”</span> <a href="https://www.ibm.com/docs/en/spss-modeler/saas?topic=data-characteristics-time-series" class="uri">https://www.ibm.com/docs/en/spss-modeler/saas?topic=data-characteristics-time-series</a>. 2021.
+</div>
+<div id="ref-kocenda2017" class="csl-entry" role="listitem">
+Kocenda, E., and A. Cerný. 2017. <em>Elements of Time Series Econometrics: An Applied Approach</em>. Prague: Karolinum Press.
+</div>
+<div id="ref-mitchell20" class="csl-entry" role="listitem">
+Mitchell, C. 2020. <span>“Market Price: Definition, Meaning, How to Determine, and Example.”</span> 2020. <a href="https://www.investopedia.com/terms/m/market-price.asp">https://www.investopedia.com/terms/m/market-price.asp</a>.
+</div>
+<div id="ref-pinset21" class="csl-entry" role="listitem">
+Pinset, W. 2021. <span>“Understanding Stock Prices and Values.”</span> 2021. <a href="https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp">https://www.investopedia.com/articles/stocks/08/stock-prices-fool.asp</a>.
+</div>
+<div id="ref-ruiz2011" class="csl-entry" role="listitem">
+Ruiz, M. C. 2011. <span>“Tema 5: Procesos Estocásticos.”</span> <a href="http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf" class="uri">http://www.dmae.upct.es/~mcruiz/Telem06/Teoria/apuntes_procesos.pdf</a>; Departamento de Matemática y Estadística. Universidad Politécnica de Cartagena. 2011.
+</div>
+<div id="ref-cfi23" class="csl-entry" role="listitem">
+Team, CFI. 2023. <span>“What Is Stock Price?”</span> 2023. <a href="https://corporatefinanceinstitute.com/resources/capital-markets/stock-price/">https://corporatefinanceinstitute.com/resources/capital-markets/stock-price/</a>.
+</div>
+<div id="ref-tinvt22" class="csl-entry" role="listitem">
+Team, The Investopedia. 2022. <span>“Intrinsic Value Defined and How It’s Determined in Investing and Business.”</span> 2022. <a href="https://www.investopedia.com/terms/i/intrinsicvalue.asp">https://www.investopedia.com/terms/i/intrinsicvalue.asp</a>.
+</div>
+<div id="ref-villagarcia2006" class="csl-entry" role="listitem">
+Villagarcía, T. 2006. <span>“Series Temporales.”</span> <a href="https://halweb.uc3m.es/fjnm/estind/doc_grupo1/archivos/Apuntes%20de%20series.pdf" class="uri">https://halweb.uc3m.es/fjnm/estind/doc_grupo1/archivos/Apuntes%20de%20series.pdf</a>. 2006.
+</div>
+<div id="ref-villavicencio2010" class="csl-entry" role="listitem">
+Villavicencio, J. 2010. <span>“Introducción a Las Series de Tiempo.”</span> <a href="http://www.estadisticas.gobierno.pr/iepr/LinkClick.aspx" class="uri">http://www.estadisticas.gobierno.pr/iepr/LinkClick.aspx</a>; Instituto de estadística de Puerto Rico. 2010.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script type="text/javascript">
+
+  const elementWithauthor = document.querySelector('.quarto-title-meta-author');
+  
+  if(elementWithauthor){
+    
+    //Ad more description in title banner
+    let TFMtitle = document.getElementById('title-block-header');
+    let TFMtitlefc = TFMtitle.firstElementChild;
+    let TFMtitlefcfc = TFMtitlefc.firstElementChild;
+    const sublead = document.createElement('p');
+      sublead.className = 'subtitle lead';
+      sublead.id = 'sublead';
+      sublead.textContent = "Master's Degree in Banking and Finance Academic year 2022/2023";
+    const sub_sublead = document.createElement('p');
+      sub_sublead.className = 'subtitle lead';
+      sub_sublead.id='sub_sublead';
+      sub_sublead.textContent = "Final Master's Project presented at the Faculty of Economics and Business of the University of A Coruña to obtain the Master's Degree in Banking and Finance";
+    const udclogo = document.createElement('p');
+      udclogo.innerHTML='<img src="../udclogo.png" style="width: 25%;">'
+    TFMtitlefcfc.appendChild(sublead);
+    TFMtitlefcfc.appendChild(sub_sublead);
+    TFMtitlefcfc.appendChild(udclogo);
+    
+    //Fix authoring info
+    const authorsElement = document.querySelector('.quarto-title-meta-heading');
+    authorsElement.textContent = "AUTHOR";
+    const authorsInfo = authorsElement.parentElement;
+    const tutorname = authorsElement.cloneNode(true);
+    tutorname.textContent = "TUTOR";
+    tutorname.style.marginTop = '0';
+    const tutorafili = tutorname.cloneNode(true);
+    tutorafili.textContent = "";
+    authorsInfo.insertBefore(tutorafili, authorsInfo.children[4]);
+    authorsInfo.insertBefore(tutorname, authorsInfo.children[4]);
+    
+  }else{
+    let TFMtitle = document.getElementById('title-block-header');
+    let TFMtitlefc = TFMtitle.firstElementChild;
+    let TFMtitlefcfc = TFMtitlefc.firstElementChild;
+    const sub_sublead = document.createElement('p');
+      sub_sublead.className = 'subtitle lead';
+      sub_sublead.id='sub_sublead';
+      sub_sublead.textContent = 'Application of artificial neural networks and quadratic programming in portfolio management';
+    TFMtitlefcfc.appendChild(sub_sublead);
+    
+    
+    
+  }
+</script>
+
+<script>
+
+// Read the HTML content from a file
+async function readHTMLFile(filePath) {
+  try {
+    const response = await fetch(filePath);
+    const htmlContent = await response.text();
+    return htmlContent;
+  } catch (error) {
+    console.error('Error reading HTML file:', error);
+    return null;
+  }
+}
+
+// Main function to process the HTML file
+async function processHtmlFile(filePath, patternToMatch, patternToReplace, replacement) {
+  const htmlContent = await readHTMLFile(filePath);
+  const idsToSearch = [];
+
+  if (htmlContent) {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(htmlContent, 'text/html');
+
+    const elementsWithMatchingIds = Array.from(doc.querySelectorAll('[id^="' + patternToMatch + '"]'));
+    elementsWithMatchingIds.forEach(element => {
+      const id = element.getAttribute('id');
+      idsToSearch.push(id);
+    });
+  }
+
+  const anchorElements = Array.from(document.querySelectorAll('a'));
+
+  anchorElements.forEach(anchorElement => {
+    const href = anchorElement.getAttribute('href');
+    if (idsToSearch.some(id => href && href.endsWith(id))) {
+      anchorElement.innerHTML = anchorElement.innerHTML.replace(patternToReplace, replacement);
+    }
+  });
+}
+
+
+const filePath = 'Annex2.html'; 
+const patternToMatch = 'fig-'; 
+const patternToReplace = 'Figure&nbsp;';
+const replacement = 'Graph ';
+
+processHtmlFile(filePath, patternToMatch, patternToReplace, replacement);
+  
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./body.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2 Work development</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./ANNinTSF.html" class="pagination-link">
+        <span class="nav-page-text">2.2 Artificial neural networks in the forecast of time series</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Final Master’s Project presented at <a href="https://fee.udc.es/"><img src="../feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="../udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ David Díaz Rodríguez
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/david-d-6257951b8/">
+      <i class="bi bi-linkedin" role="img" aria-label="Linkedin">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/davidrsch/TFM/">
+      <i class="bi bi-github" role="img" aria-label="TFM GitHub">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

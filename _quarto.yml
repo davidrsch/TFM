@@ -88,10 +88,5 @@ format:
     css: my_style.css
     lang:
       es
-      
-  docx:
-    reference-doc: referencia_formato.docx
-    lang:
-      es
 
 editor: visual

@@ -4,7 +4,7 @@ Este epígrafe divídese en dous subtítulos nos que se describen brevemente os 
 
 ## 2.6.1 Predicións {#sec-predicciones}
 
-En @sec-A-predicciones pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
+En Anexo 4 - [Predicións](Annex4.qmd#sec-A-predicciones) pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
 
 Como se explicou anteriormente, mentres se adestraba o modelo, obtivéronse as predicións. Como se fixo cos modelos de redes neuronais artificiais, as predicións calculáronse para as diferentes observacións utilizando a media aritmética das observacións. Utilizouse a media aritmética porque é unha das medidas máis utilizadas como indicador de posibles comportamentos futuros no estudo das series temporais financeiras.
 
@@ -71,7 +71,7 @@ Os resultados obtidos por aqueles modelos que foron adestrados con vectores de e
 
 ## 2.6.2 Composición de carteiras {#sec-cc}
 
-Pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección en @sec-A-cc.
+Pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección en Anexo 4 - [Composición de carteiras](Annex4.qmd#sec-A-cc).
 
 Neste subepígrafe descríbense os resultados obtidos tras aplicar a programación cuadrática para determinar a composición da carteira. Esta, así como as previsións, fíxose período a período co obxectivo de emular unha situación real na que as técnicas se aplicasen no seu conxunto. Polo tanto, a presente análise céntrase no comportamento observado ao utilizar os distintos modelos e na comparación destes resultados cos obtidos co uso de medias.
 

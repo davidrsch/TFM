@@ -4,7 +4,7 @@ This section is divided into three sub-sections in which the process of obtainin
 
 ## 2.4.1 Data Collection {#sec-obtdat}
 
-A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-obtdat.
+A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - [Data Collection](Annex4.qmd#sec-A-obtdat).
 
 In order to exemplify how artificial neural networks and quadratic programming can be used in a portfolio management strategy, it was decided in this paper to use data from the Spanish market. Therefore, it was decided to work with the information corresponding to the companies that are in the list of listed companies that is exposed in @BMEexcha and can be seen in @tbl-emp_cotiz.
 
@@ -26,7 +26,7 @@ Once the companies with which we worked were selected, their returns were comput
 
 ## 2.4.2 Indicators
 
-This sub-heading presents a brief explanation of the computed variables to be used as input variables in conjunction with the historical values of the companies' returns. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-indi.
+This sub-heading presents a brief explanation of the computed variables to be used as input variables in conjunction with the historical values of the companies' returns. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - [Indicators](Annex4.qmd#sec-A-indi).
 
 ### 2.4.2.1 Volatility
 
@@ -98,7 +98,7 @@ where:
 
 ## 2.4.3 Vectors
 
-In this sub-section, the procedure carried out to create the input and output vectors from the data resulting from the procedure described in the previous sub-section is explained. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-vec.
+In this sub-section, the procedure carried out to create the input and output vectors from the data resulting from the procedure described in the previous sub-section is explained. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - [Vectors](Annex4.qmd#sec-A-vec).
 
 The structure of the set of input and output vectors is of vital importance in the modeling of ML techniques, having a significant impact on its effectiveness. The set of vectors must be created in a representative way of the problem to be solved, so the steps described below explain in detail the aspects of the problem to be answered in this work and how to shape the set of input and output vectors to it.
 

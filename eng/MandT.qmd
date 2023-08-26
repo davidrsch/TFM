@@ -4,9 +4,7 @@ This section is divided into two sub-sections in which the models that were buil
 
 ## 2.5.1 Modeling {#sec-modelado}
 
-A more detailed explanation of the code used during the procedure described in this subsection can be found in @sec-A-modelos.
-
-As previously explained, the main elements of the artificial neural network models used are a CNN layer and an LSTM layer. In addition to this, an input layer and an output layer were used, which are in charge of supplying the models with the information of the vectors previously constituted. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in @sec-A-modelos.
+As previously explained, the main elements of the artificial neural network models used are a CNN layer and an LSTM layer. In addition to this, an input layer and an output layer were used, which are in charge of supplying the models with the information of the vectors previously constituted. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - [Modeling](Annex4.qmd#sec-A-modelos).
 
 Since three different sizes of observations were defined to consider making a prediction, it was necessary to build three different model structures that would adapt to the dimensions of the different input vectors, the different structures can be observed in the @fig-estructuras.
 
@@ -26,7 +24,7 @@ To conclude with the construction of the models, it was determined to use the me
 
 ## 2.5.2 Training {#sec-entrenamiento}
 
-A more detailed explanation of the code used during the procedure described in this subsection can be found in @sec-A-entrenamiento.
+A more detailed explanation of the code used during the procedure described in this subsection can be found in Annex. 4 - [Training](Annex4.qmd#sec-A-entrenamiento).
 
 The training of Machine Learning algorithms in the forecast of time series has its peculiarities to how models are trained with the aim of solving other types of problems. Therefore, in this sub-section the training methodology used is briefly covered, which is the so-called walk forward validation or advance validation.
 

@@ -278,7 +278,7 @@ n_ob_fut <- outputsinfo[2]
 
 ```
 
-Luego se constituyo la estructura de los modelos con los aspectos descritos en @sec-modelado.
+Luego se constituyo la estructura de los modelos con los aspectos descritos en [2.5.1 Modelado](MandT.qmd#sec-modelado).
 
 ```{r}
 #| eval: false
@@ -310,11 +310,15 @@ model |>
   compile(loss = "mse", optimizer = optimizer_sgd(0.0005))
 ```
 
-*Nota:* Puede encontrar modelos sin entrenar en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1e`, `model2e` y `model3e`.
+::: {.callout-note}
+
+Puede encontrar modelos sin entrenar en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1e`, `model2e` y `model3e`.
+
+:::
 
 ### Entrenamiento {#sec-A-entrenamiento}
 
-El primer paso es definir la función a utilizar para el entrenamiento de los modelos. Esta función fue construida con el objetivo de emplear el método de entrenamiento descrito en @sec-entrenamiento. Como resultado esta función devolvera una lista que contendra las predicciones obtenidas y el modelo después de haber sido entrenado y tomará como entradas principales el tibble llamado `data` constituido en el primer paso que se expone en @sec-A-modelos y el modelo además de otros argumentos que permite la utilización de la función con unos inputs principales que no sean los utilizados en el presente trabajo.
+El primer paso es definir la función a utilizar para el entrenamiento de los modelos. Esta función fue construida con el objetivo de emplear el método de entrenamiento descrito en [2.5.2 Entrenamiento](MandT.qmd#sec-entrenamiento). Como resultado esta función devolvera una lista que contendra las predicciones obtenidas y el modelo después de haber sido entrenado y tomará como entradas principales el tibble llamado `data` constituido en el primer paso que se expone en este Anexo en la sección [Modelado](Annex4.qmd#sec-A-modelos) y el modelo además de otros argumentos que permite la utilización de la función con unos inputs principales que no sean los utilizados en el presente trabajo.
 
 ```{r}
 #| eval: false
@@ -387,9 +391,13 @@ resultados <- wfv_train(data,model,'Date')
 predicciones1e <- resultados$predicciones
 ```
 
-*Nota:* Puede encontrar modelos entrenados en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1etd`, `model2etd` y `model3etd`.
+::: {.callout-note}
 
-Como se explica en @sec-predicciones además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmetica, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creo la siguiente función:
+Puede encontrar modelos entrenados en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1etd`, `model2etd` y `model3etd`.
+
+:::
+
+Como se explica en [2.6.1 Predicciones](Results.qmd#sec-predicciones) además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmetica, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creo la siguiente función:
 
 ```{r}
 #| eval: false
@@ -477,7 +485,9 @@ Una vez creada la función se obtuvieron las predicciones utilizando el siguient
 meanse1 <- wfv_train(data,'Date',id_var_name = "ID")
 ```
 
-*Nota:* En adición a lo expuesto con anterioridad se crearon dos funciones `getconfig` y `plot_modelk`, en el archivo .Rprofile del repositorio en el que se encuentra este trabajo, que permiten graficar la estructura de los modelos mediante el uso del paquete @Diagrammer, como se ve en la @fig-estructuras. El código a utilizar sería:
+::: {.callout-note}
+
+En adición a lo expuesto con anterioridad se crearon dos funciones `getconfig` y `plot_modelk`, en el archivo .Rprofile del repositorio en el que se encuentra este trabajo, que permiten graficar la estructura de los modelos mediante el uso del paquete @Diagrammer, como se ve en la @fig-estructuras. El código a utilizar sería:
 
 ```{r}
 #| eval: false
@@ -489,7 +499,9 @@ model |>
   grViz()
 ```
 
-El procedimiento expuesto en las secciones @sec-A-modelos y @sec-A-entrenamiento fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a `vecs3d1e` por `vecs3d2e` y `vecs3d3e`,según el grupo de vectores tridimensionanales utilizado.
+:::
+
+El procedimiento expuesto en las secciones [Modelado](Annex4.qmd#sec-A-modelos) y [Entrenamiento](Annex4.qmd#sec-A-entrenamiento) del presente anexo fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a `vecs3d1e` por `vecs3d2e` y `vecs3d3e`,según el grupo de vectores tridimensionanales utilizado.
 
 ## Resultado
 
@@ -497,7 +509,7 @@ A continuación, se presenta el código utilizado durante el proceso descrito en
 
 ### Predicciones {#sec-A-predicciones}
 
-El análisis expuesto en la @sec-predicciones fue realizado a partir de gráficas (vea @fig-ind_evo_oo, @fig-ind_evo_twoo y @fig-ind_evo_threeo), en las que se recogen los valores de los indicadores $MSE$ y $R^2$ para cada una de las estructuras probadas.
+El análisis expuesto en [2.6.1 Predicciones](Results.qmd#sec-predicciones) fue realizado a partir de gráficas (vea @fig-ind_evo_oo, @fig-ind_evo_twoo y @fig-ind_evo_threeo), en las que se recogen los valores de los indicadores $MSE$ y $R^2$ para cada una de las estructuras probadas.
 
 El primer paso para la obtención de estas gráficas fue el de computar los indicadores, para cada periodo de tiempo, para cada una de las predicciones obtenidas a partir de los distintos modelos construidos con cada estructura. Esto se realizo mediante el siguiente código.
 

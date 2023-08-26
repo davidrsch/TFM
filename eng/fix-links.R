@@ -13,5 +13,6 @@ html_content <- gsub(
   "Figure&nbsp;",
   replacement_value,
   html_content)
+
 # Write updated HTML content to file
 writeLines(html_content, "../_book/en/Annex2.html", useBytes = TRUE)

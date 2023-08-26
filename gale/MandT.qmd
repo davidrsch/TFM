@@ -4,9 +4,7 @@ Este apartado divídese en dous subapartados nos que se describen brevemente os 
 
 ## 2.5.1 Modelado {#sec-modelado}
 
-En @sec-A-modelos pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
-
-Como se explicou anteriormente, os principais elementos dos modelos de redes neuronais artificiais utilizados son unha capa CNN e unha capa LSTM. Ademais disto, utilizouse unha capa de entrada e outra de saída, que se encargan de subministrar aos modelos a información dos vectores constituídos previamente. En @sec-A-modelos pódese atopar unha explicación máis detallada sobre o código utilizado para realizar o procedemento descrito neste subtítulo.
+Como se explicou anteriormente, os principais elementos dos modelos de redes neuronais artificiais utilizados son unha capa CNN e unha capa LSTM. Ademais disto, utilizouse unha capa de entrada e outra de saída, que se encargan de subministrar aos modelos a información dos vectores constituídos previamente. En Anexo 4 - [Modelado](Annex4.qmd#sec-A-modelos) pódese atopar unha explicación máis detallada sobre o código utilizado para realizar o procedemento descrito neste subtítulo.
 
 Dado que se definiron tres tamaños de observacións diferentes a ter en conta para facer unha predición, foi necesario construír tres estruturas modelo diferentes que se adaptasen ás dimensións dos diferentes vectores de entrada, as diferentes estruturas pódense observar nas @fig-estructuras.
 
@@ -26,7 +24,7 @@ Para concluír coa construción dos modelos, determinouse utilizar o erro cadrad
 
 ## 2.5.2 Formación {#sec-entrenamiento}
 
-En @sec-A-entrenamiento pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
+En Anexo 4 - [Formación](Annex4.qmd#sec-A-entrenamiento) pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.
 
 O adestramento de algoritmos de Machine Learning na previsión de series temporais ten as súas peculiaridades en como se adestran os modelos co obxectivo de resolver outro tipo de problemas. Polo tanto, neste subapartado cóbrase brevemente a metodoloxía de formación empregada, que é a denominada validación de andaina ou validación avanzada.
 

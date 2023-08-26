@@ -278,7 +278,7 @@ n_ob_fut <- outputsinfo[2]
 
 ```
 
-Despois constituíuse a estrutura dos modelos cos aspectos descritos en @sec-modelado.
+Despois constituíuse a estrutura dos modelos cos aspectos descritos en [2.5.1 Modelado](MandT.qmd#sec-modelado).
 
 ```{r}
 #| eval: false
@@ -310,11 +310,15 @@ model |>
   compile(loss = "$MSE$", optimizer = optimizer_sgd(0.0005))
 ```
 
-*Nota:* Podes atopar modelos non adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1e`, `model2e` e `model3e`.
+::: {.callout-note}
+
+Podes atopar modelos non adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1e`, `model2e` e `model3e`.
+
+:::
 
 ### Formación {#sec-A-entrenamiento}
 
-O primeiro paso é definir a función a utilizar para adestrar os modelos. Esta función creouse co obxectivo de utilizar o método de adestramento descrito en @sec-entrenamiento. Como resultado, esta función devolverá unha lista que conterá as predicións obtidas e o modelo despois de ter sido adestrado e tomará como entradas principais o tibble denominado `datos` constituído no primeiro paso que se expón en @sec-A-modelos e o modelo tamén. doutros argumentos que permitan o uso da función con algunhas entradas principais que non se utilizan no presente traballo.
+O primeiro paso é definir a función a utilizar para adestrar os modelos. Esta función creouse co obxectivo de utilizar o método de adestramento descrito en [2.5.2 Formación](MandT.qmd#sec-entrenamiento). Como resultado, esta función devolverá unha lista que conterá as predicións obtidas e o modelo despois de ter sido adestrado e tomará como entradas principais o tibble denominado `datos` constituído no primeiro paso que se expón en no apartado [Modelado](Annex4.qmd#sec-A-modelos) deste anexo e o modelo tamén doutros argumentos que permitan o uso da función con algunhas entradas principais que non se utilizan no presente traballo.
 
 ```{r}
 #| eval: false
@@ -387,9 +391,13 @@ resultados <- wfv_train(data,model,'Date')
 predicciones1e <- resultados$predicciones
 ```
 
-*Nota:* Podes atopar modelos adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1etd`, `model2etd` e `model3etd`.
+::: {.callout-note}
 
-Segundo se explica en @sec-predicciones, ademais das predicións obtidas polos modelos, calculáronse predicións obtidas a partir do uso da media aritmética, para comparar coas obtidas cos modelos. Para calcular estas predicións, creouse a seguinte función:
+Podes atopar modelos adestrados no cartafol `data` do repositorio onde se atopa este traballo. Os modelos gardáronse usando a extensión `hdf5` e baixo os nomes `model1etd`, `model2etd` e `model3etd`.
+
+:::
+
+Segundo se explica en [2.6.1 Predicións](Results.qmd#sec-predicciones), ademais das predicións obtidas polos modelos, calculáronse predicións obtidas a partir do uso da media aritmética, para comparar coas obtidas cos modelos. Para calcular estas predicións, creouse a seguinte función:
 
 ```{r}
 #| eval: false
@@ -477,7 +485,9 @@ Unha vez creada a función, obtivéronse as predicións mediante o seguinte cód
 meanse1 <- wfv_train(data,'Date',id_var_name = "ID")
 ```
 
-*Nota:* Ademais do exposto anteriormente, no ficheiro .Rprofile do repositorio no que se atopa este traballo creáronse dúas funcións `getconfig` e `plot_modelk` que permiten representar gráficamente a estrutura dos modelos mediante o paquete @Diagrammer, como visto nas @fig-estructuras. O código a usar sería:
+::: {.callout-note}
+
+Ademais do exposto anteriormente, no ficheiro .Rprofile do repositorio no que se atopa este traballo creáronse dúas funcións `getconfig` e `plot_modelk` que permiten representar gráficamente a estrutura dos modelos mediante o paquete @Diagrammer, como visto nas @fig-estructuras. O código a usar sería:
 
 ```{r}
 #| eval: false
@@ -489,7 +499,9 @@ model |>
   grViz()
 ```
 
-Repetiuse o procedemento exposto nas seccións @sec-A-modelos e @sec-A-entrenamiento para construír os 10 modelos feitos a partir de cada grupo de vectores tridimensionais, substituíndo a chamada a `vecs3d1e` por `no primeiro código exposto. .vecs3d2e` e `vecs3d3e`, dependendo do grupo de vectores tridimensionais utilizados.
+:::
+
+Repetiuse o procedemento exposto nas seccións [Modelado](Annex4.qmd#sec-A-modelos) e [Formación](Annex4.qmd#sec-A-entrenamiento) deste anexo para construír os 10 modelos feitos a partir de cada grupo de vectores tridimensionais, substituíndo a chamada a `vecs3d1e` por `no primeiro código exposto. .vecs3d2e` e `vecs3d3e`, dependendo do grupo de vectores tridimensionais utilizados.
 
 ## Resultado
 
@@ -497,7 +509,7 @@ A continuación preséntase o código utilizado durante o proceso descrito nas d
 
 ### Predicións {#sec-A-predicciones}
 
-A análise exposta na @sec-predicciones realizouse a partir de gráficos (ver @fig-ind_evo_oo, @fig-ind_evo_twoo e @fig-ind_evo_threeo), nos que se recollen os valores dos indicadores $MSE$ e $R^2$ para cada unha das estruturas ensaiadas.
+A análise exposta en [2.6.1 Predicións](Results.qmd#sec-predicciones) realizouse a partir de gráficos (ver @fig-ind_evo_oo, @fig-ind_evo_twoo e @fig-ind_evo_threeo), nos que se recollen os valores dos indicadores $MSE$ e $R^2$ para cada unha das estruturas ensaiadas.
 
 O primeiro paso para obter estas gráficas foi o cálculo dos indicadores, para cada período de tempo, para cada unha das predicións obtidas a partir dos distintos modelos construídos con cada estrutura. Isto faise usando o seguinte código.
 

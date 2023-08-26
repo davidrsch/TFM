@@ -4,7 +4,7 @@ This epigraph is divided into two sub-headings in which the results obtained are
 
 ## 2.6.1 Predictions {#sec-predicciones}
 
-A more detailed explanation of the code used during the procedure described in this subsection can be found in @sec-A-predicciones.
+A more detailed explanation of the code used during the procedure described in this subsection can be found in Annex. 4 - [Predictions](Annex4.qmd#sec-A-predicciones).
 
 As explained previously, while the model was being trained, the predictions were obtained. As was done with the artificial neural network models, the predictions were computed for the different observations using the arithmetic mean of the observations. The arithmetic mean was used because it is one of the most frequently used measures as an indicator of possible future behavior in the study of financial time series.
 
@@ -69,9 +69,9 @@ The results obtained by those models that were trained with input vectors that h
 
 The results obtained by those models that were trained with input vectors that had three observations of each series, it was found, as seen in @fig-ind_evo_threeo, that in the first periods the models presented better predictions than those obtained by the mean. arithmetic. It can be seen that the effectiveness of the models compared to the means decays as the model progresses in time, but they decay at a slower rate than those models trained with input vectors with one observation. It is clearly seen that the R2 of these models has a greater variation than the R2 of the previously analyzed models, observing how this variation decreases for those predictions after 2015. These models, like the first ones, presented a negative R2 in most of them. of the periods. In addition, as in the previous cases, a peak is also observed in the $MSE$ of the model at the beginning of 2020.
 
-## 2.6.2 Composition of portfolios {#sec-cc}
+## 2.6.2 Portfolios composition {#sec-cc}
 
-A more detailed explanation of the code used during the procedure described in this subsection can be found in @sec-A-cc.
+A more detailed explanation of the code used during the procedure described in this subsection can be found in Annex. 4 - [Portfolios composition](Annex4.qmd#sec-A-cc).
 
 This sub-heading describes the results obtained after applying quadratic programming to determine the composition of the portfolio. This, as well as the predictions, was made period by period with the aim of emulating a real situation in which the techniques were applied as a whole. Therefore, the present analysis focuses on the behavior observed when using the various models and the comparison of these results with those obtained with the use of means.
 

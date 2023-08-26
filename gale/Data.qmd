@@ -4,7 +4,7 @@ Este apartado divídese en tres subapartados nos que se describe o proceso de ob
 
 ## 2.4.1 Recollida de datos {#sec-obtdat}
 
-Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en @sec-A-obtdat.
+Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en Anexo 4 - [Recollida de datos](Annex4.qmd#sec-A-obtdat).
 
 Co fin de exemplificar como as redes neuronais artificiais e a programación cuadrática poden utilizarse nunha estratexia de xestión de carteiras, decidiuse neste traballo utilizar datos do mercado español. Por iso, decidiuse traballar coa información correspondente ás empresas que figuran na lista de sociedades cotizadas que se expón en @BMEexcha e que se pode ver en @tbl-emp_cotiz.
 
@@ -26,7 +26,7 @@ Unha vez seleccionadas as empresas coas que traballamos, calculáronse os seus r
 
 ## 2.4.2 Indicadores
 
-Este subepígrafe presenta unha breve explicación das variables calculadas a utilizar como variables de entrada en conxunto cos valores históricos dos rendementos das empresas. Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en @sec-A-indi.
+Este subepígrafe presenta unha breve explicación das variables calculadas a utilizar como variables de entrada en conxunto cos valores históricos dos rendementos das empresas. Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en Anexo 4 - [Indicadores](Annex4.qmd#sec-A-indi).
 
 ### 2.4.2.1 Volatilidade
 
@@ -98,7 +98,7 @@ onde:
 
 ## 2.4.3 Vectores
 
-Neste subapartado explícase o procedemento realizado para crear os vectores de entrada e saída a partir dos datos resultantes do procedemento descrito no subapartado anterior. Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en @sec-A-vec.
+Neste subapartado explícase o procedemento realizado para crear os vectores de entrada e saída a partir dos datos resultantes do procedemento descrito no subapartado anterior. Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en Anexo 4 - [Vectores](Annex4.qmd#sec-A-vec).
 
 A estrutura do conxunto de vectores de entrada e saída é de vital importancia no modelado de técnicas de ML, tendo un impacto significativo na súa eficacia. O conxunto de vectores debe crearse dun xeito representativo do problema que se vai resolver, polo que os pasos que se describen a continuación explican detalladamente os aspectos do problema que se vai responder neste traballo e como darlle forma ao conxunto de vectores de entrada e saída.
 

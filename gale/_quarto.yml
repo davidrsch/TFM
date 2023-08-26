@@ -91,10 +91,5 @@ format:
     fig-cap-location: top
     df-print: paged
     css: ../my_style.css
-  
-  docx:
-    reference-doc: referencia_formato.docx
-    lang:
-      es
       
 editor: visual

@@ -4,7 +4,7 @@ Este epígrafe se encuentra dividido en tres sub-epígrafes en los cuales se des
 
 ## 2.4.1 Obtención de Datos {#sec-obtdat}
 
-Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-obtdat.
+Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en el Anexo 4 - [Obtención de Datos](Annex4.qmd#sec-A-obtdat).
 
 Con el objetivo de ejemplificar como las redes neuronales artificiales y la programación cuadrática pueden ser usadas en una estrategia de gestión de cartera, se decidió en el presente trabajo utilizar datos de la bolsa del mercado español. Por lo que se decidió trabajar con la información correspondiente a las empresas que se encuentran en la lista de empresas cotizadas que se expone en @BMEexcha y puede ver en @tbl-emp_cotiz.
 
@@ -26,7 +26,7 @@ Una vez seleccionadas las empresas con las que se trabajó se computaron las ren
 
 ## 2.4.2 Indicadores
 
-En el presente sub-epígrafe se expone una breve explicación de las variables computadas para usar como variables de entradas en conjunto con los valores históricos de las rentabilidades de las empresas. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-indi.
+En el presente sub-epígrafe se expone una breve explicación de las variables computadas para usar como variables de entradas en conjunto con los valores históricos de las rentabilidades de las empresas. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en Anexo 4 - [Indicadores](Annex4.qmd#sec-A-indi).
 
 ### 2.4.2.1 Volatilidad
 
@@ -98,7 +98,7 @@ donde:
 
 ## 2.4.3 Vectores
 
-En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el sub-epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en @sec-A-vec.
+En el presente sub-epígrafe se expone el procedimiento llevado a cabo para la creación de los vectores de entrada y salida a partir de los datos resultantes del procedimiento expuesto en el sub-epígrafe anterior. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en Anexo 4 - [Vectores](Annex4.qmd#sec-A-vec).
 
 La estructura del conjunto de vectores de entradas y salidas es de vital importancia en el modelado de técnicas de ML teniendo un impacto importante en su eficacia. El conjunto debe de vectores debe crearse de manera representativa del problema a resolver, por lo que los pasos descritos a continuación explican en detalle los aspectos del problema a dar respuesta en el presente trabajo y como dar forma al conjunto de vectores de entradas y salidas para ello.
 
