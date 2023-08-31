@@ -20,7 +20,7 @@ In the @fig-dominios the domain of the ReLU and Leaky ReLU function is observed,
 
 The CNN layer in all the structures is linked to an LSTM layer, which in all cases had 64 neurons. The output of this layer was linked to the output layer which returns a single value.
 
-To conclude with the construction of the models, it was determined to use the mean square error (hereinafter MSE, for its acronym in English, Mean Squared Error) as the function used to evaluate a candidate solution, the results of the model and the SGD optimizer (for its acronym in English, Stochastic Gradient Descent) with an Alpha of 0.0005.
+To conclude with the construction of the models, it was determined to use the mean square error (hereinafter MSE) as the function used to evaluate a candidate solution, the results of the model and the SGD optimizer (for its acronym in English, Stochastic Gradient Descent) with an Alpha of 0.0005.
 
 ## 2.5.2 Training {#sec-entrenamiento}
 
