@@ -318,10 +318,8 @@ model |>
   compile(loss = "mse", optimizer = optimizer_sgd(0.0005))
 ```
 
-::: {.callout-note}
-
+::: callout-note
 You can find untrained models in the `data` folder of the repository where this work is located. The models were saved using the `hdf5` extension and under the names `model1e`, `model2e` and `model3e`.
-
 :::
 
 ### Training {#sec-A-entrenamiento}
@@ -401,10 +399,8 @@ resultados <- wfv_train(data,model,'Date')
 predicciones1e <- resultados$predicciones
 ```
 
-::: {.callout-note}
-
+::: callout-note
 You can find trained models in the `data` folder of the repository where this work is located. The models were saved using the `hdf5` extension and under the names `model1etd`, `model2etd` and `model3etd`.
-
 :::
 
 As explained in [2.6.1 Predictions](Results.qmd#sec-predicciones), in addition to the predictions obtained by the models, predictions obtained from the use of the arithmetic mean were computed, to compare with those obtained with the models. To compute these predictions, the following function was created:
@@ -492,11 +488,10 @@ Once the function was created, the predictions were obtained using the following
 ```{r}
 #| eval: false
 
-meanse1 <- wfv_train(data,'Date',id_var_name = "ID")
+meanse1 <- wfv_means(data,'Date',id_var_name = "ID")
 ```
 
-::: {.callout-note}
-
+::: callout-note
 In addition to what was previously stated, two functions `getconfig` and `plot_modelk` were created, in the .Rprofile file of the repository in which this work is found, which allow graphing the structure of the models by using the @Diagrammer package, as seen in the @fig-estructuras. The code to use would be:
 
 ```{r}
@@ -509,7 +504,6 @@ model |>
   plot_modelk() |>
   grViz()
 ```
-
 :::
 
 The procedure exposed in the sections [Modeling](Annex4.qmd#sec-A-modelos) and [Training](Annex4.qmd#sec-A-entrenamiento) of this annex was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to `vecs3d1e` with `in the first code exposed. vecs3d2e` and `vecs3d3e`, depending on the group of three-dimensional vectors used.

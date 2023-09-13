@@ -310,10 +310,8 @@ model |>
   compile(loss = "mse", optimizer = optimizer_sgd(0.0005))
 ```
 
-::: {.callout-note}
-
+::: callout-note
 Puede encontrar modelos sin entrenar en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1e`, `model2e` y `model3e`.
-
 :::
 
 ### Entrenamiento {#sec-A-entrenamiento}
@@ -391,10 +389,8 @@ resultados <- wfv_train(data,model,'Date')
 predicciones1e <- resultados$predicciones
 ```
 
-::: {.callout-note}
-
+::: callout-note
 Puede encontrar modelos entrenados en la carpeta `data` del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión `hdf5` y bajo los nombres `model1etd`, `model2etd` y `model3etd`.
-
 :::
 
 Como se explica en [2.6.1 Predicciones](Results.qmd#sec-predicciones) además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmetica, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creo la siguiente función:
@@ -482,11 +478,10 @@ Una vez creada la función se obtuvieron las predicciones utilizando el siguient
 ```{r}
 #| eval: false
 
-meanse1 <- wfv_train(data,'Date',id_var_name = "ID")
+meanse1 <- wfv_means(data,'Date',id_var_name = "ID")
 ```
 
-::: {.callout-note}
-
+::: callout-note
 En adición a lo expuesto con anterioridad se crearon dos funciones `getconfig` y `plot_modelk`, en el archivo .Rprofile del repositorio en el que se encuentra este trabajo, que permiten graficar la estructura de los modelos mediante el uso del paquete @Diagrammer, como se ve en la @fig-estructuras. El código a utilizar sería:
 
 ```{r}
@@ -498,7 +493,6 @@ model |>
   plot_modelk() |>
   grViz()
 ```
-
 :::
 
 El procedimiento expuesto en las secciones [Modelado](Annex4.qmd#sec-A-modelos) y [Entrenamiento](Annex4.qmd#sec-A-entrenamiento) del presente anexo fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a `vecs3d1e` por `vecs3d2e` y `vecs3d3e`,según el grupo de vectores tridimensionanales utilizado.

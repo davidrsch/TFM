@@ -22,6 +22,8 @@ data |>
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Fecha", y = "Valores", color = "Indicadores")
 
+Model1 <- rep(1,dim(data1)[1])
+
 datameans <- data |>
   rowwise() |>
   mutate(
@@ -120,6 +122,9 @@ data |>
   scale_color_manual(values = c("blue", "green")) +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Fecha", y = "Valores", color = "Indicadores")
+
+Model2 <- rep(2,dim(data2)[1])
+
 datameans <- data |>
   rowwise() |>
   mutate(
@@ -211,6 +216,9 @@ data |>
   scale_color_manual(values = c("blue", "green")) +
   theme(axis.text.x = element_text(angle = 90)) +
   labs(x = "Fecha", y = "Valores", color = "Indicadores")
+
+Model3 <- rep(3, dim(data3)[1])
+
 datameans <- data |>
   rowwise() |>
   mutate(
@@ -280,4 +288,25 @@ IBEXre <- data_summary[["IBEX"]][obs]
 (meanrnare-meanre)/meanre
 (meanrnare-IBEXre)/IBEXre
 
+# agrupando resultados
+Es <- c(Model1, Model2, Model3)
+names(data1) <- c("Date","meanmse1","meanrsqrd1")
+names(data2) <- c("Date","meanmse2","meanrsqrd2")
+names(data3) <- c("Date","meanmse3","meanrsqrd3")
+indicadores <- left_join(data1,data2) |>
+  left_join(data3)
+write.csv(indicadores, "indicadores.csv")
 
+# Agrupando resultados resumen
+names(datas1) <- c(
+  "Date","meanPortre1","max_y1","min_y1", "min_51",
+  "max_951", "IBEX1", "Means1")
+names(datas2) <- c(
+  "Date","meanPortre2","max_y2","min_y2", "min_52",
+  "max_952", "IBEX2", "Means2")
+names(datas3) <- c(
+  "Date","meanPortre3","max_y3","min_y3", "min_53",
+  "max_953", "IBEX3", "Means3")
+results <- left_join(datas1,datas2) |>
+  left_join(datas3)
+write.csv(results, "results.csv")
