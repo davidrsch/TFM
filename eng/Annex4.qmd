@@ -238,7 +238,7 @@ ht <- 1
 # The input observations are defined
 oe <- 1
 
-# 3d input vectors are created for input size 1
+# 3d input vectors and 2d output vectors are created for input size 1
 vecs3d1e <- list()
 for(i in 1:length(returns_indc)){
   emp <- returns_indc[[i]]

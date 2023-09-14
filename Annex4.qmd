@@ -230,7 +230,7 @@ ht <- 1
 #Se define el observaciones de entrada
 oe <- 1
 
-#Se crean los vectores de entrada 3d para tamaño de entrada 1
+#Se crean los vectores de entrada 3d y el vector 2d de salida para tamaño de entrada 1
 vecs3d1e <- list()
 for(i in 1:length(returns_indc)){
   emp <- returns_indc[[i]]
