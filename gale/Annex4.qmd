@@ -824,8 +824,8 @@ for (i in 1:length(unique(data$Date)[-1])) {
     qp_oute <- qp_oute$solution
     qp_oute <- floor(qp_oute*100)/100
     for(j in 1:length(qp_oute)){
-      if(qp_outm[j] < 0.001){
-        qp_outm[j] <- 0
+      if(qp_oute[j] < 0.001){
+        qp_oute[j] <- 0
       }else{}
     }
     

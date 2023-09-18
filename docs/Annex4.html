@@ -1091,8 +1091,8 @@ Nota
 <span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a>    qp_oute <span class="ot">&lt;-</span> qp_oute<span class="sc">$</span>solution</span>
 <span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a>    qp_oute <span class="ot">&lt;-</span> <span class="fu">floor</span>(qp_oute<span class="sc">*</span><span class="dv">100</span>)<span class="sc">/</span><span class="dv">100</span></span>
 <span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(qp_oute)){</span>
-<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(qp_outm[j] <span class="sc">&lt;</span> <span class="fl">0.001</span>){</span>
-<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>        qp_outm[j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(qp_oute[j] <span class="sc">&lt;</span> <span class="fl">0.001</span>){</span>
+<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>        qp_oute[j] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a>      }<span class="cf">else</span>{}</span>
 <span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a>    </span>

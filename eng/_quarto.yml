@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: ../_book/en
+  output-dir: ../docs/en
   post-render: 
     - fix-links.R
   preview: 

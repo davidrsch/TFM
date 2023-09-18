@@ -1,6 +1,6 @@
 # Read HTML file
 html_content <- readLines(
-  "../_book/en/Annex2.html",
+  "../docs/en/Annex2.html",
   warn = FALSE,
   encoding = "UTF-8")
 
@@ -15,4 +15,4 @@ html_content <- gsub(
   html_content)
 
 # Write updated HTML content to file
-writeLines(html_content, "../_book/en/Annex2.html", useBytes = TRUE)
+writeLines(html_content, "../docs/en/Annex2.html", useBytes = TRUE)

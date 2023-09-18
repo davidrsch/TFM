@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Trabajo Final de Máster - 2 Desarrollo del trabajo</title>
+<title>Trabajo Final de Máster - 2.5 Modelado y entrenamiento</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -29,8 +48,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./FSandP.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./Results.html" rel="next">
+<link href="./Data.html" rel="prev">
 <link href="./icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -57,7 +76,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "resultados adicionales en este documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <style>
@@ -80,10 +100,10 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Desarrollo del trabajo</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Desarrollo del trabajo</a></li><li class="breadcrumb-item"><a href="./MandT.html">2.5 Modelado y entrenamiento</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -93,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">2 Desarrollo del trabajo</h1>
+      <h1 class="title">2.5 Modelado y entrenamiento</h1>
                       </div>
   </div>
     
@@ -128,8 +148,8 @@ ul.task-list li input[type="checkbox"] {
           </li>
       </ul>
     </div>
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/davidrsch/TFM" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/intent/tweet?url=|url|" rel="" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
       </div>
@@ -178,7 +198,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./body.html" class="sidebar-item-text sidebar-link active">
+            <a href="./body.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2 Desarrollo del trabajo</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -211,7 +231,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MandT.html" class="sidebar-item-text sidebar-link">
+  <a href="./MandT.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">2.5 Modelado y entrenamiento</span></a>
   </div>
 </li>
@@ -276,7 +296,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#sec-modelado" id="toc-sec-modelado" class="nav-link active" data-scroll-target="#sec-modelado">2.5.1 Modelado</a></li>
+  <li><a href="#sec-entrenamiento" id="toc-sec-entrenamiento" class="nav-link" data-scroll-target="#sec-entrenamiento">2.5.2 Entrenamiento</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/MandT.qmd" class="toc-action">Editar esta página</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -284,9 +311,38 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>El presente trabajo se adentra en el campo del aprendizaje automático y la inteligencia artificial, específicamente en el uso combinado de redes neuronales artificiales y programación cuadrática. Esta poderosa sinergia busca ofrecer una solución efectiva y sofisticada para la previsión de series temporales financieras y la composición óptima de carteras de inversión. A través de la aplicación de estas técnicas, se persigue mejorar la toma de decisiones financieras y maximizar los rendimientos, al tiempo que se minimizan los riesgos asociados a las inversiones. En las siguientes secciones, se explorarán en detalle las distintas etapas del proceso, desde la caracterización de las series temporales y el funcionamiento de las redes neuronales, hasta la implementación de la programación cuadrática en la construcción de carteras eficientes.</p>
+<p>Este epígrafe se encuentra dividido en dos sub-epígrafes en los cuales se describe de forma breve los modelos que se construyeron y el procedimiento utilizado para entrenarlos. Explicándose en el primero de los sub-epígrafes las estructuras de los modelos utilizados, mientras que en el segundo sub-epígrafe se explican las particularidades de la metodología de entrenamiento utilizada.</p>
+<section id="sec-modelado" class="level2">
+<h2 class="anchored" data-anchor-id="sec-modelado">2.5.1 Modelado</h2>
+<p>Como se explicó con anterioridad los principales elementos de los modelos de redes neuronales artificiales utilizados son una capa CNN y una capa LSTM. Además de esto se utilizó una capa de entrada y una capa de salida, que son las encargadas de suministrar a los modelos la información de los vectores constituidos con anterioridad. Una explicación más detallada, en lo respecto a el código utilizado para la realización del procedimiento expuesto en el presente sub-epígrafe se encuentra en Anexo 4 - <a href="./Annex4.html#sec-A-modelos">Modelado</a>.</p>
+<p>Dado que se definieron tres tamaños distintos de observaciones para tener en cuenta para realizar una predicción fue necesario construir tres estructuras de modelos distintas que se adaptasen a las dimensiones de los distintos vectores de entrada, las distintas estructuras se pueden observar en la <a href="Annex1.html#fig-estructuras">Figura&nbsp;<span>17</span></a>.</p>
+<p>La primera diferencia notable entre las estructuras son las salidas de las capas de entrada, esta diferencia se debe a los tamaños de las muestras si se ha escogido usar 1,2 o 3 observaciones para construir el modelo. Como se observa el tamaño de la salida de la capa de entrada modifica por consiguiente el tamaño de las entradas y las salidas de la capa CNN.</p>
+<p>Como se mencionó con anterioridad las variaciones en la segunda dimensión en las salidas de la capa CNN se pueden explicar por los distintos tamaños de los vectores de entrada. Pero como se observa el tamaño de la tercera dimensión de la salida de esta capa es igual en todas las estructuras, 64, lo que señala el número de filtros escogidos a utilizar, uno de los principales parámetros para tener en cuenta durante la configuración de estas capas. Esto último significa que las observaciones correspondientes a las 6 variables utilizadas fueron divididas en 64 variables que permiten al modelo una mejor comprensión de la relación entre las variables.</p>
+<p>Otro aspecto que se modificó en la capa CNN de las estructuras fue la función de activación que de manera predetermina es la denominada ReLU (por sus siglas en inglés, Rectified Linear Unit) se cambió a Leaky ReLU debido a que como se explica en <span class="citation" data-cites="OmG21">OmG (<a href="references.html#ref-OmG21" role="doc-biblioref">2021</a>)</span>, ReLU es una función de activación no lineal que genera cero para entradas negativas, lo que puede hacer que algunas neuronas dejen de aprender si muchas de sus entradas son negativas, ya que sus gradientes serán cero.</p>
+<p>Dado lo explicado con anterioridad y que algunas de las variables que se usan en los valores de entradas poseen un alto número de observaciones negativas, como es el caso de las rentabilidades o la correlación de algunas de las series en ciertos periodos de tiempo el uso de la función de activación ReLU no parecía una buena opción. Por lo que se decidió utilizar como función de activación Leaky Relu que como se explica en <span class="citation" data-cites="OmG21">OmG (<a href="references.html#ref-OmG21" role="doc-biblioref">2021</a>)</span>, esta es una variante que permite un pequeño gradiente constante, distinto de cero, para entradas negativas. Esto significa que esta función de activación permite que algunas neuronas sigan aprendiendo de las entradas negativas.</p>
+<p>En la <a href="Annex1.html#fig-dominios">Figura&nbsp;<span>18</span></a> se observa el dominio de la función ReLU y Leaky ReLU lo que le permitirá una mejor comprensión de lo expuesto con anterioridad.</p>
+<p>La capa CNN en todas las estructuras se encuentran enlazada a una capa LSTM, la cual en todos los casos contó con 64 neuronas. La salida de esta capa se encontraba enlazada con la capa de salida la cuál devuelve un solo valor.</p>
+<p>Para concluir con la construcción de los modelos se determinó usar el error cuadrático medio (en lo adelante MSE, por sus siglas en inglés, Mean Squared Error) como la función utilizada para evaluar una solución candidata los resultados del modelo y el optimizador SGD (por sus siglas en inglés, Stochastic Gradient Descent) con un Alpha de 0.0005.</p>
+</section>
+<section id="sec-entrenamiento" class="level2">
+<h2 class="anchored" data-anchor-id="sec-entrenamiento">2.5.2 Entrenamiento</h2>
+<p>Una explicación más en detalle sobre el código utilizado durante el procedimiento expuesto en este sub-epígrafe se encuentra en Anexo 4 - <a href="./Annex4.html#sec-A-entrenamiento">Entrenamiento</a>.</p>
+<p>El entrenamiento de algoritmos de Machine Learning en la previsión de series de tiempo tienes sus peculiaridades a como se entrenan modelos con el objetivo de solucionar otro tipo de problemas. Por lo que en este sub-epígrafe se cubre de manera breve la metodología de entrenamiento utilizada, que es la denominada walk forward validation o validación de avance.</p>
+<p>Como ya se mencionó la validación de avance es un método utilizado para evaluar modelos de aprendizaje automático en datos de series temporales. Esto se debe a que como se explica en <span class="citation" data-cites="Brownlee19">Brownlee (<a href="references.html#ref-Brownlee19" role="doc-biblioref">2019</a>)</span> proporciona la evaluación más realista de modelos de aprendizaje automático en datos de series temporales. Los métodos tradicionales de evaluación de modelos a partir del aprendizaje automático, como la validación cruzada de k-fold o la división en datos de entrenamiento y validación no funcionan en el caso de datos de series temporales porque ignoran los componentes temporales inherentes al problema. La validación Walk-forward tiene en cuenta estos componentes temporales y proporciona una evaluación más realista de cómo funcionará el modelo cuando se use operativamente.</p>
+<p>Al evaluar un modelo, nos interesa su rendimiento del modelo en datos que no se usaron para entrenarlo. En el aprendizaje automático, se llaman datos no vistos o fuera de la muestra. Comúnmente para la resolución de otros problemas se dividen los datos en distintos subconjuntos: entrenamiento, prueba y validación, los que tiene como objetivo entrenar y validar el modelo. Con la metodología walk forward validation los datos se dividen por periodos de tiempo y se entrena y valida al modelo de forma consecutiva lo que permite evaluar como el modelo entiende la dependencia temporal de los datos.</p>
+<p>Al dividir los datos por periodos de tiempo nos permite evaluar el funcionamiento real del modelo si se hubiese aplicado desde el primer periodo, así como analizar su comportamiento a lo largo de todos los periodos, observándose si su desempeño mejora o no.</p>
+<p>De lo expuesto en el presente sub-epígrafe se entiende que los modelos fueron entrenados usando los conjuntos de muestras correspondientes, pasándose todas las muestras disponibles en un determinado periodo de tiempo antes de continuar con el siguiente periodo. Obteniéndose como resultado de lo anterior una predicción correspondiente a cada periodo de tiempo contemplado, a excepción de los dos primeros que se usarían para entrenar el modelo por primera vez, como se ve en el siguiente diagrama de la <a href="Annex1.html#fig-wfv">Figura&nbsp;<span>19</span></a>.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Brownlee19" class="csl-entry" role="listitem">
+Brownlee, J. 2019. <span>«How To Backtest Machine Learning Models for Time Series Forecasting»</span>. 2019. <a href="https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/">https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/</a>.
+</div>
+<div id="ref-OmG21" class="csl-entry" role="listitem">
+OmG. 2021. <span>«Difference between ReLU, ELU and Leaky ReLU. Their pros and cons majorly»</span>. 2021. <a href="https://datascience.stackexchange.com/a/102485">https://datascience.stackexchange.com/a/102485</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script type="text/javascript">
@@ -624,13 +680,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1 Introducción</span>
+      <a href="./Data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.4 Datos</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./FSandP.html" class="pagination-link">
-        <span class="nav-page-text">2.1 Caracterización de las series temporales financieras</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Results.html" class="pagination-link">
+        <span class="nav-page-text">2.6 Resultado</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -644,7 +700,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
  David Díaz Rodríguez
   </li>  
 </ul>
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/body.qmd" class="toc-action">Editar esta página</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
