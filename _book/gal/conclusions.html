@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,7 +57,8 @@ ul.task-list li input[type="checkbox"] {
     "search-more-matches-text": "máis coincidencias neste documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <style>
@@ -83,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./conclusions.html">3 Conclusións</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Cambiar navegación da barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
           </li>
       </ul>
     </div>
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/davidrsch/TFM" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/intent/tweet?url=|url|" rel="" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -286,9 +287,9 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Durante o desenvolvemento deste traballo abordouse a aplicación das redes neuronais artificiais e da programación cuadrática na xestión de carteiras financeiras. A través dunha coidada caracterización das series temporais financeiras, foi posible comprender a importancia de analizar as súas características e patróns para facer previsións máis precisas.</p>
 <p>Probáronse diferentes configuracións de modelos de redes neuronais artificiais, compostos pola combinación de capas convolucionais e LSTM, que diferían no número de observacións históricas que utilizarían como entradas antes de facer unha predición. Comparáronse as predicións obtidas a partir dos citados modelos coas predicións obtidas mediante a media aritmética, que é un dos indicadores máis utilizados. Como resultado da citada comparación, obtívose que os modelos en función do número de observacións que utilizaban como entradas: 1, 2 ou 3; obtiveron un R2 de: -0,00287, 0,0611 e 0,0179 respectivamente.</p>
-<p>As predicións obtidas, tanto cos modelos de ARN como coas medias aritméticas xunto cos comportamentos históricos foron empregadas para, mediante a programación cuadrática, buscar a composición de carteiras de menor risco. Despois de realizar unha simulación de xestión de carteiras, conseguiuse que as carteiras constituídas a partir das predicións dos modelos ANN obtidas ao final do período estudado, fronte ás compostas polas predicións mediante a media aritmética, producen un rendemento: un 5,63% superior. , para modelos que utilizaron 1 observación como entrada; un 35,67% maior para os que utilizaron 2; e un 25,51% para os que utilizaron 3. Ademais, observouse que as carteiras integradas polos modelos de ARN obtiveron rendementos superiores ao índice, IBEX, nun 40,86%, 39,78% e 60,54%, para os modelos que utilizaron 1, 2 e 3 observacións como entradas respectivamente.</p>
+<p>As predicións obtidas, tanto cos modelos de ANN como coas medias aritméticas, xunto cos comportamentos históricos, foron empregadas para, mediante a programación cuadrática, buscar a composición de carteiras de menor risco. Despois de realizar unha simulación de xestión de carteiras, conseguiuse que as carteiras constituídas a partir das predicións dos modelos ANN obtidas ao final do período estudado, fronte ás compostas polas predicións mediante a media aritmética, producen un rendemento: un 5,63% superior, para modelos que utilizaron 1 observación como entrada; un 35,67% maior para os que utilizaron 2; e un 25,51% para os que utilizaron 3. Ademais, observouse que as carteiras integradas polos modelos de ANN obtiveron rendementos superiores ao índice, IBEX, nun 40,86%, 39,78% e 60,54%, para os modelos que utilizaron 1, 2 e 3 observacións como entradas respectivamente.</p>
 <p>Os resultados mencionados mostran que o uso combinado destas ferramentas, ANN e programación cuadrática, pode ofrecer ás empresas e organizacións unha importante vantaxe competitiva na xestión dos seus activos financeiros, permitindo unha toma de decisións máis eficaz, optimizando a composición das carteiras e maximizando os rendementos.</p>
-<p>Non obstante, é importante destacar que os resultados que se presentan neste traballo precisan dun estudo máis profundo para analizar, entre outros aspectos, o peso que teñen na composición das carteiras os resultados das predicións das distintas empresas. Por este motivo, este traballo considérase o inicio dunha investigación máis exhaustiva na que: hai que obter datos de maior calidade e contrastar o uso de diversas técnicas, tanto para obter predicións como para atopar axeitada a composición da carteira.</p>
+<p>Non obstante, é importante destacar que os resultados que se presentan neste traballo precisan dun estudo máis profundo para analizar, entre outros aspectos, o peso que teñen na composición das carteiras os resultados das predicións das distintas empresas. Por este motivo, este traballo considérase o inicio dunha investigación máis exhaustiva na cal: hai que obter datos de maior calidade e contrastar o uso de diversas técnicas, tanto para obter predicións como para atopar a composición da carteira axeitada.</p>
 
 
 

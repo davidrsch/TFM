@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,7 +76,8 @@ div.csl-indent {
     "search-more-matches-text": "máis coincidencias neste documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <style>
@@ -102,7 +103,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Desenvolvemento do traballo</a></li><li class="breadcrumb-item"><a href="./MandT.html">2.5 Modelado e formación</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Cambiar navegación da barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -147,14 +148,14 @@ div.csl-indent {
           </li>
       </ul>
     </div>
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/davidrsch/TFM" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/intent/tweet?url=|url|" rel="" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -315,22 +316,22 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="sec-modelado">2.5.1 Modelado</h2>
 <p>Como se explicou anteriormente, os principais elementos dos modelos de redes neuronais artificiais utilizados son unha capa CNN e unha capa LSTM. Ademais disto, utilizouse unha capa de entrada e outra de saída, que se encargan de subministrar aos modelos a información dos vectores constituídos previamente. En Anexo 4 - <a href="./Annex4.html#sec-A-modelos">Modelado</a> pódese atopar unha explicación máis detallada sobre o código utilizado para realizar o procedemento descrito neste subtítulo.</p>
 <p>Dado que se definiron tres tamaños de observacións diferentes a ter en conta para facer unha predición, foi necesario construír tres estruturas modelo diferentes que se adaptasen ás dimensións dos diferentes vectores de entrada, as diferentes estruturas pódense observar nas <a href="Annex1.html#fig-estructuras">Figura&nbsp;<span>17</span></a>.</p>
-<p>A primeira diferenza notable entre as estruturas son as saídas das capas de entrada, esta diferenza débese aos tamaños da mostra se optou por utilizar 1, 2 ou 3 observacións para construír o modelo. Como se pode ver, o tamaño da saída da capa de entrada modifica, polo tanto, o tamaño das entradas e saídas da capa CNN.</p>
-<p>Como se mencionou anteriormente, as variacións na segunda dimensión nas saídas da capa CNN poden explicarse polos diferentes tamaños dos vectores de entrada. Pero como se pode ver, o tamaño da terceira dimensión da saída desta capa é o mesmo en todas as estruturas, 64, o que indica o número de filtros elixidos para utilizar, un dos principais parámetros a ter en conta á hora de configurar estes. capas. Isto último significa que as observacións correspondentes ás 6 variables utilizadas foron divididas en 64 variables que permiten ao modelo unha mellor comprensión da relación entre as variables.</p>
-<p>Outro aspecto que se modificou na capa CNN das estruturas foi a función de activación que por defecto se chama ReLU (polas súas siglas en inglés, Rectified Linear Unit) cambiouse a Leaky ReLU porque como se explica en <span class="citation" data-cites="OmG21">OmG (<a href="references.html#ref-OmG21" role="doc-biblioref">2021</a>)</span> , ReLU é unha activación non lineal. función que xera cero para entradas negativas, o que pode provocar que algunhas neuronas deixen de aprender se moitas das súas entradas son negativas, xa que os seus gradientes serán cero.</p>
-<p>Tendo en conta o exposto anteriormente e que algunhas das variables utilizadas nos valores de entrada presentan un elevado número de observacións negativas, como é o caso dos rendementos ou a correlación dalgunhas das series en determinados períodos de tempo, a utilización do A función de activación de ReLU non parecía unha boa opción. Polo tanto, decidiuse utilizar Leaky Relu como función de activación, que como se explica en <span class="citation" data-cites="OmG21">OmG (<a href="references.html#ref-OmG21" role="doc-biblioref">2021</a>)</span>, trátase dunha variante que permite un pequeno gradiente constante, distinto de cero, para entradas negativas. Isto significa que esta función de activación permite que algunhas neuronas sigan aprendendo a partir de entradas negativas.</p>
+<p>A primeira diferenza notable entre as estruturas son as saídas das capas de entrada, esta diferenza débese aos tamaños da mostra se se optou por utilizar 1, 2 ou 3 observacións para construír o modelo. Como se pode ver, o tamaño da saída da capa de entrada modifica por conseguinte o tamaño das entradas e saídas da capa CNN.</p>
+<p>Como se mencionou anteriormente, as variacións na segunda dimensión nas saídas da capa CNN poden explicarse polos diferentes tamaños dos vectores de entrada. Pero como se pode ver, o tamaño da terceira dimensión da saída desta capa é o mesmo en todas as estruturas, 64, o que indica o número de filtros elixidos para utilizar, un dos principais parámetros a ter en conta á hora de configurar estas capas. Isto último significa que as observacións correspondentes ás 6 variables utilizadas foron divididas en 64 variables que permiten ao modelo unha mellor comprensión da relación entre as variables.</p>
+<p>Outro aspecto que se modificou na capa CNN das estruturas foi a función de activación que por defecto se chama ReLU (polas súas siglas en inglés, Rectified Linear Unit) cambiouse a Leaky ReLU porque como se explica en <span class="citation" data-cites="OmG21">OmG (<a href="references.html#ref-OmG21" role="doc-biblioref">2021</a>)</span> , ReLU é unha función de activación non lineal que xera cero para entradas negativas, o que pode provocar que algunhas neuronas deixen de aprender se moitas das súas entradas son negativas, xa que os seus gradientes serán cero.</p>
+<p>Tendo en conta o exposto anteriormente e que algunhas das variables utilizadas nos valores de entrada presentan un elevado número de observacións negativas, como é o caso dos rendementos ou a correlación dalgunhas das series en determinados períodos de tempo, a utilización da función de activación de ReLU non parecía unha boa opción. Polo tanto, decidiuse utilizar Leaky Relu como función de activación, que como se explica en <span class="citation" data-cites="OmG21">OmG (<a href="references.html#ref-OmG21" role="doc-biblioref">2021</a>)</span>, trátase dunha variante que permite un pequeno gradiente constante, distinto de cero, para entradas negativas. Isto significa que esta función de activación permite que algunhas neuronas sigan aprendendo a partir de entradas negativas.</p>
 <p>Nos <a href="Annex1.html#fig-dominios">Figura&nbsp;<span>18</span></a> obsérvase o dominio da función ReLU e Leaky ReLU, o que lle permitirá comprender mellor o que se expuxo anteriormente.</p>
 <p>A capa CNN en todas as estruturas está ligada a unha capa LSTM, que en todos os casos tiña 64 neuronas. A saída desta capa ligouse á capa de saída que devolve un único valor.</p>
-<p>Para concluír coa construción dos modelos, determinouse utilizar o erro cadrado medio (en diante MSE, polas súas siglas en inglés, Mean Squared Error) como función empregada para avaliar unha solución candidata, os resultados do modelo e o SGD. optimizador (polos seus acrónimos en inglés, Stochastic Gradient Descent) cun alfa de 0,0005.</p>
+<p>Para concluír coa construción dos modelos, determinouse utilizar o erro cadrado medio (en diante MSE, polas súas siglas en inglés, Mean Squared Error) como función empregada para avaliar unha solución candidata, os resultados do modelo e o optimizador SGD (polo seu acrónimo en inglés, Stochastic Gradient Descent) cun alfa de 0,0005.</p>
 </section>
 <section id="sec-entrenamiento" class="level2">
 <h2 class="anchored" data-anchor-id="sec-entrenamiento">2.5.2 Formación</h2>
 <p>En Anexo 4 - <a href="./Annex4.html#sec-A-entrenamiento">Formación</a> pódese atopar unha explicación máis detallada do código utilizado durante o procedemento descrito nesta subsección.</p>
-<p>O adestramento de algoritmos de Machine Learning na previsión de series temporais ten as súas peculiaridades en como se adestran os modelos co obxectivo de resolver outro tipo de problemas. Polo tanto, neste subapartado cóbrase brevemente a metodoloxía de formación empregada, que é a denominada validación de andaina ou validación avanzada.</p>
-<p>Como xa se mencionou, a validación feedforward é un método usado para avaliar modelos de aprendizaxe automática en datos de series temporais. Isto débese a que, como explica <span class="citation" data-cites="Brownlee19">Brownlee (<a href="references.html#ref-Brownlee19" role="doc-biblioref">2019</a>)</span>, ofrece a avaliación máis realista dos modelos de aprendizaxe automática sobre datos de series temporais. Os métodos tradicionais de avaliación de modelos procedentes da aprendizaxe automática, como a validación cruzada k-fold ou a división en datos de adestramento e validación, non funcionan para os datos de series temporais porque ignoran os compoñentes de tempo inherentes ao problema. A validación avanzada ten en conta estes compoñentes temporais e ofrece unha avaliación máis realista de como funcionará o modelo cando se use operativamente.</p>
+<p>O adestramento de algoritmos de Machine Learning na previsión de series temporais ten as súas peculiaridades respecto a como se adestran os modelos co obxectivo de resolver outro tipo de problemas. Polo tanto, neste subapartado cóbrase brevemente a metodoloxía de formación empregada, que é a denominada walk forward validation ou validación de avance.</p>
+<p>Como xa se mencionou, a validación validación de avance é un método usado para avaliar modelos de aprendizaxe automática en datos de series temporais. Isto débese a que, como explica <span class="citation" data-cites="Brownlee19">Brownlee (<a href="references.html#ref-Brownlee19" role="doc-biblioref">2019</a>)</span>, ofrece a avaliación máis realista dos modelos de aprendizaxe automática sobre datos de series temporais. Os métodos tradicionais de avaliación de modelos procedentes da aprendizaxe automática, como a validación cruzada k-fold ou a división en datos de adestramento e validación, non funcionan para os datos de series temporais porque ignoran os compoñentes de tempo inherentes ao problema. A validación avanzada ten en conta estes compoñentes temporais e ofrece unha avaliación máis realista de como funcionará o modelo cando se use operativamente.</p>
 <p>Ao avaliar un modelo, interésanos saber como funciona o modelo en datos que non se utilizaron para adestralo. Na aprendizaxe automática, isto denomínase datos non vistos ou fóra da mostra. Normalmente, para a resolución doutros problemas, os datos divídense en diferentes subconxuntos: adestramento, proba e validación, cuxo obxectivo é adestrar e validar o modelo. Coa metodoloxía de validación walk forward, os datos divídense por períodos de tempo e o modelo adestrase e validase consecutivamente, o que permite avaliar como o modelo entende a dependencia temporal dos datos.</p>
 <p>Ao dividir os datos por períodos de tempo, permítenos avaliar o funcionamento real do modelo se fora aplicado desde o primeiro período, así como analizar o seu comportamento ao longo de todos os períodos, observando se o seu rendemento mellora ou non.</p>
-<p>Polo exposto neste subapartado, enténdese que os modelos foron adestrados utilizando os conxuntos de mostras correspondentes, pasando todas as mostras dispoñibles nun período de tempo determinado antes de continuar co período seguinte. Obtendo como consecuencia do anterior unha predición correspondente a cada período de tempo contemplado, a excepción dos dous primeiros que se utilizarían para adestrar o modelo por primeira vez, tal e como se ve no seguinte esquema do <a href="Annex1.html#fig-wfv">Figura&nbsp;<span>19</span></a>.</p>
+<p>Polo exposto neste subapartado, enténdese que os modelos foron adestrados utilizando os conxuntos de mostras correspondentes, pasando todas as mostras dispoñibles nun período de tempo determinado antes de continuar co período seguinte. Obtendo como consecuencia do anterior unha predición correspondente a cada período de tempo contemplado, a excepción dos dous primeiros que se utilizarían para adestrar o modelo por primeira vez, tal e como se ve no seguinte diagrama do <a href="Annex1.html#fig-wfv">Figura&nbsp;<span>19</span></a>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">

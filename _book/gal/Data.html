@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -76,7 +76,8 @@ div.csl-indent {
     "search-more-matches-text": "máis coincidencias neste documento",
     "search-clear-button-title": "Borrar",
     "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar"
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
   }
 }</script>
 <style>
@@ -104,7 +105,7 @@ div.csl-indent {
       <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Desenvolvemento do traballo</a></li><li class="breadcrumb-item"><a href="./Data.html">2.4 Datos</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Cambiar navegación da barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -149,14 +150,14 @@ div.csl-indent {
           </li>
       </ul>
     </div>
-    <a href="https://github.com/davidrsch/TFM" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="https://twitter.com/intent/tweet?url=|url|" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+    <a href="https://github.com/davidrsch/TFM" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://twitter.com/intent/tweet?url=|url|" rel="" title="Twitter" class="quarto-navigation-tool px-1" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
 </div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Buscar"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -323,13 +324,13 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="sec-obtdat">2.4.1 Recollida de datos</h2>
 <p>Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en Anexo 4 - <a href="./Annex4.html#sec-A-obtdat">Recollida de datos</a>.</p>
 <p>Co fin de exemplificar como as redes neuronais artificiais e a programación cuadrática poden utilizarse nunha estratexia de xestión de carteiras, decidiuse neste traballo utilizar datos do mercado español. Por iso, decidiuse traballar coa información correspondente ás empresas que figuran na lista de sociedades cotizadas que se expón en <span class="citation" data-cites="BMEexcha"><span>“Empresas Cotizadas”</span> (<a href="references.html#ref-BMEexcha" role="doc-biblioref">n.d.</a>)</span> e que se pode ver en <a href="Annex3.html#tbl-emp_cotiz">Táboa&nbsp;<span>2</span></a>.</p>
-<p>O <a href="Annex3.html#tbl-emp_cotiz">Táboa&nbsp;<span>2</span></a> recolle os datos das empresas <code>r nrow(empresas)</code>. Os datos recollidos son o nome, ticker, sector e subsector, mercado, índice de cada unha das empresas e se foron seleccionadas ou non para realizar o resto do trámite unha vez realizados os trámites indicados neste subepígrafe.</p>
+<p>O <a href="Annex3.html#tbl-emp_cotiz">Táboa&nbsp;<span>2</span></a> recolle os datos das <code>r nrow(empresas)</code>empresas. Os datos recollidos son o nome, ticker, sector e subsector, mercado, índice de cada unha das empresas e se foron seleccionadas ou non para realizar o resto do trámite unha vez realizados os trámites indicados neste subepígrafe.</p>
 <p>Para obter os datos das empresas e analizalos para seleccionar aquelas coas que traballamos no resto do procedemento utilizouse como fonte <span class="citation" data-cites="yahoofin"> (<a href="references.html#ref-yahoofin" role="doc-biblioref">n.d.a</a>)</span>. A continuación, explícase o proceso realizado para obter e seleccionar os datos.</p>
 <p>Decidiuse descargar os datos mensuais de cada unha das empresas recollidos en <a href="Annex3.html#tbl-emp_cotiz">Táboa&nbsp;<span>2</span></a>. Obtención de todos os datos comprendidos entre o 31 de xaneiro de 2000 e o 28 de febreiro de 2023 de cada unha das entidades.</p>
-<p>Despois da obtención dos datos, avaliouse a calidade dos datos. A avaliación comezou cunha análise exploratoria visual dos prezos axustados xa que, como se explicou no capítulo anterior, estes son os idóneos para utilizar en calquera metodoloxía de análise histórica.</p>
+<p>Despois da obtención dos datos, avaliouse a súa calidade. A avaliación comezou cunha análise exploratoria visual dos prezos axustados xa que, como se explicou no capítulo anterior, estes son os idóneos para utilizar en calquera metodoloxía de análise histórica.</p>
 <p>Durante a citada análise visual exploratoria detectouse que había irregularidades nos prezos axustados dalgunhas das series. As irregularidades detectadas consistiron no rexistro incorrecto dos prezos axustados, así como erros no seu cálculo. Estes erros detectáronse facilmente observando os gráficos de valores de prezos de peche axustados de tendencia constante durante longos períodos de tempo, como se ve en <a href="Annex2.html#fig-tend_const_nxt">Figura&nbsp;<span>6</span></a>, o que indica un rexistro incorrecto dos cambios de prezos; así como cambios bruscos de ata máis do 100% nos mesmos nun único período de tempo, que poden indicar un erro de cálculo no prezo axustado, como se observa en <a href="Annex2.html#fig-radi_chang_btc">Figura&nbsp;<span>7</span></a>, neste último caso comprobouse con outras fontes como <span class="citation" data-cites="investing"> (<a href="references.html#ref-investing" role="doc-biblioref">n.d.b</a>)</span>, para verificar que os prezos se calcularon mal.</p>
-<p>Dado o tempo dispoñible para realizar o estudo descrito no procedemento e o amplo tempo que requiriría realizar a investigación para substituír os valores erróneos da serie, optouse por eliminar estas irregularidades utilizando só o valores posteriores a xaneiro de 2005, que xa non presentaban inconsistencias no cálculo do prezo axustado, posteriormente elimináronse aquelas series que aínda contiñan valores ausentes e que presentaban irregularidades no rexistro das variacións, para estes últimos, aquelas series en que as variacións dos prezos non rexistrados están en máis de 10 observacións.</p>
-<p>Quedando despois dos axustes realizados ás empresas <code>r length(returns_emps3)</code>, tal e como se ve na columna seleccionada do <a href="Annex3.html#tbl-emp_cotiz">Táboa&nbsp;<span>2</span></a>, algunhas destas empresas teñen un número diferente de observacións, porque non todas existían nin saíran ao mercado. mercado antes de xaneiro de 2005.</p>
+<p>Dado o tempo dispoñible para realizar o estudo descrito no procedemento e o amplo tempo que requiriría realizar a investigación para substituír os valores erróneos da serie, optouse por eliminar estas irregularidades utilizando só os valores posteriores a xaneiro de 2005, que xa non presentaban inconsistencias no cálculo do prezo axustado, posteriormente elimináronse aquelas series que aínda contiñan valores ausentes e que presentaban irregularidades no rexistro das variacións, para estes últimos, aquelas series en que as variacións dos prezos non rexistrados están en máis de 10 observacións.</p>
+<p>Quedando despois dos axustes realizados ás <code>r length(returns_emps3)</code>empresas, tal e como se ve na columna seleccionada do <a href="Annex3.html#tbl-emp_cotiz">Táboa&nbsp;<span>2</span></a>, algunhas destas empresas teñen un número diferente de observacións, porque non todas existían nin saíran ao mercado. mercado antes de xaneiro de 2005.</p>
 <p>Unha vez seleccionadas as empresas coas que traballamos, calculáronse os seus rendementos a partir dos prezos axustados. Ademais das rendibilidades correspondentes ás empresas seleccionadas, utilizáronse as rendibilidades do prezo de peche axustado do IBEX 35, así como outras variables que serven de indicadores do comportamento das rendibilidades, e da súa relación coas do índice. neste caso as do IBEX 35. Estas variables inclúen as volatilidades das empresas e do índice, a correlación entre os valores da serie e o IBEX, e a beta das empresas en relación co IBEX.</p>
 </section>
 <section id="indicadores" class="level2">
@@ -364,7 +365,7 @@ div.csl-indent {
 <li><p><span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(\bar{y}\)</span> son as medias das dúas variables.</p></li>
 </ul>
 <p>Como tamén explica <span class="citation" data-cites="edwards22">Edwards (<a href="references.html#ref-edwards22" role="doc-biblioref">2022</a>)</span>, o coeficiente de correlación varía de -1 a 1, onde -1 indica correlación negativa perfecta, 1 indica correlación positiva perfecta e 0 indica ningunha correlación. Podendo comprender que canto máis próximo estea o coeficiente de correlación tanto a -1 como a 1, máis forte é a relación lineal entre as variables analizadas.</p>
-<p>Como se explicou anteriormente, o coeficiente de correlación, neste traballo, pode utilizarse para analizar como se moven os rendementos dunha empresa en comparación cos do IBEX 35. A correlación tamén se pode utilizar para diversificar unha carteira escollendo accións que teñan un ou correlación negativa entre si, como explica <span class="citation" data-cites="boytew22">Boyte-White (<a href="references.html#ref-boytew22" role="doc-biblioref">2022</a>)</span>. Isto pode axudar a reducir o risco global da carteira, xa que as perdas dunha acción poden compensarse coas ganancias doutra. Non obstante, a correlación non é constante e pode cambiar co tempo debido a diversos factores, como as condicións do mercado, os acontecementos económicos ou as noticias da empresa. Polo tanto, é importante supervisar a correlación de accións regularmente e axustar a carteira en consecuencia <span class="citation" data-cites="boytew22">Boyte-White (<a href="references.html#ref-boytew22" role="doc-biblioref">2022</a>)</span>.</p>
+<p>Como se explicou anteriormente, o coeficiente de correlación, neste traballo, pode utilizarse para analizar como se moven os rendementos dunha empresa en comparación cos do IBEX35. A correlación tamén se pode utilizar para diversificar unha carteira escollendo accións que teñan unha correlación baixa ou negativa entre si, como explica <span class="citation" data-cites="boytew22">Boyte-White (<a href="references.html#ref-boytew22" role="doc-biblioref">2022</a>)</span>. Isto pode axudar a reducir o risco global da carteira, xa que as perdas dunha acción poden compensarse coas ganancias doutra. Non obstante, a correlación non é constante e pode cambiar co tempo debido a diversos factores, como as condicións do mercado, os acontecementos económicos ou as noticias da empresa. Polo tanto, é importante supervisar a correlación de accións regularmente e axustar a carteira en consecuencia <span class="citation" data-cites="boytew22">Boyte-White (<a href="references.html#ref-boytew22" role="doc-biblioref">2022</a>)</span>.</p>
 <p>A correlación é unha ferramenta valiosa na análise do mercado de valores, pero non implica causalidade. Ter unha correlación alta ou baixa entre dúas variables non implica que unha variable provoque cambios na outra. A correlación mide simplemente a forza e a dirección da relación lineal entre dúas variables, sen ter en conta outros factores que poidan influír nelas.</p>
 <p>Como tamén se expuxo en <span class="citation" data-cites="edwards22">Edwards (<a href="references.html#ref-edwards22" role="doc-biblioref">2022</a>)</span>, a correlación está moi relacionada coa volatilidade do mercado e das accións, podendo constatar que, en períodos de maior volatilidade, como a crise financeira de 2008, as accións poden ter unha tendencia a estar máis correlacionados, aínda que sexan de sectores diferentes. Os mercados internacionais tamén poden estar moi correlacionados en tempos de inestabilidade. Os investimentos poden querer incluír activos nas súas carteiras que teñan unha baixa correlación de mercado cos mercados de accións para axudar a xestionar o seu risco.</p>
 </section>
@@ -386,7 +387,7 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="vectores">2.4.3 Vectores</h2>
 <p>Neste subapartado explícase o procedemento realizado para crear os vectores de entrada e saída a partir dos datos resultantes do procedemento descrito no subapartado anterior. Unha explicación máis detallada sobre o código empregado para realizar o procedemento descrito neste subtítulo pódese atopar en Anexo 4 - <a href="./Annex4.html#sec-A-vec">Vectores</a>.</p>
 <p>A estrutura do conxunto de vectores de entrada e saída é de vital importancia no modelado de técnicas de ML, tendo un impacto significativo na súa eficacia. O conxunto de vectores debe crearse dun xeito representativo do problema que se vai resolver, polo que os pasos que se describen a continuación explican detalladamente os aspectos do problema que se vai responder neste traballo e como darlle forma ao conxunto de vectores de entrada e saída.</p>
-<p>Como se mencionou anteriormente, o obxectivo deste traballo é presentar un procedemento para o uso de modelos de ARN e programación cuadrática nunha estratexia de investimento. A modelización aborda a necesidade de obter as predicións o máis precisas posibles para posteriormente, a partir das predicións e dos datos históricos, atopar a composición ideal da carteira. Polo tanto, o problema a representar cos conxuntos de vectores de entrada e saída é como explicar o comportamento da rendibilidade dunha empresa nun instante de tempo <span class="math inline">\(i+1\)</span> cos valores de varias variables no instante de tempo. <span class="math inline">\(i\)</span>.</p>
+<p>Como se mencionou anteriormente, o obxectivo deste traballo é presentar un procedemento para o uso de modelos de ANN e programación cuadrática nunha estratexia de investimento. A modelización aborda a necesidade de obter as predicións o máis precisas posibles para posteriormente, a partir das predicións e dos datos históricos, atopar a composición ideal da carteira. Polo tanto, o problema a representar cos conxuntos de vectores de entrada e saída é como explicar o comportamento da rendibilidade dunha empresa nun instante de tempo <span class="math inline">\(i+1\)</span> cos valores de varias variables no instante de tempo. <span class="math inline">\(i\)</span>.</p>
 <p>Para representar este problema creáronse vectores tridimensionais, seguindo o exposto en <span class="citation" data-cites="chollet2018deep">Chollet and Allaire (<a href="references.html#ref-chollet2018deep" role="doc-biblioref">2018</a>)</span>. As dimensións destes vectores explícanse do seguinte xeito:</p>
 <ul>
 <li><p>A primeira dimensión está composta polo número de mostras obtidas ao seccionar as observacións das diferentes series en vectores bidimensionais consecutivos.</p></li>
@@ -396,7 +397,7 @@ div.csl-indent {
 <p>Polo tanto, para obter correctamente estas mostras, é necesario definir primeiro que serie se utilizará para os vectores de entrada e saída. No apartado anterior definíronse as series utilizadas nos vectores de entrada, sendo as seguintes: os rendementos históricos da empresa e o IBEX, as volatilidades históricas da empresa e o IBEX, a correlación histórica da empresa e o IBEX e o histórico. beta da empresa e do IBEX. A serie utilizada para os vectores de saída é a rendibilidade histórica da empresa.</p>
 <p>Posteriormente definiuse o horizonte temporal a prever, aspecto fundamental na creación dos conxuntos de entradas e saídas. O número de observacións definido como horizonte temporal determina as observacións dos vectores de saída, no presente traballo determinouse unha observación como horizonte temporal posto que se desexa prever a rendibilidade do próximo mes das distintas empresas seleccionadas.</p>
 <p>E o último aspecto a definir é cantas observacións debe observar o modelo para inferir a saída desexada. Isto define o número de observacións que se tomarán de cada serie temporal para formar os vectores de entrada. Para determinar este aspecto débese levar a cabo un proceso iterativo, probando diferentes cantidades e valorando os resultados obtidos polos modelos que se adestran con elas. Para simplificar o proceso, no presente traballo determinouse probar diferentes tamaños de entrada, sendo estes 1, 2 e 3 observacións. Así, probando de certo xeito como o tamaño das entradas afecta á predición obtida.</p>
-<p>Se temos unha matriz para os vectores de entrada que contén algunhas observacións <code>r dim(returns_indc[[1]])[1]</code>, podemos calcular o número de mostras obtidas desta matriz seguindo a seguinte ecuación <a href="#eq-muestras">Ecuación&nbsp;<span>4</span></a>:</p>
+<p>Se temos unha matriz para os vectores de entrada que contén unhas <code>r dim(returns_indc[[1]])[1]</code> observacións, podemos calcular o número de mostras obtidas desta matriz seguindo a seguinte ecuación <a href="#eq-muestras">Ecuación&nbsp;<span>4</span></a>:</p>
 <p><span id="eq-muestras"><span class="math display">\[
 m = n - (i-1+o)
 \tag{4}\]</span></span></p>
@@ -406,7 +407,7 @@ m = n - (i-1+o)
 <li><p><span class="math inline">\(n\)</span> o número de observacións da serie</p></li>
 <li><p><span class="math inline">\(i\)</span> y <span class="math inline">\(o\)</span> o número de observacións nos vecotres de entrada e saída respectivamente.</p></li>
 </ul>
-<p>A <a href="Annex3.html#tbl-muestras">Táboa&nbsp;<span>3</span></a> mostra o número de mostras obtidas para os diferentes tamaños de vectores de entrada propostos, para os que se tiveron en conta os diferentes números de observacións da <code>r length(returns_indc)</code> seleccionada. A <a href="Annex1.html#fig-muestras">Figura&nbsp;<span>16</span></a> mostra como son os vectores de entrada e saída, no caso de que o vector de entrada teña 3 observacións.</p>
+<p>Na <a href="Annex3.html#tbl-muestras">Táboa&nbsp;<span>3</span></a> mostra o número de mostras obtidas para os diferentes tamaños de vectores de entrada propostos, para os que se tiveron en conta os diferentes números de observacións coas que contan as <code>r length(returns_indc)</code> seleccionadas. Na <a href="Annex1.html#fig-muestras">Figura&nbsp;<span>16</span></a> mostra como son os vectores de entrada e saída, no caso de que o vector de entrada teña 3 observacións.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">

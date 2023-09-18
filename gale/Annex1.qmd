@@ -47,7 +47,7 @@ if(knitr::pandoc_to("html") ||
 ```
 
 ::: figure-caption
-Elaboración propia: Elaborado dende @hongj20. Mostra como o parámetro de zancada afecta o tamaño do vector de saída.
+Elaboración propia: Elaborado dende @hongj20. Mostra como o parámetro stride afecta o tamaño do vector de saída.
 :::
 
 ```{r}

@@ -1,6 +1,6 @@
 # 2.3 Composición de carteiras {.unnumbered}
 
-Neste apartado exponse o problema de atopar a mellor composición de carteira posible e explícase de forma xeral a teoría que se sustenta nos obxectivos para resolvelo. Ademais, enumeraranse as técnicas máis utilizadas, diferenciando enfoques clásicos e enfoques intelixentes. Posteriormente, explicarase o que é a programación cuadrática e mencionaranse algunhas técnicas dentro desta disciplina de optimización matemática. Mostrarase como se pode describir o problema de optimización da carteira como un problema de programación cuadrática. Ademais, farase unha breve explicación do Método de conxunto activo dual, técnica moi utilizada nesta disciplina e que se utilizará nos seguintes capítulos.
+Neste apartado exponse o problema de atopar a mellor composición de carteira posible e explícase de forma xeral a teoría que se sustenta nos obxectivos para resolvelo. Ademais, enumeraranse as técnicas máis utilizadas, diferenciando enfoques clásicos e enfoques intelixentes. Posteriormente, explicarase o que é a programación cuadrática e mencionaranse algunhas técnicas dentro desta disciplina de optimización matemática. Mostrarase como se pode describir o problema de optimización da carteira como un problema de programación cuadrática. Ademais, farase unha breve explicación do Dual Active Set Method, técnica moi utilizada nesta disciplina e que se utilizará nos seguintes capítulos.
 
 ## 2.3.1 Problema e técnicas
 
@@ -12,7 +12,7 @@ Existen varias técnicas que se poden utilizar para resolver o problema de optim
 
 Enfoques clásicos:
 
--   Media-varianza: esta técnica, proposta en @markowitz1967, baséase na idea de minimizar a varianza para un rendemento esperado determinado ou maximizar o retorno esperado para unha varianza determinada. É unha técnica de programación cuadrática paramétrica (en diante PQP) que se pode utilizar para resolver problemas de optimización cuadrática que xorden na optimización de carteiras (@Zhi08). O enfoque da varianza media asume que os investimentos son reacios ao risco e prefiren carteiras con menor varianza. A técnica consiste en construír unha fronteira de carteira que represente o conxunto de carteiras que ofrecen o maior rendemento esperado para un determinado nivel de risco. A continuación, selecciónase a carteira óptima desta fronteira en función das preferencias de risco do investidor.
+-   Media-varianza: esta técnica, proposta en @markowitz1967, baséase na idea de minimizar a varianza para un rendemento esperado determinado ou maximizar o retorno esperado para unha varianza determinada. É unha técnica de programación cuadrática paramétrica (en diante PQP) que se pode utilizar para resolver problemas de optimización cuadrática que xorden na optimización de carteiras (@Zhi08). O enfoque da varianza media asume que os investidores teñen aversión ao risco e prefiren carteiras con menor varianza. A técnica consiste en construír unha fronteira de carteira que represente o conxunto de carteiras que ofrecen o maior rendemento esperado para un determinado nivel de risco. A continuación, selecciónase a carteira óptima desta fronteira en función das preferencias de risco do investidor.
 
 -   Varianza sesgada: esta técnica amplía o enfoque da varianza media ao contabilizar a distribución sesgada. Propúxose en @samuelson1970 e pódese usar cando a función de distribución non é de natureza cuadrática. A asimetría mide a asimetría dunha distribución e pode proporcionar información adicional sobre os riscos potenciais e os rendementos dunha carteira. Ao incorporar a asimetría ao proceso de optimización da carteira, os investidores poden comprender mellor os posibles riscos negativos e tomar decisións máis informadas.
 
@@ -36,25 +36,25 @@ Enfoques intelixentes:
 
 ## 2.3.1 Programación cuadrática
 
-Este subtítulo explica o que é a programación cuadrática. Cales son algunhas das técnicas que existen dentro desta disciplina de optimización matemática. Tamén se expón como se pode describir o problema de optimización da carteira como un problema de programación cuadrática e explícase brevemente como funciona unha das técnicas máis empregadas nesta disciplina, concretamente o denominado Método de conxunto activo dual, que se emprega nos capítulos posteriores.
+Este subepígrafe explica o que é a programación cuadrática. Cales son algunhas das técnicas que existen dentro desta disciplina de optimización matemática. Tamén se expón como se pode describir o problema de optimización da carteira como un problema de programación cuadrática e explícase brevemente como funciona unha das técnicas máis empregadas nesta disciplina, concretamente o denominado Dual Active Set Method, que se emprega nos capítulos posteriores.
 
 A programación cuadrática pódese escoller entre as técnicas enumeradas no subtítulo anterior por varias razóns. En primeiro lugar, é unha técnica ben establecida que foi amplamente utilizada na optimización da carteira. Pode xestionar problemas de optimización complexos con múltiples restricións e pode proporcionar unha forma eficiente e eficaz de resolver o problema de optimización da carteira. Isto convérteo nunha ferramenta útil para os investimentos que buscan minimizar o risco ao acadar o nivel de retorno desexado. Finalmente, a programación cuadrática ten unha sólida base teórica e foi amplamente estudada na literatura. Isto fai que sexa unha técnica fiable e ben entendida que se pode usar con confianza na optimización da carteira.
 
 Existen varias técnicas de programación cuadrática, entre as máis utilizadas están:
 
--   Punto interior: Este é un método de programación lineal ou non lineal que consegue a optimización pasando polo centro do sólido definido polo problema en lugar de arredor da súa superficie. @karmarkar1984 atopou un algoritmo de programación lineal tempo polinómico usando un método de punto interior.
+-   Interior Point: Este é un método de programación lineal ou non lineal que consegue a optimización pasando polo centro do sólido definido polo problema en lugar de arredor da súa superficie. @karmarkar1984 atopou un algoritmo de programación lineal de tempo polinómico usando un método de punto interior.
 
--   Conxunto activo: este é un algoritmo usado para identificar as restricións activas nun conxunto de restricións de desigualdade. As restricións activas exprésanse entón como restricións de igualdade, transformando así un problema restrinxido de desigualdade nun subproblema máis simple de restricións de igualdade. O método de conxunto activo foi introducido por primeira vez nun artigo de @beale1959 e desenvolvido por @fletcher1971 e @bunch1977.
+-   Active Set: este é un algoritmo usado para identificar as restricións activas nun conxunto de restricións de desigualdade. As restricións activas exprésanse entón como restricións de igualdade, transformando así un problema restrinxido de desigualdade nun subproblema máis simple de restricións de igualdade. O método de conxunto activo foi introducido por primeira vez nun artigo de @beale1959 e desenvolvido por @fletcher1971 e @bunch1977.
 
--   Conxunto activo dual: o método, tal e como se expón @Goldfarb1982ANS e @Goldfarb1983ANS, é un algoritmo dual eficiente e numéricamente estable para a programación cuadrática definida positiva que aproveita o feito de que o mínimo non restrinxido da función obxectivo pode ser usado como un punto de saída.
+-   Dual Active Set: o método, tal e como se expón @Goldfarb1982ANS e @Goldfarb1983ANS, é un algoritmo dual eficiente e numéricamente estable para a programación cuadrática definida positiva que aproveita o feito de que o mínimo non restrinxido da función obxectivo pode ser usado como un punto de saída.
 
--   Lagrangiano aumentado: introduciuse de forma independente en @hestenes1969 e @powell1969. Utilízase para resolver problemas de optimización restrinxida engadindo un termo de penalización á función obxectivo que penaliza calquera violación das restricións. O termo de penalización adoita ser un múltiplo dunha medida de infracción de restricións, como a suma de infraccións de restricións ao cadrado.
+-   Augmented Lagrangian: introduciuse de forma independente en @hestenes1969 e @powell1969. Utilízase para resolver problemas de optimización restrinxida engadindo un termo de penalización á función obxectivo que penaliza calquera violación das restricións. O termo de penalización adoita ser un múltiplo dunha medida de infracción de restricións, como a suma de infraccións de restricións ao cadrado.
 
--   Gradiente conxugado: este é un método iterativo para resolver sistemas de ecuacións lineais cunha matriz definida positiva simétrica. Tamén se pode usar para resolver problemas de optimización sen restricións atopando o mínimo dunha función cuadrática. O método xera unha secuencia de enderezos de busca que se conxugan con respecto á matriz que define o sistema de ecuacións ou función cuadrática. O método de gradiente conxugado foi introducido orixinalmente nun artigo de @Hestenes1952.
+-   Conxugate Gradient: este é un método iterativo para resolver sistemas de ecuacións lineais cunha matriz definida positiva simétrica. Tamén se pode usar para resolver problemas de optimización sen restricións atopando o mínimo dunha función cuadrática. O método xera unha secuencia de enderezos de busca que se conxugan con respecto á matriz que define o sistema de ecuacións ou función cuadrática. O método de gradiente conxugado foi introducido orixinalmente nun artigo de @Hestenes1952.
 
--   Proxección de gradientes: o método de proxección de gradientes introduciuse en @rosen1960 e @rosen1961. Este é un método iterativo para resolver problemas de optimización restrinxida proxectando o gradiente na rexión factible en cada iteración. O gradiente proxectado utilízase entón como dirección de busca e realízase unha busca de liña ao longo desta dirección para atopar unha nova iteración que satisfaga as restricións e reduza a función obxectivo.
+-   Gradient Projection: o método de proxección de gradientes introduciuse en @rosen1960 e @rosen1961. Este é un método iterativo para resolver problemas de optimización restrinxida proxectando o gradiente na rexión factible en cada iteración. O gradiente proxectado utilízase entón como dirección de busca e realízase unha busca de liña ao longo desta dirección para atopar unha nova iteración que satisfaga as restricións e reduza a función obxectivo.
 
-Entre as técnicas mencionadas anteriormente, seleccionouse o algoritmo Dual Active Set Method (en diante, DASM) que, como se mencionou anteriormente, foi introducido en @Goldfarb1982ANS e @Goldfarb1983ANS, é un algoritmo de optimización para resolver problemas de programación cuadrática. O algoritmo predice o conxunto activo de restricións que se satisfacen igualmente na solución do problema. Calcula unha secuencia de solucións óptimas de problemas QP que implican algunhas das restricións do problema orixinal, chamada secuencia de puntos factibles duais.
+Entre as técnicas mencionadas anteriormente, seleccionouse o algoritmo Dual Active Set Method (en diante, DASM) que, como se mencionou anteriormente, foi introducido en @Goldfarb1982ANS e @Goldfarb1983ANS, é un algoritmo de optimización para resolver problemas de programación cuadrática. O algoritmo predí o conxunto activo de restricións que se satisfán igualmente na solución do problema. Calcula unha secuencia de solucións óptimas de problemas QP que implican algunhas das restricións do problema orixinal, chamada secuencia de puntos factibles duais.
 
 A continuación móstrase un exemplo xeral de como o algoritmo DASM podería funcionar usando os valores que ocorren para un problema de optimización de carteira de 2 activos, o exemplo foi construído a partir de @GOSWAMI2012620 e @rwalk14:
 
@@ -84,15 +84,15 @@ Asumindo que teñen rendementos mensuais medios $r=\begin{bmatrix} 0,02 & 0,03 \
 
 -   A matriz $A$ sería así: $A=\begin{bmatrix} 1 & 1 \\ 0.02 & 0.03 \\ 1 & 0 \\ 0 & 1 \\ -1 & 0 \\ 0 & -1 \end{bmatrix}$
 
-O vector correspondente $b$ sería $\begin{bmatrix} 1 & 0,005 & 0 & 0 & -1 & -1\end{bmatrix}$. Despois podemos usar o algoritmo DASM para resolver este problema de programación cuadrática e determinar a asignación óptima de activos na nosa carteira.
+O vector correspondente $b$ sería $\begin{bmatrix} 1 & 0,005 & 0 & 0 & -1 & -1\end{bmatrix}$. Despois podemos usar o algoritmo DASM para resolver este problema de programación cuadrática e determinar a asignación óptima de activos na nosa carteié.
 
-Paso 0: atopar o mínimo sen restricións resolvendo o problema de programación cuadrática sen restricións. Establece o número de elementos do conxunto activo A (conxunto baleiro) en cero.
+Paso 0: atopé o mínimo sen restricións resolvendo o problema de programación cuadrática sen restricións. Establecer o número de elementos do conxunto activo A (conxunto baleiro) en cero.
 
-Paso 1: Escolla unha restrición violada, se a houbera. Neste caso, supoña que se infrinxe a restrición $w_{1}+w_{2}=1$.
+Paso 1: Escolla unha restrición violada, se a houbera. Neste caso, supoñamos que se infrinxe a restrición $w_{1}+w_{2}=1$.
 
-Paso 2: Calcula as direccións do paso primario e dobre e a lonxitude do paso $t=min(t_{1},t_{2})$. Supoña $t=t_{2}$.
+Paso 2: Calcule as direccións do paso primario e dobre e a lonxitude do paso $t=min(t_{1},t_{2})$. Supoña $t=t_{2}$.
 
-Paso 3: intensifica e actualiza o conxunto activo A e a solución ($S$) para o par (x, A). Dado que $t=t_{2}$ , engadimos a restrición pth (neste caso $w_1+w_2=1$) a $\bar{N}$ e actualizamos $H$ e $N^{*}$ en @eq-consup.
+Paso 3: Da un paso e actualiza o conxunto activo A e a solución ($S$) para o par (x, A). Dado que $t=t_{2}$ , engadimos a p-esima restrición (neste caso $w_1+w_2=1$) a $\bar{N}$ e actualizamos $H$ e $N^{*}$ en @eq-consup.
 
 $$
 \begin{aligned}
@@ -112,7 +112,7 @@ $\bar{N}$ é a matriz dos vectores normais das restricións no conxunto activo $
 :::
 
 ::: margin
-$H$ é o operador de Hessian inverso reducido de $Q$.
+$H$ é o operador Hessiana inverso reducido de $Q$.
 :::
 
 Estes pasos repítense de forma iterativa ata que se cumpran todas as restricións e se determine a asignación óptima de activos.

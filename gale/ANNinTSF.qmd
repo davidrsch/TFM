@@ -1,18 +1,18 @@
 # 2.2 Redes neuronais artificiais na previsión de series temporais {.unnumbered}
 
-Este epígrafe está dividido en tres subtítulos. O primeiro trata sobre os antecedentes do uso de redes neuronais artificiais para traballar con series temporais, máis concretamente na previsión. No segundo e terceiro subtítulo exponse o funcionamento de dúas das estruturas de capa de ARN utilizadas neste traballo, sendo estas a CNN e a LSTM.
+Este epígrafe está dividido en tres subtítulos. O primeiro trata sobre os antecedentes do uso de redes neuronais artificiais para traballar con series temporais, máis concretamente na previsión. No segundo e terceiro subtítulo exponse o funcionamento de dúas das estruturas de capa de ANN utilizadas neste traballo, sendo estas a CNN e a LSTM.
 
 ## 2.2.1 Antecedentes sobre o uso de redes neuronais artificiais na predición de series temporais
 
-En @chollet2018deep indícase que o entorno ANN está formado por intelixencia artificial (en diante IA), aprendizaxe automática ou aprendizaxe automática (en diante ML) e aprendizaxe profunda ou aprendizaxe profunda (en diante DL), @fig-DLenv. Por iso, é de vital importancia coñecer os aspectos destes campos que están intimamente relacionados coa RNA e que se explican brevemente a continuación.
+En @chollet2018deep indícase que o entorno ANN está formado por intelixencia artificial (en diante IA), machine learning ou aprendizaxe automática (en diante ML) e deep learning ou aprendizaxe profunda (en diante DL), @fig-DLenv. Por iso, é de vital importancia coñecer os aspectos destes campos que están intimamente relacionados coa RNA e que se explican brevemente a continuación.
 
-"Facer que unha máquina se comporte de tal forma que un humano sería chamado intelixente" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) é a primeira definición que se dá ao problema da IA. Co obxectivo de resolver este problema xurdiu a primeira IA, a chamada IA ​​simbólica.
+"Facer que unha máquina se comporte de tal forma que se o fixera un humano dirían que era intelixente" (@McCarthy_Minsky_Rochester_Shannon_2006, p.11) é a primeira definición que se dá ao problema da IA. Co obxectivo de resolver este problema xurdiu a primeira IA, a chamada IA ​​simbólica.
 
-Como explicaron @haykin1998neural, @banda2014 e @chollet2018deep, estas primeiras IAs implicaban regras codificadas creadas polos programadores. Co obxectivo de conseguir que estas regras fosen aprendidas automaticamente polas máquinas ao observar os datos, xurdiu unha nova etapa no desenvolvemento da IA, a denominada ML. Esta nova etapa dá lugar á aparición dunha nova forma de programación, diferenciada da clásica, na medida en que, nesta, os programadores introducen os datos e as respostas esperadas a eles, e os ordenadores son capaces de xerar as regras, @fig-MLprog.
+Como explicaron @haykin1998neural, @banda2014 e @chollet2018deep, estas primeiras IAs implicaban regras codificadas creadas polos programadores. Co obxectivo de conseguir que estas regras fosen aprendidas automaticamente polas máquinas ao observar os datos, xurdiu unha nova etapa no desenvolvemento da IA, a denominada ML. Esta nova etapa dá lugar á aparición dunha nova forma de programación, diferenciada da clásica, na medida en que, nesta, os programadores introducen os datos e as respostas esperadas aos mesmos, e os ordenadores son capaces de xerar as regras, @fig-MLprog.
 
-Polo tanto, enténdese que os modelos de ML intentan atopar representacións axeitadas para os seus datos de entrada: transformacións dos datos que o fan máis apto para a tarefa en cuestión. En DL, que é un subcampo específico de ML, estas representacións de datos modelízanse mediante arquitecturas compostas por capas sucesivas, que se denominan ARN @chollet2018deep.
+Polo tanto, enténdese que os modelos de ML intentan atopar representacións axeitadas para os seus datos de entrada: transformacións dos datos que o fan máis apto para a tarefa en cuestión. En DL, que é un subcampo específico de ML, estas representacións de datos modelízanse mediante arquitecturas compostas por capas sucesivas, que se denominan ANN @chollet2018deep.
 
-Despois de estudar o que se expuxo en @haykin1998neural, @Larranaga07, @banda2014 e @chollet2018deep sobre ANN, pódese afirmar que están inspirados no funcionamento do cerebro humano, estes textos confirman e coinciden en que se poden distinguir tres tipos de ANN capas. : entrada, saída e oculta. Unha capa de entrada está composta por neuronas que reciben os vectores de entrada. Unha capa de saída está formada por neuronas que, durante o adestramento, reciben os vectores de saída e despois xeran a resposta. Unha capa oculta está conectada ao ambiente a través das capas de entrada e saída, este tipo de capa oculta procesa a entrada recibida para obter a saída correspondente, @fig-RNAstruct.
+Despois de estudar o que se expuxo en @haykin1998neural, @Larranaga07, @banda2014 e @chollet2018deep sobre ANN, pódese afirmar que están inspirados no funcionamento do cerebro humano, estes textos confirman e coinciden en que se poden distinguir nesta ANN tres tipos de capas. : entrada, saída e oculta. Unha capa de entrada está composta por neuronas que reciben os vectores de entrada. Unha capa de saída está formada por neuronas que, durante o adestramento, reciben os vectores de saída e despois xeran a resposta. Unha capa oculta está conectada ao ambiente a través das capas de entrada e saída, este tipo de capa oculta procesa a entrada recibida para obter a saída correspondente, @fig-RNAstruct.
 
 Unha das aplicacións da ANN é a previsión de series temporais. cuxo obxectivo é predicir os valores futuros das variables en función das súas observacións pasadas. Como se comentou anteriormente, as series temporales financeiras adoitan ser non lineais, ruidosas, caóticas e non estacionarias, o que dificulta a súa modelización e previsión. As ANN teñen a vantaxe de poder captar relacións non lineais complexas e adaptarse ás condicións cambiantes sen esixir presupostos previos sobre a distribución ou estrutura dos datos.
 
@@ -26,13 +26,13 @@ Para superar estas limitacións e desafíos, os investigadores propuxeron varias
 
 -   O uso de redes neuronais recorrentes (en diante RNR) ou bidireccionais, que son un tipo especial de ANN que poden procesar datos secuenciais e capturar dependencias temporais. Demostrouse que os RNR superan as redes neuronais unidireccionais en series temporales complexas e non lineais (@GURESEN201110389).
 
--   O uso de modelos de ARN máis complexos mediante a combinación de diferentes capas, como redes neuronais convolucionais (en diante, CNN), memoria a longo prazo (en diante, LSTM), unidades recorrentes gated (en diante GRU) aplicouse á previsión de series temporais financeiras con resultados prometedores (@SEZER2020106181).
+-   O uso de modelos de ANN máis complexos mediante a combinación de diferentes capas, como redes neuronais convolucionais (en diante, CNN), long short-term memory (en diante, LSTM), gated recurrent units (en diante GRU) aplicouse á previsión de series temporais financeiras con resultados prometedores (@SEZER2020106181).
 
-A historia das ANN na previsión de series temporais financeiras mostra que as ANN evolucionaron e melloraron co paso do tempo para facer fronte á complexidade e incerteza dos mercados financeiros. Non obstante, aínda persisten algúns dos desafíos e limitacións mencionados anteriormente, como o sobreajuste, a xeneralización, a interpretabilidade, a robustez e o custo computacional.
+A historia das ANN na previsión de series temporais financeiras mostra que as ANN evolucionaron e melloraron co paso do tempo para facer fronte á complexidade e incerteza dos mercados financeiros. Non obstante, aínda persisten algúns dos desafíos e limitacións mencionados anteriormente, como o sobreaxuste, a xeneralización, a interpretabilidade, a robustez e o custo computacional.
 
 ## 2.2.2 Redes neuronais convolucionais
 
-O modelo de ARN empregado neste traballo está composto por varias capas, sendo a máis importante a capa Conv1D, un tipo específico de CNN, e a capa LSTM, ambas as mencionadas no subapartado anterior cando as estruturas ANN que máis se utilizan na actualidade. Esta subsección céntrase na Capa Conv1D, polo que se exploran os conceptos fundamentais para comprender o seu funcionamento, explicando a convolución, as redes neuronais convolucionais e Conv1D e o seu uso para a análise de series temporais. Ofrécese unha visión xeral da convolución e como se pode aplicar aos datos de series temporais. Despois, fálase das CNN e da súa arquitectura, que lles permite aprender automaticamente funcións a partir de datos de series temporais. Finalmente, explícase Conv1D, un tipo específico de capa de rede neuronal convolucional que é particularmente eficaz para procesar datos de series temporais.
+O modelo de ANN empregado neste traballo está composto por varias capas, sendo a máis importante a capa Conv1D, un tipo específico de CNN, e a capa LSTM, ambas as dúas mencionadas no subapartado anterior cando as estruturas ANN que máis se utilizan na actualidade. Esta subsección céntrase na Capa Conv1D, polo que se exploran os conceptos fundamentais para comprender o seu funcionamento, explicando a convolución, as redes neuronais convolucionais e Conv1D e o seu uso para a análise de series temporais. Ofrécese unha visión xeral da convolución e como se pode aplicar aos datos de series temporais. Despois, fálase das CNN e da súa arquitectura, que lles permite aprender automaticamente funcións a partir de datos de series temporais. Finalmente, explícase Conv1D, un tipo específico de capa de rede neuronal convolucional que é particularmente eficaz para procesar datos de series temporais.
 
 Como se comenta en @rafid23, a convolución é unha operación matemática que se usa habitualmente no procesamento de sinal e análise de imaxes. Implica tomar dúas funcións e producir unha terceira función que representa como unha das funcións orixinais modifica a outra. No contexto dos datos de series temporais, a convolución pódese usar para extraer características dos datos aplicando un filtro á serie temporal.
 
@@ -88,7 +88,7 @@ En xeral, Conv1D é unha poderosa ferramenta para procesar datos de series tempo
 
 Esta subsección explica por que os LSTM son unha das estruturas ANN máis utilizadas na predición de series temporais, baseándose nunha breve explicación dos RNR e por que son útiles para resolver problemas de predición de series. as RNN, e o funcionamento de cada unha das capas que conforman a estrutura dunha capa LSTM.
 
-@COlah15 explica que unha RNN pode considerarse como varias copias da mesma rede, @fig-CORNRstruct, afirma que este aspecto revela que os RNR están íntimamente relacionados con secuencias e listas, o que fai que este tipo de ARN sexa o que naturalmente se utiliza para traballar con series temporais.
+@COlah15 explica que unha RNN pode considerarse como varias copias da mesma rede, @fig-CORNRstruct, afirma que este aspecto revela que os RNR están íntimamente relacionados con secuencias e listas, o que fai que este tipo de ANN sexa o que naturalmente se utiliza para traballar con series temporais.
 
 Os RNR convencionais presentan un problema en relación coa capacidade de reter información, como explica @COlah15, os RNN estándar só funcionan con gran capacidade se a información relevante para a situación actual é recente, é dicir, onde a brecha entre a información relevante e onde se é necesario é pequeno, @fig-CORInclose; ademais expón que a medida que a brecha crece, os RNN estándar non poden acceder á información relevante, @fig-CORInaway.
 
@@ -98,7 +98,7 @@ A idea principal de LSTM é introducir unha célula de memoria que poida almacen
 
 A porta de entrada decide canto da nova entrada engadir ao estado da cela. A porta de esquecemento decide que parte do estado da cela anterior manter ou eliminar. A porta de saída decide que parte do estado da cela actual se enviará á seguinte capa. @COlah15 baseándose no exposto en @SeppJur97, describe o funcionamento das portas en catro pasos:
 
-1.  Decidindo que información do estado da cela se esquece a través da porta, esquece a capa de porta $f_t$. Esta porta mira $h_{t-1}$, estado oculto do período de tempo anterior, e $x_{t}$, entrada do instante de tempo actual, e mostra un número entre 0 (desfacer) e 1 (mantener) . para cada número no estado da cela $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
+1.  Decidir que información do estado da cela se esquece a través da porta, esquece a capa de porta $f_t$. Esta porta mira $h_{t-1}$, estado oculto do período de tempo anterior, e $x_{t}$, entrada do instante de tempo actual, e mostra un número entre 0 (desfacer) e 1 (mantener) . para cada número no estado da cela $C_{t-1}$, @fig-COLSTMstep1, @eq-lstm-fstep.
 
 $$
 \begin{aligned}
@@ -106,7 +106,7 @@ f_t &= \sigma(W_f [h_{t-1}, x_t] + b_f) \\
 \end{aligned}
 $$ {#eq-lstm-fstep}
 
-2.  Decida que información nova se almacena no estado da cela. Para isto primeiro, a capa de porta de entrada decide que valores actualizar e despois unha capa tanh (tanxente hiperbólica) crea un vector de novos valores candidatos ($\tilde{C}_t$) que se poden engadir ao estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
+2.  Decidir que información nova se almacena no estado da cela. Para isto primeiro, a capa de porta de entrada decide que valores actualizar e despois unha capa tanh (tanxente hiperbólica) crea un vector de novos valores candidatos ($\tilde{C}_t$) que se poden engadir ao estado, @fig-COLSTMstep2, @eq-lstm-sstepf y @eq-lstm-ssteps.
 
 $$
 \begin{aligned}

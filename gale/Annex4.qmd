@@ -14,7 +14,7 @@ library(readxl)
 empresas <- read_excel("data/000_empresas.xlsx")
 ```
 
-Despois extraíanse as carrachas das empresas.
+Despois extraíanse os ticks das empresas.
 
 ```{r}
 #| eval: false
@@ -478,7 +478,7 @@ Unha vez creada a función, obtivéronse as predicións mediante o seguinte cód
 ```{r}
 #| eval: false
 
-meanse1 <- wfv_means(data,'Date',id_var_name = "ID")
+meanse1 <- wfv_train(data,'Date',id_var_name = "ID")
 ```
 
 ::: callout-note
