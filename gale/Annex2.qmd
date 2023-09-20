@@ -219,7 +219,7 @@ data |>
   geom_line(aes(y = meanrsqrd, color = "R2")) +
   scale_color_manual(values = c("blue", "green")) +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "Data", y = "Valores", color = "Indicadores")
+  labs(x = "Data", y = "Indicadores", color = "Indicadores")
 ```
 
 ::: figure-caption
@@ -252,7 +252,7 @@ data |>
   geom_line(aes(y = meanrsqrd, color = "R2")) +
   scale_color_manual(values = c("blue", "green")) +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "Data", y = "Valores", color = "Indicadores")
+  labs(x = "Data", y = "Indicadores", color = "Indicadores")
 ```
 
 ::: figure-caption
@@ -285,7 +285,7 @@ data |>
   geom_line(aes(y = meanrsqrd, color = "R2")) +
   scale_color_manual(values = c("blue", "green")) +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "Data", y = "Valores", color = "Indicadores")
+  labs(x = "Data", y = "Indicadores", color = "Indicadores")
 ```
 
 ::: figure-caption
@@ -346,7 +346,7 @@ ggplot(aes(x = Date)) +
       override.aes = list(
         linetype = c("solid","dashed","solid","solid"))))+
   labs(x = "Fecha",
-       y = "Valores",
+       y = "Rentabilidades",
        color = "Leyenda")+
   theme_minimal()
 ```
@@ -409,7 +409,7 @@ ggplot(aes(x = Date)) +
       override.aes = list(
         linetype = c("solid","dashed","solid","solid"))))+
   labs(x = "Fecha",
-       y = "Valores",
+       y = "Rentabilidades",
        color = "Leyenda")+
   theme_minimal()
 ```
@@ -472,7 +472,7 @@ ggplot(aes(x = Date)) +
       override.aes = list(
         linetype = c("solid","dashed","solid","solid"))))+
   labs(x = "Fecha",
-       y = "Valores",
+       y = "Rentabilidades",
        color = "Leyenda")+
   theme_minimal()
 ```

@@ -568,7 +568,7 @@ indi_graf_data |>
   geom_line(aes(y = meanr2, color = "R2")) +
   scale_color_manual(values = c("blue", "green")) +
   theme(axis.text.x = element_text(angle = 90)) +
-  labs(x = "Fecha", y = "Valores", color = "Indicadores")
+  labs(x = "Fecha", y = "Indicadores", color = "Indicadores")
 
 ```
 
@@ -904,7 +904,7 @@ ggplot(aes(x = Date)) +
       override.aes = list(
         linetype = c("solid","dashed","solid","solid"))))+
   labs(x = "Fecha",
-       y = "Valores",
+       y = "Rentabilidades",
        color = "Leyenda")+
   theme_minimal()
 ```
