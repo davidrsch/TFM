@@ -49,13 +49,11 @@ book:
       [![](../udclogo.png){fig-alt="UDC" width=65px}](https://www.udc.es/)
     center:
       - text: "David Díaz Rodríguez"
-    right:
-      - icon: linkedin
-        url: https://www.linkedin.com/in/david-d-6257951b8/
-        aria-label: Linkedin
-      - icon: github
-        url: https://github.com/davidrsch/TFM/
-        aria-label: TFM GitHub
+    right: |
+      <a href="https://www.linkedin.com/in/david-d-6257951b8/"><img src="../sm/linkedin.png" width = 20px fig-alt="Linkeding profile"/></a>
+      <a href="https://github.com/davidrsch/TFM/"><img src="../sm/github.png" width = 20px fig-alt="Github repository"/></a>
+      <a href="https://www.researchgate.net/profile/David-Diaz-Rodriguez"><img src="../sm/Researchgate.png" width = 20px fig-alt="ResearchGate profile"/></a>
+      <a href="https://orcid.org/0000-0002-0927-9795"><img src="../sm/orcid.png" width = 20px fig-alt="ORCid profile"/></a>
   
   chapters:
     - index.qmd
