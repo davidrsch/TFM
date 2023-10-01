@@ -23,3 +23,18 @@ PaqT <- data.frame(
   md_table() |>
   cat()
 ```
+
+You can also consult:
+
+```{=html}
+<div style = "text-align: center;">
+  <div style = "display: inline-block;">
+    <img src = "../sm/slides.png" alt = "TFM" height = "250"/>
+    <p>Slides</p>
+  </div>
+  <div style = "display: inline-block;">
+    <img src = "../sm/dashboard.png" alt = "Dashboard" height = "250"/>
+    <p>Dashboard</p>
+  </div>
+</div>
+```
