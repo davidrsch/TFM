@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Trabajo Final de Máster - Resumen</title>
+<title>Final Master’s Project - 2.5 Modeling and training</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -29,9 +48,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summaryen.html" rel="next">
-<link href="./greetings.html" rel="prev">
-<link href="./icologo.png" rel="icon" type="image/png">
+<link href="./Results.html" rel="next">
+<link href="./Data.html" rel="prev">
+<link href="./../icologo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -49,16 +68,16 @@ ul.task-list li input[type="checkbox"] {
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "Sin resultados",
-    "search-matching-documents-text": "documentos encontrados",
-    "search-copy-link-title": "Copiar el enlace en la búsqueda",
-    "search-hide-matches-text": "Ocultar resultados adicionales",
-    "search-more-match-text": "resultado adicional en este documento",
-    "search-more-matches-text": "resultados adicionales en este documento",
-    "search-clear-button-title": "Borrar",
-    "search-detached-cancel-button-title": "Cancelar",
-    "search-submit-button-title": "Enviar",
-    "search-label": "Buscar"
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <style>
@@ -69,20 +88,21 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<link rel="stylesheet" href="my_style.css">
+<link rel="stylesheet" href="../my_style.css">
 </head>
 
 <body class="nav-sidebar floating">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./summaryes.html">Resumen</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./body.html">2 Work development</a></li><li class="breadcrumb-item"><a href="./MandT.html">2.5 Modeling and training</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -94,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Resumen</h1>
+      <h1 class="title">2.5 Modeling and training</h1>
                       </div>
   </div>
     
@@ -112,18 +132,18 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Trabajo Final de Máster</a> 
+      <a href="./">Final Master’s Project</a> 
         <div class="sidebar-tools-main tools-wide">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-translate"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./en/index.html">
-            English
+            <a class="dropdown-item sidebar-tools-main-item" href="./../index.html">
+            Español
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="./gal/index.html">
+            <a class="dropdown-item sidebar-tools-main-item" href="./../gal/index.html">
             Galego
             </a>
           </li>
@@ -136,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Buscar"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -144,25 +164,25 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Descripción</span></a>
+ <span class="menu-text">Description</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./greetings.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Agradecimientos</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./summaryes.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Resumen</span></a>
+ <span class="menu-text">Thanks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./summaryen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summaryes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Resumen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -174,52 +194,52 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1 Introducción</span></a>
+ <span class="menu-text">1 Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./body.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2 Desarrollo del trabajo</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Alternar sección">
+ <span class="menu-text">2 Work development</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./FSandP.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.1 Caracterización de las series temporales financieras</span></a>
+ <span class="menu-text">2.1 Characterization of financial time series</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ANNinTSF.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.2 Redes neuronales artificiales en la previsión de las series de tiempo</span></a>
+ <span class="menu-text">2.2 Artificial neural networks in the forecast of time series</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./PC.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.3 Composición de carteras</span></a>
+ <span class="menu-text">2.3 Portfolio composition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.4 Datos</span></a>
+ <span class="menu-text">2.4 Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MandT.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.5 Modelado y entrenamiento</span></a>
+  <a href="./MandT.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.5 Modeling and training</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Results.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.6 Resultado</span></a>
+ <span class="menu-text">2.6 Result</span></a>
   </div>
 </li>
       </ul>
@@ -227,20 +247,20 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./conclusions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3 Conclusiones</span></a>
+ <span class="menu-text">3 Conclusions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bibliografía</span></a>
+ <span class="menu-text">Bibliography</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Anexos</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Alternar sección">
+ <span class="menu-text">Annex</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -248,25 +268,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Annex1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anexo. 1 Figuras</span></a>
+ <span class="menu-text">Annex. 1 Figures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Annex2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anexo. 2 Gráficas</span></a>
+ <span class="menu-text">Annex. 2 Graphics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Annex3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anexo. 3 Tablas</span></a>
+ <span class="menu-text">Annex. 3 Tables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./Annex4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Anexo. 4 Códigos</span></a>
+ <span class="menu-text">Annex. 4 Codes</span></a>
   </div>
 </li>
       </ul>
@@ -277,7 +297,14 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-modelado" id="toc-sec-modelado" class="nav-link active" data-scroll-target="#sec-modelado">2.5.1 Modeling</a></li>
+  <li><a href="#sec-entrenamiento" id="toc-sec-entrenamiento" class="nav-link" data-scroll-target="#sec-entrenamiento">2.5.2 Training</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/MandT.qmd" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -285,11 +312,38 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>En el contexto del mundo financiero en constante cambio y complejidad, este trabajo aborda la aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras financieras. Se destaca la importancia de caracterizar adecuadamente las series temporales financieras para realizar pronósticos más precisos y se examina el potencial de la combinación de las redes neuronales convolucionales y LSTM para mejorar la previsión de series de tiempo. En el proceso de composición de carteras, se aplica la programación cuadrática como una técnica eficiente para lograr una distribución óptima de activos financieros. En conclusión, el enfoque de combinar redes neuronales artificiales y programación cuadrática muestra promesa en la gestión de carteras financieras, pero es necesario un estudio más profundo y exhaustivo para determinar su eficiencia óptima. Este trabajo sienta las bases para futuras investigaciones, destacando la importancia de utilizar datos actualizados y configurar adecuadamente los modelos para lograr una gestión de carteras más informada y efectiva en un entorno financiero en constante evolución.</p>
-<p><em>Palabras clave:</em> gestión de carteras, carteras, redes neuronales artificiales, programación cuadrática, series temporales financieras, predicción de precios, composición de carteras.</p>
-<p><em>Número de palabras:</em> 14174</p>
+<p>This section is divided into two sub-sections in which the models that were built and the procedure used to train them are briefly described. The first of the subheadings explains the structures of the models used, while the second subheading explains the particularities of the training methodology used.</p>
+<section id="sec-modelado" class="level2">
+<h2 class="anchored" data-anchor-id="sec-modelado">2.5.1 Modeling</h2>
+<p>As previously explained, the main elements of the artificial neural network models used are a CNN layer and an LSTM layer. In addition to this, an input layer and an output layer were used, which are in charge of supplying the models with the information of the vectors previously constituted. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - <a href="./Annex4.html#sec-A-modelos">Modeling</a>.</p>
+<p>Since three different sizes of observations were defined to consider making a prediction, it was necessary to build three different model structures that would adapt to the dimensions of the different input vectors, the different structures can be observed in the <a href="#fig-estructuras">Figure&nbsp;<span class="quarto-unresolved-ref">fig-estructuras</span></a>.</p>
+<p>The first notable difference between the structures are the outputs of the input layers, this difference is due to the sample sizes if you have chosen to use 1, 2 or 3 observations to build the model. As can be seen, the size of the input layer output therefore modifies the size of the inputs and outputs of the CNN layer.</p>
+<p>As previously mentioned, the variations in the second dimension in the outputs of the CNN layer can be explained by the different sizes of the input vectors. But as can be seen, the size of the third dimension of the output of this layer is the same in all the structures, 64, which indicates the number of filters chosen to use, one of the main parameters to consider when configuring these layers. The latter means that the observations corresponding to the 6 variables used were divided into 64 variables that allow the model a better understanding of the relationship between the variables.</p>
+<p>Another aspect that was modified in the CNN layer of the structures was the activation function that by default is called ReLU (for its acronym in English, Rectified Linear Unit) was changed to Leaky ReLU because as explained in <span class="citation" data-cites="OmG21">OmG (<a href="#ref-OmG21" role="doc-biblioref">2021</a>)</span> , ReLU is a nonlinear activation function that generates zero for negative inputs, which can cause some neurons to stop learning if many of their inputs are negative, since their gradients will be zero.</p>
+<p>Given what was previously explained and that some of the variables used in the input values have a high number of negative observations, as is the case of returns or the correlation of some of the series in certain periods of time, the use of the ReLU activation function did not seem like a good option. Therefore, it was decided to use Leaky Relu as activation function, which as explained in <span class="citation" data-cites="OmG21">OmG (<a href="#ref-OmG21" role="doc-biblioref">2021</a>)</span>, this is a variant that allows a small constant gradient, non-zero, for negative inputs. This means that this activation function allows some neurons to continue learning from negative inputs.</p>
+<p>In the <a href="#fig-dominios">Figure&nbsp;<span class="quarto-unresolved-ref">fig-dominios</span></a> the domain of the ReLU and Leaky ReLU function is observed, which will allow you a better understanding of what was previously exposed.</p>
+<p>The CNN layer in all the structures is linked to an LSTM layer, which in all cases had 64 neurons. The output of this layer was linked to the output layer which returns a single value.</p>
+<p>To conclude with the construction of the models, it was determined to use the mean square error (hereinafter MSE) as the function used to evaluate a candidate solution, the results of the model and the SGD optimizer (for its acronym in English, Stochastic Gradient Descent) with an Alpha of 0.0005.</p>
+</section>
+<section id="sec-entrenamiento" class="level2">
+<h2 class="anchored" data-anchor-id="sec-entrenamiento">2.5.2 Training</h2>
+<p>A more detailed explanation of the code used during the procedure described in this subsection can be found in Annex. 4 - <a href="./Annex4.html#sec-A-entrenamiento">Training</a>.</p>
+<p>The training of Machine Learning algorithms in the forecast of time series has its peculiarities to how models are trained with the aim of solving other types of problems. Therefore, in this sub-section the training methodology used is briefly covered, which is the so-called walk forward validation or advance validation.</p>
+<p>As already mentioned, feedforward validation is a method used to evaluate machine learning models on time series data. This is because as explained by <span class="citation" data-cites="Brownlee19">Brownlee (<a href="#ref-Brownlee19" role="doc-biblioref">2019</a>)</span> it provides the most realistic evaluation of machine learning models on time series data. Traditional model evaluation methods from machine learning, such as k-fold cross-validation or splitting into training and validation data, do not work for time series data because they ignore the time components inherent in the problem. Walk-forward validation takes these temporal components into account and provides a more realistic assessment of how the model will perform when used operationally.</p>
+<p>When evaluating a model, we are interested in how the model performs on data that was not used to train it. In machine learning, this is called unseen or out-of-sample data. Commonly, for the resolution of other problems, the data is divided into different subsets: training, testing and validation, whose objective is to train and validate the model. With the walk forward validation methodology, the data is divided by time periods and the model is trained and validated consecutively, which allows evaluating how the model understands the temporal dependence of the data.</p>
+<p>By dividing the data by time periods, it allows us to evaluate the actual functioning of the model if it had been applied from the first period, as well as to analyze its behavior throughout all the periods, observing whether its performance improves or not.</p>
+<p>From what is stated in this sub-section, it is understood that the models were trained using the corresponding sample sets, passing all the available samples in a certain period of time before continuing with the next period. Obtaining as a result of the above a prediction corresponding to each period of time contemplated, with the exception of the first two that would be used to train the model for the first time, as seen in the following diagram of the <a href="#fig-wfv">Figure&nbsp;<span class="quarto-unresolved-ref">fig-wfv</span></a>.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Brownlee19" class="csl-entry" role="listitem">
+Brownlee, J. 2019. <span>“How to Backtest Machine Learning Models for Time Series Forecasting.”</span> 2019. <a href="https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/">https://machinelearningmastery.com/backtest-machine-learning-models-time-series-forecasting/</a>.
+</div>
+<div id="ref-OmG21" class="csl-entry" role="listitem">
+OmG. 2021. <span>“Difference Between ReLU, ELU and Leaky ReLU. Their Pros and Cons Majorly.”</span> 2021. <a href="https://datascience.stackexchange.com/a/102485">https://datascience.stackexchange.com/a/102485</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script type="text/javascript">
@@ -305,20 +359,20 @@ ul.task-list li input[type="checkbox"] {
     const sublead = document.createElement('p');
       sublead.className = 'subtitle lead';
       sublead.id = 'sublead';
-      sublead.textContent = 'Máster Universitario en Banca y Finanzas Curso académico 2022/2023';
+      sublead.textContent = "Master's Degree in Banking and Finance Academic year 2022/2023";
     const sub_sublead = document.createElement('p');
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
-      sub_sublead.textContent = 'Trabajo de Fin de Máster presentado en la Facultad de Economía y Empresa de la Universidade da Coruña para la obtención del Máster en Banca y Finanzas';
+      sub_sublead.textContent = "Final Master's Project presented at the Faculty of Economics and Business of the University of A Coruña to obtain the Master's Degree in Banking and Finance";
     const udclogo = document.createElement('p');
-      udclogo.innerHTML='<img src="udclogo.png" style="width: 25%;">'
+      udclogo.innerHTML='<img src="../udclogo.png" style="width: 25%;">'
     TFMtitlefcfc.appendChild(sublead);
     TFMtitlefcfc.appendChild(sub_sublead);
     TFMtitlefcfc.appendChild(udclogo);
     
     //Fix authoring info
     const authorsElement = document.querySelector('.quarto-title-meta-heading');
-    authorsElement.textContent = "AUTOR";
+    authorsElement.textContent = "AUTHOR";
     const authorsInfo = authorsElement.parentElement;
     const tutorname = authorsElement.cloneNode(true);
     tutorname.textContent = "TUTOR";
@@ -335,7 +389,7 @@ ul.task-list li input[type="checkbox"] {
     const sub_sublead = document.createElement('p');
       sub_sublead.className = 'subtitle lead';
       sub_sublead.id='sub_sublead';
-      sub_sublead.textContent = 'Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras';
+      sub_sublead.textContent = 'Application of artificial neural networks and quadratic programming in portfolio management';
     TFMtitlefcfc.appendChild(sub_sublead);
     
     
@@ -386,8 +440,8 @@ async function processHtmlFile(filePath, patternToMatch, patternToReplace, repla
 
 const filePath = 'Annex2.html'; 
 const patternToMatch = 'fig-'; 
-const patternToReplace = 'Figura&nbsp;';
-const replacement = 'Gráfica ';
+const patternToReplace = 'Figure&nbsp;';
+const replacement = 'Graph ';
 
 processHtmlFile(filePath, patternToMatch, patternToReplace, replacement);
   
@@ -446,12 +500,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copiado");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copiado");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -627,34 +681,28 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./greetings.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Agradecimientos</span>
+      <a href="./Data.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.4 Data</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summaryen.html" class="pagination-link">
-        <span class="nav-page-text">Abstract</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./Results.html" class="pagination-link">
+        <span class="nav-page-text">2.6 Result</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Trabajo Final de Máster presentado en <a href="https://fee.udc.es/"><img src="feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
+    <div class="nav-footer-left">Final Master’s Project presented at <a href="https://fee.udc.es/"><img src="../feelogo.png" class="img-fluid" alt="FEE" width="65"></a> <a href="https://www.udc.es/"><img src="../udclogo.png" class="img-fluid" alt="UDC" width="65"></a></div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
  David Díaz Rodríguez
   </li>  
 </ul>
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/davidrsch/TFM/edit/main/summaryes.qmd" class="toc-action">Editar esta página</a></p></div></div></div>
-    <div class="nav-footer-right">
-      <div class="footer-contents"><a href="https://www.linkedin.com/in/david-d-6257951b8/"><img src="sm/linkedin.png" width="20px" fig-alt="Linkeding profile"></a>
-<a href="https://github.com/davidrsch/TFM/"><img src="sm/github.png" width="20px" fig-alt="Github repository"></a>
-<a href="https://www.researchgate.net/profile/David-Diaz-Rodriguez"><img src="sm/Researchgate.png" width="20px" fig-alt="ResearchGate profile"></a>
-<a href="https://orcid.org/0000-0002-0927-9795"><img src="sm/orcid.png" width="20px" fig-alt="ORCid profile"></a>
-</div>  
     </div>
+    <div class="nav-footer-right"><a href="https://www.linkedin.com/in/david-d-6257951b8/"><img src="../sm/linkedin.png" width="20px" fig-alt="Linkeding profile"></a> <a href="https://github.com/davidrsch/TFM/"><img src="../sm/github.png" width="20px" fig-alt="Github repository"></a> <a href="https://www.researchgate.net/profile/David-Diaz-Rodriguez"><img src="../sm/Researchgate.png" width="20px" fig-alt="ResearchGate profile"></a> <a href="https://orcid.org/0000-0002-0927-9795"><img src="../sm/orcid.png" width="20px" fig-alt="ORCid profile"></a></div>
   </div>
 </footer>
 

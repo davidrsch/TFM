@@ -372,13 +372,13 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>empresas <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/000_empresas.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego se extrageron los ticks de las empresas.</p>
+<p>Luego se extrajeron los ticks de las empresas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ticks <span class="ot">&lt;-</span> empresas <span class="sc">|&gt;</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(TICKERS) <span class="sc">|&gt;</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Una vez almacenados los ticks de las empresas en la variable <code>ticks</code> se procedio a descargar los datos correspondientes a dichas empresas desde Yahoo Finance usando el paquete quantmod de <span class="citation" data-cites="quantmod23">Ryan y Ulrich (<a href="references.html#ref-quantmod23" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Una vez almacenados los ticks de las empresas en la variable <code>ticks</code> se procedió a descargar los datos correspondientes a dichas empresas desde Yahoo Finance usando el paquete quantmod de <span class="citation" data-cites="quantmod23">Ryan y Ulrich (<a href="references.html#ref-quantmod23" role="doc-biblioref">2023</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nombres_colum <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Date"</span>,<span class="st">"Open"</span>,<span class="st">"High"</span>,<span class="st">"Low"</span>,<span class="st">"Close"</span>,<span class="st">"Volume"</span>,<span class="st">"Adjusted"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>qmd_data <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
@@ -406,7 +406,7 @@ div.csl-indent {
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>             <span class="fu">geom_line</span>(<span class="at">color=</span><span class="st">"#065AD8"</span>)</span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tras el análisis visual ejecutado con el fragmento de código anterior se persivió la existencia de precios constantes, así como calculos erroneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de eliminar estas irregularidades se seleccionaron solo aquellas observaciones posteriores a enero del 2005.</p>
+<p>Tras el análisis visual ejecutado con el fragmento de código anterior se persibió la existencia de precios constantes, así como cálculos erróneos en el precio ajustado correspondiente a los primeros años de algunas series. Con el objetivo de eliminar estas irregularidades se seleccionaron solo aquellas observaciones posteriores a enero del 2005.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>returns_emps <span class="ot">&lt;-</span> qmd_data <span class="sc">|&gt;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(x){</span>
@@ -422,7 +422,7 @@ div.csl-indent {
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  })</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>emp_con_na <span class="ot">&lt;-</span> <span class="fu">which</span>(na_values <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Con el objetivo de solucionar el problema con respecto al incorrecto registro de los datos se decidio eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el siguiente código, mediante el cual además se eliminaron las series con valores faltantes.</p>
+<p>Con el objetivo de solucionar el problema con respecto al incorrecto registro de los datos se decidió eliminar aquellas que no presentaran variaciones en los precios en más de 10 observaciones. Para lo que primero se computaron las rentabilidades ejecutando el siguiente código, mediante el cual además se eliminaron las series con valores faltantes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>returns_emps2 <span class="ot">&lt;-</span> returns_emps[<span class="sc">-</span>emp_con_na] <span class="sc">|&gt;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(<span class="cf">function</span>(x){</span>
@@ -472,7 +472,7 @@ div.csl-indent {
 <li>Volatilidad de la empresa</li>
 <li>Volatilidad del índice</li>
 <li>Correlación entre las rentabilidades de la empresa y el indice</li>
-<li>La Beta entre la empresa y el indice</li>
+<li>La Beta entre la empresa y el índice</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>returns_indc <span class="ot">&lt;-</span> returns_emps3 <span class="sc">|&gt;</span></span>
@@ -493,8 +493,8 @@ div.csl-indent {
 </section>
 <section id="sec-A-vec" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-vec">Vectores</h3>
-<p>A continuación se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.</p>
-<p>El primer paso llevado a cabo para la ejecución del proceso explicado en el sub-epígrafe en cuestión fue crear una función que permitió obtener las muestras consecutivas para cada serie utilizada. La función expuesta a continuación, como ya se mencionó, permite obtener las muestras consecutivas de una serie, para lo que se utilizan los parametros mencionados en el sub-epígrafe, número de observaciones de entradas y número de observaciones de salida, así como un parametro condicional con el que se indica si el vector a crear es de entrada o de salida.</p>
+<p>A continuación, se expone el código utilizado durante el proceso expuesto en el sub-epígrafe vectores del epígrafe modelado del Capítulo 2.</p>
+<p>El primer paso llevado a cabo para la ejecución del proceso explicado en el sub-epígrafe en cuestión fue crear una función que permitió obtener las muestras consecutivas para cada serie utilizada. La función expuesta a continuación, como ya se mencionó, permite obtener las muestras consecutivas de una serie, para lo que se utilizan los parámetros mencionados en el sub-epígrafe, número de observaciones de entradas y número de observaciones de salida, así como un parámetro condicional con el que se indica si el vector a crear es de entrada o de salida.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vector2dmaker <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, ent, sal, <span class="at">eos=</span>T){</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(eos<span class="sc">==</span>T){</span>
@@ -515,7 +515,7 @@ div.csl-indent {
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(vec2d)</span>
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>A continuación se muestra el código utilizado para la creación de los vectores de entrada de correspondiente a cada una de las series. Para lo que primero se crearon dos funciones una para las entradas y otra para las salidas.</p>
+<p>A continuación, se muestra el código utilizado para la creación de los vectores de entrada de correspondiente a cada una de las series. Para lo que primero se crearon dos funciones una para las entradas y otra para las salidas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función que se utlizará para crear las entradas tridimensionales</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>input3dmaker <span class="ot">&lt;-</span> <span class="cf">function</span>(x,inp,out){</span>
@@ -539,12 +539,12 @@ div.csl-indent {
 <span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(vec3d)</span>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego se crearon las listas de vectores tridimensionales de entradas y salidas por empresa, ejecutandosé el siguiente código otras dos veces con el objetivo de crear las listas <code>vecs3d2e</code> y <code>vecs3d3e</code> que corresponden a aquellos casos en los que se seleccionaron 2 y 3 entradas.</p>
+<p>Luego se crearon las listas de vectores tridimensionales de entradas y salidas por empresa, ejecutándose el siguiente código otras dos veces con el objetivo de crear las listas <code>vecs3d2e</code> y <code>vecs3d3e</code> que corresponden a aquellos casos en los que se seleccionaron 2 y 3 entradas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Se define el horizonte temporal</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ht <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Se define el observaciones de entrada</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Se definen las observaciones de entrada</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>oe <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Se crean los vectores de entrada 3d y el vector 2d de salida para tamaño de entrada 1</span></span>
@@ -590,7 +590,7 @@ div.csl-indent {
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>n_variables <span class="ot">&lt;-</span> inputsinfo[<span class="dv">3</span>]</span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>n_ob_fut <span class="ot">&lt;-</span> outputsinfo[<span class="dv">2</span>]</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego se constituyo la estructura de los modelos con los aspectos descritos en <a href="./MandT.html#sec-modelado">2.5.1 Modelado</a>.</p>
+<p>Luego se constituyó la estructura de los modelos con los aspectos descritos en <a href="./MandT.html#sec-modelado">2.5.1 Modelado</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Capa de entrada</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>inp <span class="ot">&lt;-</span> <span class="fu">layer_input</span>(</span>
@@ -634,7 +634,7 @@ Nota
 </section>
 <section id="sec-A-entrenamiento" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-entrenamiento">Entrenamiento</h3>
-<p>El primer paso es definir la función a utilizar para el entrenamiento de los modelos. Esta función fue construida con el objetivo de emplear el método de entrenamiento descrito en <a href="./MandT.html#sec-entrenamiento">2.5.2 Entrenamiento</a>. Como resultado esta función devolvera una lista que contendra las predicciones obtenidas y el modelo después de haber sido entrenado y tomará como entradas principales el tibble llamado <code>data</code> constituido en el primer paso que se expone en este Anexo en la sección <a href="./Annex4.html#sec-A-modelos">Modelado</a> y el modelo además de otros argumentos que permite la utilización de la función con unos inputs principales que no sean los utilizados en el presente trabajo.</p>
+<p>El primer paso es definir la función a utilizar para el entrenamiento de los modelos. Esta función fue construida con el objetivo de emplear el método de entrenamiento descrito en <a href="./MandT.html#sec-entrenamiento">2.5.2 Entrenamiento</a>. Como resultado esta función devuelve una lista que contiene las predicciones obtenidas y el modelo después de haber sido entrenado y tomará como entradas principales el tibble llamado <code>data</code> constituido en el primer paso que se expone en este Anexo en la sección <a href="./Annex4.html#sec-A-modelos">Modelado</a> y el modelo además de otros argumentos que permite la utilización de la función con unos inputs principales que no sean los utilizados en el presente trabajo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>wfv_train <span class="ot">&lt;-</span> <span class="cf">function</span>(x, modelo, seq_var_name, <span class="at">inp_var_name =</span> <span class="st">"inputs"</span>, <span class="at">out_var_name =</span> <span class="st">"outputs"</span>, <span class="at">progress_bar=</span>T){</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -646,7 +646,7 @@ Nota
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Iteración que se ejecutará para cada valor unico en la variable que define la secuencia de los datos. Por ello es de vital importancia que los datos en el tibble x se encuentren ordenados por la variable de secuencia cuyo nombre se pasa a seq_var_name</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Iteración que se ejecutará para cada valor único en la variable que define la secuencia de los datos. Por ello es de vital importancia que los datos en el tibble x se encuentren ordenados por la variable de secuencia cuyo nombre se pasa a seq_var_name</span></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(seq_val)) {</span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    val_seq <span class="ot">&lt;-</span> seq_val[i]</span>
@@ -712,7 +712,7 @@ Nota
 <p>Puede encontrar modelos entrenados en la carpeta <code>data</code> del repositorio en el que se encuentra el presente trabajo. Los modelos fueron guardados usando la extensión <code>hdf5</code> y bajo los nombres <code>model1etd</code>, <code>model2etd</code> y <code>model3etd</code>.</p>
 </div>
 </div>
-<p>Como se explica en <a href="./Results.html#sec-predicciones">2.6.1 Predicciones</a> además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmetica, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creo la siguiente función:</p>
+<p>Como se explica en <a href="./Results.html#sec-predicciones">2.6.1 Predicciones</a> además de las predicciones obtenidas por los modelos se computaron predicciones obtenidas a partir del uso de la media aritmética, para comparar con las obtenidas con los modelos. Para el computo de estas predicciones se creó la siguiente función:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>wfv_means <span class="ot">&lt;-</span> <span class="cf">function</span>(x, seq_var_name, <span class="at">inp_var_name =</span> <span class="st">"inputs"</span>, <span class="at">out_var_name =</span> <span class="st">"outputs"</span>, id_var_name, <span class="at">progress_bar=</span>T){</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -811,7 +811,7 @@ Nota
 </div>
 </div>
 </div>
-<p>El procedimiento expuesto en las secciones <a href="./Annex4.html#sec-A-modelos">Modelado</a> y <a href="./Annex4.html#sec-A-entrenamiento">Entrenamiento</a> del presente anexo fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a <code>vecs3d1e</code> por <code>vecs3d2e</code> y <code>vecs3d3e</code>,según el grupo de vectores tridimensionanales utilizado.</p>
+<p>El procedimiento expuesto en las secciones <a href="./Annex4.html#sec-A-modelos">Modelado</a> y <a href="./Annex4.html#sec-A-entrenamiento">Entrenamiento</a> del presente anexo fue repetido para construir los 10 modelos realizados a partir de cada grupo de vectores tridimensionales, sustituyendo en el primer código expuesto la llamada a <code>vecs3d1e</code> por <code>vecs3d2e</code> y <code>vecs3d3e</code>,según el grupo de vectores tridimensionales utilizado.</p>
 </section>
 </section>
 <section id="resultado" class="level2">
@@ -820,7 +820,7 @@ Nota
 <section id="sec-A-predicciones" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-predicciones">Predicciones</h3>
 <p>El análisis expuesto en <a href="./Results.html#sec-predicciones">2.6.1 Predicciones</a> fue realizado a partir de gráficas (vea <a href="Annex2.html#fig-ind_evo_oo">Figura&nbsp;<span>8</span></a>, <a href="Annex2.html#fig-ind_evo_twoo">Figura&nbsp;<span>9</span></a> y <a href="Annex2.html#fig-ind_evo_threeo">Figura&nbsp;<span>10</span></a>), en las que se recogen los valores de los indicadores <span class="math inline">\(MSE\)</span> y <span class="math inline">\(R^2\)</span> para cada una de las estructuras probadas.</p>
-<p>El primer paso para la obtención de estas gráficas fue el de computar los indicadores, para cada periodo de tiempo, para cada una de las predicciones obtenidas a partir de los distintos modelos construidos con cada estructura. Esto se realizo mediante el siguiente código.</p>
+<p>El primer paso para la obtención de estas gráficas fue el de computar los indicadores, para cada periodo de tiempo, para cada una de las predicciones obtenidas a partir de los distintos modelos construidos con cada estructura. Esto se realizó mediante el siguiente código.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Extraer salidas reales</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>salidas <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
@@ -848,7 +848,7 @@ Nota
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>list_indicadores[[<span class="st">"indicadores1"</span>]] <span class="ot">&lt;-</span>  indicadores</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Una vez realizado esto se obtiene una lista que contiene 10 data frames (<code>indicadores1</code>,…,<code>indicadores10</code>), los cuales a su vez contienen los valores de los de <span class="math inline">\(MSE\)</span> y <span class="math inline">\(R^2\)</span> de las predicciones obtenidas por los modelos de RNA para cada una de las empresas agrupados por fecha. Por lo que luego se construyo la gráfica mediante el uso del siguiente código.</p>
+<p>Una vez realizado esto se obtiene una lista que contiene 10 data frames (<code>indicadores1</code>,…,<code>indicadores10</code>), los cuales a su vez contienen los valores de los de <span class="math inline">\(MSE\)</span> y <span class="math inline">\(R^2\)</span> de las predicciones obtenidas por los modelos de RNA para cada una de las empresas agrupados por fecha. Por lo que luego se construyó la gráfica mediante el uso del siguiente código.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar la información de las distintas construcciones en un solo data frame</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>indi_graf_data <span class="ot">&lt;-</span> <span class="fu">do.call</span>(cbind,list_indicadores)</span>
@@ -874,7 +874,7 @@ Nota
 <span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>)) <span class="sc">+</span></span>
 <span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fecha"</span>, <span class="at">y =</span> <span class="st">"Indicadores"</span>, <span class="at">color =</span> <span class="st">"Indicadores"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Además de las gráficas se utilzo también en el análisis de los resultados la <a href="Annex3.html#tbl-indicadores">Tabla&nbsp;<span>4</span></a>, en la que se ecuentran las empresas que obtuvieron mejores y peores indicadores para cada estructura, para la obtención de estos datos se uso el siguiente código:</p>
+<p>Además de las gráficas se utilizó también en el análisis de los resultados la <a href="Annex3.html#tbl-indicadores">Tabla&nbsp;<span>4</span></a>, en la que se encuentran las empresas que obtuvieron mejores y peores indicadores para cada estructura, para la obtención de estos datos se uso el siguiente código:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>indicadores_X_emp <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Date <span class="sc">&gt;</span> data<span class="sc">$</span>Date[<span class="dv">1</span>]) <span class="sc">|&gt;</span></span>
@@ -889,7 +889,7 @@ Nota
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
 <span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ID, r2, mse)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Al igual que los indicadores computados por fecha para guardar los indicadores computados por empresa se creo una lista denominada <code>list_indic_emp</code>. Luego de haber almacenado los 10 data frames de indicadores por empresa en la lista se extrajeron las empresas con los mejores y peores resultados mediante el siguiente código:</p>
+<p>Al igual que los indicadores computados por fecha para guardar los indicadores computados por empresa se creó una lista denominada <code>list_indic_emp</code>. Luego de haber almacenado los 10 data frames de indicadores por empresa en la lista se extrajeron las empresas con los mejores y peores resultados mediante el siguiente código:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupar la información de las distintas construcciones en un solo data frame</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>ind_emp_t <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, list_indic_emp)</span>
@@ -907,16 +907,16 @@ Nota
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>mejores10 <span class="ot">&lt;-</span> <span class="fu">head</span>(ind_emp_t,<span class="dv">10</span>)</span>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>peores10 <span class="ot">&lt;-</span> <span class="fu">tail</span>(ind_emp_t,<span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Y mediante la utilización de las variables anteriores y el uso de las funciones <code>rbind()</code> y <code>cbind</code> fue como se creo la <a href="Annex3.html#tbl-indicadores">Tabla&nbsp;<span>4</span></a>.</p>
+<p>Y mediante la utilización de las variables anteriores y el uso de las funciones <code>rbind()</code> y <code>cbind</code> fue como se creó la <a href="Annex3.html#tbl-indicadores">Tabla&nbsp;<span>4</span></a>.</p>
 </section>
 <section id="sec-A-cc" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-cc">Composición de carteras</h3>
-<p>En esta sección se explica como se realizo el análisis del compratamiento de los resultados obtenidos por las distintas carteras (ver <a href="Annex2.html#fig-pf_evo_oo">Figura&nbsp;<span>11</span></a>, <a href="Annex2.html#fig-pf_evo_twoo">Figura&nbsp;<span>12</span></a> y <a href="Annex2.html#fig-pf_evo_threeo">Figura&nbsp;<span>13</span></a>). Para ello es necesario primero obtener la composición de las carteras, por fecha, a partir de las predicciones obtenidas mediante el uso de las medias aritmeticas y los modelos de RNA.</p>
-<p>Para el calculo de la composición de las carteras se uso el paquete de R <span class="citation" data-cites="quadprog">Berwin A. Turlach R port by Andreas Weingessel &lt;Andreas.Weingessel@ci.tuwien.ac.at&gt; Fortran contributions from Cleve Moler dpodi/LINPACK) (<a href="references.html#ref-quadprog" role="doc-biblioref">2019</a>)</span>, a continuación se muestra el código utilizado para hallar la composición de carteras a partir de las predicciones de la media:</p>
+<p>En esta sección se explica como se realizó el análisis del comportamiento de los resultados obtenidos por las distintas carteras (ver <a href="Annex2.html#fig-pf_evo_oo">Figura&nbsp;<span>11</span></a>, <a href="Annex2.html#fig-pf_evo_twoo">Figura&nbsp;<span>12</span></a> y <a href="Annex2.html#fig-pf_evo_threeo">Figura&nbsp;<span>13</span></a>). Para ello es necesario primero obtener la composición de las carteras, por fecha, a partir de las predicciones obtenidas mediante el uso de las medias aritméticas y los modelos de RNA.</p>
+<p>Para el cálculo de la composición de las carteras se usó el paquete de R llamado quadprog (<span class="citation" data-cites="quadprog">Berwin A. Turlach R port by Andreas Weingessel &lt;Andreas.Weingessel@ci.tuwien.ac.at&gt; Fortran contributions from Cleve Moler dpodi/LINPACK) (<a href="references.html#ref-quadprog" role="doc-biblioref">2019</a>)</span>), a continuación, se muestra el código utilizado para hallar la composición de carteras a partir de las predicciones de la media:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo un data frame en el que se guardo toda la información:</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Valores del IBEX, como indice de referencia</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Valores de las predicciones, tanto las obtenidas por el modelo de RNA como por las medias aritmeticas</span></span>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo un data frame en el que se guardó toda la información:</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Valores del IBEX, como índice de referencia</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   - Valores de las predicciones, tanto las obtenidas por el modelo de RNA como por las medias aritméticas</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>DATA <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span></span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(IBEXsel, <span class="at">by =</span><span class="st">"Date"</span>) <span class="sc">|&gt;</span></span>
@@ -935,7 +935,7 @@ Nota
 <span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir del data frame DATA se crearon:</span></span>
 <span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="co">#    - Un data frame cuyas columnas son los datos reales de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
-<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#    - Un data frame cuyas columnas son los datos obtenidos mediante el uso de las medias aritmeticas de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="co">#    - Un data frame cuyas columnas son los datos obtenidos mediante el uso de las medias aritméticas de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
 <span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>pvtReal <span class="ot">&lt;-</span> DATA <span class="sc">|&gt;</span></span>
 <span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, Real, ID) <span class="sc">|&gt;</span></span>
@@ -951,7 +951,7 @@ Nota
 <span id="cb26-35"><a href="#cb26-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> Means</span>
 <span id="cb26-36"><a href="#cb26-36" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb26-37"><a href="#cb26-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvo predicción</span></span>
+<span id="cb26-38"><a href="#cb26-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creó el data frame en el que se guardará la composición de las carteras para cada uno de los periodos para los que se obtuvó predicción</span></span>
 <span id="cb26-39"><a href="#cb26-39" aria-hidden="true" tabindex="-1"></a>weightsm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
 <span id="cb26-40"><a href="#cb26-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-41"><a href="#cb26-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteración mediante la cual se halla la composición de las carteras</span></span>
@@ -961,7 +961,7 @@ Nota
 <span id="cb26-45"><a href="#cb26-45" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>])) {</span>
 <span id="cb26-46"><a href="#cb26-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">&gt;</span><span class="dv">1</span>){</span>
 <span id="cb26-47"><a href="#cb26-47" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este esta creado por los datos reales hasta la fecha y la previsión del siguiente periodo</span></span>
+<span id="cb26-48"><a href="#cb26-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este está creado por los datos reales hasta la fecha y la previsión del siguiente periodo</span></span>
 <span id="cb26-49"><a href="#cb26-49" aria-hidden="true" tabindex="-1"></a>    datamQP <span class="ot">&lt;-</span> pvtReal <span class="sc">|&gt;</span></span>
 <span id="cb26-50"><a href="#cb26-50" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Date <span class="sc">&lt;</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>][i]) <span class="sc">|&gt;</span></span>
 <span id="cb26-51"><a href="#cb26-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(pvtMeans <span class="sc">|&gt;</span></span>
@@ -979,7 +979,7 @@ Nota
 <span id="cb26-63"><a href="#cb26-63" aria-hidden="true" tabindex="-1"></a>      carteram <span class="ot">&lt;-</span> datamQP</span>
 <span id="cb26-64"><a href="#cb26-64" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb26-65"><a href="#cb26-65" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extre las previsiones</span></span>
+<span id="cb26-66"><a href="#cb26-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extrae las previsiones</span></span>
 <span id="cb26-67"><a href="#cb26-67" aria-hidden="true" tabindex="-1"></a>    returnm <span class="ot">&lt;-</span> carteram[<span class="fu">dim</span>(carteram)[<span class="dv">1</span>], <span class="sc">-</span><span class="dv">1</span>] <span class="sc">|&gt;</span></span>
 <span id="cb26-68"><a href="#cb26-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.matrix</span>() <span class="sc">|&gt;</span></span>
 <span id="cb26-69"><a href="#cb26-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">t</span>()</span>
@@ -1020,9 +1020,9 @@ Nota
 <span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a>pvtReal[<span class="fu">is.na</span>(pvtReal)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a>weightsm[<span class="fu">is.na</span>(weightsm)] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumio que se invertia uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.</p>
+<p>Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumió que se invertía uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando las rentabilidades de las carteras conformadas a partir de las predicciones de la media aritmetica</span></span>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando las rentabilidades de las carteras conformadas a partir de las predicciones de la media aritmética</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>return_CM <span class="ot">&lt;-</span>  weightsm <span class="sc">*</span> pvtReal[<span class="sc">-</span><span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>]</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>return_CM <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(return_CM)</span>
@@ -1032,9 +1032,9 @@ Nota
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> return_CM</span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Los mismos pasos que se realizaron para hallar el comportamiento de la rentabilidad de las carteras a partir de las medias aritmeticas se realizaron para hallar el comportamiento a partir de las predicciones obtenidas por el modelo de RNA como se ve en el código a continuación.</p>
+<p>Los mismos pasos que se realizaron para hallar el comportamiento de la rentabilidad de las carteras a partir de las medias aritméticas se realizaron para hallar el comportamiento a partir de las predicciones obtenidas por el modelo de RNA como se ve en el código a continuación.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir del data frame DATA se creo un data frame cuyas columnas son los datos obtenidos mediante el uso del model de RNA de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A partir del data frame DATA se creó un data frame cuyas columnas son los datos obtenidos mediante el uso del model de RNA de cada una de las empresas para cada uno de los periodos de tiempo para los que se obtuvieron predicciones.</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pvtRNA <span class="ot">&lt;-</span> DATA <span class="sc">|&gt;</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date, RNA, ID) <span class="sc">|&gt;</span></span>
@@ -1043,7 +1043,7 @@ Nota
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> RNA</span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creo el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvo predicción</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Se creó el data frame en el que se guardara la composición de las carteras para cada uno de los periodos para los que se obtuvó predicción</span></span>
 <span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>weightse <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
 <span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Iteración mediante la cual se halla la composición de las carteras</span></span>
@@ -1052,7 +1052,7 @@ Nota
 <span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>])) {</span>
 <span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i<span class="sc">&gt;</span><span class="dv">1</span>){</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este esta creado por los datos reales hasta la fecha y la previsión del siguiente periodo</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Se crea el data frame que comprende los datos a utilizar para hallar la composición de la cartera, este estó creado por los datos reales hasta la fecha y la previsión del siguiente periodo</span></span>
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>    dataeQP <span class="ot">&lt;-</span> pvtReal <span class="sc">|&gt;</span></span>
 <span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">filter</span>(Date <span class="sc">&lt;</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="sc">-</span><span class="dv">1</span>][i]) <span class="sc">|&gt;</span></span>
 <span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">rbind</span>(pvtRNA <span class="sc">|&gt;</span></span>
@@ -1069,7 +1069,7 @@ Nota
 <span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a>      carterae <span class="ot">&lt;-</span> dataeQP</span>
 <span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extre las previsiones</span></span>
+<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Extrae las previsiones</span></span>
 <span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>    returne <span class="ot">&lt;-</span> carterae[<span class="fu">dim</span>(carterae)[<span class="dv">1</span>], <span class="sc">-</span><span class="dv">1</span>] <span class="sc">|&gt;</span></span>
 <span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.matrix</span>() <span class="sc">|&gt;</span></span>
 <span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">t</span>()</span>
@@ -1109,7 +1109,7 @@ Nota
 <span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Sustituir los pesos con valores faltantes con cero</span></span>
 <span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>weightse[<span class="fu">is.na</span>(weightse)] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumio que se invertia uno en el primer periodo y se realizó una sumatoria acumulativa a los largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.</p>
+<p>Luego para hallar la rentabilidad de la cartera se multiplicaron las composiciones por las rentabilidades reales, se asumió que se invertía uno en el primer periodo y se realizó una sumatoria acumulativa a lo largo de los valores para obtener el comportamiento de la rentabilidad a lo largo del tiempo.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando las rentabilidades de las carteras conformadas a partir de las predicciones del modelo RNA</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1121,7 +1121,7 @@ Nota
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">RNA =</span> return_CRNA</span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Luego, al igual que con los indicadores se creo un lista <code>list_ret_RNA</code> en la que se guardaron los data frames de los distintos modelos construidos con cada una de las estructuras. Después se ejecutó el siguiente código para obtener la gráfica.</p>
+<p>Luego, al igual que con los indicadores se creó una lista <code>list_ret_RNA</code> en la que se guardaron los data frames de los distintos modelos construidos con cada una de las estructuras. Después se ejecutó el siguiente código para obtener la gráfica.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hallando el comportamiento de las rentabilidades del IBEX para el periodo</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1552,20 +1552,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </ul>
     </div>
     <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/david-d-6257951b8/">
-      <i class="bi bi-linkedin" role="img" aria-label="Linkedin">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/davidrsch/TFM/">
-      <i class="bi bi-github" role="img" aria-label="TFM GitHub">
-</i> 
-    </a>
-  </li>  
-</ul>
+      <div class="footer-contents"><a href="https://www.linkedin.com/in/david-d-6257951b8/"><img src="sm/linkedin.png" width="20px" fig-alt="Linkeding profile"></a>
+<a href="https://github.com/davidrsch/TFM/"><img src="sm/github.png" width="20px" fig-alt="Github repository"></a>
+<a href="https://www.researchgate.net/profile/David-Diaz-Rodriguez"><img src="sm/Researchgate.png" width="20px" fig-alt="ResearchGate profile"></a>
+<a href="https://orcid.org/0000-0002-0927-9795"><img src="sm/orcid.png" width="20px" fig-alt="ORCid profile"></a>
+</div>  
     </div>
   </div>
 </footer>
