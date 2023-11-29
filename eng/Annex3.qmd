@@ -22,10 +22,18 @@ Own elaboration: Through the use of RStudio with the historical database of "IND
 
 empresast <- empresas |>
   mutate(
-    Seleccionadas = if_else(is.element(TICKERS,names(returns_emps3)),"X",""),
-    MERCADO = "MC",
-    INDICE = gsub("IBEX TOP Dividendo","IBEXTD",INDICE)
-  )
+    NAME = NOMBRE,
+    SELECTED = if_else(is.element(TICKERS,names(returns_emps3)),"X",""),
+    MARKET = "MC",
+    INDEX = gsub("IBEX TOP Dividendo","IBEXTD",INDICE)
+  ) |>
+  select(
+    NAME,
+    TICKERS,
+    `SECTOR-SUBSECTOR`,
+    MARKET,
+    INDEX,
+    SELECTED)
 cat(md_table(empresast))
 ```
 
@@ -47,8 +55,8 @@ obs <- sapply(returns_indc, function(x){
 obs <- sum(obs)
 emps_n <- length(returns_indc)
 muestras <- data.frame(
-  Entradas = entradas,
-  `Muestras totales` = (obs-((entradas-1+1)*emps_n))
+  Inputs = entradas,
+  Total.samples = (obs-((entradas-1+1)*emps_n))
 )
 cat(md_table(muestras))
 ```
@@ -56,7 +64,7 @@ cat(md_table(muestras))
 : Amounts of samples used to train the models {#tbl-muestras}
 
 ::: figure-caption
-Obtained from: The information displayed on the official site of the Spanish Stock Exchanges and Markets, @BMEexcha.
+Own elaboration
 :::
 
 ```{r}
