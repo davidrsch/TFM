@@ -1,6 +1,6 @@
 # CC BY-NC-ND 4.0 LEGAL CODE
 
-## Attribution-NonCommercial-NoDerivs 4.0 International {.unnumbered}
+## Attribution-NonCommercial-NoDerivs 4.0 International
 
 > **Canonical URL:** https://creativecommons.org/licenses/by-nc-nd/4.0/
 >
