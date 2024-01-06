@@ -2,7 +2,7 @@
 
 ## Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras
 
-<a href=""><img src="projectlogo.png" alt="Project image" width="285" height="285" align="right" style="margin: 0 1em 0 1em"/></a> Este repositorio contiene el código fuente del sitio web del Trabajo de Fin de Máster **"Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras"** de David Díaz Rodríguez y tutelado por Xosé Manuel Martínez Filgueira. El sitio está construido usando [Quarto](https://quarto.org/).
+<a href=""><img src="projectlogo.png" alt="Project image" width="285" align="right" style="margin: 0 1em 0 1em"/></a> Este repositorio contiene el código fuente del sitio web del Trabajo de Fin de Máster **"Aplicación de redes neuronales artificiales y programación cuadrática en la gestión de carteras"** de David Díaz Rodríguez y tutelado por Xosé Manuel Martínez Filgueira. El sitio está construido usando [Quarto](https://quarto.org/).
 
 Puede encontrar, además, en el presente repositorio algunos de los datos resultantes del procedimiento descrito a lo largo del trabajo así como estructuras de los modelos de RNA utilizadas para la obtención de las predicciones.
 
@@ -30,34 +30,32 @@ O código do procedemento exposto neste traballo, Anexo 4, desenvolveuse mediant
 
 # Paquetes
 
-|Paquete        |Versión|
-|---------------|-------|
-|abind          |1.4.5  |
-|DiagrammeR     |1.0.10 |
-|dplyr          |1.1.2  |
-|forecast       |8.21   |
-|ggplot2        |3.4.2  |
-|gridExtra      |2.3    |
-|gt             |0.9.0  |
-|jsonlite       |1.8.7  |
-|kableExtra     |1.3.4  |
-|keras          |2.11.1 |
-|knitr          |1.43   |
-|lubridate      |1.9.2  |
-|Matrix         |1.6.0  |
-|Metrics        |0.1.4  |
-|quadprog       |1.5.8  |
-|quantmod       |0.4.24 |
-|readr          |2.1.4  |
-|readxl         |1.4.2  |
-|simplermarkdown|0.0.6  |
-|stringr        |1.5.0  |
-|tensorflow     |2.11.0 |
-|tibble         |3.2.1  |
-|tidyr          |1.3.0  |
-|TTR            |0.24.3 |
-|xml2           |1.3.4  |
-|xts            |0.13.1 |
-|zoo            |1.8.12 |
-
-
+| Paquete         | Versión |
+|-----------------|---------|
+| abind           | 1.4.5   |
+| DiagrammeR      | 1.0.10  |
+| dplyr           | 1.1.2   |
+| forecast        | 8.21    |
+| ggplot2         | 3.4.2   |
+| gridExtra       | 2.3     |
+| gt              | 0.9.0   |
+| jsonlite        | 1.8.7   |
+| kableExtra      | 1.3.4   |
+| keras           | 2.11.1  |
+| knitr           | 1.43    |
+| lubridate       | 1.9.2   |
+| Matrix          | 1.6.0   |
+| Metrics         | 0.1.4   |
+| quadprog        | 1.5.8   |
+| quantmod        | 0.4.24  |
+| readr           | 2.1.4   |
+| readxl          | 1.4.2   |
+| simplermarkdown | 0.0.6   |
+| stringr         | 1.5.0   |
+| tensorflow      | 2.11.0  |
+| tibble          | 3.2.1   |
+| tidyr           | 1.3.0   |
+| TTR             | 0.24.3  |
+| xml2            | 1.3.4   |
+| xts             | 0.13.1  |
+| zoo             | 1.8.12  |
