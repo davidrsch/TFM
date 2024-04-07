@@ -1,7 +1,0 @@
-# Resumo {.unnumbered}
-
-No contexto do mundo financeiro en constante cambio e complexidade, este traballo trata sobre a aplicación das redes neuronais artificiais e da programación cuadrática na xestión de carteiras financeiras. Destaca a importancia de caracterizar adecuadamente as series temporais financeiras para unha previsión máis precisa e examínase o potencial de combinar redes neuronais convolucionais e LSTM para mellorar a previsión de series temporais. No proceso de composición da carteira aplícase a programación cuadrática como técnica eficiente para conseguir unha distribución óptima dos activos financeiros. En conclusión, o enfoque de combinar redes neuronais artificiais e programación cuadrática resulta prometedor na xestión de carteiras financeiras, pero é necesario un estudo máis profundo e exhaustivo para determinar a súa eficiencia óptima. Este traballo senta as bases para futuras investigacións, destacando a importancia de utilizar datos actualizados e de configurar adecuadamente os modelos para lograr unha xestión de carteira máis informada e eficaz nun entorno financeiro en constante evolución.
-
-*Palabras clave:* xestión de carteiras, carteiras, redes neuronais artificiais, programación cuadrática, series temporaiss financeiras, predición de prezos, composición da carteira.
-
-*Número de palabras:* 12856
