@@ -1,4 +1,5 @@
 source("renv/activate.R")
+renv::restore()
 ## Cargando librerias ----
 library(readxl)
 library(simplermarkdown)
