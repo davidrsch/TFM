@@ -29,6 +29,7 @@ book:
       email: xose.martinez@udc.es
   search: true
   repo-url: https://github.com/davidrsch/TFM
+  repo-branch: master
   repo-actions: [edit]
   sharing: [twitter]
   page-navigation: true
