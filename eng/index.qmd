@@ -24,7 +24,7 @@ PaqT <- data.frame(
   cat()
 ```
 
-To cite use the following url: https://ruc.udc.es/dspace/handle/2183/36519. You can also consult:
+To cite use the following url: [https://ruc.udc.es/dspace/handle/2183/36519](https://ruc.udc.es/dspace/handle/2183/36519). You can also consult:
 
 ```{=html}
 <div style = "text-align: center;">
