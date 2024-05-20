@@ -43,7 +43,7 @@ book:
             href: ../index.html
           - text: "Galego"
             href: ../gal/index.html
-      - icon: pdf
+      - icon: file-pdf
         menu: 
           - text: "English"
             href: ../pdf/Master's Final Thesis.pdf
