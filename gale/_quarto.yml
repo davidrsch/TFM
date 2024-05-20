@@ -43,7 +43,7 @@ book:
             href: ../index.html
           - text: "English"
             href: ../en/index.html
-      - icon: pdf
+      - icon: file-pdf
         menu: 
           - text: "Galego"
             href: ../pdf/Traballo Fin de Mestrado.pdf
