@@ -24,7 +24,7 @@ PaqT <- data.frame(
   cat()
 ```
 
-Tamén podes consultar:
+Para citar debes utilizar a seguinte ligazón: https://ruc.udc.es/dspace/handle/2183/36519. Tamén podes consultar:
 
 ```{=html}
 <div style = "text-align: center;">
