@@ -43,6 +43,14 @@ book:
             href: ../index.html
           - text: "Galego"
             href: ../gal/index.html
+      - icon: pdf
+        menu: 
+          - text: "English"
+            href: ../pdf/Master's Final Thesis.pdf
+          - text: "Español"
+            href: ../pdf/Trabajo Final de Máster.pdf
+          - text: "Galego"
+            href: ../pdf/Traballo Fin de Mestrado.pdf
   page-footer: 
     left: |
       Final Master's Project presented at

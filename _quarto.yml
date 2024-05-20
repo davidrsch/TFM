@@ -38,7 +38,15 @@ book:
           - text: "English"
             href: en/index.html
           - text: "Galego"
-            href: gal/index.html  
+            href: gal/index.html 
+      - icon: pdf
+        menu: 
+          - text: "Español"
+            href: pdf/Trabajo Final de Máster.pdf
+          - text: "English"
+            href: pdf/Master's Final Thesis.pdf
+          - text: "Galego"
+            href: pdf/Traballo Fin de Mestrado.pdf
   page-footer: 
     left: |
       Trabajo Final de Máster presentado en
