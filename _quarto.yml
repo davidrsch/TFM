@@ -39,7 +39,7 @@ book:
             href: en/index.html
           - text: "Galego"
             href: gal/index.html 
-      - icon: pdf
+      - icon: file-pdf
         menu: 
           - text: "Español"
             href: pdf/Trabajo Final de Máster.pdf
