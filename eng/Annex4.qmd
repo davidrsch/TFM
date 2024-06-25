@@ -170,7 +170,7 @@ returns_indc <- returns_emps3 |>
 
 ### Vectors {#sec-A-vec}
 
-Below is the code used during the process described in the sub-heading vectors of the heading modeling in Chapter 2.
+Below is the code used during the process described in the sub-heading vectors of the heading modelling in Chapter 2.
 
 The first step carried out for the execution of the process explained in the sub-section in question was to create a function that allowed obtaining the consecutive samples for each series used. The function exposed below, as already mentioned, allows obtaining the consecutive samples of a series, for which the parameters mentioned in the sub-heading are used, number of input observations and number of output observations, as well as a parameter conditional with which it is indicated if the vector to be created is input or output.
 
@@ -256,11 +256,11 @@ for(i in 1:length(returns_indc)){
 }
 ```
 
-## Modeling and training
+## Modelling and training
 
-The code used during the process described in the different sub-sections of the Modeling and training section is presented below.
+The code used during the process described in the different sub-sections of the Modelling and training section is presented below.
 
-### Modeling {#sec-A-modelos}
+### Modelling {#sec-A-modelos}
 
 For the creation of the models, the first step to execute is to obtain the information of the vectors for which the model is going to be built, which was done by executing the following code:
 
@@ -286,7 +286,7 @@ n_ob_fut <- outputsinfo[2]
 
 ```
 
-Then the structure of the models was constituted with the aspects described in [2.5.1 Modeling](MandT.qmd#sec-modelado).
+Then the structure of the models was constituted with the aspects described in [2.5.1 Modelling](MandT.qmd#sec-modelado).
 
 ```{r}
 #| eval: false
@@ -324,7 +324,7 @@ You can find untrained models in the `data` folder of the repository where this 
 
 ### Training {#sec-A-entrenamiento}
 
-The first step is to define the function to use for training the models. This function was built with the goal of using the training method described in [2.5.2 Training](MandT.qmd#sec-entrenamiento). As a result, this function will return a list that will contain the predictions obtained and the model after having been trained and will take as main inputs the tibble called `data` constituted in the first step that is exposed in this annex's section [Modeling](Annex4.qmd#sec-A-modelos) and the model as well. of other arguments that allows the use of the function with some main inputs that are not used in the present work.
+The first step is to define the function to use for training the models. This function was built with the goal of using the training method described in [2.5.2 Training](MandT.qmd#sec-entrenamiento). As a result, this function will return a list that will contain the predictions obtained and the model after having been trained and will take as main inputs the tibble called `data` constituted in the first step that is exposed in this annex's section [Modelling](Annex4.qmd#sec-A-modelos) and the model as well. of other arguments that allows the use of the function with some main inputs that are not used in the present work.
 
 ```{r}
 #| eval: false
@@ -506,7 +506,7 @@ model |>
 ```
 :::
 
-The procedure exposed in the sections [Modeling](Annex4.qmd#sec-A-modelos) and [Training](Annex4.qmd#sec-A-entrenamiento) of this annex was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to `vecs3d1e` with `in the first code exposed. vecs3d2e` and `vecs3d3e`, depending on the group of three-dimensional vectors used.
+The procedure exposed in the sections [Modelling](Annex4.qmd#sec-A-modelos) and [Training](Annex4.qmd#sec-A-entrenamiento) of this annex was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to `vecs3d1e` with `in the first code exposed. vecs3d2e` and `vecs3d3e`, depending on the group of three-dimensional vectors used.
 
 ## Result
 
@@ -742,7 +742,7 @@ pvtReal[is.na(pvtReal)] <- 0
 weightsm[is.na(weightsm)] <- 0
 ```
 
-Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values ​​to obtain the behavior of the profitability throughout the period. time.
+Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values to obtain the behaviour of the profitability throughout the period. time.
 
 ```{r}
 #| eval: false
@@ -759,7 +759,7 @@ return_CM <- data.frame(
 
 ```
 
-The same steps that were carried out to find the behavior of the profitability of the portfolios from the arithmetic means were carried out to find the behavior from the predictions obtained by the RNA model as seen in the code below.
+The same steps that were carried out to find the behaviour of the profitability of the portfolios from the arithmetic means were carried out to find the behaviour from the predictions obtained by the RNA model as seen in the code below.
 
 ```{r}
 #| eval: false
@@ -840,7 +840,7 @@ close(pb)
 weightse[is.na(weightse)] <- 0
 ```
 
-Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values to obtain the behavior of the profitability throughout the period time.
+Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values to obtain the behaviour of the profitability throughout the period time.
 
 ```{r}
 #| eval: false
@@ -861,7 +861,7 @@ Then, as with the indicators, a `list_ret_RNA` list was created in which the dat
 ```{r}
 #| eval: false
 
-# Finding the behavior of the returns of the IBEX for the period
+# Finding the behaviour of the returns of the IBEX for the period
 
 IBEXvals <- IBEXsel |>
     filter(Date > unique(data$Date)[2]) |>

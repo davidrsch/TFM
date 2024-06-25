@@ -10,7 +10,7 @@ In @chollet2018deep it is stated that the ANN environment is made up of artifici
 
 As explained by @haykin1998neural, @banda2014 and @chollet2018deep, these early AIs involved hardcoded rules created by programmers. With the aim of achieving that these rules were automatically learned by the machines when observing the data, a new stage emerged in the development of AI, the so-called ML. This new stage gives rise to the emergence of a new form of programming, differentiating from the classic, in that, in this, the programmers introduce the data and the expected responses to them, and the computers are capable of generating the rules, @fig-MLprog.
 
-So, it is understood that ML models try to find appropriate representations for your input data: transformations of the data that make it more amenable to the task at hand. In DL, which is a specific sub-field of ML, these data representations are modeled through architectures composed of successive layers, which are called RNA @chollet2018deep.
+So, it is understood that ML models try to find appropriate representations for your input data: transformations of the data that make it more amenable to the task at hand. In DL, which is a specific sub-field of ML, these data representations are modelled through architectures composed of successive layers, which are called RNA @chollet2018deep.
 
 After studying what was exposed in @haykin1998neural, @Larranaga07, @banda2014 and @chollet2018deep about ANN, it can be affirmed that they are inspired by the functioning of the human brain, these texts confirm and agree that three types of ANN can be distinguished layers: input, output and hidden. An input layer is composed of neurons that receive the input vectors. An output layer is made up of neurons that, during training, receive the output vectors and then generate the response. A hidden layer is connected to the environment through the input and output layers, this type of hidden layer processes the received input to obtain the corresponding output, @fig-RNAstruct.
 
@@ -36,7 +36,7 @@ The RNA model used in this work is composed of several layers, the most importan
 
 As discussed in @rafid23, convolution is a mathematical operation that is commonly used in signal processing and image analysis. It involves taking two functions and producing a third function that represents how one of the original functions modifies the other. In the context of time series data, convolution can be used to extract features from the data by applying a filter to the time series.
 
-In addition to extracting features from time series data, convolution can also be used for other tasks such as noise reduction, anomaly detection, and prediction. For example, a CNN can be trained to predict future values of a time series by learning the underlying patterns in the data. In general, convolution is a powerful tool for analyzing time series data and its applications are numerous @rafid23.
+In addition to extracting features from time series data, convolution can also be used for other tasks such as noise reduction, anomaly detection, and prediction. For example, a CNN can be trained to predict future values of a time series by learning the underlying patterns in the data. In general, convolution is a powerful tool for analysing time series data and its applications are numerous @rafid23.
 
 CNNs were first introduced at @cnn and are a type of deep learning model that is commonly used for image analysis. However, as previously mentioned, they can also be used for time series analysis, as they are well-suited for learning features from data that have a spatial or temporal structure.
 
@@ -92,7 +92,7 @@ This subsection explains why LSTMs are one of the most widely used ANN structure
 
 Conventional RNRs present a problem in relation to the ability to retain information, as explained by @COlah15, standard RNNs perform with great capacity only if the information relevant to the current situation is recent, that is, where the gap between the relevant information and where it is needed is small, @fig-CORInclose; further exposes that as the gap grows, standard RNNs are unable to access the relevant information, @fig-CORInaway.
 
-As previously mentioned, LSTMs are a type of RNR that can learn long-term dependencies on sequential data. These were proposed in @SeppJur97 and have been widely used for various tasks such as language modeling, speech recognition, machine translation, image description, and time series forecasting.
+As previously mentioned, LSTMs are a type of RNR that can learn long-term dependencies on sequential data. These were proposed in @SeppJur97 and have been widely used for various tasks such as language modelling, speech recognition, machine translation, image description, and time series forecasting.
 
 The main idea of LSTM is to introduce a memory cell that can store and update information over long steps of time. The memory cell is controlled by three gates: an entry gate, a forget gate, and an exit gate. These gates are neural networks that learn to regulate the flow of information in and out of the cell @fig-CODrnrlstm.
 

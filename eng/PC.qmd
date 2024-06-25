@@ -42,7 +42,7 @@ Quadratic programming can be chosen from among the techniques listed in the prev
 
 There are several quadratic programming techniques, among the most used are:
 
--   Interior Point: This is a linear or nonlinear programming method that achieves optimization by going through the center of the solid defined by the problem instead of around its surface. A polynomial time linear programming algorithm using an interior point method was found by @karmarkar1984.
+-   Interior Point: This is a linear or nonlinear programming method that achieves optimization by going through the centre of the solid defined by the problem instead of around its surface. A polynomial time linear programming algorithm using an interior point method was found by @karmarkar1984.
 
 -   Active Set: This is an algorithm used to identify the active constraints in a set of inequality constraints. The active constraints are then expressed as equality constraints, thus transforming an inequality constrained problem into a simpler equality constrained subproblem. The active set method was first introduced in an article by @beale1959 and developed by @fletcher1971 and @bunch1977.
 

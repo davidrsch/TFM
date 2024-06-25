@@ -1,10 +1,10 @@
-# 2.5 Modeling and training {.unnumbered}
+# 2.5 Modelling and training {.unnumbered}
 
 This section is divided into two sub-sections in which the models that were built and the procedure used to train them are briefly described. The first of the subheadings explains the structures of the models used, while the second subheading explains the particularities of the training methodology used.
 
-## 2.5.1 Modeling {#sec-modelado}
+## 2.5.1 Modelling {#sec-modelado}
 
-As previously explained, the main elements of the artificial neural network models used are a CNN layer and an LSTM layer. In addition to this, an input layer and an output layer were used, which are in charge of supplying the models with the information of the vectors previously constituted. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - [Modeling](Annex4.qmd#sec-A-modelos).
+As previously explained, the main elements of the artificial neural network models used are a CNN layer and an LSTM layer. In addition to this, an input layer and an output layer were used, which are in charge of supplying the models with the information of the vectors previously constituted. A more detailed explanation regarding the code used to carry out the procedure described in this sub-heading can be found in Annex. 4 - [Modelling](Annex4.qmd#sec-A-modelos).
 
 Since three different sizes of observations were defined to consider making a prediction, it was necessary to build three different model structures that would adapt to the dimensions of the different input vectors, the different structures can be observed in the @fig-estructuras.
 
@@ -32,6 +32,6 @@ As already mentioned, feedforward validation is a method used to evaluate machin
 
 When evaluating a model, we are interested in how the model performs on data that was not used to train it. In machine learning, this is called unseen or out-of-sample data. Commonly, for the resolution of other problems, the data is divided into different subsets: training, testing and validation, whose objective is to train and validate the model. With the walk forward validation methodology, the data is divided by time periods and the model is trained and validated consecutively, which allows evaluating how the model understands the temporal dependence of the data.
 
-By dividing the data by time periods, it allows us to evaluate the actual functioning of the model if it had been applied from the first period, as well as to analyze its behavior throughout all the periods, observing whether its performance improves or not.
+By dividing the data by time periods, it allows us to evaluate the actual functioning of the model if it had been applied from the first period, as well as to analyse its behaviour throughout all the periods, observing whether its performance improves or not.
 
 From what is stated in this sub-section, it is understood that the models were trained using the corresponding sample sets, passing all the available samples in a certain period of time before continuing with the next period. Obtaining as a result of the above a prediction corresponding to each period of time contemplated, with the exception of the first two that would be used to train the model for the first time, as seen in the following diagram of the @fig-wfv.
