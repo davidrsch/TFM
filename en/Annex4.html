@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -324,7 +324,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./MandT.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2.5 Modeling and training</span></a>
+ <span class="menu-text">2.5 Modelling and training</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -398,9 +398,9 @@ window.Quarto = {
   <li><a href="#sec-A-indi" id="toc-sec-A-indi" class="nav-link" data-scroll-target="#sec-A-indi">Indicators</a></li>
   <li><a href="#sec-A-vec" id="toc-sec-A-vec" class="nav-link" data-scroll-target="#sec-A-vec">Vectors</a></li>
   </ul></li>
-  <li><a href="#modeling-and-training" id="toc-modeling-and-training" class="nav-link" data-scroll-target="#modeling-and-training">Modeling and training</a>
+  <li><a href="#modelling-and-training" id="toc-modelling-and-training" class="nav-link" data-scroll-target="#modelling-and-training">Modelling and training</a>
   <ul class="collapse">
-  <li><a href="#sec-A-modelos" id="toc-sec-A-modelos" class="nav-link" data-scroll-target="#sec-A-modelos">Modeling</a></li>
+  <li><a href="#sec-A-modelos" id="toc-sec-A-modelos" class="nav-link" data-scroll-target="#sec-A-modelos">Modelling</a></li>
   <li><a href="#sec-A-entrenamiento" id="toc-sec-A-entrenamiento" class="nav-link" data-scroll-target="#sec-A-entrenamiento">Training</a></li>
   </ul></li>
   <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a>
@@ -549,7 +549,7 @@ window.Quarto = {
 </section>
 <section id="sec-A-vec" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-vec">Vectors</h3>
-<p>Below is the code used during the process described in the sub-heading vectors of the heading modeling in Chapter 2.</p>
+<p>Below is the code used during the process described in the sub-heading vectors of the heading modelling in Chapter 2.</p>
 <p>The first step carried out for the execution of the process explained in the sub-section in question was to create a function that allowed obtaining the consecutive samples for each series used. The function exposed below, as already mentioned, allows obtaining the consecutive samples of a series, for which the parameters mentioned in the sub-heading are used, number of input observations and number of output observations, as well as a parameter conditional with which it is indicated if the vector to be created is input or output.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>vector2dmaker <span class="ot">&lt;-</span> <span class="cf">function</span>(vec, ent, sal, <span class="at">eos=</span>T){</span>
@@ -624,11 +624,11 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="modeling-and-training" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-and-training">Modeling and training</h2>
-<p>The code used during the process described in the different sub-sections of the Modeling and training section is presented below.</p>
+<section id="modelling-and-training" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-and-training">Modelling and training</h2>
+<p>The code used during the process described in the different sub-sections of the Modelling and training section is presented below.</p>
 <section id="sec-A-modelos" class="level3">
-<h3 class="anchored" data-anchor-id="sec-A-modelos">Modeling</h3>
+<h3 class="anchored" data-anchor-id="sec-A-modelos">Modelling</h3>
 <p>For the creation of the models, the first step to execute is to obtain the information of the vectors for which the model is going to be built, which was done by executing the following code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(vecs3d1e)</span>
@@ -648,7 +648,7 @@ window.Quarto = {
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>n_variables <span class="ot">&lt;-</span> inputsinfo[<span class="dv">3</span>]</span>
 <span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>n_ob_fut <span class="ot">&lt;-</span> outputsinfo[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then the structure of the models was constituted with the aspects described in <a href="./MandT.html#sec-modelado">2.5.1 Modeling</a>.</p>
+<p>Then the structure of the models was constituted with the aspects described in <a href="./MandT.html#sec-modelado">2.5.1 Modelling</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input layer</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>inp <span class="ot">&lt;-</span> <span class="fu">layer_input</span>(</span>
@@ -692,7 +692,7 @@ Note
 </section>
 <section id="sec-A-entrenamiento" class="level3">
 <h3 class="anchored" data-anchor-id="sec-A-entrenamiento">Training</h3>
-<p>The first step is to define the function to use for training the models. This function was built with the goal of using the training method described in <a href="./MandT.html#sec-entrenamiento">2.5.2 Training</a>. As a result, this function will return a list that will contain the predictions obtained and the model after having been trained and will take as main inputs the tibble called <code>data</code> constituted in the first step that is exposed in this annex’s section <a href="./Annex4.html#sec-A-modelos">Modeling</a> and the model as well. of other arguments that allows the use of the function with some main inputs that are not used in the present work.</p>
+<p>The first step is to define the function to use for training the models. This function was built with the goal of using the training method described in <a href="./MandT.html#sec-entrenamiento">2.5.2 Training</a>. As a result, this function will return a list that will contain the predictions obtained and the model after having been trained and will take as main inputs the tibble called <code>data</code> constituted in the first step that is exposed in this annex’s section <a href="./Annex4.html#sec-A-modelos">Modelling</a> and the model as well. of other arguments that allows the use of the function with some main inputs that are not used in the present work.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>wfv_train <span class="ot">&lt;-</span> <span class="cf">function</span>(x, modelo, seq_var_name, <span class="at">inp_var_name =</span> <span class="st">"inputs"</span>, <span class="at">out_var_name =</span> <span class="st">"outputs"</span>, <span class="at">progress_bar=</span>T){</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  </span>
@@ -871,7 +871,7 @@ Note
 </div>
 </div>
 </div>
-<p>The procedure exposed in the sections <a href="./Annex4.html#sec-A-modelos">Modeling</a> and <a href="./Annex4.html#sec-A-entrenamiento">Training</a> of this annex was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to <code>vecs3d1e</code> with <code>in the first code exposed. vecs3d2e</code> and <code>vecs3d3e</code>, depending on the group of three-dimensional vectors used.</p>
+<p>The procedure exposed in the sections <a href="./Annex4.html#sec-A-modelos">Modelling</a> and <a href="./Annex4.html#sec-A-entrenamiento">Training</a> of this annex was repeated to build the 10 models made from each group of three-dimensional vectors, replacing the call to <code>vecs3d1e</code> with <code>in the first code exposed. vecs3d2e</code> and <code>vecs3d3e</code>, depending on the group of three-dimensional vectors used.</p>
 </section>
 </section>
 <section id="result" class="level2">
@@ -1080,7 +1080,7 @@ Note
 <span id="cb26-104"><a href="#cb26-104" aria-hidden="true" tabindex="-1"></a>pvtReal[<span class="fu">is.na</span>(pvtReal)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb26-105"><a href="#cb26-105" aria-hidden="true" tabindex="-1"></a>weightsm[<span class="fu">is.na</span>(weightsm)] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values ​​to obtain the behavior of the profitability throughout the period. time.</p>
+<p>Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values to obtain the behaviour of the profitability throughout the period. time.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding the returns of the portfolios formed from the predictions of the arithmetic mean</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1092,7 +1092,7 @@ Note
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Mean =</span> return_CM</span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The same steps that were carried out to find the behavior of the profitability of the portfolios from the arithmetic means were carried out to find the behavior from the predictions obtained by the RNA model as seen in the code below.</p>
+<p>The same steps that were carried out to find the behaviour of the profitability of the portfolios from the arithmetic means were carried out to find the behaviour from the predictions obtained by the RNA model as seen in the code below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># From the DATA data frame, a data frame was created whose columns are the data obtained by using the RNA model of each of the companies for each of the time periods for which predictions were obtained.</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1169,7 +1169,7 @@ Note
 <span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace weights with missing values with zero</span></span>
 <span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a>weightse[<span class="fu">is.na</span>(weightse)] <span class="ot">&lt;-</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values to obtain the behavior of the profitability throughout the period time.</p>
+<p>Then, to find the profitability of the portfolio, the compositions were multiplied by the real returns, it was assumed that one was invested in the first period and a cumulative sum was made throughout the values to obtain the behaviour of the profitability throughout the period time.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding the returns of the portfolios formed from the predictions of the RNA model</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1183,7 +1183,7 @@ Note
 </div>
 <p>Then, as with the indicators, a <code>list_ret_RNA</code> list was created in which the data frames of the different models built with each of the structures were stored. Then the following code was executed to obtain the graph.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding the behavior of the returns of the IBEX for the period</span></span>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding the behaviour of the returns of the IBEX for the period</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>IBEXvals <span class="ot">&lt;-</span> IBEXsel <span class="sc">|&gt;</span></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Date <span class="sc">&gt;</span> <span class="fu">unique</span>(data<span class="sc">$</span>Date)[<span class="dv">2</span>]) <span class="sc">|&gt;</span></span>
