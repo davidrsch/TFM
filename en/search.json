@@ -60,16 +60,6 @@
     ]
   },
   {
-    "objectID": "body.html",
-    "href": "body.html",
-    "title": "2 Work development",
-    "section": "",
-    "text": "The present work delves into the field of machine learning and artificial intelligence, specifically in the combined use of artificial neural networks and quadratic programming. This powerful synergy seeks to offer an effective and sophisticated solution for forecasting financial time series and the optimal composition of investment portfolios. Through the application of these techniques, the aim is to improve financial decision-making and maximize returns, while minimizing the risks associated with investments. In the following sections, the different stages of the process will be explored in detail, from the characterization of time series and the functioning of neural networks, to the implementation of quadratic programming in the construction of efficient portfolios.",
-    "crumbs": [
-      "2 Work development"
-    ]
-  },
-  {
     "objectID": "FSandP.html",
     "href": "FSandP.html",
     "title": "2.1 Characterization of financial time series",
@@ -351,6 +341,16 @@
     "crumbs": [
       "Annex",
       "Annex. 4 Codes"
+    ]
+  },
+  {
+    "objectID": "body.html",
+    "href": "body.html",
+    "title": "2 Work development",
+    "section": "",
+    "text": "The present work delves into the field of machine learning and artificial intelligence, specifically in the combined use of artificial neural networks and quadratic programming. This powerful synergy seeks to offer an effective and sophisticated solution for forecasting financial time series and the optimal composition of investment portfolios. Through the application of these techniques, the aim is to improve financial decision-making and maximize returns, while minimizing the risks associated with investments. In the following sections, the different stages of the process will be explored in detail, from the characterization of time series and the functioning of neural networks, to the implementation of quadratic programming in the construction of efficient portfolios.",
+    "crumbs": [
+      "2 Work development"
     ]
   }
 ]

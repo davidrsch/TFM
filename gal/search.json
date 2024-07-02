@@ -60,16 +60,6 @@
     ]
   },
   {
-    "objectID": "body.html",
-    "href": "body.html",
-    "title": "2 Desenvolvemento do traballo",
-    "section": "",
-    "text": "O presente traballo afonda no campo da aprendizaxe automática e da intelixencia artificial, concretamente no uso combinado de redes neuronais artificiais e programación cuadrática. Esta poderosa sinerxía busca ofrecer unha solución eficaz e sofisticada para a previsión de series temporais financeiras e a composición óptima das carteiras de investimento. Mediante a aplicación destas técnicas, preténdese mellorar a toma de decisións financeiras e maximizar os rendementos, minimizando os riscos asociados aos investimentos. Nos seguintes apartados exploraranse en detalle as diferentes etapas do proceso, dende a caracterización de series temporais e o funcionamento das redes neuronais, ata a implantación da programación cuadrática na construción de carteiras eficientes.",
-    "crumbs": [
-      "2 Desenvolvemento do traballo"
-    ]
-  },
-  {
     "objectID": "FSandP.html",
     "href": "FSandP.html",
     "title": "2.1 Caracterización de series temporais financeiras",
@@ -351,6 +341,16 @@
     "crumbs": [
       "Anexos",
       "Anexo. 4 Códigos"
+    ]
+  },
+  {
+    "objectID": "body.html",
+    "href": "body.html",
+    "title": "2 Desenvolvemento do traballo",
+    "section": "",
+    "text": "O presente traballo afonda no campo da aprendizaxe automática e da intelixencia artificial, concretamente no uso combinado de redes neuronais artificiais e programación cuadrática. Esta poderosa sinerxía busca ofrecer unha solución eficaz e sofisticada para a previsión de series temporais financeiras e a composición óptima das carteiras de investimento. Mediante a aplicación destas técnicas, preténdese mellorar a toma de decisións financeiras e maximizar os rendementos, minimizando os riscos asociados aos investimentos. Nos seguintes apartados exploraranse en detalle as diferentes etapas do proceso, dende a caracterización de series temporais e o funcionamento das redes neuronais, ata a implantación da programación cuadrática na construción de carteiras eficientes.",
+    "crumbs": [
+      "2 Desenvolvemento do traballo"
     ]
   }
 ]

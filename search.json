@@ -60,16 +60,6 @@
     ]
   },
   {
-    "objectID": "body.html",
-    "href": "body.html",
-    "title": "2 Desarrollo del trabajo",
-    "section": "",
-    "text": "El presente trabajo se adentra en el campo del aprendizaje automático y la inteligencia artificial, específicamente en el uso combinado de redes neuronales artificiales y programación cuadrática. Esta poderosa sinergia busca ofrecer una solución efectiva y sofisticada para la previsión de series temporales financieras y la composición óptima de carteras de inversión. A través de la aplicación de estas técnicas, se persigue mejorar la toma de decisiones financieras y maximizar los rendimientos, al tiempo que se minimizan los riesgos asociados a las inversiones. En las siguientes secciones, se explorarán en detalle las distintas etapas del proceso, desde la caracterización de las series temporales y el funcionamiento de las redes neuronales, hasta la implementación de la programación cuadrática en la construcción de carteras eficientes.",
-    "crumbs": [
-      "2 Desarrollo del trabajo"
-    ]
-  },
-  {
     "objectID": "FSandP.html",
     "href": "FSandP.html",
     "title": "2.1 Caracterización de las series temporales financieras",
@@ -351,6 +341,16 @@
     "crumbs": [
       "Anexos",
       "Anexo. 4 Códigos"
+    ]
+  },
+  {
+    "objectID": "body.html",
+    "href": "body.html",
+    "title": "2 Desarrollo del trabajo",
+    "section": "",
+    "text": "El presente trabajo se adentra en el campo del aprendizaje automático y la inteligencia artificial, específicamente en el uso combinado de redes neuronales artificiales y programación cuadrática. Esta poderosa sinergia busca ofrecer una solución efectiva y sofisticada para la previsión de series temporales financieras y la composición óptima de carteras de inversión. A través de la aplicación de estas técnicas, se persigue mejorar la toma de decisiones financieras y maximizar los rendimientos, al tiempo que se minimizan los riesgos asociados a las inversiones. En las siguientes secciones, se explorarán en detalle las distintas etapas del proceso, desde la caracterización de las series temporales y el funcionamiento de las redes neuronales, hasta la implementación de la programación cuadrática en la construcción de carteras eficientes.",
+    "crumbs": [
+      "2 Desarrollo del trabajo"
     ]
   }
 ]
