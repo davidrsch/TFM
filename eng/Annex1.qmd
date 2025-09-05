@@ -1,18 +1,18 @@
 # Annex. 1 Figures {.unnumbered}
 
-![Relation between IA-ML-DL](../images/a1_DL-enven.png "Relation between IA-ML-DL"){#fig-DLenven fig-alt="IA engloba a ML y ML engloba a DL"}
+![Relation between IA-ML-DL](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_DL-enven.png "Relation between IA-ML-DL"){#fig-DLenven fig-alt="IA engloba a ML y ML engloba a DL"}
 
 ::: figure-caption
 Taken from: Deep learning with R by @chollet2018deep.
 :::
 
-![Classic programming and machine learning](../images/a1_ML-progen.png "Classic programming and machine learning"){#fig-MLprogen fig-alt="It shows a scheme that explains in a general way the paradigm of classical programming and the use of machine learning. Showing in the first how rules and data are entered to obtain answers, while in machine learning data and answers are entered to obtain rules"}
+![Classic programming and machine learning](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_ML-progen.png "Classic programming and machine learning"){#fig-MLprogen fig-alt="It shows a scheme that explains in a general way the paradigm of classical programming and the use of machine learning. Showing in the first how rules and data are entered to obtain answers, while in machine learning data and answers are entered to obtain rules"}
 
 ::: figure-caption
 Taken from: Deep learning with R by @chollet2018deep.
 :::
 
-![Basic structure of an artificial neural network](../images/a1_RNA-structen.png "Basic structure of an artificial neural network"){#fig-RNAstructen fig-alt="Shows a schematic schematic of the basic structure of an RNA. It shows how the different inputs are connected to each of the hidden layer nodes and in turn how each of the hidden layer nodes is connected to the output layer nodes. The hidden layer and output layer nodes are also connected to a bias parameter"}
+![Basic structure of an artificial neural network](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_RNA-structen.png "Basic structure of an artificial neural network"){#fig-RNAstructen fig-alt="Shows a schematic schematic of the basic structure of an RNA. It shows how the different inputs are connected to each of the hidden layer nodes and in turn how each of the hidden layer nodes is connected to the output layer nodes. The hidden layer and output layer nodes are also connected to a bias parameter"}
 
 ::: figure-caption
 Taken from: Topic 14: neural networks of @Larranaga07.
@@ -24,9 +24,9 @@ Taken from: Topic 14: neural networks of @Larranaga07.
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![How the size of the filter affects the output vector](../images/a1_HJ-ksen.gif){#fig-HJksen}")
+  knitr::asis_output("![How the size of the filter affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-ksen.gif){#fig-HJksen}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![How the size of the filter affects the output vector](../images/a1_HJ-ksen.png){#fig-HJksen}](https://gist.github.com/davidrsch/3bfcece719d1b3ba019ed066a4cb1d4d)')
+  knitr::asis_output('[![How the size of the filter affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-ksen.png){#fig-HJksen}](https://gist.github.com/davidrsch/3bfcece719d1b3ba019ed066a4cb1d4d)')
 }
 ```
 
@@ -40,9 +40,9 @@ Own elaboration: Elaborated from @hongj20. Shows how the size of the output vect
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![How stride affects the output vector](../images/a1_HJ-strideen.gif){#fig-HJstrideen}")
+  knitr::asis_output("![How stride affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-strideen.gif){#fig-HJstrideen}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![How stride affects the output vector](../images/a1_HJ-strideen.png){#fig-HJstrideen}](https://gist.github.com/davidrsch/27872825c8e61b9076594051142f01a0)')
+  knitr::asis_output('[![How stride affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-strideen.png){#fig-HJstrideen}](https://gist.github.com/davidrsch/27872825c8e61b9076594051142f01a0)')
 }
 ```
 
@@ -56,9 +56,9 @@ Own elaboration: Elaborated from @hongj20. Shows how the stride parameter affect
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![How dilation affects the output vector](../images/a1_HJ-dilationen.gif){#fig-HJdilationen}")
+  knitr::asis_output("![How dilation affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-dilationen.gif){#fig-HJdilationen}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![How dilation affects the output vector](../images/a1_HJ-dilationen.png){#fig-HJdilationen}](https://gist.github.com/davidrsch/e2bc5520db18bfe1d1159f2a2d830f48)')
+  knitr::asis_output('[![How dilation affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-dilationen.png){#fig-HJdilationen}](https://gist.github.com/davidrsch/e2bc5520db18bfe1d1159f2a2d830f48)')
 }
 ```
 
@@ -72,9 +72,9 @@ Own elaboration: Elaborated from @hongj20. Show how the dilation parameter affec
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![How padding affects the output vector](../images/a1_HJ-paddingen.gif){#fig-HJpaddingen}")
+  knitr::asis_output("![How padding affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-paddingen.gif){#fig-HJpaddingen}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![How padding affects the output vector](../images/a1_HJ-paddingen.png){#fig-HJpaddinen}](https://gist.github.com/davidrsch/fa011845f1fef68973e1945879719f48)')
+  knitr::asis_output('[![How padding affects the output vector](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a1_HJ-paddingen.png){#fig-HJpaddinen}](https://gist.github.com/davidrsch/fa011845f1fef68973e1945879719f48)')
 }
 ```
 
@@ -136,9 +136,9 @@ Taken from: Understanding LSTM networks, @COlah15.
 
 if(knitr::pandoc_to("html") ||
    knitr::pandoc_to("docx")){
-  knitr::asis_output("![Input and output vector display](../images/a2_muestrasen.gif){#fig-muestrasen}")
+  knitr::asis_output("![Input and output vector display](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a2_muestrasen.gif){#fig-muestrasen}")
 }else if(knitr::pandoc_to("latex")){
-  knitr::asis_output('[![Input and output vector display](../images/a2_muestrasen.png){#fig-muestrasen}](https://gist.github.com/davidrsch/bddcafb7223b0c0366ec78d568646d51)')
+  knitr::asis_output('[![Input and output vector display](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a2_muestrasen.png){#fig-muestrasen}](https://gist.github.com/davidrsch/bddcafb7223b0c0366ec78d568646d51)')
 }
 ```
 
@@ -146,19 +146,19 @@ if(knitr::pandoc_to("html") ||
 Own elaboration: Made from an image in @chollet2018deep. It shows what the three-dimensional input and output vectors for a company's data look like, if three observations are used to create the input vector.
 :::
 
-![Different structures depending on the different sizes of input vectors](../images/a2_estructurasen.png){#fig-estructurasen}
+![Different structures depending on the different sizes of input vectors](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a2_estructurasen.png){#fig-estructurasen}
 
 ::: figure-caption
 Own elaboration: Elaborated from the different models built using the keras and tensorflow packages in R and were graphed using the @Diagrammer package.
 :::
 
-![ReLU and Leaky ReLU domain](../images/a2_dominiosen.png){#fig-dominiosen}
+![ReLU and Leaky ReLU domain](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a2_dominiosen.png){#fig-dominiosen}
 
 ::: figure-caption
 Own elaboration: Elaborated from the images that can be seen in @Rallabandi23.
 :::
 
-![Flowchart of the Walk Forward Validation methodology](../images/a2_wfven.png){#fig-wfven}
+![Flowchart of the Walk Forward Validation methodology](https://raw.githubusercontent.com/davidrsch/TFM/refs/heads/master/images/a2_wfven.png){#fig-wfven}
 
 ::: figure-caption
 Own elaboration
