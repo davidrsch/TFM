@@ -98,6 +98,7 @@ format:
     fig-cap-location: top
     df-print: paged
     css: ../my_style.css
+    bread-crumbs: false
     lang:
       en
       
